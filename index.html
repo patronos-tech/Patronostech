@@ -30,7 +30,20 @@
     position:sticky;
     top:0;
     z-index:50;
+
+    /* Transição para desaparecer */
+    transition: transform .45s ease, opacity .45s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
+
+  /* Classe que aplica o "esconder" */
+  header.site-header.hide-header{
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .brand{display:flex;align-items:center;gap:10px;min-width:0}
   .brand .logo{
     width:48px;height:48px;border-radius:10px;overflow:hidden;flex:0 0 48px;
@@ -217,20 +230,24 @@
 
 <script>
 (function(){
+  // mensagens da caixinha (mantive as que você já tinha)
   const messages = [
     "Olá! Bem-vindo à Patronos Tech 👋",
     "Prestamos serviços de elétrica, redes, CFTV e ar condicionado — posso ajudar?",
     "Clique em 'Abrir WhatsApp' para falar com nossa equipe agora."
   ];
+
   const welcome = document.getElementById('welcome');
   const wmsg = document.getElementById('w-msg');
   const wclose = document.getElementById('w-close');
   const wcontact = document.getElementById('w-contact');
+  const header = document.querySelector('.site-header');
 
   let index = 0;
   let typeInterval = null;
   let messageTimer = null;
   let autoHideTimer = null;
+  let headerAutoHideTimer = null;
 
   function clearTyping() {
     if (typeInterval) { clearInterval(typeInterval); typeInterval = null; }
@@ -238,7 +255,9 @@
   }
 
   function hideWelcome() {
-    welcome.hidden = true;
+    if (welcome) {
+      welcome.hidden = true;
+    }
     clearTyping();
     if (autoHideTimer) { clearTimeout(autoHideTimer); autoHideTimer = null; }
   }
@@ -264,23 +283,47 @@
   }
 
   function showWelcome(){
+    if (!welcome) return;
     welcome.hidden = false;
     index = 0;
     next();
+    // auto-esconde a caixinha após 40s
     if (autoHideTimer) clearTimeout(autoHideTimer);
-    autoHideTimer = setTimeout(() => { hideWelcome(); }, 40000); // 40 segundos
+    autoHideTimer = setTimeout(() => { hideWelcome(); }, 40000);
   }
 
-  // Mostrar apenas uma vez por sessão
+  // Mostrar a caixinha só uma vez por sessão (como antes)
   if (!sessionStorage.getItem('pt_welcome_shown')) {
     setTimeout(() => { showWelcome(); sessionStorage.setItem('pt_welcome_shown', '1'); }, 700);
   }
 
-  // eventos
+  // === HEADER: auto-hide após 40s ===
+  function hideHeaderSmooth() {
+    if (!header) return;
+    // adiciona classe que faz a animação (translate + fade)
+    header.classList.add('hide-header');
+    // após a animação (450ms) remove do fluxo para liberar o espaço
+    setTimeout(() => {
+      try { header.style.display = 'none'; } catch(e) {}
+    }, 500);
+  }
+
+  // inicia timer para esconder o header 40s após carregar
+  headerAutoHideTimer = setTimeout(() => { hideHeaderSmooth(); }, 40000);
+
+  // eventos para fechar a caixinha manualmente
   if (wclose) wclose.addEventListener('click', () => { hideWelcome(); });
   if (wcontact) wcontact.addEventListener('click', () => { hideWelcome(); });
 
+  // ESC fecha a caixinha
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideWelcome(); });
+
+  // Se o usuário rolar para cima para o topo e clicar em algo no header, cancela o auto-hide (opcional)
+  if (header) {
+    header.addEventListener('mouseenter', () => {
+      if (headerAutoHideTimer) { clearTimeout(headerAutoHideTimer); headerAutoHideTimer = null; }
+    });
+  }
 })();
 </script>
 
