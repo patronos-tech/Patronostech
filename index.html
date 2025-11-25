@@ -13,12 +13,13 @@
     --accent:#ffbf00;
     --text:#002244;
     --muted:#546582;
+    --welcome-space: 120px; /* valor padrão; o script pode sobrescrever */
   }
   *{box-sizing:border-box}
   html,body{height:100%}
   body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
 
-  /* Header */
+/* Header */
   header.site-header{
     background: linear-gradient(180deg, rgba(0,59,122,1), rgba(0,59,122,0.95));
     color: white;
@@ -29,9 +30,9 @@
     gap:12px;
     position:sticky;
     top:0;
-    z-index:50;
+    z-index:1000;
 
-    /* Transição para desaparecer */
+    /* Transição para desaparecer suavemente */
     transition: transform .45s ease, opacity .45s ease;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -69,7 +70,7 @@
   .btn-cta{background:var(--accent);color:var(--blue);padding:9px 12px;border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,191,0,0.12);font-size:13px}
   .btn-ghost{background:transparent;color:#fff;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;font-weight:600;font-size:13px}
 
-  /* Hero */
+/* Hero */
   main.hero{
     padding:18px 12px;
     display:flex;
@@ -95,23 +96,23 @@
   .hero-right{flex:0 0 180px;display:flex;justify-content:center}
   .hero-right img{width:100%;max-width:180px;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);display:block}
 
-  /* Services */
+/* Services */
   section.services{padding:16px 12px 60px;max-width:1000px;margin:0 auto}
   .services h2{color:var(--muted);text-align:center;margin-top:0;font-size:16px}
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
   .card{background:white;padding:14px;border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,0.06);font-size:14px;color:var(--text)}
   .card h3{margin:0 0 8px;font-size:15px;color:var(--blue)}
 
-  /* mascote fixo */
+/* mascote fixo */
   #char{
-    width:96px;height:auto;position:fixed;bottom:12px;right:12px;z-index:999;transition:transform .18s ease;cursor:pointer;
+    width:96px;height:auto;position:fixed;bottom:12px;right:12px;z-index:1003;transition:transform .18s ease;cursor:pointer;
     box-shadow:0 8px 30px rgba(0,0,0,0.12);border-radius:10px;
   }
   #char:hover{transform:translateY(-6px) scale(1.03)}
 
-  /* welcome box */
+/* welcome box */
   .welcome{
-    position:fixed;left:12px;bottom:16px;z-index:1000;max-width:300px;width:calc(100% - 24px);
+    position:fixed;left:12px;bottom:16px;z-index:1004;max-width:300px;width:calc(100% - 24px);
     background:linear-gradient(180deg,#fff,#fbfbff);border-radius:12px;padding:10px 10px;box-shadow:0 14px 40px rgba(2,6,23,0.12);
     display:flex;gap:8px;align-items:flex-start;font-size:13px;
   }
@@ -122,19 +123,24 @@
   .tiny-btn{background:#f1f5fb;border-radius:8px;padding:8px 10px;font-weight:700;border:none;cursor:pointer;font-size:13px}
   .close-w{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer;margin-left:6px;font-size:13px}
 
-  /* small screens: stack, hide hero-right, reduce paddings */
+/* quando a caixa estiver visível, reserva espaço no conteúdo para não ficar coberto */
+  body.welcome-visible main,
+  body.welcome-visible section.services {
+    padding-bottom: var(--welcome-space, 120px);
+  }
+
+/* small screens: stack, hide hero-right, reduce paddings */
   @media (max-width:640px){
     main.hero{flex-direction:column;align-items:flex-start;padding:14px 12px;margin-top:8px}
     .hero-right{display:none}
     header.site-header{padding:12px 10px}
     .brand .logo{width:44px;height:44px;flex:0 0 44px}
-    .brand .title p{display:none} /* esconder subtítulo no header em telas muito pequenas */
+    .brand .title p{display:none}
     #char{width:80px;right:10px;bottom:10px}
     .welcome{left:10px;bottom:12px;max-width:260px}
     .cards{grid-template-columns:1fr}
   }
 
-  /* very small devices */
   @media (max-width:380px){
     .brand .title h1{font-size:13px}
     .hero-left h2{font-size:18px}
@@ -212,7 +218,7 @@
 </section>
 
 <!-- mascote fixo no canto -->
-<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech (clique para WhatsApp)" width="120" height="120" loading="lazy" decoding="async" onclick="location.href='https://wa.me/5511945836919'" aria-hidden="false">
+<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech (clique para WhatsApp)" width="120" height="120" loading="lazy" decoding="async" onclick="location.href='https://wa.me/5511945836919'">
 
 <!-- caixa de boas-vindas interativa (aparece na entrada) -->
 <div id="welcome" class="welcome" role="dialog" aria-live="polite" aria-label="Mensagem de boas-vindas" hidden>
@@ -222,15 +228,21 @@
   <div class="w-body">
     <div id="w-msg" class="msg" aria-atomic="true"></div>
     <div class="w-actions">
-      <button id="w-contact" class="tiny-btn" onclick="location.href='https://wa.me/5511945836919'">Abrir WhatsApp</button>
+      <button id="w-contact" class="tiny-btn" aria-label="Abrir WhatsApp">Abrir WhatsApp</button>
       <button id="w-close" class="close-w" title="Fechar">FECHAR</button>
     </div>
   </div>
 </div>
 
 <script>
-(function(){
-  // mensagens da caixinha (mantive as que você já tinha)
+/*
+  Comportamento:
+  - mostra a caixinha uma vez por sessão; desaparece automaticamente após 40s
+  - aplica padding-bottom ao conteúdo enquanto a caixinha estiver visível para não cobrir os cards
+  - esconde o header automaticamente após 40s (animação suave) e, ao esconder o header, também esconde a caixinha
+  - cancelar auto-hide do header se o usuário interagir (mouseenter/touchstart)
+*/
+document.addEventListener('DOMContentLoaded', function () {
   const messages = [
     "Olá! Bem-vindo à Patronos Tech 👋",
     "Prestamos serviços de elétrica, redes, CFTV e ar condicionado — posso ajudar?",
@@ -249,16 +261,27 @@
   let autoHideTimer = null;
   let headerAutoHideTimer = null;
 
+  // ajuste conforme a altura real da caixinha (px)
+  const RESERVED_SPACE_PX = 120;
+
   function clearTyping() {
     if (typeInterval) { clearInterval(typeInterval); typeInterval = null; }
     if (messageTimer) { clearTimeout(messageTimer); messageTimer = null; }
   }
 
+  function addBottomSpace() {
+    document.body.classList.add('welcome-visible');
+    document.documentElement.style.setProperty('--welcome-space', RESERVED_SPACE_PX + 'px');
+  }
+  function removeBottomSpace() {
+    document.body.classList.remove('welcome-visible');
+    document.documentElement.style.removeProperty('--welcome-space');
+  }
+
   function hideWelcome() {
-    if (welcome) {
-      welcome.hidden = true;
-    }
+    if (welcome) welcome.hidden = true;
     clearTyping();
+    removeBottomSpace();
     if (autoHideTimer) { clearTimeout(autoHideTimer); autoHideTimer = null; }
   }
 
@@ -287,44 +310,51 @@
     welcome.hidden = false;
     index = 0;
     next();
-    // auto-esconde a caixinha após 40s
+    addBottomSpace();
     if (autoHideTimer) clearTimeout(autoHideTimer);
     autoHideTimer = setTimeout(() => { hideWelcome(); }, 40000);
   }
 
-  // Mostrar a caixinha só uma vez por sessão (como antes)
+  // mostrar só uma vez por sessão
   if (!sessionStorage.getItem('pt_welcome_shown')) {
     setTimeout(() => { showWelcome(); sessionStorage.setItem('pt_welcome_shown', '1'); }, 700);
   }
 
-  // === HEADER: auto-hide após 40s ===
+  // header auto-hide após 40s com animação suave
   function hideHeaderSmooth() {
     if (!header) return;
-    // adiciona classe que faz a animação (translate + fade)
     header.classList.add('hide-header');
-    // após a animação (450ms) remove do fluxo para liberar o espaço
-    setTimeout(() => {
-      try { header.style.display = 'none'; } catch(e) {}
-    }, 500);
+    // após animação, remove do fluxo
+    setTimeout(() => { try { header.style.display = 'none'; } catch(e) {} }, 500);
+    // também escondemos a caixinha (evita overlay)
+    hideWelcome();
   }
-
-  // inicia timer para esconder o header 40s após carregar
   headerAutoHideTimer = setTimeout(() => { hideHeaderSmooth(); }, 40000);
 
-  // eventos para fechar a caixinha manualmente
-  if (wclose) wclose.addEventListener('click', () => { hideWelcome(); });
-  if (wcontact) wcontact.addEventListener('click', () => { hideWelcome(); });
-
-  // ESC fecha a caixinha
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideWelcome(); });
-
-  // Se o usuário rolar para cima para o topo e clicar em algo no header, cancela o auto-hide (opcional)
+  // cancelar auto-hide do header se o usuário interagir
   if (header) {
     header.addEventListener('mouseenter', () => {
       if (headerAutoHideTimer) { clearTimeout(headerAutoHideTimer); headerAutoHideTimer = null; }
     });
+    // mobile: toque também cancela
+    header.addEventListener('touchstart', () => {
+      if (headerAutoHideTimer) { clearTimeout(headerAutoHideTimer); headerAutoHideTimer = null; }
+    }, {passive: true});
   }
-})();
+
+  // eventos
+  if (wclose) wclose.addEventListener('click', () => { hideWelcome(); });
+  if (wcontact) {
+    wcontact.addEventListener('click', () => { 
+      // abrir WhatsApp e remover a caixinha / espaço
+      window.location.href = 'https://wa.me/5511945836919';
+      hideWelcome();
+    });
+  }
+
+  // ESC fecha a caixinha
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideWelcome(); });
+});
 </script>
 
 </body>
