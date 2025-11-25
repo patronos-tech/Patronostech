@@ -225,25 +225,37 @@
   const welcome = document.getElementById('welcome');
   const wmsg = document.getElementById('w-msg');
   const wclose = document.getElementById('w-close');
+  const wcontact = document.getElementById('w-contact');
+
   let index = 0;
+  let typeInterval = null;
+  let messageTimer = null;
+  let autoHideTimer = null;
+
+  function clearTyping() {
+    if (typeInterval) { clearInterval(typeInterval); typeInterval = null; }
+    if (messageTimer) { clearTimeout(messageTimer); messageTimer = null; }
+  }
+
+  function hideWelcome() {
+    welcome.hidden = true;
+    clearTyping();
+    if (autoHideTimer) { clearTimeout(autoHideTimer); autoHideTimer = null; }
+  }
 
   function typeText(text, el, cb){
+    clearTyping();
     el.textContent = "";
     let i = 0;
-    const interval = setInterval(() => {
+    typeInterval = setInterval(() => {
       el.textContent = text.slice(0, i) + (i % 3 === 0 ? '▌' : '');
       i++;
       if (i > text.length) {
-        clearInterval(interval);
+        clearTyping();
         el.textContent = text;
-        setTimeout(cb, 600);
+        messageTimer = setTimeout(cb, 600);
       }
     }, 28);
-  }
-
-  function showWelcome(){
-    welcome.hidden = false;
-    next();
   }
 
   function next(){
@@ -251,14 +263,26 @@
     typeText(messages[index], wmsg, () => { index++; setTimeout(next, 600); });
   }
 
+  function showWelcome(){
+    welcome.hidden = false;
+    index = 0;
+    next();
+    if (autoHideTimer) clearTimeout(autoHideTimer);
+    autoHideTimer = setTimeout(() => { hideWelcome(); }, 40000); // 40 segundos
+  }
+
+  // Mostrar apenas uma vez por sessão
   if (!sessionStorage.getItem('pt_welcome_shown')) {
     setTimeout(() => { showWelcome(); sessionStorage.setItem('pt_welcome_shown', '1'); }, 700);
   }
 
-  wclose.addEventListener('click', () => { welcome.hidden = true; });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') welcome.hidden = true; });
+  // eventos
+  if (wclose) wclose.addEventListener('click', () => { hideWelcome(); });
+  if (wcontact) wcontact.addEventListener('click', () => { hideWelcome(); });
+
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideWelcome(); });
 })();
 </script>
 
 </body>
-            </html>
+</html>
