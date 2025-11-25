@@ -3,68 +3,225 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Patronos Tech Elétrica</title>
+<title>Patronos Tech — Elétrica & Telecom</title>
 <style>
-  :root{--bg:#f3f7ff;--blue:#003b7a;--accent:gold;--text:#002244}
+  :root{
+    --bg:#f3f7ff;
+    --blue:#003b7a;
+    --accent:#ffbf00;
+    --text:#002244;
+    --muted:#546582;
+  }
   *{box-sizing:border-box}
-  body{margin:0;font-family:Arial, sans-serif;background:var(--bg);color:var(--text)}
-  header{background:var(--blue);padding:20px;text-align:center;color:var(--accent);font-size:28px;font-weight:bold}
-  main{padding:20px;max-width:1000px;margin:0 auto}
-  section{padding:20px 0;text-align:center}
-  .card{background:white;padding:20px;margin:20px auto;width:85%;max-width:500px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.15);font-size:18px}
-  .btn{display:inline-block;margin-top:10px;padding:12px 20px;background:var(--accent);color:var(--blue);font-weight:bold;border-radius:8px;text-decoration:none}
-  #char{width:140px;height:auto;position:fixed;bottom:15px;right:15px;z-index:999;transition:transform .18s ease;pointer-events:auto}
+  body{margin:0;font-family:Inter, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+  header.site-header{
+    background: linear-gradient(180deg, rgba(0,59,122,0.98), rgba(0,59,122,0.92));
+    color: white;
+    padding: 22px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand .logo{
+    width:56px;height:56px;border-radius:10px;overflow:hidden;flex:0 0 56px;background:linear-gradient(135deg,#ffe082,#ffd54f);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.12);
+  }
+  .brand .logo img{width:100%;height:100%;object-fit:cover}
+  .brand .title{
+    line-height:1;
+  }
+  .brand .title h1{
+    margin:0;font-size:20px;letter-spacing:0.6px;font-weight:800;
+    background:linear-gradient(90deg,#fff 0%, #ffd966 60%); -webkit-background-clip:text; background-clip:text; color:transparent;
+    text-transform:uppercase;
+  }
+  .brand .title p{margin:0;margin-top:2px;font-size:12px;color:rgba(255,255,255,0.9);font-weight:600}
+  .header-actions{display:flex;gap:10px;align-items:center}
+  .btn-cta{background:var(--accent);color:var(--blue);padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,191,0,0.12)}
+  .btn-ghost{background:transparent;color:#fff;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;font-weight:600}
+
+  main.hero{
+    padding:28px 16px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    max-width:1100px;margin:0 auto;
+  }
+  .hero-left{flex:1;min-width:0}
+  .hero-left h2{margin:0;font-size:28px;color:var(--blue);font-weight:800}
+  .hero-left p{margin:12px 0 18px;color:var(--muted);font-size:16px}
+  .hero-left .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-left .actions a{padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+  .hero-left .primary{background:var(--accent);color:var(--blue)}
+  .hero-left .secondary{background:white;color:var(--blue);border:1px solid rgba(0,59,122,0.06)}
+
+  .hero-right{flex:0 0 220px;display:flex;justify-content:center}
+  .hero-right img{width:220px;height:auto;max-width:40vw;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+
+  /* Cards list */
+  section.services{padding:18px 16px 60px;max-width:1000px;margin:0 auto}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{background:white;padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,0.06);font-size:15px;color:var(--text)}
+  .card h3{margin:0 0 8px;font-size:16px;color:var(--blue)}
+
+  /* Mascote fixo no canto */
+  #char{
+    width:120px;height:auto;position:fixed;bottom:16px;right:16px;z-index:999;transition:transform .18s ease;cursor:pointer;
+  }
   #char:hover{transform:translateY(-6px) scale(1.03)}
-  @media (max-width:480px){#char{width:100px;right:10px;bottom:10px}.card{width:92%}}
+
+  /* Welcome chat (entry messages) */
+  .welcome {
+    position:fixed;left:16px;bottom:20px;z-index:1000;max-width:320px;width:calc(100% - 32px);
+    background:linear-gradient(180deg,#fff,#fbfbff);border-radius:12px;padding:10px 12px;box-shadow:0 14px 40px rgba(2,6,23,0.12);display:flex;gap:10px;align-items:flex-start;
+  }
+  .welcome .w-icon{width:44px;height:44px;border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,0.04)}
+  .welcome .w-body{flex:1}
+  .welcome .w-body .msg{font-size:14px;color:var(--text);margin:6px 0}
+  .welcome .w-actions{display:flex;gap:6px;align-items:center;margin-top:8px}
+  .tiny-btn{background:#f1f5fb;border-radius:8px;padding:8px 10px;font-weight:700;border:none;cursor:pointer}
+  .close-w{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer;margin-left:6px}
+
+  @media (max-width:780px){
+    .hero-right{display:none}
+    .brand .title h1{font-size:16px}
+    header.site-header{padding:14px}
+  }
 </style>
 </head>
 <body>
-<header>Patronos Tech Elétrica</header>
-<main>
-  <section>
-    <h2>Serviços Profissionais</h2>
 
+<header class="site-header">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">
+      <!-- mascote pequeno no canto do header (fallback se quiser mostrar) -->
+      <img src="Mascote.png" alt="" aria-hidden="true">
+    </div>
+    <div class="title">
+      <h1>Patronos Tech</h1>
+      <p>Elétrica, Redes, Telecom & CFTV</p>
+    </div>
+  </div>
+
+  <div class="header-actions">
+    <a class="btn-ghost" href="tel:+5511945836919">Ligar</a>
+    <a class="btn-cta" href="https://wa.me/5511945836919" rel="noopener">Fale no WhatsApp</a>
+  </div>
+</header>
+
+<main class="hero" role="main">
+  <div class="hero-left">
+    <h2>Soluções elétricas e de telecom para sua empresa ou residência</h2>
+    <p>Instalações, projetos, cabeamento estruturado, CFTV e suporte técnico com rapidez e qualidade.</p>
+    <div class="actions">
+      <a class="primary" href="https://wa.me/5511945836919">Solicitar orçamento</a>
+      <a class="secondary" href="#servicos">Nossos serviços</a>
+    </div>
+  </div>
+
+  <div class="hero-right" aria-hidden="true">
+    <!-- mascote grande ao lado do texto em telas maiores -->
+    <img src="Mascote.png" alt="Mascote Patronos Tech">
+  </div>
+</main>
+
+<section id="servicos" class="services">
+  <h2 style="text-align:center;margin-top:0;color:var(--muted)">Serviços Profissionais</h2>
+  <div class="cards">
     <div class="card">
-      ✔ Instalações elétricas<br>
-      ✔ Padrão de entrada<br>
-      ✔ Iluminação completa<br>
-      ✔ Quadro de disjuntores<br>
-      ✔ Projetos e manutenção<br>
-      <a class="btn" href="https://wa.me/5511945836919" rel="noopener">Chamar no WhatsApp</a>
+      <h3>Elétrica</h3>
+      ✔ Instalações elétricas<br>✔ Padrão de entrada<br>✔ Iluminação<br>✔ Quadro de disjuntores<br>
     </div>
 
     <div class="card">
       <h3>Redes e CFTV</h3>
-      ✔ Cabeamento estruturado<br>
-      ✔ Configuração de redes<br>
-      ✔ Instalação de câmeras<br>
-      ✔ Suporte técnico<br>
-      <a class="btn" href="https://wa.me/5511945836919" rel="noopener">Solicitar orçamento</a>
+      ✔ Cabeamento estruturado<br>✔ Configuração de redes<br>✔ Instalação de câmeras<br>
     </div>
 
     <div class="card">
       <h3>Telecomunicações</h3>
-      ✔ Cabeamento de fibra óptica<br>
-      ✔ Instalação e manutenção de links<br>
-      ✔ Configuração de equipamentos (ONT, modem, roteador)<br>
-      ✔ Testes e certificação de link<br>
-      <a class="btn" href="https://wa.me/5511945836919" rel="noopener">Solicitar orçamento</a>
+      ✔ Fibra óptica<br>✔ Instalação e manutenção de links<br>✔ ONT / modem / roteador<br>
     </div>
 
     <div class="card">
       <h3>Ar-condicionado</h3>
-      ✔ Instalação<br>
-      ✔ Manutenção preventiva<br>
-      ✔ Higienização<br>
-      ✔ Suporte geral<br>
-      <a class="btn" href="https://wa.me/5511945836919" rel="noopener">Agendar serviço</a>
+      ✔ Instalação<br>✔ Manutenção preventiva<br>✔ Higienização<br>
     </div>
+  </div>
+</section>
 
-  </section>
-</main>
+<!-- mascote fixo -->
+<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech" width="120" height="120" loading="lazy" onclick="window.location.href='https://wa.me/5511945836919'">
 
-<!-- Atenção: o nome do arquivo de imagem usado aqui é "Mascote.png" -->
-<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech" width="140" height="140" loading="lazy">
+<!-- Caixinha de boas-vindas com mensagens de entrada -->
+<div id="welcome" class="welcome" role="dialog" aria-live="polite" aria-label="Mensagem de boas-vindas" hidden>
+  <div class="w-icon"><img src="Mascote.png" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="w-body">
+    <div id="w-msg" class="msg"></div>
+    <div class="w-actions">
+      <button id="w-contact" class="tiny-btn" onclick="location.href='https://wa.me/5511945836919'">Abrir WhatsApp</button>
+      <button id="w-close" class="close-w" title="Fechar">FECHAR</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mensagens de entrada com efeito "digitação"
+  (function(){
+    const messages = [
+      "Olá! Bem-vindo à Patronos Tech 👋",
+      "Oferecemos elétrica, redes, CFTV e telecom — precisa de ajuda?",
+      "Clique em 'Abrir WhatsApp' para conversar com a gente agora."
+    ];
+    const welcome = document.getElementById('welcome');
+    const wmsg = document.getElementById('w-msg');
+    const wclose = document.getElementById('w-close');
+    let msgIndex = 0;
+
+    function typeText(text, el, callback){
+      el.textContent = "";
+      let i = 0;
+      const interval = setInterval(() => {
+        el.textContent = text.slice(0, i) + (i % 3 === 0 ? '▌' : '');
+        i++;
+        if (i > text.length) {
+          clearInterval(interval);
+          el.textContent = text;
+          setTimeout(callback, 600);
+        }
+      }, 28);
+    }
+
+    function showWelcome(){
+      welcome.hidden = false;
+      nextMessage();
+    }
+
+    function nextMessage(){
+      if (msgIndex >= messages.length) return;
+      typeText(messages[msgIndex], wmsg, () => { msgIndex++; setTimeout(nextMessage, 600); });
+    }
+
+    // Mostrar só uma vez por sessão
+    if (!sessionStorage.getItem('pt_welcome_shown')) {
+      // aguardar um pouco antes de mostrar
+      setTimeout(() => { showWelcome(); sessionStorage.setItem('pt_welcome_shown', '1'); }, 900);
+    }
+
+    wclose.addEventListener('click', () => { welcome.hidden = true; });
+
+    // acessibilidade: fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') welcome.hidden = true;
+    });
+  })();
+</script>
 
 </body>
 </html>
