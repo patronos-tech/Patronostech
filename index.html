@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Patronos Tech — Elétrica & Telecom</title>
+<meta name="theme-color" content="#003b7a" />
+<title>Patronos Tech - Elétrica, redes, CFTV e ar condicionado</title>
 <style>
   :root{
     --bg:#f3f7ff;
@@ -13,105 +14,138 @@
     --muted:#546582;
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:Inter, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+  html,body{height:100%}
+  body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+  /* Header */
   header.site-header{
-    background: linear-gradient(180deg, rgba(0,59,122,0.98), rgba(0,59,122,0.92));
+    background: linear-gradient(180deg, rgba(0,59,122,1), rgba(0,59,122,0.95));
     color: white;
-    padding: 22px 16px;
+    padding:18px 14px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:16px;
-  }
-  .brand {
-    display:flex;
-    align-items:center;
     gap:12px;
+    position:sticky;
+    top:0;
+    z-index:50;
   }
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
   .brand .logo{
-    width:56px;height:56px;border-radius:10px;overflow:hidden;flex:0 0 56px;background:linear-gradient(135deg,#ffe082,#ffd54f);
-    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.12);
+    width:48px;height:48px;border-radius:10px;overflow:hidden;flex:0 0 48px;
+    background:linear-gradient(135deg,#ffe082,#ffd54f);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.12)
   }
-  .brand .logo img{width:100%;height:100%;object-fit:cover}
-  .brand .title{
-    line-height:1;
-  }
+  .brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
+  .brand .title{line-height:1;min-width:0;overflow:hidden}
   .brand .title h1{
-    margin:0;font-size:20px;letter-spacing:0.6px;font-weight:800;
-    background:linear-gradient(90deg,#fff 0%, #ffd966 60%); -webkit-background-clip:text; background-clip:text; color:transparent;
-    text-transform:uppercase;
+    margin:0;
+    /* responsive size */
+    font-size: clamp(14px, 4.6vw, 18px);
+    letter-spacing:0.3px;
+    font-weight:800;
+    background:linear-gradient(90deg,#fff 0%, #ffd966 60%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;text-transform:uppercase;
+    white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
   }
-  .brand .title p{margin:0;margin-top:2px;font-size:12px;color:rgba(255,255,255,0.9);font-weight:600}
-  .header-actions{display:flex;gap:10px;align-items:center}
-  .btn-cta{background:var(--accent);color:var(--blue);padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,191,0,0.12)}
-  .btn-ghost{background:transparent;color:#fff;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;font-weight:600}
+  .brand .title p{
+    margin:0;margin-top:4px;font-size:11px;color:rgba(255,255,255,0.95);font-weight:600;
+    white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
+  }
+  .header-actions{display:flex;gap:8px;align-items:center}
+  .btn-cta{background:var(--accent);color:var(--blue);padding:9px 12px;border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,191,0,0.12);font-size:13px}
+  .btn-ghost{background:transparent;color:#fff;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;font-weight:600;font-size:13px}
 
+  /* Hero */
   main.hero{
-    padding:28px 16px;
+    padding:18px 12px;
     display:flex;
-    gap:20px;
+    gap:14px;
     align-items:center;
-    max-width:1100px;margin:0 auto;
+    max-width:1100px;
+    margin:10px auto;
   }
   .hero-left{flex:1;min-width:0}
-  .hero-left h2{margin:0;font-size:28px;color:var(--blue);font-weight:800}
-  .hero-left p{margin:12px 0 18px;color:var(--muted);font-size:16px}
-  .hero-left .actions{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-left .actions a{padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:700}
+  .hero-left h2{
+    margin:0;
+    /* responsive heading */
+    font-size: clamp(18px, 5vw, 28px);
+    color:var(--blue);
+    font-weight:800;
+    line-height:1.08;
+  }
+  .hero-left p{margin:10px 0 14px;color:var(--muted);font-size:14px}
+  .hero-left .actions{display:flex;gap:10px;flex-wrap:wrap}
+  .hero-left .actions a{padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px}
   .hero-left .primary{background:var(--accent);color:var(--blue)}
   .hero-left .secondary{background:white;color:var(--blue);border:1px solid rgba(0,59,122,0.06)}
 
-  .hero-right{flex:0 0 220px;display:flex;justify-content:center}
-  .hero-right img{width:220px;height:auto;max-width:40vw;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+  .hero-right{flex:0 0 180px;display:flex;justify-content:center}
+  .hero-right img{width:100%;max-width:180px;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);display:block}
 
-  /* Cards list */
-  section.services{padding:18px 16px 60px;max-width:1000px;margin:0 auto}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .card{background:white;padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,0.06);font-size:15px;color:var(--text)}
-  .card h3{margin:0 0 8px;font-size:16px;color:var(--blue)}
+  /* Services */
+  section.services{padding:16px 12px 60px;max-width:1000px;margin:0 auto}
+  .services h2{color:var(--muted);text-align:center;margin-top:0;font-size:16px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+  .card{background:white;padding:14px;border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,0.06);font-size:14px;color:var(--text)}
+  .card h3{margin:0 0 8px;font-size:15px;color:var(--blue)}
 
-  /* Mascote fixo no canto */
+  /* mascote fixo */
   #char{
-    width:120px;height:auto;position:fixed;bottom:16px;right:16px;z-index:999;transition:transform .18s ease;cursor:pointer;
+    width:96px;height:auto;position:fixed;bottom:12px;right:12px;z-index:999;transition:transform .18s ease;cursor:pointer;
+    box-shadow:0 8px 30px rgba(0,0,0,0.12);border-radius:10px;
   }
   #char:hover{transform:translateY(-6px) scale(1.03)}
 
-  /* Welcome chat (entry messages) */
-  .welcome {
-    position:fixed;left:16px;bottom:20px;z-index:1000;max-width:320px;width:calc(100% - 32px);
-    background:linear-gradient(180deg,#fff,#fbfbff);border-radius:12px;padding:10px 12px;box-shadow:0 14px 40px rgba(2,6,23,0.12);display:flex;gap:10px;align-items:flex-start;
+  /* welcome box */
+  .welcome{
+    position:fixed;left:12px;bottom:16px;z-index:1000;max-width:300px;width:calc(100% - 24px);
+    background:linear-gradient(180deg,#fff,#fbfbff);border-radius:12px;padding:10px 10px;box-shadow:0 14px 40px rgba(2,6,23,0.12);
+    display:flex;gap:8px;align-items:flex-start;font-size:13px;
   }
-  .welcome .w-icon{width:44px;height:44px;border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,0.04)}
-  .welcome .w-body{flex:1}
-  .welcome .w-body .msg{font-size:14px;color:var(--text);margin:6px 0}
-  .welcome .w-actions{display:flex;gap:6px;align-items:center;margin-top:8px}
-  .tiny-btn{background:#f1f5fb;border-radius:8px;padding:8px 10px;font-weight:700;border:none;cursor:pointer}
-  .close-w{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer;margin-left:6px}
+  .w-icon{width:40px;height:40px;border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,0.04)}
+  .w-body{flex:1}
+  .w-body .msg{font-size:13px;color:var(--text);margin:6px 0;min-height:36px}
+  .w-actions{display:flex;gap:6px;align-items:center;margin-top:8px}
+  .tiny-btn{background:#f1f5fb;border-radius:8px;padding:8px 10px;font-weight:700;border:none;cursor:pointer;font-size:13px}
+  .close-w{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer;margin-left:6px;font-size:13px}
 
-  @media (max-width:780px){
+  /* small screens: stack, hide hero-right, reduce paddings */
+  @media (max-width:640px){
+    main.hero{flex-direction:column;align-items:flex-start;padding:14px 12px;margin-top:8px}
     .hero-right{display:none}
-    .brand .title h1{font-size:16px}
-    header.site-header{padding:14px}
+    header.site-header{padding:12px 10px}
+    .brand .logo{width:44px;height:44px;flex:0 0 44px}
+    .brand .title p{display:none} /* esconder subtítulo no header em telas muito pequenas */
+    #char{width:80px;right:10px;bottom:10px}
+    .welcome{left:10px;bottom:12px;max-width:260px}
+    .cards{grid-template-columns:1fr}
+  }
+
+  /* very small devices */
+  @media (max-width:380px){
+    .brand .title h1{font-size:13px}
+    .hero-left h2{font-size:18px}
+    .btn-cta{padding:8px 10px;font-size:13px}
   }
 </style>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" role="banner" aria-hidden="false">
   <div class="brand">
     <div class="logo" aria-hidden="true">
-      <!-- mascote pequeno no canto do header (fallback se quiser mostrar) -->
-      <img src="Mascote.png" alt="" aria-hidden="true">
+      <img src="Mascote.png" alt="" decoding="async" loading="lazy">
     </div>
     <div class="title">
-      <h1>Patronos Tech</h1>
-      <p>Elétrica, Redes, Telecom & CFTV</p>
+      <h1>Patronos Tech - Elétrica, redes, CFTV e ar condicionado</h1>
+      <p>Serviços profissionais para empresas e residências</p>
     </div>
   </div>
 
-  <div class="header-actions">
-    <a class="btn-ghost" href="tel:+5511945836919">Ligar</a>
-    <a class="btn-cta" href="https://wa.me/5511945836919" rel="noopener">Fale no WhatsApp</a>
+  <div class="header-actions" role="navigation" aria-label="Ações de contato">
+    <a class="btn-ghost" href="tel:+5511945836919" aria-label="Ligar para Patronos Tech">Ligar</a>
+    <a class="btn-cta" href="https://wa.me/5511945836919" rel="noopener" aria-label="Enviar mensagem no WhatsApp">Fale no WhatsApp</a>
   </div>
 </header>
 
@@ -120,50 +154,61 @@
     <h2>Soluções elétricas e de telecom para sua empresa ou residência</h2>
     <p>Instalações, projetos, cabeamento estruturado, CFTV e suporte técnico com rapidez e qualidade.</p>
     <div class="actions">
-      <a class="primary" href="https://wa.me/5511945836919">Solicitar orçamento</a>
-      <a class="secondary" href="#servicos">Nossos serviços</a>
+      <a class="primary" href="https://wa.me/5511945836919" aria-label="Solicitar orçamento">Solicitar orçamento</a>
+      <a class="secondary" href="#servicos" aria-label="Ver nossos serviços">Nossos serviços</a>
     </div>
   </div>
 
   <div class="hero-right" aria-hidden="true">
-    <!-- mascote grande ao lado do texto em telas maiores -->
-    <img src="Mascote.png" alt="Mascote Patronos Tech">
+    <img src="Mascote.png" alt="Mascote Patronos Tech" decoding="async" loading="lazy">
   </div>
 </main>
 
-<section id="servicos" class="services">
-  <h2 style="text-align:center;margin-top:0;color:var(--muted)">Serviços Profissionais</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Elétrica</h3>
-      ✔ Instalações elétricas<br>✔ Padrão de entrada<br>✔ Iluminação<br>✔ Quadro de disjuntores<br>
-    </div>
+<section id="servicos" class="services" aria-labelledby="servicos-title">
+  <h2 id="servicos-title">Serviços Profissionais</h2>
+  <div class="cards" role="list">
+    <article class="card" role="listitem" aria-labelledby="s-eletrica">
+      <h3 id="s-eletrica">Elétrica</h3>
+      ✔ Instalações elétricas<br>
+      ✔ Padrão de entrada<br>
+      ✔ Iluminação<br>
+      ✔ Quadros e disjuntores<br>
+    </article>
 
-    <div class="card">
-      <h3>Redes e CFTV</h3>
-      ✔ Cabeamento estruturado<br>✔ Configuração de redes<br>✔ Instalação de câmeras<br>
-    </div>
+    <article class="card" role="listitem" aria-labelledby="s-redes">
+      <h3 id="s-redes">Redes e CFTV</h3>
+      ✔ Cabeamento estruturado<br>
+      ✔ Configuração de redes<br>
+      ✔ Instalação de câmeras CFTV<br>
+    </article>
 
-    <div class="card">
-      <h3>Telecomunicações</h3>
-      ✔ Fibra óptica<br>✔ Instalação e manutenção de links<br>✔ ONT / modem / roteador<br>
-    </div>
+    <article class="card" role="listitem" aria-labelledby="s-telecom">
+      <h3 id="s-telecom">Telecomunicações</h3>
+      ✔ Fibra óptica e enlaces<br>
+      ✔ Instalação e manutenção de links<br>
+      ✔ ONT, modem e roteador<br>
+      ✔ Testes e certificação de enlace<br>
+    </article>
 
-    <div class="card">
-      <h3>Ar-condicionado</h3>
-      ✔ Instalação<br>✔ Manutenção preventiva<br>✔ Higienização<br>
-    </div>
+    <article class="card" role="listitem" aria-labelledby="s-ar">
+      <h3 id="s-ar">Ar-condicionado</h3>
+      ✔ Instalação<br>
+      ✔ Manutenção preventiva<br>
+      ✔ Higienização e suporte<br>
+    </article>
   </div>
 </section>
 
-<!-- mascote fixo -->
-<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech" width="120" height="120" loading="lazy" onclick="window.location.href='https://wa.me/5511945836919'">
+<!-- mascote fixo no canto -->
+<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech (clique para WhatsApp)" width="120" height="120" loading="lazy" decoding="async" onclick="location.href='https://wa.me/5511945836919'" aria-hidden="false">
 
-<!-- Caixinha de boas-vindas com mensagens de entrada -->
+<!-- caixa de boas-vindas interativa (aparece na entrada) -->
 <div id="welcome" class="welcome" role="dialog" aria-live="polite" aria-label="Mensagem de boas-vindas" hidden>
-  <div class="w-icon"><img src="Mascote.png" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="w-icon" aria-hidden="true">
+    <img src="Mascote.png" alt="" style="width:100%;height:100%;object-fit:cover" decoding="async" loading="lazy">
+  </div>
   <div class="w-body">
-    <div id="w-msg" class="msg"></div>
+    <div id="w-msg" class="msg" aria-atomic="true"></div>
     <div class="w-actions">
       <button id="w-contact" class="tiny-btn" onclick="location.href='https://wa.me/5511945836919'">Abrir WhatsApp</button>
       <button id="w-close" class="close-w" title="Fechar">FECHAR</button>
@@ -172,56 +217,49 @@
 </div>
 
 <script>
-  // Mensagens de entrada com efeito "digitação"
-  (function(){
-    const messages = [
-      "Olá! Bem-vindo à Patronos Tech 👋",
-      "Oferecemos elétrica, redes, CFTV e telecom — precisa de ajuda?",
-      "Clique em 'Abrir WhatsApp' para conversar com a gente agora."
-    ];
-    const welcome = document.getElementById('welcome');
-    const wmsg = document.getElementById('w-msg');
-    const wclose = document.getElementById('w-close');
-    let msgIndex = 0;
+(function(){
+  const messages = [
+    "Olá! Bem-vindo à Patronos Tech 👋",
+    "Prestamos serviços de elétrica, redes, CFTV e ar condicionado — posso ajudar?",
+    "Clique em 'Abrir WhatsApp' para falar com nossa equipe agora."
+  ];
+  const welcome = document.getElementById('welcome');
+  const wmsg = document.getElementById('w-msg');
+  const wclose = document.getElementById('w-close');
+  let index = 0;
 
-    function typeText(text, el, callback){
-      el.textContent = "";
-      let i = 0;
-      const interval = setInterval(() => {
-        el.textContent = text.slice(0, i) + (i % 3 === 0 ? '▌' : '');
-        i++;
-        if (i > text.length) {
-          clearInterval(interval);
-          el.textContent = text;
-          setTimeout(callback, 600);
-        }
-      }, 28);
-    }
+  function typeText(text, el, cb){
+    el.textContent = "";
+    let i = 0;
+    const interval = setInterval(() => {
+      el.textContent = text.slice(0, i) + (i % 3 === 0 ? '▌' : '');
+      i++;
+      if (i > text.length) {
+        clearInterval(interval);
+        el.textContent = text;
+        setTimeout(cb, 600);
+      }
+    }, 28);
+  }
 
-    function showWelcome(){
-      welcome.hidden = false;
-      nextMessage();
-    }
+  function showWelcome(){
+    welcome.hidden = false;
+    next();
+  }
 
-    function nextMessage(){
-      if (msgIndex >= messages.length) return;
-      typeText(messages[msgIndex], wmsg, () => { msgIndex++; setTimeout(nextMessage, 600); });
-    }
+  function next(){
+    if (index >= messages.length) return;
+    typeText(messages[index], wmsg, () => { index++; setTimeout(next, 600); });
+  }
 
-    // Mostrar só uma vez por sessão
-    if (!sessionStorage.getItem('pt_welcome_shown')) {
-      // aguardar um pouco antes de mostrar
-      setTimeout(() => { showWelcome(); sessionStorage.setItem('pt_welcome_shown', '1'); }, 900);
-    }
+  if (!sessionStorage.getItem('pt_welcome_shown')) {
+    setTimeout(() => { showWelcome(); sessionStorage.setItem('pt_welcome_shown', '1'); }, 700);
+  }
 
-    wclose.addEventListener('click', () => { welcome.hidden = true; });
-
-    // acessibilidade: fechar com ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') welcome.hidden = true;
-    });
-  })();
+  wclose.addEventListener('click', () => { welcome.hidden = true; });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') welcome.hidden = true; });
+})();
 </script>
 
 </body>
-</html>
+</html>    
