@@ -88,23 +88,43 @@
       padding: 18px;
       background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.72));
       width: calc(100% - 40px);
-      max-width: 880px;
+      max-width: 820px; /* reduzido um pouco para evitar overflow */
       border-radius: 8px;
       text-align: center;
       z-index: 2;
     }
     .hero-title{font-size:28px;font-weight:800;margin:0}
     .hero-sub{color:var(--muted);margin:8px 0 12px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+    /* Centered actions: same size on desktop, full width on mobile */
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .btn-primary, .btn-outline {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space:nowrap;
+      font-weight:800;
+      border-radius:10px;
+      padding:12px 22px;
+      text-decoration:none;
+      box-sizing:border-box;
+      min-width:160px; /* garante largura consistente */
+    }
+
     .btn-primary{
       background:var(--gold);color:#07101a;
-      padding:12px 16px;border-radius:10px;
-      font-weight:800;text-decoration:none
     }
     .btn-outline{
-      background:transparent;border:1px solid rgba(255,255,255,0.08);
-      color:var(--white);padding:12px 16px;
-      border-radius:10px;text-decoration:none;font-weight:700
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--white);
     }
 
     /* TITULOS */
@@ -206,8 +226,25 @@
       .menu-btn{display:block}
       nav.desktop{display:none}
       .hero-img{height:230px}
-      .hero-text{top:55%;transform:translate(-50%,-50%);padding:14px}
+      .hero-text{
+        top:55%;
+        transform:translate(-50%,-50%);
+        padding:14px;
+        width: calc(100% - 32px);
+        max-width: 760px;
+      }
       .hero-title{font-size:22px}
+
+      /* on small screens make buttons full width and stacked */
+      .hero-actions{
+        flex-direction:column;
+        gap:10px;
+      }
+      .btn-primary, .btn-outline {
+        width:100%;
+        min-width:unset;
+        padding:12px 16px;
+      }
 
       /* Ajuste premium review no mobile */
       .premium-reviews-list {
