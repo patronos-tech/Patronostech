@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Patronos Tech — Instalações Elétricas e Soluções Técnicas</title>
   <meta name="theme-color" content="#020b1a" />
-  <meta name="description" content="Patronos Tech — Serviços premium em elétrica, redes, CFTV e ar-condicionado em São Paulo. Atendimento técnico com NR10." />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -16,12 +15,8 @@
       --gold:#d4af37;
       --white:#ffffff;
       --muted:#c8cad0;
-      --shadow: 0 14px 40px rgba(0,0,0,0.55);
-      --max-width:1100px;
-      --btn-radius:12px;
-      --card-width:280px; /* change if you want different card size */
-      --gap:18px;
-      --transition:520ms;
+      --shadow: 0 10px 30px rgba(0,0,0,0.55);
+      --max-width:980px;
     }
 
     *{box-sizing:border-box}
@@ -32,248 +27,95 @@
       background:linear-gradient(180deg,var(--bg) 0%, #071224 100%);
       color:var(--white);
       -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       line-height:1.45;
     }
 
-    .container{max-width:var(--max-width);margin:0 auto;padding:18px;}
+    .container{max-width:var(--max-width);margin:0 auto;padding:16px;}
 
-    /* HEADER */
+    /* Header */
     header.site-header{
-      position:sticky;top:0;z-index:1400;
-      background:rgba(2,6,26,0.98);
-      backdrop-filter:blur(8px);
+      position:sticky;top:0;z-index:1200;
+      background:rgba(2,6,26,0.94);
+      backdrop-filter:blur(6px);
       border-bottom:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
     }
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
-    .brand .logo{
-      font-weight:800;font-size:20px;
-      background:linear-gradient(90deg,#fff,var(--gold));
-      -webkit-background-clip:text;color:transparent;
-    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+    .brand .logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
+    nav.desktop{display:flex;gap:14px;align-items:center}
+    nav.desktop a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px;border-radius:8px}
+    nav.desktop a:hover{color:var(--white)}
+    .menu-btn{display:none;font-size:26px;color:var(--gold);cursor:pointer;border-radius:8px;padding:6px}
 
-    nav.desktop{display:flex;gap:18px;align-items:center}
-    nav.desktop a{
-      color:var(--muted);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;
-    }
-    nav.desktop a:hover{color:var(--white);background:rgba(255,255,255,0.02)}
+    /* Mobile menu (hidden by default) */
+    #mobileMenu{display:none;background:var(--card);border-top:1px solid rgba(255,255,255,0.03)}
 
-    .menu-btn{
-      display:none;font-size:26px;color:var(--gold);cursor:pointer;border-radius:8px;padding:6px;
-      background:transparent;border:0;
-    }
+    #mobileMenu a{display:block;padding:14px 16px;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.03);font-weight:700}
 
-    /* MOBILE MENU */
-    #mobileMenu{
-      display:none;
-      background:var(--card);
-      border-top:1px solid rgba(255,255,255,0.03);
-      flex-direction:column;
-    }
-    #mobileMenu.open{display:flex}
-    #mobileMenu a{
-      display:block;padding:14px 16px;color:var(--white);text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,0.06);font-weight:700;
-    }
+    /* Hero */
+    .hero{margin-top:18px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero .hero-img{width:100%;height:340px;object-fit:cover;display:block}
+    .hero-text{position:relative;padding:18px;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.7));margin-top:-72px;transform:translateY(-72px)}
+    .hero-title{font-size:26px;font-weight:800;margin:0 0 6px}
+    .hero-sub{color:var(--muted);margin:0 0 12px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn-primary{background:var(--gold);color:#07101a;padding:12px 16px;border-radius:10px;font-weight:800;text-decoration:none;display:inline-block}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    /* HERO */
-    .hero{margin-top:20px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero-img{width:100%;height:420px;object-fit:cover;display:block}
-    .hero-text{
-      position:relative;padding:22px;
-      background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.78));
-      margin-top:-100px;transform:translateY(-100px);
-    }
-    .hero-title{font-size:34px;font-weight:800;margin:0;line-height:1.02}
-    .hero-sub{color:var(--muted);margin:8px 0 14px;font-size:16px;max-width:820px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    /* Titles */
+    h2.section-title{font-size:18px;color:var(--gold);margin:26px 0 12px;text-transform:uppercase;letter-spacing:0.6px;font-weight:800}
 
-    .btn-primary{
-      background:var(--gold);color:#07101a;padding:12px 18px;border-radius:var(--btn-radius);font-weight:800;text-decoration:none;
-      box-shadow: 0 8px 26px rgba(212,175,55,0.12);
+    /* Cards grid */
+    .cards{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));
+      padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow);
     }
-    .btn-outline{
-      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:12px 18px;border-radius:var(--btn-radius);text-decoration:none;font-weight:700;
-    }
+    .card h3{margin:0 0 8px;color:var(--gold);font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .card .card-btn{display:inline-block;margin-top:12px;background:var(--gold);color:#07101a;padding:10px 14px;border-radius:10px;font-weight:800;text-decoration:none}
 
-    h2.section-title{
-      font-size:20px;color:var(--gold);margin:30px 0 16px;text-transform:uppercase;letter-spacing:0.6px;font-weight:800;
+    /* Contact / form styles */
+    .form-card{background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow)}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    .field label{font-size:13px;margin-bottom:6px;color:var(--muted);font-weight:600}
+    input[type=text], textarea, select{
+      background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--white);
+      padding:12px;border-radius:10px;font-size:15px;
     }
+    textarea{min-height:110px;resize:vertical}
+    .send-btn{background:var(--gold);color:#07101a;padding:12px;border-radius:10px;border:0;font-weight:800;cursor:pointer;width:100%}
 
-    /* CAROUSEL: We show one card at a time centered */
-    .carousel-section {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 40px;
-      gap: 12px;
-    }
+    /* Footer */
+    footer.site-footer{padding:24px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);text-align:center;font-size:13px;margin-top:22px}
 
-    /* limit carousel visible area to card width so only one card shows centered */
-    .carousel {
-      width: var(--card-width);
-      overflow: hidden;
-      display: block;
+    /* Responsive */
+    @media (max-width:920px){
+      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero .hero-img{height:300px}
+      .hero-text{margin-top:-60px;transform:translateY(-60px)}
     }
-
-    /* track is wide and slides left/right */
-    .carousel-track {
-      display:flex;
-      align-items:center;
-      gap: var(--gap);
-      transition: transform var(--transition) cubic-bezier(.2,.9,.2,1);
-      will-change: transform;
-      padding: 6px 0;
-    }
-
-    .carousel-item {
-      min-width: var(--card-width);
-      flex: 0 0 auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      width: 100%;
-      min-height: 220px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-
-    .service-card h3, .product-card h3 {
-      margin:0 0 10px;
-      color:var(--gold);
-      font-size:20px;
-      font-weight:800;
-    }
-    .service-card p, .product-card p {
-      font-size:15px;color:var(--muted);margin:0;
-    }
-
-    .product-card {
-      position: relative;
-      padding-top: 56px;
-    }
-    .circle-icon {
-      width: 66px;
-      height: 66px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-      top: -33px;
-      left: calc(50% - 33px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-
-    .arrow {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--white);
-      font-size: 26px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      cursor: pointer;
-      display:flex;align-items:center;justify-content:center;
-      margin:0 6px;
-      backdrop-filter: blur(4px);
-    }
-
-    .card-btn{
-      margin-top:14px;
-      width:100%;
-      padding:10px 0;
-      border-radius:10px;
-      border:0;
-      font-size:15px;
-      font-weight:700;
-      background:var(--gold);
-      color:#000;
-      cursor:pointer;
-      box-shadow:0 4px 12px rgba(212,175,55,0.18);
-    }
-    .card-btn:hover{opacity:0.94}
-
-    /* testimonials & form */
-    .testimonials {margin-bottom:28px}
-    .testimonial {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: var(--shadow);
-      color:var(--muted);
-    }
-
-    .form-card {
-      background: var(--card);
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: var(--shadow);
-      margin-bottom: 50px;
-    }
-    .form-card input, .form-card textarea{
-      width:100%;
-      padding:12px;
-      margin:8px 0 14px;
-      background:#0e1626;
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:10px;
-      color:white;
-      font-size:14px;
-    }
-    .send-btn {
-      width:100%;
-      padding:12px 0;
-      background:var(--gold);
-      color:#000;
-      font-weight:800;
-      border-radius:12px;
-      border:0;
-      cursor:pointer;
-      box-shadow:0 4px 14px rgba(212,175,55,0.25);
-    }
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero-img{height:360px}
-      .hero-text{margin-top:-86px;transform:translateY(-86px)}
-      .hero-title{font-size:30px}
-      :root{--card-width:260px}
-    }
-    @media (max-width:720px){
+    @media (max-width:640px){
       .menu-btn{display:block}
       nav.desktop{display:none}
-      #mobileMenu{display:none}
-      .hero-img{height:240px}
-      .hero-text{margin-top:-56px;transform:translateY(-56px)}
-      .hero-title{font-size:22px}
+      .cards{grid-template-columns:repeat(1,1fr)}
+      .hero .hero-img{height:240px}
+      .hero-text{margin-top:-48px;transform:translateY(-48px)}
+      .hero-title{font-size:20px}
+      .hero-sub{font-size:13px}
+      .header-inner{padding:10px 12px}
       .container{padding:12px}
-      :root{--card-width:220px}
-      .arrow{width:40px;height:40px;font-size:22px}
-      /* make carousel full width on very small screens while keeping one card visible */
-      .carousel { width: calc(100% - 40px); }
-      .carousel-item { min-width: calc(100% - 40px); }
+      .card{padding:14px}
     }
-
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <div class="brand"><div class="logo">Patronos Tech</div></div>
+      <div class="brand" aria-hidden="true">
+        <div class="logo">Patronos Tech</div>
+      </div>
 
       <nav class="desktop" role="navigation" aria-label="Navegação principal">
         <a href="#servicos">Serviços</a>
@@ -282,320 +124,107 @@
         <a href="#contato">Contato</a>
       </nav>
 
-      <button class="menu-btn" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+      <button class="menu-btn" aria-label="Abrir menu" onclick="toggleMobileMenu()">☰</button>
     </div>
 
-    <nav id="mobileMenu" aria-hidden="true">
-      <a href="#servicos" onclick="toggleMenu()">Serviços</a>
-      <a href="#produtos" onclick="toggleMenu()">Produtos Rápidos</a>
-      <a href="produtos.html" onclick="toggleMenu()">Catálogo Completo</a>
-      <a href="#contato" onclick="toggleMenu()">Contato</a>
-    </nav>
+    <div id="mobileMenu" aria-hidden="true">
+      <a href="#servicos" onclick="toggleMobileMenu()">Serviços</a>
+      <a href="#produtos" onclick="toggleMobileMenu()">Produtos Rápidos</a>
+      <a href="produtos.html" onclick="toggleMobileMenu()">Catálogo Completo</a>
+      <a href="#contato" onclick="toggleMobileMenu()">Contato</a>
+    </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="container">
+  <main class="container" id="top">
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-img" src="hero-eletrica.jpg" alt="Eletricista Profissional Patronos Tech">
-      <div class="hero-text">
-        <h1 id="hero-title" class="hero-title">Excelência em Instalações Técnicas</h1>
-        <p class="hero-sub">Elétrica • Redes • CFTV • Ar-condicionado — Atendimento técnico com acabamento premium.</p>
+      <img class="hero-img" src="hero-eletrica.jpg" alt="Eletricista profissional Patronos Tech">
+      <div class="hero-text" id="hero-title">
+        <h1 class="hero-title">Excelência em Instalações Técnicas</h1>
+        <p class="hero-sub">Elétrica • Redes • CFTV • Ar-condicionado — Atendimento técnico e acabamento premium em São Paulo.</p>
 
         <div class="hero-actions">
           <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
-          <a class="btn-outline" href="produtos.html">Ver Catálogo Completo</a>
+          <a class="btn-outline" href="produtos.html">Ver catálogo completo</a>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <h2 id="servicos" class="section-title">Serviços</h2>
+    <!-- SERVIÇOS -->
+    <section id="servicos" aria-labelledby="servicos-title">
+      <h2 class="section-title" id="servicos-title">Serviços</h2>
 
-    <div class="carousel-section" aria-hidden="false">
-      <button class="arrow" aria-label="Voltar serviço" onclick="moveCarousel('servicos', -1)">❮</button>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h3>Elétrica</h3>
+          <p>Instalações, manutenção e soluções elétricas completas com segurança e precisão.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20elétrica.">Solicitar Orçamento</a>
+        </article>
 
-      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Serviços">
-        <div class="carousel-track" id="carousel-servicos" data-index="0">
+        <article class="card" role="listitem">
+          <h3>Redes</h3>
+          <p>Infraestrutura estruturada, pontos de rede e ampliação de Wi-Fi para melhor performance.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20redes.">Solicitar Orçamento</a>
+        </article>
 
-          <div class="carousel-item">
-            <div class="card service-card">
-              <h3>Elétrica</h3>
-              <p>Instalações, manutenção, disjuntores, iluminação e soluções completas.</p>
-              <button class="card-btn" onclick="sendService('Elétrica')">Clique aqui</button>
-            </div>
-          </div>
+        <article class="card" role="listitem">
+          <h3>CFTV</h3>
+          <p>Instalação de câmeras, DVR/NVR, acesso remoto e manutenção com qualidade profissional.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20CFTV.">Solicitar Orçamento</a>
+        </article>
 
-          <div class="carousel-item">
-            <div class="card service-card">
-              <h3>Redes</h3>
-              <p>Pontos de internet, roteadores, cabeamento e otimização de Wi-Fi.</p>
-              <button class="card-btn" onclick="sendService('Redes')">Clique aqui</button>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="card service-card">
-              <h3>CFTV</h3>
-              <p>Câmeras, DVR/NVR, instalação e monitoramento remoto.</p>
-              <button class="card-btn" onclick="sendService('CFTV')">Clique aqui</button>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="card service-card">
-              <h3>Ar-Condicionado</h3>
-              <p>Instalação de Split, higienização e manutenção preventiva.</p>
-              <button class="card-btn" onclick="sendService('Ar-Condicionado')">Clique aqui</button>
-            </div>
-          </div>
-
-        </div>
+        <article class="card" role="listitem">
+          <h3>Ar-condicionado</h3>
+          <p>Instalação, higienização e manutenção preventiva para máxima eficiência e segurança.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20ar.">Solicitar Orçamento</a>
+        </article>
       </div>
+    </section>
 
-      <button class="arrow" aria-label="Avançar serviço" onclick="moveCarousel('servicos', 1)">❯</button>
-    </div>
+    <!-- PRODUTOS RÁPIDOS -->
+    <section id="produtos" aria-labelledby="produtos-title">
+      <h2 class="section-title" id="produtos-title">Produtos Rápidos</h2>
 
-    <!-- PRODUCTS -->
-    <h2 id="produtos" class="section-title">Produtos Rápidos</h2>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h3>Troca de Tomada</h3>
+          <p>Substituição rápida e segura de pontos de energia.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Troca%20de%20Tomada.">Solicitar Orçamento</a>
+        </article>
 
-    <div class="carousel-section">
-      <button class="arrow" aria-label="Voltar produto" onclick="moveCarousel('produtos', -1)">❮</button>
+        <article class="card" role="listitem">
+          <h3>Instalar Luminária</h3>
+          <p>Instalação de LED, plafon, spots e luminárias decorativas.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Instalar%20Luminária.">Solicitar Orçamento</a>
+        </article>
 
-      <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Produtos Rápidos">
-        <div class="carousel-track" id="carousel-produtos" data-index="0">
+        <article class="card" role="listitem">
+          <h3>Interruptor</h3>
+          <p>Troca e instalação com acabamento profissional.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Troca%20de%20Interruptor.">Solicitar Orçamento</a>
+        </article>
 
-          <div class="carousel-item">
-            <div class="card product-card">
-              <div class="circle-icon" aria-hidden="true"></div>
-              <h3>Instalação de Chuveiro</h3>
-              <p>Substituição e instalação com segurança e padrão técnico.</p>
-              <button class="card-btn" onclick="sendService('Instalação de Chuveiro')">Clique aqui</button>
-            </div>
-          </div>
+        <article class="card" role="listitem">
+          <h3>Ventilador de Teto</h3>
+          <p>Instalação completa, balanceamento e teste de funcionamento.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Instalação%20de%20Ventilador%20de%20Teto.">Solicitar Orçamento</a>
+        </article>
 
-          <div class="carousel-item">
-            <div class="card product-card">
-              <div class="circle-icon" aria-hidden="true"></div>
-              <h3>Troca de Tomada</h3>
-              <p>Correção, reforço e acabamento padrão NBR.</p>
-              <button class="card-btn" onclick="sendService('Troca de Tomada')">Clique aqui</button>
-            </div>
-          </div>
+        <article class="card" role="listitem">
+          <h3>Chuveiro</h3>
+          <p>Instalação ou substituição com teste completo de segurança.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Instalação%20de%20Chuveiro.">Solicitar Orçamento</a>
+        </article>
 
-          <div class="carousel-item">
-            <div class="card product-card">
-              <div class="circle-icon" aria-hidden="true"></div>
-              <h3>Instalação de Luminária</h3>
-              <p>Plafon, spots, pendentes e LED.</p>
-              <button class="card-btn" onclick="sendService('Instalação de Luminária')">Clique aqui</button>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="card product-card">
-              <div class="circle-icon" aria-hidden="true"></div>
-              <h3>Instalação de Ventilador</h3>
-              <p>Montagem e ligação elétrica com segurança.</p>
-              <button class="card-btn" onclick="sendService('Instalação de Ventilador')">Clique aqui</button>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="card product-card">
-              <div class="circle-icon" aria-hidden="true"></div>
-              <h3>Disjuntor Exclusivo</h3>
-              <p>Perfeito para ar-condicionado e equipamentos potentes.</p>
-              <button class="card-btn" onclick="sendService('Disjuntor Exclusivo')">Clique aqui</button>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="card product-card">
-              <div class="circle-icon" aria-hidden="true"></div>
-              <h3>Ponto de Rede</h3>
-              <p>Cabeamento estruturado e crimpagem técnica.</p>
-              <button class="card-btn" onclick="sendService('Ponto de Rede')">Clique aqui</button>
-            </div>
-          </div>
-
-        </div>
+        <article class="card" role="listitem">
+          <h3>Disjuntor / Quadro</h3>
+          <p>Troca, revisão e expansão de quadros elétricos.</p>
+          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Quadro%20ou%20Disjuntor.">Solicitar Orçamento</a>
+        </article>
       </div>
+    </section>
 
-      <button class="arrow" aria-label="Avançar produto" onclick="moveCarousel('produtos', 1)">❯</button>
-    </div>
-
-    <!-- DEPOIMENTOS -->
-    <h2 class="section-title">Depoimentos</h2>
-    <div class="testimonials" role="region" aria-label="Depoimentos">
-      <div class="testimonial">
-        <p>"Atendimento rápido, educado e serviço impecável. Virou meu eletricista fixo!"</p>
-        <span>— Cliente de Alphaville</span>
-      </div>
-
-      <div class="testimonial">
-        <p>"Instalaram minhas câmeras e ficaram perfeitas. Serviço premium de verdade."</p>
-        <span>— Cliente Jardim Europa</span>
-      </div>
-
-      <div class="testimonial">
-        <p>"Executou tudo com acabamento impecável. Vale cada centavo."</p>
-        <span>— Cliente Santana</span>
-      </div>
-    </div>
-
-    <!-- FORMULÁRIO -->
-    <h2 id="contato" class="section-title">Solicitar Orçamento</h2>
-
-    <form id="formContato" class="form-card" aria-label="Formulário de contato">
-      <label for="nome">Seu nome:</label>
-      <input id="nome" name="nome" placeholder="Ex: Lucas" required>
-
-      <label for="servico">Serviço desejado:</label>
-      <input id="servico" name="servico" placeholder="Ex: Instalação de luminária" required>
-
-      <label for="local">Bairro / Região:</label>
-      <input id="local" name="local" placeholder="Ex: Alphaville" required>
-
-      <button class="send-btn" type="submit">Enviar no WhatsApp</button>
-    </form>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer" style="text-align:center;padding:22px;color:var(--muted);font-size:13px">
-    © 2025 Patronos Tech — Excelência em Instalações Técnicas
-  </footer>
-
-  <!-- SCRIPTS FINAIS -->
-  <script>
-    /* ===== MOBILE MENU ===== */
-    function toggleMenu(){
-      const m = document.getElementById("mobileMenu");
-      m.classList.toggle("open");
-    }
-
-    /* ===== WHATSAPP (SEU NÚMERO INTEGRADO) ===== */
-    const WHATSAPP_NUMBER = "5511952544885"; // seu número confirmado
-
-    function sendService(item){
-      const msg = `Olá! Tenho interesse em ${item}.`;
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
-    }
-
-    /* ===== FORM WHATSAPP ===== */
-    document.getElementById("formContato").addEventListener("submit", function(e){
-      e.preventDefault();
-      const n = document.getElementById("nome").value.trim();
-      const s = document.getElementById("servico").value.trim();
-      const l = document.getElementById("local").value.trim();
-      if(!n || !s || !l){ alert("Preencha todos os campos antes de enviar."); return; }
-      const msg = `Olá! Meu nome é ${n}. Quero solicitar: ${s}. Bairro/Região: ${l}.`;
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
-    });
-
-    /* ===== CAROUSEL AUTOMÁTICO ROBUSTO =====
-       - Shows 1 card (carousel width set to card width)
-       - Uses element sizes and CSS gap to compute step (pixels)
-       - Auto-slide with separate intervals for services/products
-       - Pauses on hover and touch
-    */
-    (function(){
-      const tracks = {
-        servicos: document.getElementById('carousel-servicos'),
-        produtos: document.getElementById('carousel-produtos')
-      };
-
-      // read gap from CSS
-      function getGap(){
-        const g = getComputedStyle(document.documentElement).getPropertyValue('--gap');
-        return Number(g.replace('px','')) || 18;
-      }
-
-      // compute pixel step (item width + gap)
-      function computeStep(track){
-        const items = Array.from(track.children);
-        if(items.length === 0) return (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--card-width')) || 280) + getGap();
-        const itemRect = items[0].getBoundingClientRect();
-        return Math.round(itemRect.width + getGap());
-      }
-
-      function move(track, dir){
-        const items = Array.from(track.children);
-        if(items.length === 0) return;
-        const step = computeStep(track);
-        let idx = parseInt(track.getAttribute('data-index') || '0', 10);
-        idx += dir;
-        if(idx < 0) idx = items.length - 1;
-        if(idx >= items.length) idx = 0;
-        track.style.transform = `translateX(${-idx * step}px)`;
-        track.setAttribute('data-index', String(idx));
-      }
-
-      // expose to global for arrow usage
-      window.moveCarousel = function(type, direction){
-        const track = tracks[type];
-        if(!track) return;
-        move(track, direction);
-      };
-
-      // auto slide intervals
-      let intervalService = null;
-      let intervalProduct = null;
-      const SERVICE_DELAY = 3600;
-      const PRODUCT_DELAY = 4200;
-
-      function startAuto(){
-        stopAuto();
-        if(tracks.servicos) intervalService = setInterval(()=> move(tracks.servicos, 1), SERVICE_DELAY);
-        if(tracks.produtos) intervalProduct = setInterval(()=> move(tracks.produtos, -1), PRODUCT_DELAY);
-      }
-      function stopAuto(){
-        if(intervalService){ clearInterval(intervalService); intervalService = null; }
-        if(intervalProduct){ clearInterval(intervalProduct); intervalProduct = null; }
-      }
-
-      // pause/resume handlers
-      Object.values(tracks).forEach(track => {
-        if(!track) return;
-        const parent = track.closest('.carousel-section');
-        if(!parent) return;
-        parent.addEventListener('mouseenter', ()=> stopAuto());
-        parent.addEventListener('mouseleave', ()=> startAuto());
-        // touch devices
-        parent.addEventListener('touchstart', ()=> stopAuto(), {passive:true});
-        parent.addEventListener('touchend', ()=> startAuto(), {passive:true});
-      });
-
-      // Recalculate positions on resize (keeps the current index centered)
-      window.addEventListener('resize', ()=>{
-        Object.values(tracks).forEach(track=>{
-          if(!track) return;
-          const idx = parseInt(track.getAttribute('data-index') || '0', 10);
-          const step = computeStep(track);
-          track.style.transition = 'none';
-          track.style.transform = `translateX(${-idx * step}px)`;
-          // force reflow then restore transition
-          // eslint-disable-next-line no-unused-expressions
-          track.getBoundingClientRect();
-          track.style.transition = `transform var(--transition) cubic-bezier(.2,.9,.2,1)`;
-        });
-      });
-
-      // initialize: ensure data-index set and start autoscroll
-      Object.values(tracks).forEach(track=>{
-        if(!track) return;
-        if(!track.getAttribute('data-index')) track.setAttribute('data-index','0');
-        // set initial transform to 0
-        track.style.transform = 'translateX(0px)';
-      });
-
-      // start automatic sliding
-      startAuto();
-
-    })();
-  </script>
-
-</body>
-</html>
+    <!-- CONTATO / FORMULÁRIO (NO FINAL) -->
+    <section id="contato" aria-labelledby="contato-title" style="margin-top:28px">
+      <h2
