@@ -1,326 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Patronos Tech — Instalações Elétricas e Soluções Técnicas</title>
-  <meta name="description" content="Patronos Tech — Serviços premium de elétrica, redes, CFTV e ar-condicionado em São Paulo. Atendimento técnico profissional com NR10 e acabamento de alto padrão." />
-  <meta name="theme-color" content="#020b1a" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Elétricos Profissionais - Patronos Tech</title>
 
-  <!-- SEO -->
-  <meta property="og:title" content="Patronos Tech — Instalações Elétricas e Soluções Técnicas" />
-  <meta property="og:description" content="Elétrica, Redes, CFTV e Ar-Condicionado SP. Qualidade premium e atendimento técnico especializado." />
-  <meta property="og:image" content="https://patronos-tech.github.io/Mascote.png" />
-  <meta property="og:url" content="https://patronos-tech.github.io/" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Patronos Tech",
-    "telephone":"+5511952544885",
-    "url":"https://patronos-tech.github.io/",
-    "address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP"}
-  }
-  </script>
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 10px;
+        }
 
-  <style>
-    :root{
-      --bg:#020b1a;
-      --gold:#d4af37;
-      --white:#ffffff;
-      --muted:#c8cad0;
-      --card:#0b1320;
-      --accent-shadow: 0 8px 30px rgba(0,0,0,0.45);
-      --max-width:1080px;
-      --transition: 280ms ease;
-    }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
 
-    *{box-sizing:border-box;}
-    html,body{margin:0;padding:0;font-family:"Poppins",sans-serif;background:#020b1a;color:var(--white);}
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-    .container{max-width:var(--max-width);margin:auto;padding:20px;}
+        .card h2 {
+            margin-top: 15px;
+            font-size: 22px;
+        }
 
-    /* HEADER */
-    header{
-      position:sticky;top:0;z-index:900;
-      background:rgba(2,6,26,0.92);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
-      padding:14px 0;
-      box-shadow:var(--accent-shadow);
-    }
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
 
-    .header-inner{
-      display:flex;align-items:center;justify-content:space-between;
-    }
-
-    .brand .title{
-      font-weight:800;font-size:18px;
-      background:linear-gradient(90deg,#fff,#d4af37);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-    .brand .sub{font-size:12px;color:var(--muted);margin-top:3px;}
-
-    nav{display:flex;gap:12px;}
-    nav a{
-      text-decoration:none;color:var(--muted);
-      font-weight:600;font-size:14px;padding:8px;
-    }
-    nav a:hover{color:var(--white);}
-
-    .btn-wpp-header{
-      background:var(--gold);padding:10px 16px;border-radius:10px;
-      color:#020b1a;font-weight:800;text-decoration:none;
-    }
-
-    /* HERO */
-    .hero{padding:40px 0;}
-    .hero h1{font-size:30px;font-weight:800;line-height:1.15;}
-    .hero p{max-width:760px;color:var(--muted);margin-top:8px;font-size:15px;}
-
-    .hero-buttons{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;}
-    .btn-primary{
-      background:var(--gold);color:#020b1a;font-weight:800;
-      padding:12px 18px;border-radius:10px;text-decoration:none;
-    }
-    .btn-outline{
-      border:1px solid rgba(255,255,255,0.1);
-      padding:12px 18px;border-radius:10px;
-      text-decoration:none;color:var(--white);font-weight:700;
-    }
-
-    /* SECTION TITLES */
-    section{padding:32px 0;}
-    h2.section-title{
-      font-size:20px;font-weight:800;color:var(--white);margin-bottom:16px;
-    }
-
-    /* CARDS */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-    }
-    .card{
-      background:#0b1320;border:1px solid rgba(255,255,255,0.04);
-      padding:16px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.35);
-      transition:var(--transition);
-    }
-    .card:hover{transform:translateY(-5px);}
-
-    .card h3{color:var(--gold);margin:0 0 8px;font-size:16px;}
-    .card p{color:var(--muted);font-size:14px;margin:0 0 10px;}
-
-    .card ul{padding-left:18px;margin:0;}
-    .card ul li{color:var(--muted);font-size:13px;margin-bottom:4px;}
-  </style>
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        Patronos Tech – Serviços Elétricos Profissionais
+    </header>
 
-<header>
-  <div class="container header-inner">
-    <div class="brand">
-      <div class="title">Patronos Tech</div>
-      <div class="sub">Excelência em Instalações Elétricas</div>
+    <div class="container">
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/patronos-tech/patronos-tech/main/interruptor.jpg">
+            <h2>Troca e Instalação de Interruptores e Tomadas</h2>
+            <p>Realizamos substituição e instalação seguindo todas as normas NBR5410, utilizando EPIs e ferramentas adequadas para máxima segurança.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/patronos-tech/patronos-tech/main/luminaria.jpg">
+            <h2>Instalação de Luminárias</h2>
+            <p>Instalação segura de luminárias residenciais e comerciais, garantindo acabamento profissional e funcionamento perfeito.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/patronos-tech/patronos-tech/main/ar.jpg">
+            <h2>Instalação de Ar-Condicionado</h2>
+            <p>Instalação de aparelhos de ar com segurança, precisão e organização, ideal para residências e estabelecimentos.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/patronos-tech/patronos-tech/main/cftv.jpg">
+            <h2>Instalação de CFTV</h2>
+            <p>Configuração e instalação de câmeras de segurança, garantindo monitoramento profissional e tecnologia atualizada.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/patronos-tech/patronos-tech/main/redes.jpg">
+            <h2>Redes e Telecomunicações</h2>
+            <p>Estruturação de redes, manutenção, organização e identificação completa de cabos e sistemas.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://raw.githubusercontent.com/patronos-tech/patronos-tech/main/hero-eletrica.jpg">
+            <h2>Serviços Elétricos Diversos</h2>
+            <p>Atendemos instalações, manutenções e inspeções gerais, sempre dentro das normas e com compromisso profissional.</p>
+        </div>
+
     </div>
 
-    <nav class="desktop-only">
-      <a href="#home">Home</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
-    <a href="https://wa.me/5511952544885" class="btn-wpp-header">WhatsApp</a>
-  </div>
-</header>
-
-<main class="container" id="home">
-
-<section class="hero">
-  <h1>Excelência em Instalações Elétricas e Soluções Técnicas</h1>
-  <p>Atendimento premium em São Paulo — elétrica, redes, CFTV e ar-condicionado. NR10/SEP, segurança e acabamento profissional de alto padrão.</p>
-
-  <div class="hero-buttons">
-    <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
-    <a class="btn-outline" href="#servicos">Ver Serviços</a>
-  </div>
-</section>
-
-<section id="servicos">
-  <h2 class="section-title">Serviços</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Elétrica</h3>
-      <ul>
-        <li>Instalação de chuveiro</li>
-        <li>Luminárias / LED</li>
-        <li>Ventilador de teto</li>
-        <li>Quadro e disjuntores</li>
-        <li>Localização de curto</li>
-        <li>Revisão de fiação</li>
-        <li>NR10 / SEP</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Redes</h3>
-      <ul>
-        <li>Pontos de rede</li>
-        <li>Wi-Fi / Expansão</li>
-        <li>Configuração de roteadores</li>
-        <li>Rack organizado</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>CFTV</h3>
-      <ul>
-        <li>Instalação câmeras</li>
-        <li>DVR / NVR</li>
-        <li>Acesso remoto</li>
-        <li>Manutenção</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Ar-condicionado</h3>
-      <ul>
-        <li>Instalação split</li>
-        <li>Higienização</li>
-        <li>Preventiva</li>
-        <li>Disjuntor dedicado</li>
-      </ul>
-    </div>
-  </div>
-</section>
-<!-- PRODUTOS -->
-<section id="produtos">
-  <h2 class="section-title">Produtos Rápidos</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Troca de Tomada</h3>
-      <p>Substituição e reforço de pontos elétricos.</p>
-      <a class="btn-primary" href="https://wa.me/5511952544885?text=Quero solicitar troca de tomada.">Pedir no WhatsApp</a>
-    </div>
-
-    <div class="card">
-      <h3>Instalar Luminária</h3>
-      <p>Todo tipo de luminária, LED, plafon e spots.</p>
-      <a class="btn-primary" href="https://wa.me/5511952544885?text=Quero instalar luminária.">Pedir no WhatsApp</a>
-    </div>
-
-    <div class="card">
-      <h3>Chuveiro</h3>
-      <p>Instalação e troca com teste completo.</p>
-      <a class="btn-primary" href="https://wa.me/5511952544885?text=Quero instalar um chuveiro.">Pedir no WhatsApp</a>
-    </div>
-
-    <div class="card">
-      <h3>Wi-Fi / Internet</h3>
-      <p>Ampliação e organização de rede.</p>
-      <a class="btn-primary" href="https://wa.me/5511952544885?text=Quero melhorar meu Wi-Fi.">Pedir no WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFÓLIO -->
-<section id="portfolio">
-  <h2 class="section-title">Portfólio</h2>
-
-  <div class="cards">
-    <div class="card"><h3>Quadro Elétrico</h3><p>Montagem padrão profissional.</p></div>
-    <div class="card"><h3>Rede Estruturada</h3><p>Pontos, racks e organização premium.</p></div>
-    <div class="card"><h3>CFTV</h3><p>Câmeras instaladas com estética limpa.</p></div>
-    <div class="card"><h3>Ar-Condicionado</h3><p>Split instalado com acabamento impecável.</p></div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section id="depoimentos">
-  <h2 class="section-title">Depoimentos</h2>
-
-  <div class="cards">
-    <div class="card">
-      <p>"Serviço impecável, rápido e muito profissional."</p>
-      <strong>— Cliente Alto Padrão</strong>
-    </div>
-
-    <div class="card">
-      <p>"Organizou toda minha rede e câmeras. Recomendo!"</p>
-      <strong>— Condomínio SP</strong>
-    </div>
-
-    <div class="card">
-      <p>"Acabamento fino, trabalho limpo e seguro."</p>
-      <strong>— Apartamento Alphaville</strong>
-    </div>
-  </div>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre">
-  <h2 class="section-title">Sobre</h2>
-  <p>
-    Atendemos São Paulo e regiões de alto padrão com serviços de elétrica, redes, CFTV e ar-condicionado.
-    Profissional certificado NR10 e NR35, com foco em segurança, estética e excelência técnica.
-  </p>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <h2 class="section-title">Contato</h2>
-
-  <form id="formContato">
-    <div class="cards" style="grid-template-columns:1fr;">
-      <div class="card">
-        <label>Seu nome:</label>
-        <input type="text" id="nome" required style="width:100%;padding:10px;border-radius:8px;border:none;margin-top:5px;">
-
-        <label style="margin-top:10px;display:block;">Serviço desejado:</label>
-        <input type="text" id="servico" required style="width:100%;padding:10px;border-radius:8px;border:none;margin-top:5px;">
-
-        <label style="margin-top:10px;display:block;">Localização (bairro):</label>
-        <input type="text" id="local" required style="width:100%;padding:10px;border-radius:8px;border:none;margin-top:5px;">
-
-        <button type="submit" class="btn-primary" style="width:100%;margin-top:15px;">Enviar pelo WhatsApp</button>
-      </div>
-    </div>
-  </form>
-</section>
-
-</main>
-
-<!-- RODAPÉ -->
-<footer style="text-align:center;padding:25px;color:var(--muted);font-size:13px;">
-  © 2025 Patronos Tech — São Paulo • Excelência em Instalações Elétricas
-</footer>
-
-<!-- SCRIPT WHATSAPP -->
-<script>
-document.getElementById("formContato").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const servico = document.getElementById("servico").value;
-  const local = document.getElementById("local").value;
-
-  const msg = `Olá, meu nome é ${nome}. Quero solicitar: ${servico}. Estou em: ${local}.`;
-
-  window.open(`https://wa.me/5511952544885?text=${encodeURIComponent(msg)}`);
-});
-</script>
+    <footer>
+        © 2025 Patronos Tech – Todos os direitos reservados.
+    </footer>
 
 </body>
 </html>
