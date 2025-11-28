@@ -27,13 +27,12 @@
       background:linear-gradient(180deg,var(--bg) 0%, #071224 100%);
       color:var(--white);
       -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
       line-height:1.45;
     }
 
     .container{max-width:var(--max-width);margin:0 auto;padding:16px;}
 
-    /* Header */
+    /* HEADER */
     header.site-header{
       position:sticky;top:0;z-index:1200;
       background:rgba(2,6,26,0.94);
@@ -41,190 +40,229 @@
       border-bottom:1px solid rgba(255,255,255,0.03);
     }
     .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-    .brand .logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
+    .brand .logo{
+      font-weight:800;font-size:20px;
+      background:linear-gradient(90deg,#fff,var(--gold));
+      -webkit-background-clip:text;color:transparent
+    }
     nav.desktop{display:flex;gap:14px;align-items:center}
     nav.desktop a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px;border-radius:8px}
     nav.desktop a:hover{color:var(--white)}
-    .menu-btn{display:none;font-size:26px;color:var(--gold);cursor:pointer;border-radius:8px;padding:6px}
 
-    /* Mobile menu (hidden by default) */
-    #mobileMenu{display:none;background:var(--card);border-top:1px solid rgba(255,255,255,0.03)}
+    .menu-btn{
+      display:none;font-size:26px;color:var(--gold);
+      cursor:pointer;border-radius:8px;padding:6px
+    }
 
-    #mobileMenu a{display:block;padding:14px 16px;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.03);font-weight:700}
+    /* MOBILE MENU */
+    #mobileMenu{display:none;background:var(--card);}
+    #mobileMenu a{
+      display:block;padding:14px 16px;color:var(--white);
+      text-decoration:none;font-weight:700;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
 
-    /* Hero */
+    /* HERO */
     .hero{margin-top:18px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero .hero-img{width:100%;height:340px;object-fit:cover;display:block}
-    .hero-text{position:relative;padding:18px;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.7));margin-top:-72px;transform:translateY(-72px)}
-    .hero-title{font-size:26px;font-weight:800;margin:0 0 6px}
-    .hero-sub{color:var(--muted);margin:0 0 12px}
+    .hero-img{
+      width:100%;height:360px;object-fit:cover;display:block
+    }
+    .hero-text{
+      position:relative;padding:18px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.72));
+      margin-top:-80px;transform:translateY(-80px);
+    }
+    .hero-title{font-size:28px;font-weight:800;margin:0}
+    .hero-sub{color:var(--muted);margin:4px 0 12px}
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-    .btn-primary{background:var(--gold);color:#07101a;padding:12px 16px;border-radius:10px;font-weight:800;text-decoration:none;display:inline-block}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    /* Titles */
-    h2.section-title{font-size:18px;color:var(--gold);margin:26px 0 12px;text-transform:uppercase;letter-spacing:0.6px;font-weight:800}
+    .btn-primary{
+      background:var(--gold);color:#07101a;
+      padding:12px 16px;border-radius:10px;
+      font-weight:800;text-decoration:none
+    }
+    .btn-outline{
+      background:transparent;border:1px solid rgba(255,255,255,0.08);
+      color:var(--white);padding:12px 16px;
+      border-radius:10px;text-decoration:none;font-weight:700
+    }
 
-    /* Cards grid */
-    .cards{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+    /* SECTION TITLES */
+    h2.section-title{
+      font-size:18px;color:var(--gold);
+      margin:26px 0 12px;text-transform:uppercase;
+      letter-spacing:0.6px;font-weight:800
+    }
+
+    /* CARDS / CAROUSELS */
     .card{
-      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));
-      padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow);
+      background:var(--card);
+      padding:16px;border-radius:12px;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:var(--shadow);
+      min-width:220px;max-width:360px;
     }
-    .card h3{margin:0 0 8px;color:var(--gold);font-size:16px}
+    .card h3{margin:0 0 8px;color:var(--gold);font-size:18px}
     .card p{margin:0;color:var(--muted);font-size:14px}
-    .card .card-btn{display:inline-block;margin-top:12px;background:var(--gold);color:#07101a;padding:10px 14px;border-radius:10px;font-weight:800;text-decoration:none}
 
-    /* Contact / form styles */
-    .form-card{background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow)}
-    .field{display:flex;flex-direction:column;margin-bottom:12px}
-    .field label{font-size:13px;margin-bottom:6px;color:var(--muted);font-weight:600}
-    input[type=text], textarea, select{
-      background:transparent;border:1px solid rgba(212,175,55,0.12);color:var(--white);
-      padding:12px;border-radius:10px;font-size:15px;
+    .carousel-wrap{margin:10px 0 28px;overflow:hidden}
+    .carousel{
+      display:flex;gap:14px;
+      overflow:hidden;scroll-behavior:smooth;
     }
-    textarea{min-height:110px;resize:vertical}
-    .send-btn{background:var(--gold);color:#07101a;padding:12px;border-radius:10px;border:0;font-weight:800;cursor:pointer;width:100%}
 
-    /* Footer */
-    footer.site-footer{padding:24px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);text-align:center;font-size:13px;margin-top:22px}
-
-    /* Responsive */
-    @media (max-width:920px){
-      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .hero .hero-img{height:300px}
-      .hero-text{margin-top:-60px;transform:translateY(-60px)}
+    /* FORM */
+    .form-card{
+      background:var(--card);padding:16px;border-radius:12px;
+      box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.05)
     }
-    @media (max-width:640px){
+    input{
+      width:100%;padding:12px;margin:6px 0 14px;
+      background:transparent;border:1px solid rgba(255,255,255,0.15);
+      color:white;border-radius:10px;
+      font-size:14px
+    }
+    .send-btn{
+      width:100%;background:var(--gold);
+      border:0;border-radius:10px;font-weight:800;
+      padding:14px;color:#07101a;cursor:pointer
+    }
+
+    /* RESPONSIVO */
+    @media(max-width:740px){
       .menu-btn{display:block}
       nav.desktop{display:none}
-      .cards{grid-template-columns:repeat(1,1fr)}
-      .hero .hero-img{height:240px}
-      .hero-text{margin-top:-48px;transform:translateY(-48px)}
-      .hero-title{font-size:20px}
-      .hero-sub{font-size:13px}
-      .header-inner{padding:10px 12px}
-      .container{padding:12px}
-      .card{padding:14px}
+      .hero-img{height:230px}
+      .hero-text{margin-top:-50px;transform:translateY(-50px)}
+      .hero-title{font-size:22px}
     }
   </style>
 </head>
 
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <div class="brand" aria-hidden="true">
-        <div class="logo">Patronos Tech</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand"><div class="logo">Patronos Tech</div></div>
+
+    <nav class="desktop">
+      <a href="#servicos">Serviços</a>
+      <a href="#produtos">Produtos Rápidos</a>
+      <a href="produtos.html">Catálogo Completo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div id="mobileMenu">
+    <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+    <a href="#produtos" onclick="toggleMenu()">Produtos Rápidos</a>
+    <a href="produtos.html" onclick="toggleMenu()">Catálogo Completo</a>
+    <a href="#contato" onclick="toggleMenu()">Contato</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="hero-eletrica.jpg" class="hero-img">
+
+    <div class="hero-text">
+      <h1 class="hero-title">Excelência em Instalações Técnicas</h1>
+      <p class="hero-sub">Elétrica • Redes • CFTV • Ar-condicionado — Atendimento premium em São Paulo.</p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
+        <a class="btn-outline" href="produtos.html">Ver catálogo completo</a>
       </div>
-
-      <nav class="desktop" role="navigation" aria-label="Navegação principal">
-        <a href="#servicos">Serviços</a>
-        <a href="#produtos">Produtos Rápidos</a>
-        <a href="produtos.html">Catálogo Completo</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <button class="menu-btn" aria-label="Abrir menu" onclick="toggleMobileMenu()">☰</button>
     </div>
+  </section>
 
-    <div id="mobileMenu" aria-hidden="true">
-      <a href="#servicos" onclick="toggleMobileMenu()">Serviços</a>
-      <a href="#produtos" onclick="toggleMobileMenu()">Produtos Rápidos</a>
-      <a href="produtos.html" onclick="toggleMobileMenu()">Catálogo Completo</a>
-      <a href="#contato" onclick="toggleMobileMenu()">Contato</a>
+  <!-- SERVIÇOS -->
+  <h2 id="servicos" class="section-title">Serviços</h2>
+
+  <div class="carousel-wrap">
+    <div class="carousel" id="carouselServicos">
+      <div class="card"><h3>Elétrica</h3><p>Instalações e manutenção completas.</p></div>
+      <div class="card"><h3>Redes</h3><p>Pontos, roteadores e internet.</p></div>
+      <div class="card"><h3>CFTV</h3><p>Câmeras, DVR e monitoramento.</p></div>
+      <div class="card"><h3>Ar-Condicionado</h3><p>Instalação e higienização.</p></div>
     </div>
-  </header>
+  </div>
 
-  <main class="container" id="top">
+  <!-- PRODUTOS RÁPIDOS -->
+  <h2 id="produtos" class="section-title">Produtos Rápidos</h2>
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-img" src="hero-eletrica.jpg" alt="Eletricista profissional Patronos Tech">
-      <div class="hero-text" id="hero-title">
-        <h1 class="hero-title">Excelência em Instalações Técnicas</h1>
-        <p class="hero-sub">Elétrica • Redes • CFTV • Ar-condicionado — Atendimento técnico e acabamento premium em São Paulo.</p>
+  <div class="carousel-wrap">
+    <div class="carousel" id="carouselProdutos">
+      <div class="card"><h3>Instalação de Chuveiro</h3><p>Instalação segura.</p></div>
+      <div class="card"><h3>Troca de Tomada</h3><p>Correção e reforço.</p></div>
+      <div class="card"><h3>Luminária / LED</h3><p>Instalação completa.</p></div>
+      <div class="card"><h3>Ventilador</h3><p>Montagem rápida.</p></div>
+      <div class="card"><h3>Disjuntor exclusivo</h3><p>Ideal para ar.</p></div>
+      <div class="card"><h3>Ponto de rede</h3><p>Cabeamento técnico.</p></div>
+    </div>
+  </div>
 
-        <div class="hero-actions">
-          <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
-          <a class="btn-outline" href="produtos.html">Ver catálogo completo</a>
-        </div>
-      </div>
-    </section>
+  <!-- FORMULÁRIO -->
+  <h2 id="contato" class="section-title">Contato</h2>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" aria-labelledby="servicos-title">
-      <h2 class="section-title" id="servicos-title">Serviços</h2>
+  <form id="formContato" class="form-card">
+    <label>Seu nome:</label>
+    <input id="nome" required>
 
-      <div class="cards" role="list">
-        <article class="card" role="listitem">
-          <h3>Elétrica</h3>
-          <p>Instalações, manutenção e soluções elétricas completas com segurança e precisão.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20elétrica.">Solicitar Orçamento</a>
-        </article>
+    <label>Serviço desejado:</label>
+    <input id="servico" required>
 
-        <article class="card" role="listitem">
-          <h3>Redes</h3>
-          <p>Infraestrutura estruturada, pontos de rede e ampliação de Wi-Fi para melhor performance.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20redes.">Solicitar Orçamento</a>
-        </article>
+    <label>Bairro / Região:</label>
+    <input id="local" required>
 
-        <article class="card" role="listitem">
-          <h3>CFTV</h3>
-          <p>Instalação de câmeras, DVR/NVR, acesso remoto e manutenção com qualidade profissional.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20CFTV.">Solicitar Orçamento</a>
-        </article>
+    <button class="send-btn" type="submit">Enviar</button>
+  </form>
 
-        <article class="card" role="listitem">
-          <h3>Ar-condicionado</h3>
-          <p>Instalação, higienização e manutenção preventiva para máxima eficiência e segurança.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20serviço%20de%20ar.">Solicitar Orçamento</a>
-        </article>
-      </div>
-    </section>
+</main>
 
-    <!-- PRODUTOS RÁPIDOS -->
-    <section id="produtos" aria-labelledby="produtos-title">
-      <h2 class="section-title" id="produtos-title">Produtos Rápidos</h2>
+<footer style="text-align:center;padding:22px;color:var(--muted);font-size:13px;">
+  © 2025 Patronos Tech — Excelência em Instalações Técnicas
+</footer>
 
-      <div class="cards" role="list">
-        <article class="card" role="listitem">
-          <h3>Troca de Tomada</h3>
-          <p>Substituição rápida e segura de pontos de energia.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Troca%20de%20Tomada.">Solicitar Orçamento</a>
-        </article>
+<script>
+/* MENU MOBILE */
+function toggleMenu(){
+  const m = document.getElementById("mobileMenu");
+  m.style.display = (m.style.display === "flex") ? "none" : "flex";
+}
 
-        <article class="card" role="listitem">
-          <h3>Instalar Luminária</h3>
-          <p>Instalação de LED, plafon, spots e luminárias decorativas.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Instalar%20Luminária.">Solicitar Orçamento</a>
-        </article>
+/* WHATSAPP FORM */
+document.getElementById("formContato").addEventListener("submit", e=>{
+  e.preventDefault();
+  const n = nome.value;
+  const s = servico.value;
+  const l = local.value;
+  const msg = `Olá, meu nome é ${n}. Quero solicitar: ${s}. Bairro: ${l}.`;
+  window.open(`https://wa.me/5511952544885?text=${encodeURIComponent(msg)}`);
+});
 
-        <article class="card" role="listitem">
-          <h3>Interruptor</h3>
-          <p>Troca e instalação com acabamento profissional.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Troca%20de%20Interruptor.">Solicitar Orçamento</a>
-        </article>
+/* CARROSSEL SERVIÇOS (direita) */
+let servX = 0;
+const serv = document.getElementById("carouselServicos");
+setInterval(()=>{
+  servX -= 240;
+  if(servX < -720) servX = 0;
+  serv.style.transform = `translateX(${servX}px)`;
+}, 2500);
 
-        <article class="card" role="listitem">
-          <h3>Ventilador de Teto</h3>
-          <p>Instalação completa, balanceamento e teste de funcionamento.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Instalação%20de%20Ventilador%20de%20Teto.">Solicitar Orçamento</a>
-        </article>
+/* CARROSSEL PRODUTOS (esquerda) */
+let prodX = 0;
+const prod = document.getElementById("carouselProdutos");
+setInterval(()=>{
+  prodX += 240;
+  if(prodX > 720) prodX = 0;
+  prod.style.transform = `translateX(${prodX}px)`;
+}, 2500);
+</script>
 
-        <article class="card" role="listitem">
-          <h3>Chuveiro</h3>
-          <p>Instalação ou substituição com teste completo de segurança.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Instalação%20de%20Chuveiro.">Solicitar Orçamento</a>
-        </article>
-
-        <article class="card" role="listitem">
-          <h3>Disjuntor / Quadro</h3>
-          <p>Troca, revisão e expansão de quadros elétricos.</p>
-          <a class="card-btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20Quadro%20ou%20Disjuntor.">Solicitar Orçamento</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTATO / FORMULÁRIO (NO FINAL) -->
-    <section id="contato" aria-labelledby="contato-title" style="margin-top:28px">
-      <h2
+</body>
+</html>
