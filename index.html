@@ -1,280 +1,439 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#003b7a" />
-<meta name="description" content="Patronos Tech - Serviços de elétrica, redes, CFTV e ar condicionado. Instalação, manutenção e suporte técnico." />
-<title>Patronos Tech - Elétrica, redes, CFTV e ar condicionado</title>
-<style>
-  :root{
-    --bg:#f3f7ff;
-    --blue:#003b7a;
-    --accent:#ffbf00;
-    --text:#002244;
-    --muted:#546582;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Patronos Tech — Excelência em Instalações Elétricas e Soluções Tecnológicas</title>
+  <meta name="description" content="Patronos Tech — Serviços premium de elétrica, redes, CFTV e ar-condicionado em São Paulo. Atendimento técnico com NR10/SEP. Peça orçamento pelo WhatsApp." />
+  <meta name="theme-color" content="#020b1a" />
 
-/* Header */
-  header.site-header{
-    background: linear-gradient(180deg, rgba(0,59,122,1), rgba(0,59,122,0.95));
-    color: white;
-    padding:18px 14px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    transition: transform .45s ease, opacity .45s ease;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  header.site-header.hide-header{
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-  }
+  <!-- Palette: azul-marinho quase preto (#020b1a), dourado (#d4af37), branco, cinza técnico -->
+  <meta property="og:title" content="Patronos Tech — Instalações Elétricas e Soluções Tecnológicas" />
+  <meta property="og:description" content="Serviços premium em São Paulo — elétrica, redes, CFTV e ar-condicionado. Solicite orçamento via WhatsApp." />
+  <meta property="og:image" content="https://patronos-tech.github.io/Mascote.png" />
+  <meta property="og:url" content="https://patronos-tech.github.io/" />
 
-  .brand{display:flex;align-items:center;gap:10px;min-width:0}
-  .brand .logo{
-    width:48px;height:48px;border-radius:10px;overflow:hidden;flex:0 0 48px;
-    background:linear-gradient(135deg,#ffe082,#ffd54f);display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 12px rgba(0,0,0,0.12)
+  <!-- JSON-LD (LocalBusiness minimal) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Patronos Tech",
+    "telephone":"+5511952544885",
+    "url":"https://patronos-tech.github.io/",
+    "address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP"}
   }
-  .brand .logo img{width:100%;height:100%;object-fit:cover;display:block}
-  .brand .title{line-height:1;min-width:0;overflow:hidden}
-  .brand .title h1{
-    margin:0;
-    font-size: clamp(14px, 4.6vw, 18px);
-    letter-spacing:0.3px;
-    font-weight:800;
-    background:linear-gradient(90deg,#fff 0%, #ffd966 60%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;text-transform:uppercase;
-    white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
-  }
-  .brand .title p{
-    margin:0;margin-top:4px;font-size:11px;color:rgba(255,255,255,0.95);font-weight:600;
-    white-space:nowrap; text-overflow:ellipsis; overflow:hidden;
-  }
-  .header-actions{display:flex;gap:8px;align-items:center}
-  .btn-cta{background:var(--accent);color:var(--blue);padding:9px 12px;border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,191,0,0.12);font-size:13px}
-  .btn-ghost{background:transparent;color:#fff;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;font-weight:600;font-size:13px}
+  </script>
 
-/* Hero */
-  main.hero{
-    padding:18px 12px;
-    display:flex;
-    gap:14px;
-    align-items:center;
-    max-width:1100px;
-    margin:10px auto;
-  }
-  .hero-left{flex:1;min-width:0}
-  .hero-left h2{
-    margin:0;
-    font-size: clamp(18px, 5vw, 28px);
-    color:var(--blue);
-    font-weight:800;
-    line-height:1.08;
-  }
-  .hero-left p{margin:10px 0 14px;color:var(--muted);font-size:14px}
-  .hero-left .actions{display:flex;gap:10px;flex-wrap:wrap}
-  .hero-left .actions a{padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px}
-  .hero-left .primary{background:var(--accent);color:var(--blue)}
-  .hero-left .secondary{background:white;color:var(--blue);border:1px solid rgba(0,59,122,0.06)}
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  .hero-right{flex:0 0 180px;display:flex;justify-content:center}
-  .hero-right img{width:100%;max-width:180px;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);display:block}
+  <style>
+    :root{
+      --bg:#020b1a;            /* azul-marinho quase preto */
+      --gold:#d4af37;
+      --white:#ffffff;
+      --muted:#b7bbc0;
+      --card:#0b1320;
+      --glass: rgba(255,255,255,0.03);
+      --accent-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      --max-width:1100px;
+      --whatsapp: #25D366;
+      --transition: 320ms cubic-bezier(.2,.9,.2,1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg) 0%, #081325 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
 
-/* Services */
-  section.services{padding:16px 12px 60px;max-width:1000px;margin:0 auto}
-  .services h2{color:var(--muted);text-align:center;margin-top:0;font-size:16px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-  .card{background:white;padding:14px;border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,0.06);font-size:14px;color:var(--text)}
-  .card h3{margin:0 0 8px;font-size:15px;color:var(--blue)}
+    /* Page container */
+    .container{max-width:var(--max-width);margin:0 auto;padding:18px;}
 
-/* mascote fixo */
-  #char{
-    width:96px;height:auto;position:fixed;bottom:12px;right:12px;z-index:1003;transition:transform .18s ease;cursor:pointer;
-    box-shadow:0 8px 30px rgba(0,0,0,0.12);border-radius:10px;background:#fff;padding:6px;
-  }
-  #char:hover{transform:translateY(-6px) scale(1.03)}
+/* Header - sticky, compact premium */
+    header.site-header{
+      position:sticky;top:0;z-index:1200;
+      background:linear-gradient(90deg, rgba(2,6,26,0.9), rgba(2,6,26,0.85));
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(255,255,255,0.02);
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow:var(--accent-shadow);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+    /* text-only logo */
+    .logo-text{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .logo-title{
+      font-weight:800;font-size:16px;color:var(--white);
+      letter-spacing:0.6px;
+      background: linear-gradient(90deg, var(--white) 0%, var(--gold) 60%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .logo-sub{font-size:11px;color:var(--muted);margin-top:2px;font-weight:600}
 
-/* small text hint ("Clique aqui") next to mascot */
-  .click-hint{
-    position:fixed;
-    right:120px;
-    bottom:30px;
-    z-index:1004;
-    background:rgba(255,255,255,0.98);
-    color:var(--blue);
-    padding:8px 10px;
-    border-radius:10px;
-    font-weight:700;
-    font-size:13px;
-    box-shadow:0 8px 30px rgba(2,6,23,0.08);
-    display:flex;
-    align-items:center;
-    gap:8px;
-    cursor:pointer;
-    user-select:none;
-    -webkit-tap-highlight-color: transparent;
-    /* animation: fade in/out */
-    animation: hint-pulse 2.6s ease-in-out infinite;
-  }
-  .click-hint img{width:22px;height:22px;opacity:0.98;display:block}
+    nav.main-nav{display:flex;align-items:center;gap:8px}
+    nav.main-nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;font-size:14px}
+    nav.main-nav a:hover{color:var(--white);background:rgba(255,255,255,0.02)}
+    .header-actions{display:flex;gap:10px;align-items:center}
 
-  @keyframes hint-pulse{
-    0%{opacity:0; transform: translateY(6px) scale(0.98);}
-    10%{opacity:1; transform: translateY(0) scale(1);}
-    60%{opacity:1; transform: translateY(0) scale(1);}
-    100%{opacity:0; transform: translateY(6px) scale(0.98);}
-  }
+    /* Primary CTA in header (desktop) */
+    .btn-cta-header{
+      background:linear-gradient(90deg,var(--gold), #c9a632);
+      color:var(--bg);
+      padding:10px 14px;border-radius:10px;font-weight:800;text-decoration:none;
+      box-shadow: 0 8px 24px rgba(212,175,55,0.12);
+      font-size:14px;
+    }
+    .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:700}
 
-/* small screens: adjust hint position and sizes */
-  @media (max-width:640px){
-    .click-hint{ right:100px; bottom:26px; padding:7px 9px; font-size:13px; }
-    #char{width:80px;right:10px;bottom:10px}
-    main.hero{flex-direction:column;align-items:flex-start;padding:14px 12px;margin-top:8px}
-    .hero-right{display:none}
-    .cards{grid-template-columns:1fr}
-  }
-  @media (max-width:380px){
-    .click-hint{ right:92px; bottom:24px; font-size:12px; padding:6px 8px; }
-    .brand .title h1{font-size:13px}
-    .hero-left h2{font-size:18px}
-  }
-</style>
+  /* Hero */
+    .hero{padding:36px 0;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+    .hero h1{margin:0;font-size:clamp(20px,4.6vw,36px);font-weight:800;color:var(--white);line-height:1.02}
+    .hero p{margin:6px 0 0;color:var(--muted);max-width:780px;font-size:15px}
+    .hero-actions{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+    .hero-actions .btn{padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:800}
+    .btn-primary{background:var(--gold);color:var(--bg)}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+
+  /* Sections */
+    section{padding:28px 0}
+    h2.section-title{font-size:18px;color:var(--muted);text-align:left;margin:0 0 12px;font-weight:700}
+
+  /* Cards grid */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));
+      border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow: 0 18px 50px rgba(0,0,0,0.6)}
+    .card h3{margin:0 0 8px;color:var(--gold);font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+  /* Products — simple list with "Enviar" action that opens WhatsApp prefilled */
+    .product-list{display:grid;gap:10px}
+    .product-item{
+      display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .product-item .name{font-weight:700;color:var(--white)}
+    .product-item .send{background:transparent;border:0;color:var(--gold);font-weight:800;cursor:pointer}
+
+  /* Portfolio placeholders (6 items) */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .portfolio-item{
+      height:140px;border-radius:12px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;
+      background:linear-gradient(180deg, rgba(10,18,28,0.6), rgba(4,8,14,0.8));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .portfolio-item h4{margin:0;color:var(--gold);font-weight:800}
+    .portfolio-item p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+  /* Contact form */
+    .form-card{background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.02));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    label{font-size:13px;margin-bottom:6px;color:var(--muted);font-weight:600}
+    input[type=text], input[type=tel], select, textarea {
+      background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--white);padding:10px;border-radius:10px;
+      font-size:14px;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .form-actions{display:flex;gap:10px;align-items:center}
+    .btn-submit{background:var(--gold);color:var(--bg);padding:12px 16px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
+
+  /* Footer */
+    footer.site-footer{padding:24px 0;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+    .footer-grid{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between}
+
+  /* WhatsApp sticky CTA */
+    .whatsapp-fab{
+      position:fixed;right:18px;bottom:18px;z-index:1300;display:flex;align-items:center;gap:10px;
+      background:linear-gradient(90deg,var(--gold), #c9a632);color:var(--bg);padding:12px 14px;border-radius:14px;box-shadow:var(--accent-shadow);
+      cursor:pointer;text-decoration:none;font-weight:800;
+    }
+    .whatsapp-fab .icon{width:40px;height:40px;background:var(--white);border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .whatsapp-fab:focus{outline:3px solid rgba(212,175,55,0.18);outline-offset:3px}
+
+  /* Small hint next to mascot */
+    .click-hint{
+      position:fixed;right:94px;bottom:28px;z-index:1299;background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:10px;color:var(--gold);
+      font-weight:700;font-size:13px;animation:hint-pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes hint-pulse{
+      0%{opacity:0;transform:translateY(6px)}
+      10%{opacity:1;transform:translateY(0)}
+      70%{opacity:1;transform:translateY(0)}
+      100%{opacity:0;transform:translateY(6px)}
+    }
+
+  /* Utilities and animations */
+    .fade-up{opacity:0;transform:translateY(10px);transition:opacity 520ms ease, transform 520ms ease}
+    .in-view{opacity:1;transform:translateY(0)}
+    .muted{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+  /* Responsive */
+    @media (max-width:840px){
+      .logo-title{font-size:15px}
+      nav.main-nav{display:none}
+      .hero{padding:22px 0}
+      .container{padding:12px}
+    }
+    @media (max-width:480px){
+      .whatsapp-fab{right:12px;bottom:12px;padding:10px 12px}
+      .click-hint{right:86px;bottom:18px;font-size:12px}
+    }
+  </style>
 </head>
 <body>
 
-<header class="site-header" role="banner" aria-hidden="false">
-  <div class="brand">
-    <div class="logo" aria-hidden="true">
-      <img src="Mascote.png" alt="" decoding="async" loading="lazy">
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="brand">
+          <div class="logo-text" aria-hidden="true">
+            <div class="logo-title">Patronos Tech</div>
+            <div class="logo-sub">Excelência em Instalações Elétricas</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Navegação principal">
+        <a href="#home">Home</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="#privacidade">Política</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn-secondary" href="tel:+5511952544885" aria-label="Ligar para Patronos Tech">Ligar</a>
+        <a class="btn-cta-header" id="headerWhatsapp" href="https://wa.me/5511952544885" aria-label="Fale no WhatsApp">Fale no WhatsApp</a>
+      </div>
     </div>
-    <div class="title">
-      <h1>Patronos Tech - Elétrica, redes, CFTV e ar condicionado</h1>
-      <p>Serviços profissionais para empresas e residências</p>
-    </div>
-  </div>
+  </header>
 
-  <div class="header-actions" role="navigation" aria-label="Ações de contato">
-    <a class="btn-ghost" href="tel:+5511945836919" aria-label="Ligar para Patronos Tech">Ligar</a>
-    <a class="btn-cta" href="https://wa.me/5511945836919" rel="noopener" aria-label="Enviar mensagem no WhatsApp">Fale no WhatsApp</a>
-  </div>
-</header>
+  <!-- Main container -->
+  <main class="container" id="home">
 
-<main class="hero" role="main">
-  <div class="hero-left">
-    <h2>Soluções elétricas, Redes, CFTV e Ar-condicionado para sua empresa ou residência</h2>
-    <p>Instalações, projetos, cabeamento estruturado, CFTV e suporte técnico com rapidez e qualidade.</p>
-    <div class="actions">
-      <a class="primary" href="https://wa.me/5511945836919" aria-label="Solicitar orçamento">Solicitar orçamento</a>
-      <a class="secondary" href="#servicos" aria-label="Ver nossos serviços">Nossos serviços</a>
-    </div>
-  </div>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Excelência em Instalações Elétricas e Soluções Tecnológicas</h1>
+      <p>Atendimento técnico premium em São Paulo — projetos, manutenção e instalações com NR10 e garantia profissional. Atendemos residências, condomínios e comércios de alto padrão.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" id="heroContact" href="#contato">Orçamento — Clique Aqui</a>
+        <a class="btn btn-outline" href="#servicos">Ver serviços</a>
+      </div>
+    </section>
 
-  <div class="hero-right" aria-hidden="true">
-    <img src="Mascote.png" alt="Mascote Patronos Tech" decoding="async" loading="lazy">
-  </div>
-</main>
+    <!-- Services -->
+    <section id="servicos" aria-labelledby="servicos-title">
+      <h2 class="section-title" id="servicos-title">Serviços</h2>
+      <div class="cards">
+        <!-- create grouped cards: Elétrica, Redes, CFTV, Ar-condicionado -->
+        <article class="card fade-up">
+          <h3>Elétrica</h3>
+          <p class="muted">Instalação, manutenção e reformas elétricas com segurança e acabamento premium.</p>
+          <ul class="small" style="margin:10px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Instalação de chuveiro</li>
+            <li>Instalação de luminárias / LED</li>
+            <li>Ventilador de teto</li>
+            <li>Instalação de tomadas e interruptores</li>
+            <li>Troca de disjuntores e quadros</li>
+            <li>Localização e correção de curto</li>
+            <li>Revisão e troca de fiação</li>
+            <li>Serviços com NR10 / SEP</li>
+          </ul>
+        </article>
 
-<section id="servicos" class="services" aria-labelledby="servicos-title">
-  <h2 id="servicos-title">Serviços Profissionais</h2>
-  <div class="cards" role="list">
-    <article class="card" role="listitem" aria-labelledby="s-eletrica">
-      <h3 id="s-eletrica">Elétrica</h3>
-      ✔ Instalações elétricas<br>
-      ✔ Padrão de entrada<br>
-      ✔ Iluminação<br>
-      ✔ Quadros e disjuntores<br>
-    </article>
+        <article class="card fade-up">
+          <h3>Redes</h3>
+          <p class="muted">Soluções de conectividade profissionais para ambientes residenciais e corporativos.</p>
+          <ul class="small" style="margin:10px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Instalação e configuração de roteadores</li>
+            <li>Expansão de sinal Wi‑Fi</li>
+            <li>Pontos de rede / cabeamento estruturado</li>
+            <li>Organização e padronização de rack</li>
+          </ul>
+        </article>
 
-    <article class="card" role="listitem" aria-labelledby="s-redes">
-      <h3 id="s-redes">Redes e CFTV</h3>
-      ✔ Cabeamento estruturado<br>
-      ✔ Configuração de redes<br>
-      ✔ Instalação de câmeras CFTV<br>
-    </article>
+        <article class="card fade-up">
+          <h3>CFTV</h3>
+          <p class="muted">Instalação e manutenção de sistemas de vigilância com acesso remoto.</p>
+          <ul class="small" style="margin:10px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Instalação de câmeras</li>
+            <li>Configuração de DVR / NVR</li>
+            <li>Configuração de acesso remoto</li>
+            <li>Revisão e manutenção</li>
+          </ul>
+        </article>
 
-    <article class="card" role="listitem" aria-labelledby="s-telecom">
-      <h3 id="s-telecom">Telecomunicações</h3>
-      ✔ Fibra óptica e enlaces<br>
-      ✔ Instalação e manutenção de links<br>
-      ✔ ONT, modem e roteador<br>
-      ✔ Testes e certificação de rede<br>
-    </article>
+        <article class="card fade-up">
+          <h3>Ar‑condicionado</h3>
+          <p class="muted">Instalação e manutenção com atenção ao detalhe e segurança elétrica.</p>
+          <ul class="small" style="margin:10px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Instalação de split</li>
+            <li>Higienização</li>
+            <li>Manutenção preventiva</li>
+            <li>Instalação de disjuntor exclusivo</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-    <article class="card" role="listitem" aria-labelledby="s-ar">
-      <h3 id="s-ar">Ar-condicionado</h3>
-      ✔ Instalação<br>
-      ✔ Manutenção preventiva<br>
-      ✔ Higienização e suporte<br>
-    </article>
-  </div>
-</section>
+    <!-- Products: each product is a short phrase and clickable to open WhatsApp with the product name -->
+    <section id="produtos" aria-labelledby="produtos-title">
+      <h2 class="section-title" id="produtos-title">Produtos e Serviços Rápidos</h2>
+      <p class="muted">Clique no item para enviar uma mensagem rápida pelo WhatsApp solicitando orçamento.</p>
 
-<!-- mascote fixo no canto -->
-<img id="char" src="Mascote.png" alt="Mascote da Patronos Tech (clique para WhatsApp)" width="120" height="120" loading="lazy" decoding="async" onclick="location.href='https://wa.me/5511945836919'">
+      <div class="product-list" role="list" style="margin-top:12px">
+        <!-- Map the 24 services into clickable items; here show main ones as examples -->
+        <!-- For brevity show a selection and provide full list as link to contact -->
+        <div class="product-item fade-up">
+          <div class="name">Instalação de chuveiro</div>
+          <button class="send" data-product="Instalação de chuveiro">Enviar</button>
+        </div>
 
-<!-- small clickable hint next to mascot (appears/disappears via animation) -->
-<div id="clickHint" class="click-hint" role="button" aria-label="Clique aqui para abrir o WhatsApp" tabindex="0">
-  <span style="display:inline-block;width:6px"></span>
-  <span>Clique aqui</span>
-</div>
+        <div class="product-item fade-up">
+          <div class="name">Instalação de luminárias / LED</div>
+          <button class="send" data-product="Instalação de luminárias / LED">Enviar</button>
+        </div>
 
-<script>
-/*
-  Behavior:
-  - header auto-hides after 40s (same as before)
-  - welcome box removed
-  - small hint next to mascot pulses (CSS animation)
-  - clicking the hint or pressing Enter/Space opens WhatsApp (same as clicking mascot)
-  - touching/hovering header cancels header auto-hide
-*/
-document.addEventListener('DOMContentLoaded', function () {
-  const hint = document.getElementById('clickHint');
-  const header = document.querySelector('.site-header');
+        <div class="product-item fade-up">
+          <div class="name">Cabeamento estruturado</div>
+          <button class="send" data-product="Cabeamento estruturado">Enviar</button>
+        </div>
 
-  // open WhatsApp helper
-  function openWhats() {
-    window.location.href = 'https://wa.me/5511945836919';
-  }
+        <div class="product-item fade-up">
+          <div class="name">Instalação de câmeras CFTV</div>
+          <button class="send" data-product="Instalação de câmeras CFTV">Enviar</button>
+        </div>
 
-  // hint click and keyboard support
-  if (hint) {
-    hint.addEventListener('click', openWhats);
-    hint.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openWhats();
-      }
-    });
-  }
+        <div class="product-item fade-up">
+          <div class="name">Instalação de ar‑condicionado split</div>
+          <button class="send" data-product="Instalação de ar‑condicionado split">Enviar</button>
+        </div>
 
-  // header auto-hide after 40s (keeps previous behavior)
-  let headerAutoHideTimer = setTimeout(() => {
-    if (!header) return;
-    header.classList.add('hide-header');
-    setTimeout(() => { try { header.style.display = 'none'; } catch(e){} }, 500);
-  }, 40000);
+        <div class="product-item fade-up">
+          <div class="name">Revisão e manutenção elétrica</div>
+          <button class="send" data-product="Revisão e manutenção elétrica">Enviar</button>
+        </div>
+      </div>
 
-  if (header) {
-    header.addEventListener('mouseenter', () => {
-      if (headerAutoHideTimer) { clearTimeout(headerAutoHideTimer); headerAutoHideTimer = null; }
-    });
-    header.addEventListener('touchstart', () => {
-      if (headerAutoHideTimer) { clearTimeout(headerAutoHideTimer); headerAutoHideTimer = null; }
-    }, {passive: true});
-  }
-});
-</script>
+      <p class="small muted" style="margin-top:12px">Lista completa de serviços disponível na página Serviços. Para outros serviços, envie mensagem pelo botão WhatsApp.</p>
+    </section>
 
-</body>
-</html>
+    <!-- Portfolio -->
+    <section id="portfolio" aria-labelledby="portfolio-title">
+      <h2 class="section-title" id="portfolio-title">Portfólio (Artes)</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item fade-up">
+          <h4>Projeto Residencial</h4>
+          <p>Instalação elétrica com quadro dedicado e proteção NR10.</p>
+        </div>
+        <div class="portfolio-item fade-up">
+          <h4>Cabeamento Corporativo</h4>
+          <p>Rack padronizado e cabeamento estruturado.</p>
+        </div>
+        <div class="portfolio-item fade-up">
+          <h4>Instalação CFTV</h4>
+          <p>Sistemas com acesso remoto e gravação NVR.</p>
+        </div>
+        <div class="portfolio-item fade-up">
+          <h4>Instalação AC Split</h4>
+          <p>Disjuntor dedicado e teste de corrente.</p>
+        </div>
+        <div class="portfolio-item fade-up">
+          <h4>Manutenção Preventiva</h4>
+          <p>Revisão periódica e higienização.</p>
+        </div>
+        <div class="portfolio-item fade-up">
+          <h4>Projeto Comercial</h4>
+          <p>Iluminação e pontos de força para comércios.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials placeholder -->
+    <section id="depoimentos" aria-labelledby="depoimentos-title">
+      <h2 class="section-title" id="depoimentos-title">Depoimentos</h2>
+      <div class="cards">
+        <article class="card fade-up">
+          <h3 class="small">Cliente Corporativo — Zona Sul</h3>
+          <p class="muted">"Serviço técnico impecável, equipe pontual e com ótimo acabamento."</p>
+        </article>
+        <article class="card fade-up">
+          <h3 class="small">Residência — Jardins</h3>
+          <p class="muted">"Profissionais competentes e atendimento premium."</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="sobre" aria-labelledby="sobre-title">
+      <h2 class="section-title" id="sobre-title">Sobre a Patronos Tech</h2>
+      <div class="card fade-up">
+        <p class="muted">Patronos Tech oferece serviços técnicos especializados em instalações elétricas, redes, CFTV e ar-condicionado, com foco em clientes de alto padrão em São Paulo. Equipe certificada, trabalho conforme NR10/SEP e acabamento premium.</p>
+      </div>
+    </section>
+
+    <!-- Contact / Quote Form (submits to WhatsApp with filled values) -->
+    <section id="contato" aria-labelledby="contato-title">
+      <h2 class="section-title" id="contato-title">Contato / Solicitar Orçamento</h2>
+      <div class="form-card fade-up">
+        <form id="quoteForm" onsubmit="return false;" aria-label="Formulário de orçamento">
+          <div class="field">
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" placeholder="Seu nome completo" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Telefone (WhatsApp)</label>
+            <input id="phone" name="phone" type="tel" placeholder="(11) 9xxxx-xxxx" required>
+          </div>
+
+          <div class="field">
+            <label for="address">Endereço</label>
+            <input id="address" name="address" type="text" placeholder="Rua, número, bairro (opcional)">
+          </div>
+
+          <div class="field">
+            <label for="service">Serviço desejado</label>
+            <select id="service" name="service" required>
+              <option value="">Selecione um serviço</option>
+              <option>Instalação de chuveiro</option>
+              <option>Instalação de luminárias / LED</option>
+              <option>Instalação de tomadas e interruptores</option>
+              <option>Cabeamento estruturado</option>
+              <option>Instalação de câmeras CFTV</option>
+              <option>Instalação de ar-condicionado split</option>
+              <option>Outro</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="description">Descrição</label>
+            <textarea id="description" name="description" placeholder="Explique o serviço e detalhes (opcional)"></textarea>
+            <div class="small muted" style="margin-top:6px">Observação: Se tiver fotos, envie-as diretamente no WhatsApp após abrir a conversa.</div>
+          </div>
+
+          <div class="form-actions">
+            <
