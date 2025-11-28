@@ -2,91 +2,108 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Patronos Tech — Catálogo de Produtos e Serviços</title>
-  <meta name="theme-color" content="#020b1a" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Patronos Tech — Catálogo Completo</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg:#020b1a;
+      --bg:#010716;
+      --card:#0c1326;
       --gold:#d4af37;
       --white:#ffffff;
-      --muted:#c8cad0;
-      --card:#0b1320;
-      --shadow:0 8px 25px rgba(0,0,0,0.45);
+      --muted:#aeb4c4;
+      --shadow:0 10px 35px rgba(0,0,0,0.55);
     }
 
     * { box-sizing:border-box; }
     body {
-      margin:0;background:var(--bg);font-family:"Poppins",sans-serif;color:var(--white);
-    }
-
-    .container {
-      max-width:850px;margin:auto;padding:18px;
+      margin:0;
+      background:var(--bg);
+      color:var(--white);
+      font-family:"Poppins",sans-serif;
     }
 
     /* HEADER */
     header {
-      background:rgba(2,6,26,0.92);
-      padding:16px 0;
+      background:#020b1a;
+      padding:16px;
       text-align:center;
-      border-bottom:1px solid rgba(255,255,255,0.08);
       position:sticky;
       top:0;
-      z-index:10;
+      z-index:20;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
     header h1 {
-      margin:0;font-size:22px;
+      margin:0;
+      font-size:22px;
       font-weight:800;
-      background:linear-gradient(90deg,#fff,#d4af37);
-      -webkit-background-clip:text;color:transparent;
+      background:linear-gradient(90deg,#fff,var(--gold));
+      -webkit-background-clip:text;
+      color:transparent;
     }
 
     header a {
-      display:inline-block;
-      margin-top:10px;
       color:var(--gold);
       text-decoration:none;
       font-weight:600;
+      display:inline-block;
+      margin-top:8px;
+      font-size:14px;
     }
 
-    /* TITLE PAGE */
-    h2.title {
-      margin:25px 0 10px;
+    /* PAGE CONTAINER */
+    .container {
+      max-width:900px;
+      margin:auto;
+      padding:20px;
+    }
+
+    /* TITLES */
+    .group-title {
+      margin:25px 0 15px;
       font-size:20px;
       font-weight:800;
-      color:var(--white);
+      color:var(--gold);
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
 
-    /* PRODUCT LIST */
+    /* PRODUCT CARDS */
     .product {
       background:var(--card);
-      padding:16px;
-      border-radius:12px;
-      margin-bottom:14px;
-      border:1px solid rgba(255,255,255,0.05);
+      padding:18px;
+      border-radius:14px;
+      margin-bottom:18px;
       box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.05);
+      transition:transform .2s, box-shadow .2s;
+    }
+
+    .product:hover {
+      transform:scale(1.03);
+      box-shadow:0 12px 45px rgba(0,0,0,0.7);
     }
 
     .product h3 {
-      margin:0 0 6px;
-      font-size:16px;
-      color:var(--gold);
+      margin:0 0 10px;
+      font-size:17px;
+      color:var(--white);
+      font-weight:700;
     }
 
-    .btn-wpp {
+    .btn {
       display:inline-block;
-      margin-top:10px;
       background:var(--gold);
       color:#020b1a;
-      padding:10px 15px;
+      padding:12px 16px;
       border-radius:10px;
       font-weight:800;
       text-decoration:none;
+      margin-top:8px;
     }
 
   </style>
@@ -102,109 +119,136 @@
 
 <div class="container">
 
-  <h2 class="title">Catálogo Completo de Serviços</h2>
+  <!-- ########## ELÉTRICA ########## -->
+  <h2 class="group-title">Elétrica</h2>
 
-  <!-- LISTA COMPLETA DE PRODUTOS -->
-  <!-- ELETRICIDADE -->
   <div class="product">
     <h3>Instalação de chuveiro</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20um%20chuveiro.">Chamar no WhatsApp</a>
+    <a class="btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20instalação%20de%20chuveiro.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Troca ou reforço de tomada</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20trocar%20uma%20tomada.">Chamar no WhatsApp</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de luminária / LED / plafon / spots</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20uma%20lumin%C3%A1ria.">Chamar no WhatsApp</a>
+    <h3>Instalação de luminárias e LED</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20luminárias.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
     <h3>Instalação de ventilador de teto</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20um%20ventilador%20de%20teto.">Chamar no WhatsApp</a>
+    <a class="btn" href="https://wa.me/5511952544885?text=Orçamento%20para%20ventilador%20de%20teto.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Quadro de disjuntores / Montagem / Revisão</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20servi%C3%A7o%20no%20quadro%20de%20disjuntores.">Chamar no WhatsApp</a>
+    <h3>Instalação de tomadas e interruptores</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20ou%20trocar%20tomadas.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Localização de curto / Queda de fase</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Estou%20com%20curto%20ou%20energia%20oscilando.">Chamar no WhatsApp</a>
+    <h3>Troca de disjuntor</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20trocar%20meu%20disjuntor.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Revisão de instalação elétrica completa</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20uma%20revis%C3%A3o%20el%C3%A9trica%20completa.">Chamar no WhatsApp</a>
-  </div>
-
-
-  <!-- REDES -->
-  <div class="product">
-    <h3>Instalação de pontos de rede</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20pontos%20de%20rede.">Chamar no WhatsApp</a>
+    <h3>Manutenção elétrica</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Solicito%20manutenção%20elétrica.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Melhoria de Wi-Fi / Expansão / Repetidores</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20melhorar%20meu%20WiFi.">Chamar no WhatsApp</a>
+    <h3>Correção de curto</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Estou%20com%20curto%20ou%20problema%20elétrico.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Configuração de roteadores</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Preciso%20configurar%20meu%20roteador.">Chamar no WhatsApp</a>
+    <h3>Troca de fiação antiga</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20trocar%20a%20fiação%20antiga.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Organização de rack / Cabeamento estruturado</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20organizar%20meu%20rack%20de%20rede.">Chamar no WhatsApp</a>
-  </div>
-
-
-  <!-- CFTV -->
-  <div class="product">
-    <h3>Instalação de câmeras (CFTV)</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20c%C3%A2meras%20CFTV.">Chamar no WhatsApp</a>
+    <h3>Instalação de quadro elétrico</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20ou%20reformar%20meu%20quadro%20elétrico.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Configuração de DVR / NVR</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Preciso%20configurar%20meu%20DVR%20ou%20NVR.">Chamar no WhatsApp</a>
+    <h3>Reforma elétrica</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20reforma%20elétrica.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Acesso remoto de câmeras</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20configurar%20acesso%20remoto%20das%20c%C3%A2meras.">Chamar no WhatsApp</a>
+    <h3>Disjuntor exclusivo para ar-condicionado</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20de%20disjuntor%20exclusivo%20para%20ar%20condicionado.">Solicitar orçamento</a>
+  </div>
+
+  <!-- ########## REDES ########## -->
+  <h2 class="group-title">Redes</h2>
+
+  <div class="product">
+    <h3>Instalação de roteador</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20um%20roteador.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Manutenção de sistema CFTV</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Preciso%20de%20manuten%C3%A7%C3%A3o%20no%20CFTV.">Chamar no WhatsApp</a>
-  </div>
-
-
-  <!-- AR-CONDICIONADO -->
-  <div class="product">
-    <h3>Instalação de ar-condicionado (Split)</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20um%20ar-condicionado%20split.">Chamar no WhatsApp</a>
+    <h3>Configuração de Wi-Fi</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20configurar%20meu%20WiFi.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Higienização de ar-condicionado</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20higienizar%20meu%20ar-condicionado.">Chamar no WhatsApp</a>
+    <h3>Expansão de sinal Wi-Fi</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20aumentar%20o%20alcance%20do%20WiFi.">Solicitar orçamento</a>
+  </div>
+
+  <div class="product">
+    <h3>Instalação de ponto de internet (RJ45)</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20ponto%20de%20rede.">Solicitar orçamento</a>
+  </div>
+
+  <div class="product">
+    <h3>Cabeamento estruturado</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Orçamento%20de%20cabeamento%20estruturado.">Solicitar orçamento</a>
+  </div>
+
+  <!-- ########## CFTV ########## -->
+  <h2 class="group-title">Câmeras / CFTV</h2>
+
+  <div class="product">
+    <h3>Instalação de câmeras</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20câmeras%20CFTV.">Solicitar orçamento</a>
+  </div>
+
+  <div class="product">
+    <h3>Manutenção de câmeras</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20de%20manutenção%20nas%20câmeras.">Solicitar orçamento</a>
+  </div>
+
+  <div class="product">
+    <h3>Configuração de acesso remoto</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Acesso%20remoto%20das%20câmeras.">Solicitar orçamento</a>
+  </div>
+
+  <div class="product">
+    <h3>Instalação de DVR / NVR</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20DVR%20ou%20NVR.">Solicitar orçamento</a>
+  </div>
+
+  <!-- ########## AR-CONDICIONADO ########## -->
+  <h2 class="group-title">Ar-Condicionado</h2>
+
+  <div class="product">
+    <h3>Instalação de ar condicionado (split)</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20ar%20condicionado%20split.">Solicitar orçamento</a>
+  </div>
+
+  <div class="product">
+    <h3>Higienização de ar condicionado</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Higienização%20de%20ar%20condicionado.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
     <h3>Manutenção preventiva</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Preciso%20de%20manuten%C3%A7%C3%A3o%20preventiva%20do%20meu%20ar.">Chamar no WhatsApp</a>
+    <a class="btn" href="https://wa.me/5511952544885?text=Manutenção%20preventiva%20do%20ar.">Solicitar orçamento</a>
   </div>
 
   <div class="product">
-    <h3>Instalação com disjuntor dedicado</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Preciso%20de%20disjuntor%20dedicado%20para%20ar-condicionado.">Chamar no WhatsApp</a>
+    <h3>Instalação de disjuntor exclusivo</h3>
+    <a class="btn" href="https://wa.me/5511952544885?text=Disjuntor%20exclusivo%20para%20ar%20condicionado.">Solicitar orçamento</a>
   </div>
 
 </div>
