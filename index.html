@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Patronos Tech — Soluções Elétricas, Redes, CFTV e Ar-Condicionado</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Patronos Tech — Instalações Elétricas e Soluções Técnicas</title>
+  <meta name="theme-color" content="#020b1a" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -15,7 +16,7 @@
       --white:#ffffff;
       --muted:#c8cad0;
       --card:#0b1320;
-      --shadow:0 6px 18px rgba(0,0,0,0.45);
+      --shadow:0 8px 25px rgba(0,0,0,0.45);
     }
 
     * { box-sizing:border-box; }
@@ -27,104 +28,307 @@
       color:var(--white);
     }
 
+    .container {
+      max-width:980px;
+      margin:auto;
+      padding:18px;
+    }
+
+    /* HEADER */
     header {
-      background:#020b1a;
-      padding:14px 0;
-      text-align:center;
+      background:rgba(2,6,26,0.92);
+      backdrop-filter:blur(6px);
       border-bottom:1px solid rgba(255,255,255,0.08);
       position:sticky;
       top:0;
-      z-index:10;
+      z-index:50;
     }
 
-    header h1 {
-      margin:0;
-      font-size:22px;
+    .header-inner {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 18px;
+    }
+
+    .logo {
       font-weight:800;
+      font-size:20px;
       background:linear-gradient(90deg,#fff,#d4af37);
       -webkit-background-clip:text;
       color:transparent;
     }
 
-    .hero {
-      width:100%;
-      height:220px;
-      background:url("hero-eletrica.jpg") center/cover no-repeat;
-      border-bottom:2px solid rgba(255,255,255,0.05);
+    .menu-desktop a {
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      margin-left:16px;
     }
 
-    .container {
-      max-width:900px;
-      margin:auto;
-      padding:18px;
-    }
+    .menu-desktop a:hover { color:var(--white); }
 
-    .section-title {
-      font-size:20px;
-      font-weight:800;
+    /* MENU MOBILE */
+    .menu-mobile-btn {
+      display:none;
+      font-size:28px;
       color:var(--gold);
-      margin:20px 0 12px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    @media (max-width:780px) {
+      .menu-desktop { display:none; }
+      .menu-mobile-btn { display:block; }
+    }
+
+    .menu-mobile {
+      display:none;
+      flex-direction:column;
+      background:#0b1320;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    .menu-mobile a {
+      padding:14px;
+      text-decoration:none;
+      color:var(--white);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      font-weight:600;
+    }
+
+    /* HERO */
+    .hero {
+      margin-top:18px;
+      border-radius:14px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--shadow);
+    }
+
+    .hero img {
+      width:100%;
+      display:block;
+      object-fit:cover;
+      max-height:380px;
+    }
+
+    .hero-text {
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:22px;
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,0.9));
+    }
+
+    .hero-text h1 {
+      margin:0;
+      font-size:26px;
+      font-weight:800;
+    }
+
+    .hero-text p {
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .btn-primary {
+      display:inline-block;
+      margin-top:14px;
+      background:var(--gold);
+      color:#020b1a;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:800;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    /* SECTION TITLES */
+    h2.title {
+      margin:30px 0 12px;
+      font-weight:800;
+      font-size:20px;
+      color:var(--gold);
       text-transform:uppercase;
     }
 
+    /* CARDS */
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+
+    .card {
+      background:var(--card);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:var(--shadow);
+    }
+
+    .card h3 {
+      margin:0 0 6px;
+      color:var(--gold);
+      font-size:16px;
+    }
+
+    .card ul {
+      margin:0;
+      padding-left:18px;
+    }
+
+    .card li {
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+
+    /* --- PRODUTOS RÁPIDOS --- */
     .product {
       background:var(--card);
-      padding:14px;
+      padding:16px;
       border-radius:12px;
       margin-bottom:14px;
-      border:1px solid rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.05);
       box-shadow:var(--shadow);
     }
 
     .product h3 {
       margin:0 0 6px;
+      color:var(--white);
       font-size:16px;
       font-weight:700;
-      color:var(--white);
     }
 
     .btn-wpp {
       display:inline-block;
+      margin-top:8px;
       background:var(--gold);
       color:#020b1a;
-      margin-top:10px;
       padding:10px 16px;
       border-radius:10px;
-      text-decoration:none;
       font-weight:800;
+      text-decoration:none;
+      font-size:14px;
     }
 
     .see-more {
       text-align:center;
-      margin:22px 0;
+      margin:25px 0;
     }
 
     .see-more a {
       color:var(--gold);
-      font-weight:700;
       text-decoration:none;
-      padding:10px 16px;
-      display:inline-block;
+      font-weight:700;
       border:1px solid var(--gold);
+      padding:10px 18px;
       border-radius:10px;
+      display:inline-block;
     }
 
+    /* FOOTER */
+    footer {
+      margin-top:30px;
+      padding:25px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
   </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>Patronos Tech</h1>
+  <div class="header-inner container">
+    <div class="logo">Patronos Tech</div>
+
+    <nav class="menu-desktop">
+      <a href="#servicos">Serviços</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="#contato">Contato</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+
+    <div class="menu-mobile-btn" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <nav class="menu-mobile" id="mobileMenu">
+    <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+    <a href="produtos.html" onclick="toggleMenu()">Produtos</a>
+    <a href="#contato" onclick="toggleMenu()">Contato</a>
+    <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+  </nav>
 </header>
 
-<div class="hero"></div>
+<!-- HERO -->
+<section class="hero container">
+  <img src="hero-eletrica.jpg" alt="Eletricista profissional">
+  <div class="hero-text">
+    <h1>Excelência em Instalações Técnicas</h1>
+    <p>Elétrica • Redes • CFTV • Ar-condicionado</p>
+    <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
+  </div>
+</section>
 
 <div class="container">
 
-  <h2 class="section-title">Serviços rápidos</h2>
+  <!-- SERVIÇOS -->
+  <h2 class="title" id="servicos">Serviços</h2>
 
-  <!-- 6 serviços rápidos -->
+  <div class="cards">
+    <div class="card">
+      <h3>Elétrica</h3>
+      <ul>
+        <li>Instalação de chuveiro</li>
+        <li>Luminárias / LED</li>
+        <li>Tomadas e interruptores</li>
+        <li>Quadro e disjuntores</li>
+        <li>Curto / Queda de fase</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Redes</h3>
+      <ul>
+        <li>Pontos de rede</li>
+        <li>Wi-Fi / Repetidores</li>
+        <li>Roteadores</li>
+        <li>Rack organizado</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>CFTV</h3>
+      <ul>
+        <li>Instalação de câmeras</li>
+        <li>DVR / NVR</li>
+        <li>Acesso remoto</li>
+        <li>Manutenção</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Ar-condicionado</h3>
+      <ul>
+        <li>Instalação de Split</li>
+        <li>Higienização</li>
+        <li>Preventiva</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- PRODUTOS RÁPIDOS (6 principais) -->
+  <h2 class="title">Serviços Rápidos</h2>
+
   <div class="product">
     <h3>Instalação de chuveiro</h3>
     <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalação%20de%20chuveiro.">Solicitar orçamento</a>
@@ -137,29 +341,46 @@
 
   <div class="product">
     <h3>Instalação de ventilador de teto</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20ventilador%20de%20teto.">Solicitar orçamento</a>
+    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20ventilador">Solicitar orçamento</a>
   </div>
 
   <div class="product">
     <h3>Instalação de tomadas e interruptores</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20trocar%20ou%20instalar%20tomadas.">Solicitar orçamento</a>
+    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Instalação%20de%20tomadas">Solicitar orçamento</a>
   </div>
 
   <div class="product">
     <h3>Instalação de ponto de internet</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20ponto%20de%20rede.">Solicitar orçamento</a>
+    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Instalação%20de%20ponto%20de%20rede">Solicitar orçamento</a>
   </div>
 
   <div class="product">
     <h3>Instalação de câmeras CFTV</h3>
-    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Quero%20instalar%20câmeras%20CFTV.">Solicitar orçamento</a>
+    <a class="btn-wpp" href="https://wa.me/5511952544885?text=Instalação%20de%20CFTV">Solicitar orçamento</a>
   </div>
 
   <div class="see-more">
     <a href="produtos.html">Ver catálogo completo (24 serviços)</a>
   </div>
 
+
+  <!-- CONTATO -->
+  <h2 class="title" id="contato">Contato</h2>
+
+  <a class="btn-primary" href="https://wa.me/5511952544885">Falar no WhatsApp</a>
+
 </div>
+
+<footer>
+  © 2025 Patronos Tech — Excelência em Instalações Técnicas
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+</script>
 
 </body>
 </html>
