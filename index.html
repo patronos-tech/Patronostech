@@ -46,7 +46,10 @@
       -webkit-background-clip:text;color:transparent
     }
     nav.desktop{display:flex;gap:14px;align-items:center}
-    nav.desktop a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px;border-radius:8px}
+    nav.desktop a{
+      color:var(--muted);text-decoration:none;
+      font-weight:600;padding:8px;border-radius:8px
+    }
     nav.desktop a:hover{color:var(--white)}
 
     .menu-btn{
@@ -64,9 +67,7 @@
 
     /* HERO */
     .hero{margin-top:18px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
-    .hero-img{
-      width:100%;height:360px;object-fit:cover;display:block
-    }
+    .hero-img{width:100%;height:360px;object-fit:cover;display:block}
     .hero-text{
       position:relative;padding:18px;
       background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.72));
@@ -75,7 +76,6 @@
     .hero-title{font-size:28px;font-weight:800;margin:0}
     .hero-sub{color:var(--muted);margin:4px 0 12px}
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-
     .btn-primary{
       background:var(--gold);color:#07101a;
       padding:12px 16px;border-radius:10px;
@@ -87,28 +87,42 @@
       border-radius:10px;text-decoration:none;font-weight:700
     }
 
-    /* SECTION TITLES */
+    /* TITULOS */
     h2.section-title{
       font-size:18px;color:var(--gold);
       margin:26px 0 12px;text-transform:uppercase;
       letter-spacing:0.6px;font-weight:800
     }
 
-    /* CARDS / CAROUSELS */
-    .card{
+    /* NOVOS CARDS DO CARROSSEL */
+    .carousel-container{
+      width:100%;display:flex;justify-content:center;
+      padding:10px 0;
+    }
+
+    .carousel-card{
       background:var(--card);
-      padding:16px;border-radius:12px;
+      width:92%;max-width:350px;
+      padding:22px;border-radius:14px;
+      text-align:center;
       border:1px solid rgba(255,255,255,0.05);
       box-shadow:var(--shadow);
-      min-width:220px;max-width:360px;
+      transition:opacity .4s ease,transform .4s ease;
     }
-    .card h3{margin:0 0 8px;color:var(--gold);font-size:18px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
 
-    .carousel-wrap{margin:10px 0 28px;overflow:hidden}
-    .carousel{
-      display:flex;gap:14px;
-      overflow:hidden;scroll-behavior:smooth;
+    .carousel-card h3{
+      margin:0;color:var(--gold);font-size:20px;font-weight:700;
+    }
+
+    .carousel-card p{
+      margin:8px 0 18px;color:var(--muted);font-size:14px;
+    }
+
+    .card-btn{
+      display:inline-block;margin-top:10px;
+      background:var(--gold);color:#07101a;
+      padding:10px 16px;border-radius:10px;
+      font-weight:800;text-decoration:none;font-size:14px;
     }
 
     /* FORM */
@@ -119,8 +133,7 @@
     input{
       width:100%;padding:12px;margin:6px 0 14px;
       background:transparent;border:1px solid rgba(255,255,255,0.15);
-      color:white;border-radius:10px;
-      font-size:14px
+      color:white;border-radius:10px;font-size:14px
     }
     .send-btn{
       width:100%;background:var(--gold);
@@ -182,31 +195,25 @@
 
   <!-- SERVIÇOS -->
   <h2 id="servicos" class="section-title">Serviços</h2>
-
-  <div class="carousel-wrap">
-    <div class="carousel" id="carouselServicos">
-      <div class="card"><h3>Elétrica</h3><p>Instalações e manutenção completas.</p></div>
-      <div class="card"><h3>Redes</h3><p>Pontos, roteadores e internet.</p></div>
-      <div class="card"><h3>CFTV</h3><p>Câmeras, DVR e monitoramento.</p></div>
-      <div class="card"><h3>Ar-Condicionado</h3><p>Instalação e higienização.</p></div>
+  <div class="carousel-container">
+    <div class="carousel-card" id="servicosCard">
+      <h3>Elétrica</h3>
+      <p>Instalações e manutenção completas.</p>
+      <a class="card-btn" href="#contato">Solicitar</a>
     </div>
   </div>
 
   <!-- PRODUTOS RÁPIDOS -->
   <h2 id="produtos" class="section-title">Produtos Rápidos</h2>
-
-  <div class="carousel-wrap">
-    <div class="carousel" id="carouselProdutos">
-      <div class="card"><h3>Instalação de Chuveiro</h3><p>Instalação segura.</p></div>
-      <div class="card"><h3>Troca de Tomada</h3><p>Correção e reforço.</p></div>
-      <div class="card"><h3>Luminária / LED</h3><p>Instalação completa.</p></div>
-      <div class="card"><h3>Ventilador</h3><p>Montagem rápida.</p></div>
-      <div class="card"><h3>Disjuntor exclusivo</h3><p>Ideal para ar.</p></div>
-      <div class="card"><h3>Ponto de rede</h3><p>Cabeamento técnico.</p></div>
+  <div class="carousel-container">
+    <div class="carousel-card" id="produtosCard">
+      <h3>Instalação de Chuveiro</h3>
+      <p>Instalação segura e reforçada.</p>
+      <a class="card-btn" href="#contato">Solicitar</a>
     </div>
   </div>
 
-  <!-- FORMULÁRIO -->
+  <!-- FORM -->
   <h2 id="contato" class="section-title">Contato</h2>
 
   <form id="formContato" class="form-card">
@@ -245,23 +252,65 @@ document.getElementById("formContato").addEventListener("submit", e=>{
   window.open(`https://wa.me/5511952544885?text=${encodeURIComponent(msg)}`);
 });
 
-/* CARROSSEL SERVIÇOS (direita) */
-let servX = 0;
-const serv = document.getElementById("carouselServicos");
+/* CARROSSEL SERVIÇOS — trocando um card por vez */
+const servicos = [
+  { titulo: "Elétrica", texto: "Instalações e manutenção completas." },
+  { titulo: "Redes", texto: "Pontos, roteadores e internet." },
+  { titulo: "CFTV", texto: "Câmeras, DVR e monitoramento." },
+  { titulo: "Ar-Condicionado", texto: "Instalação e higienização." }
+];
+
+let servIndex = 0;
+const servCard = document.getElementById("servicosCard");
+
+function updateServico(){
+  servCard.style.opacity = 0;
+  setTimeout(() => {
+    servCard.innerHTML = `
+      <h3>${servicos[servIndex].titulo}</h3>
+      <p>${servicos[servIndex].texto}</p>
+      <a class="card-btn" href="#contato">Solicitar</a>
+    `;
+    servCard.style.opacity = 1;
+  }, 300);
+}
+
 setInterval(()=>{
-  servX -= 240;
-  if(servX < -720) servX = 0;
-  serv.style.transform = `translateX(${servX}px)`;
+  servIndex = (servIndex + 1) % servicos.length;
+  updateServico();
 }, 2500);
 
-/* CARROSSEL PRODUTOS (esquerda) */
-let prodX = 0;
-const prod = document.getElementById("carouselProdutos");
+
+/* CARROSSEL PRODUTOS — esquerda */
+const produtos = [
+  { titulo: "Instalação de Chuveiro", texto: "Instalação segura e reforçada." },
+  { titulo: "Troca de Tomada", texto: "Correção e reforço." },
+  { titulo: "Luminária LED", texto: "Instalação profissional." },
+  { titulo: "Ventilador de Teto", texto: "Montagem completa." },
+  { titulo: "Disjuntor Exclusivo", texto: "Ideal para ar-condicionado." },
+  { titulo: "Ponto de Rede", texto: "Cabeamento estruturado." }
+];
+
+let prodIndex = 0;
+const prodCard = document.getElementById("produtosCard");
+
+function updateProduto(){
+  prodCard.style.opacity = 0;
+  setTimeout(() => {
+    prodCard.innerHTML = `
+      <h3>${produtos[prodIndex].titulo}</h3>
+      <p>${produtos[prodIndex].texto}</p>
+      <a class="card-btn" href="#contato">Solicitar</a>
+    `;
+    prodCard.style.opacity = 1;
+  }, 300);
+}
+
 setInterval(()=>{
-  prodX += 240;
-  if(prodX > 720) prodX = 0;
-  prod.style.transform = `translateX(${prodX}px)`;
+  prodIndex = (prodIndex + 1) % produtos.length;
+  updateProduto();
 }, 2500);
+
 </script>
 
 </body>
