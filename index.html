@@ -105,7 +105,7 @@
     .hero-title{font-size:28px;font-weight:800;margin:0}
     .hero-sub{color:var(--muted);margin:8px 0 12px}
 
-    /* Centered actions: consistent on desktop, adjusted on mobile */
+    /* Centered actions */
     .hero-actions{
       display:flex;
       gap:12px;
@@ -123,7 +123,6 @@
       border-radius:10px;
       text-decoration:none;
       box-sizing:border-box;
-      /* desktop sizing */
       padding:12px 20px;
       font-size:16px;
       min-width:140px;
@@ -132,10 +131,18 @@
     .btn-primary{
       background:var(--gold);color:#07101a;
     }
+
+    /* Improved outline button (ver catálogo) */
     .btn-outline{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
       color:var(--white);
+      backdrop-filter: blur(4px);
+      transition: background .18s ease, transform .12s ease;
+    }
+    .btn-outline:hover{
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
     }
 
     /* TITULOS */
@@ -145,7 +152,7 @@
       letter-spacing:0.6px;font-weight:800
     }
 
-    /* NOVOS CARDS DO CARROSSEL */
+    /* CARDS */
     .carousel-container{
       width:100%;display:flex;justify-content:center;
       padding:10px 0;
@@ -246,7 +253,7 @@
       }
       .hero-title{font-size:22px}
 
-      /* on small screens make buttons side-by-side and proportional */
+      /* buttons side-by-side and proportional on small screens */
       .hero-actions{
         flex-direction:row;
         gap:10px;
@@ -259,19 +266,13 @@
         font-size:14px;
       }
 
-      /* small very narrow screens: slightly reduce hero text padding/size */
-      @media (max-width:420px) {
-        .hero-text{padding:10px;max-width:calc(100% - 24px)}
-        .hero-title{font-size:20px}
-        .btn-primary, .btn-outline {padding:8px 8px;font-size:13px}
-      }
-
       /* Ajuste premium review no mobile */
       .premium-reviews-list {
         flex-direction: column;
         gap: 20px;
         align-items: center;
       }
+
       /* Menu mobile vertical empilhado */
       #mobileMenu {
         flex-direction: column !important;
@@ -280,6 +281,12 @@
       #mobileMenu a {
         border-radius:0;
       }
+    }
+
+    @media (max-width:420px) {
+      .hero-text{padding:10px;max-width:calc(100% - 24px)}
+      .hero-title{font-size:20px}
+      .btn-primary, .btn-outline {padding:8px 8px;font-size:13px}
     }
   </style>
 </head>
@@ -314,7 +321,7 @@
   <section class="hero">
     <img src="hero-eletrica.jpg" class="hero-img" alt="Técnico realizando instalação elétrica">
 
-    <div class="hero-text">
+    <div class="hero-text" role="region" aria-label="Apresentação">
       <h1 class="hero-title">Excelência em Instalações Técnicas</h1>
       <p class="hero-sub">Elétrica • Redes • CFTV • Ar-condicionado — Atendimento premium em São Paulo.</p>
 
@@ -377,13 +384,13 @@
   <h2 id="contato" class="section-title">Contato</h2>
 
   <form id="formContato" class="form-card">
-    <label>Seu nome:</label>
+    <label for="nome">Seu nome:</label>
     <input id="nome" required>
 
-    <label>Serviço desejado:</label>
+    <label for="servico">Serviço desejado:</label>
     <input id="servico" required>
 
-    <label>Bairro / Região:</label>
+    <label for="local">Bairro / Região:</label>
     <input id="local" required>
 
     <button class="send-btn" type="submit">Enviar</button>
@@ -408,14 +415,14 @@ function toggleMenu(){
 /* WHATSAPP FORM */
 document.getElementById("formContato").addEventListener("submit", e=>{
   e.preventDefault();
-  const n = nome.value;
-  const s = servico.value;
-  const l = local.value;
+  const n = document.getElementById("nome").value;
+  const s = document.getElementById("servico").value;
+  const l = document.getElementById("local").value;
   const msg = `Olá, meu nome é ${n}. Quero solicitar: ${s}. Bairro: ${l}.`;
   window.open(`https://wa.me/5511952544885?text=${encodeURIComponent(msg)}`);
 });
 
-/* CARROSSEL SERVIÇOS — trocando um card por vez */
+/* CARROSSEL SERVIÇOS */
 const servicos = [
   { titulo: "Elétrica", texto: "Instalações e manutenção completas." },
   { titulo: "Redes", texto: "Pontos, roteadores e internet." },
@@ -427,6 +434,7 @@ let servIndex = 0;
 const servCard = document.getElementById("servicosCard");
 
 function updateServico(){
+  if (!servCard) return;
   servCard.style.opacity = 0;
   setTimeout(() => {
     servCard.innerHTML = `
@@ -443,8 +451,7 @@ setInterval(()=>{
   updateServico();
 }, 2500);
 
-
-/* CARROSSEL PRODUTOS — esquerda */
+/* CARROSSEL PRODUTOS */
 const produtos = [
   { titulo: "Instalação de Chuveiro", texto: "Instalação segura e reforçada." },
   { titulo: "Troca de Tomada", texto: "Correção e reforço." },
@@ -458,6 +465,7 @@ let prodIndex = 0;
 const prodCard = document.getElementById("produtosCard");
 
 function updateProduto(){
+  if (!prodCard) return;
   prodCard.style.opacity = 0;
   setTimeout(() => {
     prodCard.innerHTML = `
@@ -473,7 +481,6 @@ setInterval(()=>{
   prodIndex = (prodIndex + 1) % produtos.length;
   updateProduto();
 }, 2500);
-
 </script>
 
 </body>
