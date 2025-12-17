@@ -1,486 +1,136 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Patronos Tech — Instalações Elétricas e Soluções Técnicas</title>
-  <meta name="theme-color" content="#020b1a" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Patronos Tech — Manutenção Geral & Marido de Aluguel</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#020b1a;
-      --card:#0b1320;
-      --gold:#d4af37;
-      --white:#ffffff;
-      --muted:#c8cad0;
-      --shadow: 0 10px 30px rgba(0,0,0,0.55);
-      --max-width:980px;
-    }
+<style>
+:root{
+--bg:#020b1a;--card:#0b1320;--gold:#d4af37;--white:#fff;--muted:#c8cad0;
+--shadow:0 10px 30px rgba(0,0,0,.55);--max:980px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,system-ui;background:linear-gradient(180deg,var(--bg),#071224);color:var(--white)}
+.container{max-width:var(--max);margin:auto;padding:16px}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:linear-gradient(180deg,var(--bg) 0%, #071224 100%);
-      color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      line-height:1.45;
-    }
+header{position:sticky;top:0;background:rgba(2,6,26,.95);z-index:9}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,#fff,var(--gold));
+-webkit-background-clip:text;color:transparent}
 
-    .container{max-width:var(--max-width);margin:0 auto;padding:16px;}
+.hero{margin-top:16px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+.hero img{width:100%;height:300px;object-fit:cover}
+.hero-text{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));
+display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:16px}
+.hero-text h1{margin:0;font-size:26px}
+.hero-text p{color:var(--muted);margin:10px 0}
 
-    /* HEADER */
-    header.site-header{
-      position:sticky;top:0;z-index:1200;
-      background:rgba(2,6,26,0.94);
-      backdrop-filter:blur(6px);
-      border-bottom:1px solid rgba(255,255,255,0.03);
-    }
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-    .brand .logo{
-      font-weight:800;font-size:20px;
-      background:linear-gradient(90deg,#fff,var(--gold));
-      -webkit-background-clip:text;color:transparent
-    }
-    nav.desktop{display:flex;gap:14px;align-items:center}
-    nav.desktop a{
-      color:var(--muted);text-decoration:none;
-      font-weight:600;padding:8px;border-radius:8px
-    }
-    nav.desktop a:hover{color:var(--white)}
+.btn{background:var(--gold);color:#07101a;padding:14px 22px;border-radius:12px;
+font-weight:800;text-decoration:none;margin-top:10px;display:inline-block}
 
-    .menu-btn{
-      display:none;
-      font-size:26px;
-      color:var(--gold);
-      cursor:pointer;
-      border-radius:8px;
-      padding:6px;
-      background:transparent;
-      border:0;
-    }
+h2{color:var(--gold);font-size:18px;margin:28px 0 12px;text-transform:uppercase}
 
-    /* MOBILE MENU */
-    #mobileMenu{
-      display:none;
-      background:var(--card);
-      flex-direction:column;
-      box-shadow: var(--shadow);
-      border-radius: 0 0 16px 16px;
-    }
-    #mobileMenu.open{
-      display:flex;
-    }
-    #mobileMenu a{
-      display:block;
-      padding:14px 16px;
-      color:var(--white);
-      text-decoration:none;
-      font-weight:700;
-      border-bottom:1px solid rgba(255,255,255,0.1);
-    }
+.carousel{display:flex;justify-content:center}
+.card{background:var(--card);border-radius:14px;padding:22px;max-width:360px;width:100%;
+box-shadow:var(--shadow);text-align:center;transition:.4s}
+.card h3{color:var(--gold);margin:0}
+.card p{color:var(--muted)}
+.card a{margin-top:10px;display:inline-block}
 
-    /* HERO */
-    .hero{
-      margin-top:18px;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);
-      position: relative;
-    }
-    .hero-img{width:100%;height:360px;object-fit:cover;display:block}
-    .hero-text{
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      padding: 18px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.72));
-      width: calc(100% - 40px);
-      max-width: 820px;
-      border-radius: 8px;
-      text-align: center;
-      z-index: 2;
-    }
-    .hero-title{font-size:28px;font-weight:800;margin:0}
-    .hero-sub{color:var(--muted);margin:8px 0 12px}
+.form-card{background:var(--card);padding:20px;border-radius:14px;box-shadow:var(--shadow)}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
+background:transparent;color:#fff;margin-bottom:12px}
 
-    /* Centered actions */
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .btn-primary, .btn-outline {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      white-space:nowrap;
-      font-weight:800;
-      border-radius:10px;
-      text-decoration:none;
-      box-sizing:border-box;
-      padding:12px 20px;
-      font-size:16px;
-      min-width:140px;
-    }
-
-    .btn-primary{
-      background:var(--gold);color:#07101a;
-    }
-
-    /* Improved outline button (ver catálogo) */
-    .btn-outline{
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.14);
-      color:var(--white);
-      backdrop-filter: blur(4px);
-      transition: background .18s ease, transform .12s ease;
-    }
-    .btn-outline:hover{
-      background: rgba(255,255,255,0.12);
-      transform: translateY(-2px);
-    }
-
-    /* TITULOS */
-    h2.section-title{
-      font-size:18px;color:var(--gold);
-      margin:26px 0 12px;text-transform:uppercase;
-      letter-spacing:0.6px;font-weight:800
-    }
-
-    /* CARDS */
-    .carousel-container{
-      width:100%;display:flex;justify-content:center;
-      padding:10px 0;
-    }
-
-    .carousel-card{
-      background:var(--card);
-      width:92%;max-width:350px;
-      padding:22px;border-radius:14px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.05);
-      box-shadow:var(--shadow);
-      transition:opacity .4s ease,transform .4s ease;
-    }
-
-    .carousel-card h3{
-      margin:0;color:var(--gold);font-size:20px;font-weight:700;
-    }
-
-    .carousel-card p{
-      margin:8px 0 18px;color:var(--muted);font-size:14px;
-    }
-
-    .card-btn{
-      display:inline-block;margin-top:10px;
-      background:var(--gold);color:#07101a;
-      padding:10px 16px;border-radius:10px;
-      font-weight:800;text-decoration:none;font-size:14px;
-    }
-
-    /* DEPOIMENTOS PREMIUM */
-    .premium-reviews-section {
-      margin-top:32px;
-      margin-bottom:32px;
-    }
-    .premium-reviews-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
-    }
-    .premium-review-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      max-width: 330px;
-      padding: 22px 24px;
-      text-align: left;
-      position: relative;
-    }
-    .premium-stars {
-      color: var(--gold);
-      font-size: 19px;
-      letter-spacing: 2px;
-      margin-bottom: 7px;
-      display: block;
-    }
-    .premium-review-text {
-      color: var(--muted);
-      margin-bottom: 14px;
-      font-size: 15px;
-      font-family: 'Poppins', system-ui, Arial;
-    }
-    .premium-review-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    /* FORM */
-    .form-card{
-      background:var(--card);padding:16px;border-radius:12px;
-      box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.05)
-    }
-    input{
-      width:100%;padding:12px;margin:6px 0 14px;
-      background:transparent;border:1px solid rgba(255,255,255,0.15);
-      color:white;border-radius:10px;font-size:14px
-    }
-    .send-btn{
-      width:100%;background:var(--gold);
-      border:0;border-radius:10px;font-weight:800;
-      padding:14px;color:#07101a;cursor:pointer
-    }
-
-    /* RESPONSIVO */
-    @media(max-width:740px){
-      .menu-btn{display:block}
-      nav.desktop{display:none}
-      .hero-img{height:230px}
-      .hero-text{
-        top:55%;
-        transform:translate(-50%,-50%);
-        padding:14px;
-        width: calc(100% - 32px);
-        max-width: 760px;
-      }
-      .hero-title{font-size:22px}
-
-      /* buttons side-by-side and proportional on small screens */
-      .hero-actions{
-        flex-direction:row;
-        gap:10px;
-        align-items:center;
-      }
-      .btn-primary, .btn-outline {
-        flex: 1 1 0;
-        min-width:0;
-        padding:8px 10px;
-        font-size:14px;
-      }
-
-      /* Ajuste premium review no mobile */
-      .premium-reviews-list {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-      }
-
-      /* Menu mobile vertical empilhado */
-      #mobileMenu {
-        flex-direction: column !important;
-        border-radius: 0 0 16px 16px;
-      }
-      #mobileMenu a {
-        border-radius:0;
-      }
-    }
-
-    @media (max-width:420px) {
-      .hero-text{padding:10px;max-width:calc(100% - 24px)}
-      .hero-title{font-size:20px}
-      .btn-primary, .btn-outline {padding:8px 8px;font-size:13px}
-    }
-  </style>
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+</style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="brand"><div class="logo">Patronos Tech</div></div>
-
-    <nav class="desktop">
-      <a href="#servicos">Serviços</a>
-      <a href="#produtos">Produtos Rápidos</a>
-      <a href="produtos.html">Catálogo Completo</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
-    <button class="menu-btn" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
-  </div>
-
-  <div id="mobileMenu" aria-hidden="true">
-    <a href="#servicos" onclick="toggleMenu()">Serviços</a>
-    <a href="#produtos" onclick="toggleMenu()">Produtos Rápidos</a>
-    <a href="produtos.html" onclick="toggleMenu()">Catálogo Completo</a>
-    <a href="#contato" onclick="toggleMenu()">Contato</a>
-  </div>
+<header>
+<div class="container header-inner">
+<div class="logo">Patronos Tech</div>
+<a class="btn" href="https://wa.me/5511952544885">WhatsApp</a>
+</div>
 </header>
 
 <main class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="hero-eletrica.jpg" class="hero-img" alt="Técnico realizando instalação elétrica">
+<section class="hero">
+<img src="hero-eletrica.jpg" alt="Manutenção Geral">
+<div class="hero-text">
+<h1>Manutenção Geral Residencial & Predial</h1>
+<p>Elétrica • Reparos • Marido de Aluguel<br>Atendimento rápido e de confiança</p>
+<a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
+</div>
+</section>
 
-    <div class="hero-text" role="region" aria-label="Apresentação">
-      <h1 class="hero-title">Excelência em Instalações Técnicas</h1>
-      <p class="hero-sub">Elétrica • Redes • CFTV • Ar-condicionado — Atendimento premium em São Paulo.</p>
+<h2>Serviços Mais Procurados</h2>
+<div class="carousel"><div class="card" id="servicosCard"></div></div>
 
-      <div class="hero-actions">
-        <a class="btn-primary" href="#contato">Solicitar Orçamento</a>
-        <a class="btn-outline" href="produtos.html">Ver catálogo completo</a>
-      </div>
-    </div>
-  </section>
+<h2>Produtos / Reparos Rápidos</h2>
+<div class="carousel"><div class="card" id="produtosCard"></div></div>
 
-  <!-- SERVIÇOS -->
-  <h2 id="servicos" class="section-title">Serviços</h2>
-  <div class="carousel-container">
-    <div class="carousel-card" id="servicosCard">
-      <h3>Elétrica</h3>
-      <p>Instalações e manutenção completas.</p>
-      <a class="card-btn" href="#contato">Solicitar</a>
-    </div>
-  </div>
-
-  <!-- PRODUTOS RÁPIDOS -->
-  <h2 id="produtos" class="section-title">Produtos Rápidos</h2>
-  <div class="carousel-container">
-    <div class="carousel-card" id="produtosCard">
-      <h3>Instalação de Chuveiro</h3>
-      <p>Instalação segura e reforçada.</p>
-      <a class="card-btn" href="#contato">Solicitar</a>
-    </div>
-  </div>
-
-  <!-- DEPOIMENTOS PREMIUM -->
-  <section class="premium-reviews-section">
-    <h2 class="section-title" id="depoimentos">Depoimentos de Clientes</h2>
-    <div class="premium-reviews-list">
-      <div class="premium-review-card">
-        <span class="premium-stars">★★★★★</span>
-        <div class="premium-review-text">
-          Serviço incrível! Atendimento rápido, profissional e solução perfeita. Recomendo muito a Patronos Tech!
-        </div>
-        <div class="premium-review-name">Daniel A.</div>
-      </div>
-      <div class="premium-review-card">
-        <span class="premium-stars">★★★★★</span>
-        <div class="premium-review-text">
-          Equipe confiável, explicaram tudo direitinho. Ar-condicionado funcionando como nunca. 5 estrelas!
-        </div>
-        <div class="premium-review-name">Juliana P.</div>
-      </div>
-      <div class="premium-review-card">
-        <span class="premium-stars">★★★★★</span>
-        <div class="premium-review-text">
-          Sou cliente há anos, sempre resolvem rápido e com qualidade premium! Super recomendo.
-        </div>
-        <div class="premium-review-name">Rodrigo S.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM -->
-  <h2 id="contato" class="section-title">Contato</h2>
-
-  <form id="formContato" class="form-card">
-    <label for="nome">Seu nome:</label>
-    <input id="nome" required>
-
-    <label for="servico">Serviço desejado:</label>
-    <input id="servico" required>
-
-    <label for="local">Bairro / Região:</label>
-    <input id="local" required>
-
-    <button class="send-btn" type="submit">Enviar</button>
-  </form>
+<h2>Contato Rápido</h2>
+<form class="form-card" id="formContato">
+<input id="nome" placeholder="Seu nome" required>
+<input id="servico" placeholder="Serviço desejado" required>
+<input id="local" placeholder="Bairro / Região" required>
+<button class="btn" type="submit">Enviar no WhatsApp</button>
+</form>
 
 </main>
 
-<footer style="text-align:center;padding:22px;color:var(--muted);font-size:13px;">
-  © 2025 Patronos Tech — Excelência em Instalações Técnicas
+<footer>
+© 2025 Patronos Tech — Manutenção Geral & Marido de Aluguel
 </footer>
 
 <script>
-/* MENU MOBILE (acessível) */
-function toggleMenu(){
-  const m = document.getElementById("mobileMenu");
-  const btn = document.querySelector(".menu-btn");
-  const open = m.classList.toggle("open");
-  btn.setAttribute("aria-expanded", open);
-  m.setAttribute("aria-hidden", !open);
+const whatsapp = "https://wa.me/5511952544885";
+
+const servicos=[
+{t:"Troca de Torneira",d:"Residencial e comercial"},
+{t:"Reparo de Vazamento",d:"Conserto rápido"},
+{t:"Troca de Fechadura",d:"Portas e portões"},
+{t:"Instalação de Chuveiro",d:"Segurança elétrica"},
+{t:"Manutenção Predial",d:"Pequenos reparos"}
+];
+
+const produtos=[
+{t:"Instalação de Quadros",d:"Fixação segura"},
+{t:"Cortinas e Varal",d:"Parede ou teto"},
+{t:"Troca de Tomada",d:"Correção elétrica"},
+{t:"Luminária LED",d:"Instalação completa"},
+{t:"Ajuste de Porta",d:"Alinhamento"}
+];
+
+let si=0,pi=0;
+const sCard=document.getElementById("servicosCard");
+const pCard=document.getElementById("produtosCard");
+
+function render(card,item){
+card.style.opacity=0;
+setTimeout(()=>{
+card.innerHTML=`<h3>${item.t}</h3><p>${item.d}</p>
+<a class="btn" href="${whatsapp}">Solicitar</a>`;
+card.style.opacity=1;
+},300);
 }
 
-/* WHATSAPP FORM */
-document.getElementById("formContato").addEventListener("submit", e=>{
-  e.preventDefault();
-  const n = document.getElementById("nome").value;
-  const s = document.getElementById("servico").value;
-  const l = document.getElementById("local").value;
-  const msg = `Olá, meu nome é ${n}. Quero solicitar: ${s}. Bairro: ${l}.`;
-  window.open(`https://wa.me/5511952544885?text=${encodeURIComponent(msg)}`);
+render(sCard,servicos[0]);
+render(pCard,produtos[0]);
+
+setInterval(()=>{si=(si+1)%servicos.length;render(sCard,servicos[si]);},2500);
+setInterval(()=>{pi=(pi+1)%produtos.length;render(pCard,produtos[pi]);},2500);
+
+document.getElementById("formContato").addEventListener("submit",e=>{
+e.preventDefault();
+const n=nome.value,s=servico.value,l=local.value;
+const msg=`Olá, me chamo ${n}. Preciso do serviço: ${s}. Local: ${l}.`;
+window.open(`${whatsapp}?text=${encodeURIComponent(msg)}`);
 });
-
-/* CARROSSEL SERVIÇOS */
-const servicos = [
-  { titulo: "Elétrica", texto: "Instalações e manutenção completas." },
-  { titulo: "Redes", texto: "Pontos, roteadores e internet." },
-  { titulo: "CFTV", texto: "Câmeras, DVR e monitoramento." },
-  { titulo: "Ar-Condicionado", texto: "Instalação e higienização." }
-];
-
-let servIndex = 0;
-const servCard = document.getElementById("servicosCard");
-
-function updateServico(){
-  if (!servCard) return;
-  servCard.style.opacity = 0;
-  setTimeout(() => {
-    servCard.innerHTML = `
-      <h3>${servicos[servIndex].titulo}</h3>
-      <p>${servicos[servIndex].texto}</p>
-      <a class="card-btn" href="#contato">Solicitar</a>
-    `;
-    servCard.style.opacity = 1;
-  }, 300);
-}
-
-setInterval(()=>{
-  servIndex = (servIndex + 1) % servicos.length;
-  updateServico();
-}, 2500);
-
-/* CARROSSEL PRODUTOS */
-const produtos = [
-  { titulo: "Instalação de Chuveiro", texto: "Instalação segura e reforçada." },
-  { titulo: "Troca de Tomada", texto: "Correção e reforço." },
-  { titulo: "Luminária LED", texto: "Instalação profissional." },
-  { titulo: "Ventilador de Teto", texto: "Montagem completa." },
-  { titulo: "Disjuntor Exclusivo", texto: "Ideal para ar-condicionado." },
-  { titulo: "Ponto de Rede", texto: "Cabeamento estruturado." }
-];
-
-let prodIndex = 0;
-const prodCard = document.getElementById("produtosCard");
-
-function updateProduto(){
-  if (!prodCard) return;
-  prodCard.style.opacity = 0;
-  setTimeout(() => {
-    prodCard.innerHTML = `
-      <h3>${produtos[prodIndex].titulo}</h3>
-      <p>${produtos[prodIndex].texto}</p>
-      <a class="card-btn" href="#contato">Solicitar</a>
-    `;
-    prodCard.style.opacity = 1;
-  }, 300);
-}
-
-setInterval(()=>{
-  prodIndex = (prodIndex + 1) % produtos.length;
-  updateProduto();
-}, 2500);
 </script>
 
 </body>
