@@ -55,15 +55,22 @@ h2{text-align:center;color:var(--amarelo);margin-bottom:30px;font-size:2rem}
 /* CARROSSEL */
 .carousel{overflow:hidden}
 .carousel-track{display:flex;gap:20px}
+
+/* CARD PADRONIZADO */
 .card{
   min-width:260px;
+  height:260px;
   background:var(--azul-card);
   padding:25px;
   border-radius:20px;
   flex-shrink:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
-.card h3{color:var(--amarelo);margin-bottom:10px}
-.card p{font-size:.95rem;margin-bottom:15px}
+.card h3{color:var(--amarelo)}
+.card p{font-size:.95rem}
 
 /* DEPOIMENTOS */
 .depoimentos{
@@ -93,42 +100,25 @@ h2{text-align:center;color:var(--amarelo);margin-bottom:30px;font-size:2rem}
 <div class="hero">
   <div class="hero-content">
     <h1>Serviços Patronos Tech</h1>
-    <p>Soluções técnicas, manutenção geral e serviços do dia a dia com atendimento rápido.</p>
+    <p>Soluções técnicas, manutenção geral e serviços do dia a dia em um só lugar.</p>
     <a class="btn" href="https://wa.me/5511952544885?text=Olá! Quero solicitar um serviço.">Falar no WhatsApp</a>
   </div>
 </div>
 
-<!-- INSTALAÇÕES TÉCNICAS (ÁREAS) -->
+<!-- INSTALAÇÕES TÉCNICAS -->
 <section id="instalacoes">
 <h2>Instalações Técnicas</h2>
 <div class="carousel auto">
   <div class="carousel-track">
-    <div class="card">
-      <h3>Elétrica</h3>
-      <p>Instalações, adequações e melhorias elétricas residenciais e comerciais.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de elétrica">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>CFTV</h3>
-      <p>Instalação de câmeras, monitoramento e organização de sistemas.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de CFTV">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>Telecomunicações</h3>
-      <p>Cabeamento, rede, telefonia e infraestrutura técnica.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de telecomunicações">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>Ar-Condicionado</h3>
-      <p>Instalação, troca e adequação de pontos.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de ar-condicionado">Solicitar</a>
-    </div>
+    <div class="card"><h3>Elétrica</h3><p>Instalações e adequações elétricas residenciais e comerciais.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de elétrica">Solicitar</a></div>
+    <div class="card"><h3>CFTV</h3><p>Instalação de câmeras e sistemas de monitoramento.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de CFTV">Solicitar</a></div>
+    <div class="card"><h3>Telecomunicações</h3><p>Cabeamento, rede e telefonia estruturada.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de telecomunicações">Solicitar</a></div>
+    <div class="card"><h3>Ar-Condicionado</h3><p>Instalação, troca e adequação de pontos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero serviços de ar-condicionado">Solicitar</a></div>
 
-    <!-- duplicação para loop -->
-    <div class="card"><h3>Elétrica</h3><p>Instalações e adequações elétricas.</p><a class="btn" href="#">Solicitar</a></div>
-    <div class="card"><h3>CFTV</h3><p>Instalação de câmeras.</p><a class="btn" href="#">Solicitar</a></div>
-    <div class="card"><h3>Telecomunicações</h3><p>Cabeamento e rede.</p><a class="btn" href="#">Solicitar</a></div>
-    <div class="card"><h3>Ar-Condicionado</h3><p>Instalação e troca.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>Elétrica</h3><p>Instalações elétricas.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>CFTV</h3><p>Monitoramento.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>Telecom</h3><p>Infraestrutura.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>Ar</h3><p>Instalação.</p><a class="btn" href="#">Solicitar</a></div>
   </div>
 </div>
 </section>
@@ -138,25 +128,13 @@ h2{text-align:center;color:var(--amarelo);margin-bottom:30px;font-size:2rem}
 <h2>Manutenção Geral</h2>
 <div class="carousel auto">
   <div class="carousel-track">
-    <div class="card">
-      <h3>Troca de Torneira</h3>
-      <p>Substituição e ajustes hidráulicos.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero troca de torneira">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>Instalação de Luminária</h3>
-      <p>Troca e instalação de iluminação.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero instalação de luminária">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>Ajustes Gerais</h3>
-      <p>Portas, fechaduras e pequenos reparos.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero ajustes gerais">Solicitar</a>
-    </div>
+    <div class="card"><h3>Troca de Torneira</h3><p>Substituição e ajustes hidráulicos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero troca de torneira">Solicitar</a></div>
+    <div class="card"><h3>Luminárias</h3><p>Instalação e substituição.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero instalação de luminária">Solicitar</a></div>
+    <div class="card"><h3>Ajustes Gerais</h3><p>Portas, fechaduras e pequenos reparos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero ajustes gerais">Solicitar</a></div>
 
-    <div class="card"><h3>Troca de Torneira</h3><p>Serviço hidráulico.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>Torneira</h3><p>Troca.</p><a class="btn" href="#">Solicitar</a></div>
     <div class="card"><h3>Luminária</h3><p>Instalação.</p><a class="btn" href="#">Solicitar</a></div>
-    <div class="card"><h3>Ajustes</h3><p>Pequenos reparos.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>Ajustes</h3><p>Reparos.</p><a class="btn" href="#">Solicitar</a></div>
   </div>
 </div>
 </section>
@@ -166,23 +144,11 @@ h2{text-align:center;color:var(--amarelo);margin-bottom:30px;font-size:2rem}
 <h2>Marido de Aluguel</h2>
 <div class="carousel auto">
   <div class="carousel-track">
-    <div class="card">
-      <h3>Troca de Lâmpadas LED</h3>
-      <p>Substituição segura e rápida.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero troca de lâmpadas LED">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>Troca de Chuveiro</h3>
-      <p>Instalação e substituição.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero troca de chuveiro">Solicitar</a>
-    </div>
-    <div class="card">
-      <h3>Limpeza de Caixa d’Água</h3>
-      <p>Serviço simples e essencial.</p>
-      <a class="btn" href="https://wa.me/5511952544885?text=Quero limpeza de caixa d'água">Solicitar</a>
-    </div>
+    <div class="card"><h3>Troca de Lâmpadas LED</h3><p>Substituição rápida e segura.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero troca de lâmpadas LED">Solicitar</a></div>
+    <div class="card"><h3>Troca de Chuveiro</h3><p>Instalação e substituição.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero troca de chuveiro">Solicitar</a></div>
+    <div class="card"><h3>Limpeza de Caixa d’Água</h3><p>Serviço essencial residencial.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero limpeza de caixa d'água">Solicitar</a></div>
 
-    <div class="card"><h3>Lâmpadas LED</h3><p>Troca.</p><a class="btn" href="#">Solicitar</a></div>
+    <div class="card"><h3>Lâmpadas</h3><p>Troca.</p><a class="btn" href="#">Solicitar</a></div>
     <div class="card"><h3>Chuveiro</h3><p>Substituição.</p><a class="btn" href="#">Solicitar</a></div>
     <div class="card"><h3>Caixa d’Água</h3><p>Limpeza.</p><a class="btn" href="#">Solicitar</a></div>
   </div>
@@ -195,18 +161,18 @@ h2{text-align:center;color:var(--amarelo);margin-bottom:30px;font-size:2rem}
 <div class="depoimentos">
   <div class="depo-card">
     <div class="stars">★★★★★</div>
-    <strong>Carlos Henrique – Cotia</strong>
-    <p>Serviço rápido, organizado e de confiança.</p>
+    <strong>Síndico – Condomínio Residencial</strong>
+    <p>Atendimento rápido, organização e confiança para serviços recorrentes.</p>
   </div>
   <div class="depo-card">
     <div class="stars">★★★★★</div>
-    <strong>Juliana Souza – Zona Oeste SP</strong>
-    <p>Resolveu tudo no mesmo dia. Excelente atendimento.</p>
+    <strong>Empresa Comercial – Zona Oeste</strong>
+    <p>Serviços técnicos bem executados e ótima comunicação.</p>
   </div>
   <div class="depo-card">
     <div class="stars">★★★★★</div>
-    <strong>Marcos Lima – Vargem Grande Paulista</strong>
-    <p>Profissional sério e preço justo.</p>
+    <strong>Ana Paula – Pessoa Física</strong>
+    <p>Resolveu vários reparos da minha casa em uma única visita.</p>
   </div>
 </div>
 </section>
