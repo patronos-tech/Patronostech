@@ -13,7 +13,12 @@
   --texto:#ffffff;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, Helvetica, sans-serif;
+}
 
 body{
   background:var(--azul);
@@ -59,7 +64,7 @@ body{
   text-decoration:none;
 }
 
-/* SECTIONS */
+/* SEÇÕES */
 section{
   padding:60px 20px;
 }
@@ -70,25 +75,14 @@ h2{
   font-size:2rem;
 }
 
-/* CAROUSEL */
+/* CARROSSEL */
 .carousel{
   overflow:hidden;
 }
 .carousel-track{
   display:flex;
   gap:20px;
-  animation:scroll 12s linear infinite;
 }
-.carousel:hover .carousel-track{
-  animation-play-state:paused;
-}
-
-@keyframes scroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* CARD */
 .card{
   min-width:260px;
   background:var(--azul-card);
@@ -116,7 +110,7 @@ h2{
 
 /* PARCERIAS */
 .parcerias{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
   background:var(--azul-card);
   padding:40px;
@@ -131,7 +125,6 @@ h2{
 /* RESPONSIVO */
 @media(max-width:768px){
   .hero h1{font-size:1.8rem;}
-  .carousel-track{animation-duration:14s;}
 }
 </style>
 </head>
@@ -147,15 +140,16 @@ h2{
   </div>
 </div>
 
-<!-- INSTALAÇÕES -->
+<!-- INSTALAÇÕES TÉCNICAS -->
 <section id="instalacoes">
 <h2>Instalações Técnicas</h2>
-<div class="carousel">
+<div class="carousel auto">
   <div class="carousel-track">
     <div class="card"><h3>Quadro Elétrico</h3><p>Instalação e organização.</p><a href="https://wa.me/5511952544885?text=Quero instalação de quadro elétrico">Solicitar</a></div>
     <div class="card"><h3>Chuveiro 220V</h3><p>Instalação segura.</p><a href="https://wa.me/5511952544885?text=Quero instalação de chuveiro 220V">Solicitar</a></div>
     <div class="card"><h3>Tomadas</h3><p>Instalação e troca.</p><a href="https://wa.me/5511952544885?text=Quero instalação de tomadas">Solicitar</a></div>
 
+    <!-- duplicados para loop -->
     <div class="card"><h3>Quadro Elétrico</h3><p>Instalação e organização.</p><a href="#">Solicitar</a></div>
     <div class="card"><h3>Chuveiro 220V</h3><p>Instalação segura.</p><a href="#">Solicitar</a></div>
     <div class="card"><h3>Tomadas</h3><p>Instalação e troca.</p><a href="#">Solicitar</a></div>
@@ -163,19 +157,92 @@ h2{
 </div>
 </section>
 
+<!-- CFTV -->
+<section id="cftv">
+<h2>CFTV e Segurança</h2>
+<div class="carousel auto">
+  <div class="carousel-track">
+    <div class="card"><h3>Instalação de Câmeras</h3><p>Residencial e comercial.</p><a href="https://wa.me/5511952544885?text=Quero instalação de câmeras">Solicitar</a></div>
+    <div class="card"><h3>Cabeamento</h3><p>Passagem organizada.</p><a href="https://wa.me/5511952544885?text=Quero cabeamento CFTV">Solicitar</a></div>
+
+    <div class="card"><h3>Instalação de Câmeras</h3><p>Residencial e comercial.</p><a href="#">Solicitar</a></div>
+    <div class="card"><h3>Cabeamento</h3><p>Passagem organizada.</p><a href="#">Solicitar</a></div>
+  </div>
+</div>
+</section>
+
+<!-- MANUTENÇÃO GERAL -->
+<section id="manutencao">
+<h2>Manutenção Geral</h2>
+<div class="carousel auto">
+  <div class="carousel-track">
+    <div class="card"><h3>Troca de Torneira</h3><p>Instalação hidráulica.</p><a href="https://wa.me/5511952544885?text=Quero troca de torneira">Solicitar</a></div>
+    <div class="card"><h3>Reparo Hidráulico</h3><p>Vazamentos e ajustes.</p><a href="https://wa.me/5511952544885?text=Quero reparo hidráulico">Solicitar</a></div>
+    <div class="card"><h3>Instalação de Luminária</h3><p>Troca e instalação.</p><a href="https://wa.me/5511952544885?text=Quero instalação de luminária">Solicitar</a></div>
+
+    <div class="card"><h3>Troca de Torneira</h3><p>Instalação hidráulica.</p><a href="#">Solicitar</a></div>
+    <div class="card"><h3>Reparo Hidráulico</h3><p>Vazamentos e ajustes.</p><a href="#">Solicitar</a></div>
+    <div class="card"><h3>Instalação de Luminária</h3><p>Troca e instalação.</p><a href="#">Solicitar</a></div>
+  </div>
+</div>
+</section>
+
+<!-- MARIDO DE ALUGUEL -->
+<section id="marido">
+<h2>Marido de Aluguel</h2>
+<div class="carousel auto">
+  <div class="carousel-track">
+    <div class="card"><h3>Instalação de Forro</h3><p>Residencial.</p><a href="https://wa.me/5511952544885?text=Quero instalação de forro">Solicitar</a></div>
+    <div class="card"><h3>Pequenos Reparos</h3><p>Dia a dia.</p><a href="https://wa.me/5511952544885?text=Quero pequenos reparos">Solicitar</a></div>
+
+    <div class="card"><h3>Instalação de Forro</h3><p>Residencial.</p><a href="#">Solicitar</a></div>
+    <div class="card"><h3>Pequenos Reparos</h3><p>Dia a dia.</p><a href="#">Solicitar</a></div>
+  </div>
+</div>
+</section>
+
 <!-- PARCERIAS -->
-<section>
+<section id="parcerias">
 <h2>Parcerias Profissionais</h2>
 <div class="parcerias">
-  <p>✅ Indique serviços que você não executa</p>
-  <p>✅ Ganhe comissão por cada serviço fechado</p>
-  <p>✅ Parceria sem custo e sem burocracia</p>
-  <p>✅ Atendimento profissional e transparente</p>
-  <p>✅ Ideal para eletricistas, pedreiros, encanadores e técnicos</p>
+  <p>✔️ Indique serviços que você não executa</p>
+  <p>✔️ Receba comissão por cada serviço fechado</p>
+  <p>✔️ Ideal para eletricistas, pedreiros, encanadores e técnicos</p>
+  <p>✔️ Sem custo, sem contrato e sem exclusividade</p>
+  <p><strong>Exemplo:</strong><br>
+  Você é eletricista e seu cliente pede CFTV ou manutenção geral.<br>
+  Você indica a Patronos Tech.<br>
+  O serviço é fechado.<br>
+  <strong>Você recebe pela indicação.</strong></p>
 
   <a class="btn" href="https://wa.me/5511952544885?text=Olá! Sou profissional e quero ser parceiro da Patronos Tech">Quero ser parceiro</a>
 </div>
 </section>
+
+<!-- SCRIPT CARROSSEL -->
+<script>
+document.querySelectorAll('.carousel.auto').forEach(carousel=>{
+  const track = carousel.querySelector('.carousel-track');
+  let speed = 0.7;
+  let paused = false;
+
+  carousel.addEventListener('mouseenter',()=>paused=true);
+  carousel.addEventListener('mouseleave',()=>paused=false);
+  carousel.addEventListener('touchstart',()=>paused=true);
+  carousel.addEventListener('touchend',()=>paused=false);
+
+  function animate(){
+    if(!paused){
+      carousel.scrollLeft += speed;
+      if(carousel.scrollLeft >= track.scrollWidth / 2){
+        carousel.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+});
+</script>
 
 </body>
 </html>
