@@ -2,160 +2,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Produtos e Serviços | Patronos Tech</title>
-  <meta name="description" content="Instalações técnicas, manutenção geral, marido de aluguel e parcerias profissionais. Atendimento residencial e predial." />  <style>
-    body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#0e0e0e; color:#fff; }
-    a { text-decoration:none; color:inherit; }
-    section { padding:60px 20px; }
-    h1,h2,h3 { margin-bottom:10px; }
-    h2 { font-size:28px; text-align:center; }
-    p { color:#ccc; }
-
-    .hero { text-align:center; background:linear-gradient(135deg,#1e90ff,#00bcd4); }
-    .hero h1 { font-size:34px; }
-
-    .carousel { display:flex; gap:20px; overflow-x:auto; scroll-behavior:smooth; padding:20px 0; }
-    .carousel::-webkit-scrollbar { display:none; }
-
-    .card {
-      min-width:280px;
-      background:#1c1c1c;
-      border-radius:16px;
-      padding:20px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  <title>Produtos e Serviços | Patronos Tech</title>  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1d33;
+      color: #ffffff;
     }
 
-    .card h3 { color:#1e90ff; }
-    .card ul { padding-left:18px; color:#bbb; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('hero-tecnico.png') center/cover no-repeat;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+    }
 
     .btn {
-      display:block;
-      margin-top:15px;
-      padding:12px;
-      background:#25d366;
-      color:#000;
-      text-align:center;
-      border-radius:30px;
-      font-weight:bold;
+      background: #f5c542;
+      color: #000;
+      padding: 14px 26px;
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-block;
     }
 
-    .divider { border-top:1px solid #333; margin:40px 0; }
+    section {
+      padding: 60px 20px;
+    }
 
-    .parcerias { background:#121212; }
-    .vantagens { display:grid; gap:15px; max-width:700px; margin:0 auto; }
-    .vantagens div { background:#1c1c1c; padding:15px; border-radius:12px; }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f5c542;
+    }
 
-    footer { background:#000; padding:30px; text-align:center; color:#777; }
+    /* CARROSSEL */
+    .carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      background: #102b46;
+      min-width: 260px;
+      border-radius: 16px;
+      padding: 20px;
+      scroll-snap-align: start;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #f5c542;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .card .btn {
+      margin-top: 15px;
+    }
+
+    /* PARCERIAS */
+    .parcerias {
+      background: #081626;
+      border-top: 1px solid #1c3554;
+    }
+
+    .parcerias p {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
   </style></head>
-<body><!-- HERO --><section class="hero">
-  <h1>Nossos Serviços</h1>
-  <p>Instalações técnicas, manutenção geral e reparos residenciais e prediais</p>
-</section><!-- INSTALAÇÕES TÉCNICAS --><section id="instalacoes">
-  <h2>Instalações Técnicas</h2>
-  <div class="carousel"><div class="card">
-  <h3>⚡ Elétrica</h3>
-  <ul>
-    <li>Instalação de quadro de distribuição</li>
-    <li>Instalação de chuveiro</li>
-    <li>Tomadas 220V</li>
-    <li>Troca de disjuntores</li>
-    <li>Correções elétricas</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para serviço de Elétrica.">Solicitar no WhatsApp</a>
-</div>
+<body>  <!-- HERO -->  <section class="hero">
+    <div>
+      <h1>Produtos e Serviços Patronos Tech</h1>
+      <p>Instalações técnicas, manutenção geral e marido de aluguel com atendimento direto pelo WhatsApp.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20informações%20sobre%20seus%20serviços">Falar no WhatsApp</a>
+    </div>
+  </section>  <!-- INSTALAÇÕES TÉCNICAS -->  <section id="instalacoes">
+    <h2>Instalações Técnicas</h2>
+    <div class="carousel auto">
+      <div class="card"><h3>Instalação de Quadro Elétrico</h3><p>Montagem, organização e segurança elétrica.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalação%20de%20quadro%20elétrico">Solicitar</a></div>
+      <div class="card"><h3>Tomadas e Chuveiro 220v</h3><p>Instalação correta e dentro das normas.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalação%20de%20tomadas%20ou%20chuveiro%20220v">Solicitar</a></div>
+      <div class="card"><h3>CFTV e Câmeras</h3><p>Instalação de câmeras e passagem de cabos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalação%20de%20câmeras%20CFTV">Solicitar</a></div>
+      <div class="card"><h3>Telefonia e Redes</h3><p>Pontos de rede, organização e testes.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20serviços%20de%20rede%20ou%20telefonia">Solicitar</a></div>
+      <div class="card"><h3>Infraestrutura para Ar-Condicionado</h3><p>Preparação elétrica adequada.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20infraestrutura%20para%20ar-condicionado">Solicitar</a></div>
+    </div>
+  </section>  <!-- MANUTENÇÃO GERAL -->  <section id="manutencao">
+    <h2>Manutenção Geral</h2>
+    <div class="carousel auto">
+      <div class="card"><h3>Troca de Torneira</h3><p>Instalação e reparo hidráulico.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20trocar%20torneira">Solicitar</a></div>
+      <div class="card"><h3>Troca de Luminária</h3><p>Plafon, spots e pendentes.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalação%20de%20luminária">Solicitar</a></div>
+      <div class="card"><h3>Pequenos Reparos</h3><p>Serviços rápidos do dia a dia.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20manutenção%20geral">Solicitar</a></div>
+    </div>
+  </section>  <!-- MARIDO DE ALUGUEL -->  <section id="marido">
+    <h2>Marido de Aluguel</h2>
+    <div class="carousel auto">
+      <div class="card"><h3>Instalação de Forro</h3><p>Forro PVC, madeira ou drywall.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalação%20de%20forro">Solicitar</a></div>
+      <div class="card"><h3>Reparos Residenciais</h3><p>Ajustes, consertos e instalações.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20serviço%20de%20marido%20de%20aluguel">Solicitar</a></div>
+    </div>
+  </section>  <!-- PARCERIAS -->  <section id="parcerias" class="parcerias">
+    <h2>Parcerias Profissionais</h2>
+    <p>Você é profissional da construção ou manutenção? Faça parceria com a Patronos Tech.</p>
+    <p>Indicou um serviço que não executa? Você ganha comissão.<br>
+       Não pode atender um cliente? Nós atendemos e você é reconhecido.<br>
+       Relação transparente, sem concorrência desleal.</p>
+    <p>Entre em contato e faça parte da nossa rede de parceiros.</p>
+    <div style="text-align:center;">
+      <a class="btn" href="https://wa.me/5511952544885?text=Quero%20ser%20parceiro%20da%20Patronos%20Tech">Quero ser parceiro</a>
+    </div>
+  </section>  <footer>
+    © Patronos Tech - Manutenção Geral e Instalações Técnicas
+  </footer>  <!-- SCRIPT CARROSSEL AUTOMÁTICO -->  <script>
+    document.querySelectorAll('.carousel.auto').forEach(carousel => {
+      let isPaused = false;
 
-<div class="card">
-  <h3>📹 CFTV / Câmeras</h3>
-  <ul>
-    <li>Instalação de câmeras</li>
-    <li>Passagem de cabeamento</li>
-    <li>Configuração de DVR/NVR</li>
-    <li>Manutenção e ajustes</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para serviço de CFTV.">Solicitar no WhatsApp</a>
-</div>
+      carousel.addEventListener('mouseenter', () => isPaused = true);
+      carousel.addEventListener('mouseleave', () => isPaused = false);
+      carousel.addEventListener('touchstart', () => isPaused = true);
+      carousel.addEventListener('touchend', () => isPaused = false);
 
-<div class="card">
-  <h3>🌐 Telefonia / Rede</h3>
-  <ul>
-    <li>Passagem de cabos de rede</li>
-    <li>Pontos de internet</li>
-    <li>Organização de cabeamento</li>
-    <li>Correções de falha</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para Telefonia ou Rede.">Solicitar no WhatsApp</a>
-</div>
-
-<div class="card">
-  <h3>❄️ Ar-condicionado</h3>
-  <ul>
-    <li>Instalação de aparelhos</li>
-    <li>Infraestrutura básica</li>
-    <li>Manutenção preventiva</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para Ar-condicionado.">Solicitar no WhatsApp</a>
-</div>
-
-  </div>
-</section><!-- MANUTENÇÃO GERAL --><section id="manutencao">
-  <h2>Manutenção Geral</h2>
-  <div class="carousel"><div class="card">
-  <h3>🛠️ Reparos Hidráulicos</h3>
-  <ul>
-    <li>Troca de torneiras</li>
-    <li>Vazamentos</li>
-    <li>Registros e sifões</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de manutenção hidráulica.">Solicitar no WhatsApp</a>
-</div>
-
-<div class="card">
-  <h3>🏢 Manutenção Predial</h3>
-  <ul>
-    <li>Reparos gerais</li>
-    <li>Correções estruturais simples</li>
-    <li>Ajustes diversos</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de manutenção predial.">Solicitar no WhatsApp</a>
-</div>
-
-  </div>
-</section><!-- MARIDO DE ALUGUEL --><section id="marido">
-  <h2>Marido de Aluguel</h2>
-  <div class="carousel"><div class="card">
-  <h3>🔩 Pequenos Reparos</h3>
-  <ul>
-    <li>Instalação de quadros</li>
-    <li>Cortinas e varais</li>
-    <li>Ajustes diversos</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de marido de aluguel.">Solicitar no WhatsApp</a>
-</div>
-
-<div class="card">
-  <h3>🧱 Forros</h3>
-  <ul>
-    <li>Instalação de forro</li>
-    <li>Reparo em forro</li>
-  </ul>
-  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de serviço de forro.">Solicitar no WhatsApp</a>
-</div>
-
-  </div>
-</section><div class="divider"></div><!-- PARCERIAS --><section id="parcerias" class="parcerias">
-  <h2>Parcerias Profissionais</h2>
-  <p style="text-align:center; max-width:700px; margin:0 auto 30px;">
-    Se você é profissional da área de manutenção, venha fazer parte da rede Patronos Tech.
-    Aqui, quem indica também ganha — mesmo quando não executa o serviço.
-  </p>  <div class="vantagens">
-    <div>✔ Receba indicação de serviços</div>
-    <div>✔ Ganhe ao indicar serviços que não realiza</div>
-    <div>✔ Sem mensalidade ou taxas</div>
-    <div>✔ Parceria justa e transparente</div>
-    <div>✔ Flexibilidade total</div>
-  </div><a class="btn" style="max-width:300px;margin:30px auto 0;" href="https://wa.me/5511952544885?text=Olá! Tenho interesse em ser parceiro da Patronos Tech. Minha profissão é:">Quero ser parceiro</a>
-
-</section><footer>
-  <p>Patronos Tech • Manutenção Geral & Serviços Técnicos</p>
-</footer></body>
+      setInterval(() => {
+        if (isPaused) return;
+        carousel.scrollLeft += 1;
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+          carousel.scrollLeft = 0;
+        }
+      }, 30);
+    });
+  </script></body>
 </html>
