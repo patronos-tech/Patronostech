@@ -1,257 +1,161 @@
-<!doctype html>
-<html lang="pt-BR">
-
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Patronos Tech — Catálogo Completo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos e Serviços | Patronos Tech</title>
+  <meta name="description" content="Instalações técnicas, manutenção geral, marido de aluguel e parcerias profissionais. Atendimento residencial e predial." />  <style>
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; background:#0e0e0e; color:#fff; }
+    a { text-decoration:none; color:inherit; }
+    section { padding:60px 20px; }
+    h1,h2,h3 { margin-bottom:10px; }
+    h2 { font-size:28px; text-align:center; }
+    p { color:#ccc; }
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    .hero { text-align:center; background:linear-gradient(135deg,#1e90ff,#00bcd4); }
+    .hero h1 { font-size:34px; }
 
-  <style>
-    :root {
-      --bg:#010716;
-      --card:#0c1326;
-      --gold:#d4af37;
-      --white:#ffffff;
-      --muted:#aeb4c4;
-      --shadow:0 10px 35px rgba(0,0,0,0.55);
-    }
+    .carousel { display:flex; gap:20px; overflow-x:auto; scroll-behavior:smooth; padding:20px 0; }
+    .carousel::-webkit-scrollbar { display:none; }
 
-    * { box-sizing:border-box; }
-    body {
-      margin:0;
-      background:var(--bg);
-      color:var(--white);
-      font-family:"Poppins",sans-serif;
-    }
-
-    /* HEADER */
-    header {
-      background:#020b1a;
-      padding:16px;
-      text-align:center;
-      position:sticky;
-      top:0;
-      z-index:20;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    header h1 {
-      margin:0;
-      font-size:22px;
-      font-weight:800;
-      background:linear-gradient(90deg,#fff,var(--gold));
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-
-    header a {
-      color:var(--gold);
-      text-decoration:none;
-      font-weight:600;
-      display:inline-block;
-      margin-top:8px;
-      font-size:14px;
-    }
-
-    /* PAGE CONTAINER */
-    .container {
-      max-width:900px;
-      margin:auto;
+    .card {
+      min-width:280px;
+      background:#1c1c1c;
+      border-radius:16px;
       padding:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.4);
     }
 
-    /* TITLES */
-    .group-title {
-      margin:25px 0 15px;
-      font-size:20px;
-      font-weight:800;
-      color:var(--gold);
-      letter-spacing:1px;
-      text-transform:uppercase;
-    }
-
-    /* PRODUCT CARDS */
-    .product {
-      background:var(--card);
-      padding:18px;
-      border-radius:14px;
-      margin-bottom:18px;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,0.05);
-      transition:transform .2s, box-shadow .2s;
-    }
-
-    .product:hover {
-      transform:scale(1.03);
-      box-shadow:0 12px 45px rgba(0,0,0,0.7);
-    }
-
-    .product h3 {
-      margin:0 0 10px;
-      font-size:17px;
-      color:var(--white);
-      font-weight:700;
-    }
+    .card h3 { color:#1e90ff; }
+    .card ul { padding-left:18px; color:#bbb; }
 
     .btn {
-      display:inline-block;
-      background:var(--gold);
-      color:#020b1a;
-      padding:12px 16px;
-      border-radius:10px;
-      font-weight:800;
-      text-decoration:none;
-      margin-top:8px;
+      display:block;
+      margin-top:15px;
+      padding:12px;
+      background:#25d366;
+      color:#000;
+      text-align:center;
+      border-radius:30px;
+      font-weight:bold;
     }
 
-  </style>
+    .divider { border-top:1px solid #333; margin:40px 0; }
 
-</head>
+    .parcerias { background:#121212; }
+    .vantagens { display:grid; gap:15px; max-width:700px; margin:0 auto; }
+    .vantagens div { background:#1c1c1c; padding:15px; border-radius:12px; }
 
-<body>
-
-<header>
-  <h1>Patronos Tech</h1>
-  <a href="index.html">← Voltar para Home</a>
-</header>
-
-<div class="container">
-
-  <!-- ########## ELÉTRICA ########## -->
-  <h2 class="group-title">Elétrica</h2>
-
-  <div class="product">
-    <h3>Instalação de chuveiro</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20instalação%20de%20chuveiro.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de luminárias e LED</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20luminárias.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de ventilador de teto</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Orçamento%20para%20ventilador%20de%20teto.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de tomadas e interruptores</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20ou%20trocar%20tomadas.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Troca de disjuntor</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20trocar%20meu%20disjuntor.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Manutenção elétrica</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Solicito%20manutenção%20elétrica.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Correção de curto</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Estou%20com%20curto%20ou%20problema%20elétrico.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Troca de fiação antiga</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20trocar%20a%20fiação%20antiga.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de quadro elétrico</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20ou%20reformar%20meu%20quadro%20elétrico.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Reforma elétrica</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Solicito%20orçamento%20para%20reforma%20elétrica.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Disjuntor exclusivo para ar-condicionado</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20de%20disjuntor%20exclusivo%20para%20ar%20condicionado.">Solicitar orçamento</a>
-  </div>
-
-  <!-- ########## REDES ########## -->
-  <h2 class="group-title">Redes</h2>
-
-  <div class="product">
-    <h3>Instalação de roteador</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20um%20roteador.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Configuração de Wi-Fi</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20configurar%20meu%20WiFi.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Expansão de sinal Wi-Fi</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero%20aumentar%20o%20alcance%20do%20WiFi.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de ponto de internet (RJ45)</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20ponto%20de%20rede.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Cabeamento estruturado</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Orçamento%20de%20cabeamento%20estruturado.">Solicitar orçamento</a>
-  </div>
-
-  <!-- ########## CFTV ########## -->
-  <h2 class="group-title">Câmeras / CFTV</h2>
-
-  <div class="product">
-    <h3>Instalação de câmeras</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20câmeras%20CFTV.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Manutenção de câmeras</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Preciso%20de%20manutenção%20nas%20câmeras.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Configuração de acesso remoto</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Acesso%20remoto%20das%20câmeras.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de DVR / NVR</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20DVR%20ou%20NVR.">Solicitar orçamento</a>
-  </div>
-
-  <!-- ########## AR-CONDICIONADO ########## -->
-  <h2 class="group-title">Ar-Condicionado</h2>
-
-  <div class="product">
-    <h3>Instalação de ar condicionado (split)</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Instalação%20de%20ar%20condicionado%20split.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Higienização de ar condicionado</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Higienização%20de%20ar%20condicionado.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Manutenção preventiva</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Manutenção%20preventiva%20do%20ar.">Solicitar orçamento</a>
-  </div>
-
-  <div class="product">
-    <h3>Instalação de disjuntor exclusivo</h3>
-    <a class="btn" href="https://wa.me/5511952544885?text=Disjuntor%20exclusivo%20para%20ar%20condicionado.">Solicitar orçamento</a>
-  </div>
-
+    footer { background:#000; padding:30px; text-align:center; color:#777; }
+  </style></head>
+<body><!-- HERO --><section class="hero">
+  <h1>Nossos Serviços</h1>
+  <p>Instalações técnicas, manutenção geral e reparos residenciais e prediais</p>
+</section><!-- INSTALAÇÕES TÉCNICAS --><section id="instalacoes">
+  <h2>Instalações Técnicas</h2>
+  <div class="carousel"><div class="card">
+  <h3>⚡ Elétrica</h3>
+  <ul>
+    <li>Instalação de quadro de distribuição</li>
+    <li>Instalação de chuveiro</li>
+    <li>Tomadas 220V</li>
+    <li>Troca de disjuntores</li>
+    <li>Correções elétricas</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para serviço de Elétrica.">Solicitar no WhatsApp</a>
 </div>
 
-</body>
+<div class="card">
+  <h3>📹 CFTV / Câmeras</h3>
+  <ul>
+    <li>Instalação de câmeras</li>
+    <li>Passagem de cabeamento</li>
+    <li>Configuração de DVR/NVR</li>
+    <li>Manutenção e ajustes</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para serviço de CFTV.">Solicitar no WhatsApp</a>
+</div>
+
+<div class="card">
+  <h3>🌐 Telefonia / Rede</h3>
+  <ul>
+    <li>Passagem de cabos de rede</li>
+    <li>Pontos de internet</li>
+    <li>Organização de cabeamento</li>
+    <li>Correções de falha</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para Telefonia ou Rede.">Solicitar no WhatsApp</a>
+</div>
+
+<div class="card">
+  <h3>❄️ Ar-condicionado</h3>
+  <ul>
+    <li>Instalação de aparelhos</li>
+    <li>Infraestrutura básica</li>
+    <li>Manutenção preventiva</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Gostaria de orçamento para Ar-condicionado.">Solicitar no WhatsApp</a>
+</div>
+
+  </div>
+</section><!-- MANUTENÇÃO GERAL --><section id="manutencao">
+  <h2>Manutenção Geral</h2>
+  <div class="carousel"><div class="card">
+  <h3>🛠️ Reparos Hidráulicos</h3>
+  <ul>
+    <li>Troca de torneiras</li>
+    <li>Vazamentos</li>
+    <li>Registros e sifões</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de manutenção hidráulica.">Solicitar no WhatsApp</a>
+</div>
+
+<div class="card">
+  <h3>🏢 Manutenção Predial</h3>
+  <ul>
+    <li>Reparos gerais</li>
+    <li>Correções estruturais simples</li>
+    <li>Ajustes diversos</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de manutenção predial.">Solicitar no WhatsApp</a>
+</div>
+
+  </div>
+</section><!-- MARIDO DE ALUGUEL --><section id="marido">
+  <h2>Marido de Aluguel</h2>
+  <div class="carousel"><div class="card">
+  <h3>🔩 Pequenos Reparos</h3>
+  <ul>
+    <li>Instalação de quadros</li>
+    <li>Cortinas e varais</li>
+    <li>Ajustes diversos</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de marido de aluguel.">Solicitar no WhatsApp</a>
+</div>
+
+<div class="card">
+  <h3>🧱 Forros</h3>
+  <ul>
+    <li>Instalação de forro</li>
+    <li>Reparo em forro</li>
+  </ul>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá! Preciso de serviço de forro.">Solicitar no WhatsApp</a>
+</div>
+
+  </div>
+</section><div class="divider"></div><!-- PARCERIAS --><section id="parcerias" class="parcerias">
+  <h2>Parcerias Profissionais</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto 30px;">
+    Se você é profissional da área de manutenção, venha fazer parte da rede Patronos Tech.
+    Aqui, quem indica também ganha — mesmo quando não executa o serviço.
+  </p>  <div class="vantagens">
+    <div>✔ Receba indicação de serviços</div>
+    <div>✔ Ganhe ao indicar serviços que não realiza</div>
+    <div>✔ Sem mensalidade ou taxas</div>
+    <div>✔ Parceria justa e transparente</div>
+    <div>✔ Flexibilidade total</div>
+  </div><a class="btn" style="max-width:300px;margin:30px auto 0;" href="https://wa.me/5511952544885?text=Olá! Tenho interesse em ser parceiro da Patronos Tech. Minha profissão é:">Quero ser parceiro</a>
+
+</section><footer>
+  <p>Patronos Tech • Manutenção Geral & Serviços Técnicos</p>
+</footer></body>
 </html>
