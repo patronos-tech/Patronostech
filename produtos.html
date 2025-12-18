@@ -10,40 +10,46 @@
   --azul:#0a1f44;
   --dourado:#d4af37;
   --cinza:#f4f4f4;
-  --cinza-escuro:#e6e6e6;
+  --texto:#333;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{color:#333;background:#fff}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{color:var(--texto);background:#fff}
 
 /* HERO */
 .hero{
-  background:url("hero-produtos.png") center/cover no-repeat;
-  padding:70px 20px;
+  background:
+    linear-gradient(rgba(10,31,68,.55),rgba(10,31,68,.55)),
+    url("hero-tecnico.png") center/cover no-repeat;
+  color:#fff;
   text-align:center;
+  padding:55px 20px;
 }
 .hero h1{
-  color:var(--azul);
-  font-size:2.2rem;
+  font-size:2rem;
+  font-weight:600;
   margin-bottom:10px;
 }
 .hero p{
-  max-width:780px;
+  max-width:760px;
   margin:auto;
   font-size:1rem;
+  opacity:.95;
 }
 
 /* BOTÃO */
 .btn{
   display:inline-block;
-  margin-top:12px;
+  margin-top:14px;
   padding:12px 22px;
   background:var(--dourado);
   color:#000;
   text-decoration:none;
   border-radius:6px;
   font-weight:bold;
+  transition:.2s;
 }
+.btn:hover{opacity:.9}
 
 /* SEÇÕES */
 section{
@@ -58,54 +64,57 @@ section{
   gap:20px;
   overflow-x:auto;
   scroll-behavior:smooth;
-  justify-content:center;
+  padding:10px 0;
 }
 .carousel::-webkit-scrollbar{display:none}
 
 .card{
-  min-width:280px;
+  min-width:300px;
   background:var(--cinza);
-  padding:25px;
+  padding:28px;
   border-radius:12px;
   text-align:center;
+  flex-shrink:0;
 }
 
 /* ÁREAS */
-.area{
-  margin-bottom:80px;
-}
-.area-title{
-  font-size:1.9rem;
+.area{margin-bottom:80px}
+.area h2{
   color:var(--azul);
+  font-size:1.9rem;
   margin-bottom:30px;
   border-left:6px solid var(--dourado);
   padding-left:15px;
 }
 
-.category-title{
-  font-size:1.2rem;
-  color:#444;
-  margin:30px 0 20px;
+/* CATEGORIA */
+.categoria{
+  margin-bottom:40px;
+}
+.categoria h3{
+  font-size:1.15rem;
+  color:#111;
+  margin-bottom:20px;
 }
 
-/* GRID PRODUTOS */
+/* GRID DE PRODUTOS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+  gap:22px;
 }
 
 .produto{
   background:var(--cinza);
-  padding:25px;
-  border-radius:12px;
+  padding:24px;
+  border-radius:10px;
 }
 
 /* DEPOIMENTOS */
 .testimonials{
-  background:var(--cinza-escuro);
+  background:var(--cinza);
 }
-.stars{color:gold;margin-bottom:10px}
+.stars{color:gold;margin-bottom:8px}
 
 /* RODAPÉ */
 footer{
@@ -122,7 +131,7 @@ footer{
 <!-- HERO -->
 <div class="hero">
   <h1>Serviços Técnicos, Manutenção Geral e Marido de Aluguel</h1>
-  <p>Soluções profissionais para residências, comércios e condomínios, com foco nos serviços mais procurados do mercado.</p>
+  <p>Soluções profissionais para residências, comércios e condomínios.</p>
 </div>
 
 <!-- CARROSSEL PRODUTOS PRINCIPAIS -->
@@ -131,17 +140,17 @@ footer{
     <div class="card">
       <h3>Instalações Técnicas</h3>
       <p>Elétrica, CFTV, telecomunicações, ar-condicionado e automação.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Solicitar</a>
+      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
     <div class="card">
       <h3>Manutenção Geral</h3>
       <p>Manutenção preventiva e corretiva para imóveis.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Solicitar</a>
+      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
     <div class="card">
       <h3>Marido de Aluguel</h3>
       <p>Reparos rápidos e serviços do dia a dia.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Solicitar</a>
+      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
   </div>
 </section>
@@ -149,109 +158,67 @@ footer{
 <!-- CATÁLOGO -->
 <section>
 
-<!-- INSTALAÇÕES TÉCNICAS -->
 <div class="area">
-  <h2 class="area-title">Instalações Técnicas</h2>
+  <h2>Instalações Técnicas</h2>
 
-  <h3 class="category-title" id="eletrica">Elétrica</h3>
-  <div class="grid">
-    <div class="produto">
-      <h4>Instalação de Chuveiro Elétrico</h4>
-      <p>Instalação segura e adequada à rede elétrica do imóvel.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Adequação de Tomadas e Voltagem</h4>
-      <p>Correção e instalação de tomadas 110V e 220V.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Quadro de Distribuição</h4>
-      <p>Organização e segurança elétrica do imóvel.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Outros Serviços Elétricos</h4>
-      <p>Fiação, disjuntores, aterramento, pontos adicionais e ajustes em geral.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
+  <div class="categoria">
+    <h3>Elétrica</h3>
+    <div class="grid">
+      <div class="produto">
+        <h4>Instalação de Chuveiro e Tomadas</h4>
+        <p>Instalações seguras e adequadas.</p>
+        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
+      </div>
+      <div class="produto">
+        <h4>Quadro de Distribuição</h4>
+        <p>Organização e adequação elétrica.</p>
+        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
+      </div>
     </div>
   </div>
 
-  <h3 class="category-title" id="automacao">Automação Residencial, Comercial e Predial</h3>
+  <div class="categoria">
+    <h3>CFTV</h3>
+    <div class="grid">
+      <div class="produto">
+        <h4>Instalação de Câmeras</h4>
+        <p>Monitoramento residencial e comercial.</p>
+        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="categoria">
+    <h3>Telecomunicações</h3>
+    <div class="grid">
+      <div class="produto">
+        <h4>Cabeamento de Rede</h4>
+        <p>Infraestrutura organizada.</p>
+        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="area">
+  <h2>Manutenção Geral</h2>
   <div class="grid">
     <div class="produto">
-      <h4>Tomadas Inteligentes</h4>
-      <p>Automação prática para controle remoto de equipamentos.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Integração com Alexa</h4>
-      <p>Controle por voz de iluminação e dispositivos.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Automação de Iluminação</h4>
-      <p>Cenários automatizados para ambientes.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Outras Soluções em Automação</h4>
-      <p>Projetos personalizados e integrações diversas.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
+      <h4>Pintura e Reparos</h4>
+      <p>Manutenção residencial e predial.</p>
+      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
   </div>
 </div>
 
-<!-- MANUTENÇÃO GERAL -->
 <div class="area">
-  <h2 class="area-title">Manutenção Geral</h2>
+  <h2>Marido de Aluguel</h2>
   <div class="grid">
     <div class="produto">
-      <h4>Pintura Residencial e Comercial</h4>
-      <p>Renovação de ambientes internos e externos.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Limpeza de Caixa d’Água</h4>
-      <p>Higienização conforme normas de segurança.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Manutenção Predial</h4>
-      <p>Cuidados contínuos para áreas comuns.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Outros Serviços de Manutenção</h4>
-      <p>Reparos, ajustes e suporte técnico em geral.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-  </div>
-</div>
-
-<!-- MARIDO DE ALUGUEL -->
-<div class="area">
-  <h2 class="area-title">Marido de Aluguel</h2>
-  <div class="grid">
-    <div class="produto">
-      <h4>Troca de Lâmpadas e LED</h4>
-      <p>Instalação rápida e segura.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Instalação de Suportes</h4>
-      <p>TV, prateleiras e acessórios.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Troca de Chuveiro</h4>
-      <p>Serviço rápido e funcional.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
-    </div>
-    <div class="produto">
-      <h4>Outros Pequenos Reparos</h4>
-      <p>Ajustes domésticos em geral.</p>
-      <a class="btn" href="https://wa.me/5511952544885">CTA</a>
+      <h4>Reparos do Dia a Dia</h4>
+      <p>Trocas, ajustes e pequenos serviços.</p>
+      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
   </div>
 </div>
@@ -260,21 +227,21 @@ footer{
 
 <!-- DEPOIMENTOS -->
 <section class="testimonials">
-  <h2 class="area-title">Depoimentos</h2>
+  <h2 style="text-align:center;margin-bottom:30px">Depoimentos</h2>
   <div class="grid">
     <div class="produto">
       <div class="stars">★★★★★</div>
-      <p>“Serviço excelente no condomínio, muito organizado.”</p>
+      <p>“Atendimento profissional no condomínio.”</p>
       <strong>Ricardo Mendes</strong>
     </div>
     <div class="produto">
       <div class="stars">★★★★★</div>
-      <p>“Atendimento rápido e profissional na loja.”</p>
+      <p>“Serviço rápido e confiável.”</p>
       <strong>Fernanda Lopes</strong>
     </div>
     <div class="produto">
       <div class="stars">★★★★★</div>
-      <p>“Resolveu tudo em casa no mesmo dia.”</p>
+      <p>“Resolveu tudo em casa.”</p>
       <strong>Marcos Silva</strong>
     </div>
   </div>
@@ -283,6 +250,20 @@ footer{
 <footer>
   <p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
 </footer>
+
+<script>
+function autoCarousel(selector, speed = 0.6) {
+  const carousel = document.querySelector(selector);
+  if (!carousel) return;
+  setInterval(() => {
+    carousel.scrollLeft += speed;
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+      carousel.scrollLeft = 0;
+    }
+  }, 20);
+}
+autoCarousel(".carousel", 0.6);
+</script>
 
 </body>
 </html>
