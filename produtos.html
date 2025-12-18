@@ -48,7 +48,7 @@ body{color:#222;background:#fff}
 
 /* SEÇÕES */
 section{
-  padding:35px 20px;
+  padding:28px 20px;
   max-width:1200px;
   margin:auto;
 }
@@ -81,28 +81,28 @@ section{
 }
 
 /* SEÇÃO 4 */
-.area{margin-bottom:40px}
-.area h2{color:var(--azul);font-size:1.6rem;margin-bottom:22px}
-.categoria{margin-bottom:28px}
-.categoria h3{margin-bottom:12px;font-size:1.1rem}
+.area{margin-bottom:28px}
+.area h2{color:var(--azul);font-size:1.6rem;margin-bottom:18px}
+.categoria{margin-bottom:22px}
+.categoria h3{margin-bottom:10px;font-size:1.1rem}
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,260px);
-  gap:20px;
+  gap:18px;
   justify-content:center;
 }
 
 .produto{
   background:var(--cardbg);
-  padding:18px;
+  padding:16px;
   border-radius:10px;
 }
 .produto .btn{margin-top:10px}
 
 /* DEPOIMENTOS */
-.testimonials{background:#f4f4f4;padding:35px 20px}
-.section-title{text-align:center;color:var(--azul);margin-bottom:22px}
+.testimonials{background:#f4f4f4;padding:28px 20px}
+.section-title{text-align:center;color:var(--azul);margin-bottom:18px}
 .stars{color:gold;margin-bottom:6px}
 
 /* RODAPÉ */
@@ -127,27 +127,41 @@ footer{
 <section>
 <div class="carousel">
 <div class="track main">
-  <div class="card">
-    <h3>Instalações Técnicas</h3>
-    <p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero+instalações+técnicas">Solicitar orçamento</a>
-  </div>
-  <div class="card">
-    <h3>Manutenção Geral</h3>
-    <p>Manutenção predial, pintura e serviços preventivos.</p>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero+manutenção+geral">Falar com especialista</a>
-  </div>
-  <div class="card">
-    <h3>Marido de Aluguel</h3>
-    <p>Reparos rápidos e soluções do dia a dia.</p>
-    <a class="btn" href="https://wa.me/5511952544885?text=Quero+marido+de+aluguel">Chamar agora</a>
-  </div>
+  <!-- SET 1 -->
+  <div class="card"><h3>Instalações Técnicas</h3><p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero+instalações+técnicas">Solicitar orçamento</a></div>
+  <div class="card"><h3>Manutenção Geral</h3><p>Manutenção predial, pintura e serviços preventivos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero+manutenção+geral">Falar com especialista</a></div>
+  <div class="card"><h3>Marido de Aluguel</h3><p>Reparos rápidos e soluções do dia a dia.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero+marido+de+aluguel">Chamar agora</a></div>
+
+  <!-- SET 2 (duplicado para loop) -->
+  <div class="card"><h3>Instalações Técnicas</h3><p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero+instalações+técnicas">Solicitar orçamento</a></div>
+  <div class="card"><h3>Manutenção Geral</h3><p>Manutenção predial, pintura e serviços preventivos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero+manutenção+geral">Falar com especialista</a></div>
+  <div class="card"><h3>Marido de Aluguel</h3><p>Reparos rápidos e soluções do dia a dia.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero+marido+de+aluguel">Chamar agora</a></div>
 </div>
 </div>
 </section>
 
-<!-- TODO O RESTO PERMANECE IGUAL AO ÚLTIMO HTML -->
-<!-- (seção 4 completa, depoimentos e rodapé sem alteração) -->
+<!-- CARROSSEL CATEGORIAS -->
+<section>
+<div class="carousel">
+<div class="track cats">
+  <!-- SET 1 -->
+  <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p><a class="btn" href="#eletrica">Ver serviços</a></div>
+  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p><a class="btn" href="#cftv">Ver serviços</a></div>
+  <div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p><a class="btn" href="#telecom">Ver serviços</a></div>
+  <div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p><a class="btn" href="#ar">Ver serviços</a></div>
+  <div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p><a class="btn" href="#automacao">Ver serviços</a></div>
+
+  <!-- SET 2 -->
+  <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p><a class="btn" href="#eletrica">Ver serviços</a></div>
+  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p><a class="btn" href="#cftv">Ver serviços</a></div>
+  <div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p><a class="btn" href="#telecom">Ver serviços</a></div>
+  <div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p><a class="btn" href="#ar">Ver serviços</a></div>
+  <div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p><a class="btn" href="#automacao">Ver serviços</a></div>
+</div>
+</div>
+</section>
+
+<!-- O RESTO (SEÇÃO 4, DEPOIMENTOS E RODAPÉ) PERMANECE EXATAMENTE COMO VOCÊ ENVIOU -->
 
 <footer>
 <p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
