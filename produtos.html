@@ -11,32 +11,33 @@
   --dourado:#d4af37;
   --cardbg:rgba(10,31,68,.06);
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{color:#222;background:#fff}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fff;color:#222}
 
 /* HERO */
 .hero{
   background:url("hero-tecnico.png") center/cover no-repeat;
-  padding:190px 20px 70px;
+  padding:190px 20px 80px;
   text-align:center;
 }
 .hero h1{
-  font-size:1.2rem;
   color:#fff;
+  font-size:1.2rem;
   font-weight:600;
   text-shadow:0 2px 6px rgba(0,0,0,.6);
 }
 .hero p{
   margin-top:8px;
-  font-size:.95rem;
   color:#f1f1f1;
+  font-size:.95rem;
   text-shadow:0 1px 4px rgba(0,0,0,.6);
 }
 
 /* BOTÃO */
 .btn{
-  display:inline-block;
   margin-top:12px;
+  display:inline-block;
   padding:10px 20px;
   background:var(--dourado);
   color:#000;
@@ -48,30 +49,25 @@ body{color:#222;background:#fff}
 
 /* SEÇÕES */
 section{
-  padding:35px 20px;
+  padding:30px 20px;
   max-width:1200px;
   margin:auto;
 }
 
 /* CARROSSEL */
-.carousel{overflow:hidden}
+.carousel{overflow:hidden;width:100%}
 .track{
   display:flex;
   gap:18px;
   width:max-content;
+  animation:scroll linear infinite;
 }
+.track.main{animation-duration:8s}
+.track.cats{animation-duration:10s}
 
-/* 🔥 LOOP REAL INFINITO */
-.track.main{animation:scroll-main 6s linear infinite}
-.track.cats{animation:scroll-cats 7s linear infinite}
-
-@keyframes scroll-main{
+@keyframes scroll{
   from{transform:translateX(0)}
-  to{transform:translateX(-100%)}
-}
-@keyframes scroll-cats{
-  from{transform:translateX(0)}
-  to{transform:translateX(-100%)}
+  to{transform:translateX(-50%)}
 }
 
 .card{
@@ -89,13 +85,13 @@ section{
 
 /* SEÇÃO 4 */
 .area{margin-bottom:40px}
-.area h2{color:var(--azul);font-size:1.6rem;margin-bottom:22px}
-.categoria{margin-bottom:28px}
+.area h2{color:var(--azul);font-size:1.6rem;margin-bottom:20px}
+.categoria{margin-bottom:30px}
 .categoria h3{margin-bottom:12px;font-size:1.1rem}
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,240px);
+  grid-template-columns:repeat(auto-fit,220px);
   gap:18px;
   justify-content:center;
 }
@@ -108,8 +104,8 @@ section{
 .produto .btn{margin-top:10px}
 
 /* DEPOIMENTOS */
-.testimonials{background:#f4f4f4;padding:35px 20px}
-.section-title{text-align:center;color:var(--azul);margin-bottom:22px}
+.testimonials{background:#f4f4f4;padding:30px 20px}
+.section-title{text-align:center;color:var(--azul);margin-bottom:20px}
 .stars{color:gold;margin-bottom:6px}
 
 /* RODAPÉ */
@@ -130,44 +126,130 @@ footer{
   <p>Soluções profissionais para residências, comércios e condomínios</p>
 </div>
 
-<!-- CARROSSEL PRINCIPAL -->
+<!-- CARROSSEL 1 -->
 <section>
 <div class="carousel">
 <div class="track main">
-  <!-- DUPLICADO PARA LOOP -->
   <div class="card"><h3>Instalações Técnicas</h3><p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p><a class="btn" href="#">Solicitar orçamento</a></div>
-  <div class="card"><h3>Manutenção Geral</h3><p>Manutenção predial, pintura e serviços preventivos.</p><a class="btn" href="#">Falar com especialista</a></div>
+  <div class="card"><h3>Manutenção Geral</h3><p>Pintura, manutenção predial e serviços preventivos.</p><a class="btn" href="#">Falar com especialista</a></div>
   <div class="card"><h3>Marido de Aluguel</h3><p>Reparos rápidos e soluções do dia a dia.</p><a class="btn" href="#">Chamar agora</a></div>
 
   <div class="card"><h3>Instalações Técnicas</h3><p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p><a class="btn" href="#">Solicitar orçamento</a></div>
-  <div class="card"><h3>Manutenção Geral</h3><p>Manutenção predial, pintura e serviços preventivos.</p><a class="btn" href="#">Falar com especialista</a></div>
+  <div class="card"><h3>Manutenção Geral</h3><p>Pintura, manutenção predial e serviços preventivos.</p><a class="btn" href="#">Falar com especialista</a></div>
   <div class="card"><h3>Marido de Aluguel</h3><p>Reparos rápidos e soluções do dia a dia.</p><a class="btn" href="#">Chamar agora</a></div>
 </div>
 </div>
 </section>
 
-<!-- CARROSSEL CATEGORIAS -->
+<!-- CARROSSEL 2 -->
 <section>
 <div class="carousel">
 <div class="track cats">
-  <div class="card"><h3>Elétrica</h3><p>Instalações e correções.</p></div>
-  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p></div>
-  <div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p></div>
-  <div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p></div>
-  <div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p></div>
+  <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p><a class="btn" href="#eletrica">Ver serviços</a></div>
+  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p><a class="btn" href="#cftv">Ver serviços</a></div>
+  <div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p><a class="btn" href="#telecom">Ver serviços</a></div>
+  <div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p><a class="btn" href="#ar">Ver serviços</a></div>
+  <div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p><a class="btn" href="#automacao">Ver serviços</a></div>
 
-  <!-- DUPLICADO -->
-  <div class="card"><h3>Elétrica</h3><p>Instalações e correções.</p></div>
-  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p></div>
-  <div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p></div>
-  <div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p></div>
-  <div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p></div>
+  <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p><a class="btn" href="#eletrica">Ver serviços</a></div>
+  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p><a class="btn" href="#cftv">Ver serviços</a></div>
 </div>
 </div>
 </section>
 
-<!-- SEÇÃO 4, DEPOIMENTOS E RODAPÉ -->
-<!-- 👉 permanecem exatamente como estavam no seu HTML -->
+<!-- SEÇÃO 4 -->
+<section id="instalacoes">
+
+<div class="area">
+<h2>Instalações Técnicas</h2>
+
+<div class="categoria" id="eletrica">
+<h3>Elétrica</h3>
+<div class="grid">
+<div class="produto"><h4>Instalação de Chuveiro</h4><p>Instalação segura.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Tomadas 220V</h4><p>Adequação elétrica.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Quadro Elétrico</h4><p>Organização de disjuntores.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Correções gerais.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+<div class="categoria" id="cftv">
+<h3>CFTV</h3>
+<div class="grid">
+<div class="produto"><h4>Instalação de Câmeras</h4><p>Monitoramento completo.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>DVR / NVR</h4><p>Acesso remoto.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Manutenção</h4><p>Ajustes técnicos.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Suporte geral.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+<div class="categoria" id="telecom">
+<h3>Telecom</h3>
+<div class="grid">
+<div class="produto"><h4>Rede Estruturada</h4><p>Cabeamento e pontos.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Wi-Fi Profissional</h4><p>Cobertura eficiente.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Rack e Patch Panel</h4><p>Organização de rede.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Suporte telecom.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+<div class="categoria" id="ar">
+<h3>Ar Condicionado</h3>
+<div class="grid">
+<div class="produto"><h4>Instalação</h4><p>Split e inverter.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Limpeza</h4><p>Higienização completa.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Manutenção</h4><p>Preventiva e corretiva.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Suporte técnico.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+<div class="categoria" id="automacao">
+<h3>Automação</h3>
+<div class="grid">
+<div class="produto"><h4>Iluminação Inteligente</h4><p>Controle automatizado.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Portões</h4><p>Automação residencial.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Controle Remoto</h4><p>Aplicativos e voz.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Soluções sob medida.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+</div>
+
+<div class="area" id="manutencao">
+<h2>Manutenção Geral</h2>
+<div class="grid">
+<div class="produto"><h4>Pintura</h4><p>Interna e externa.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Limpeza Caixa d’Água</h4><p>Higienização segura.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Manutenção Predial</h4><p>Correções gerais.</p><a class="btn" href="#">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Reparos diversos.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+<div class="area" id="marido">
+<h2>Marido de Aluguel</h2>
+<div class="grid">
+<div class="produto"><h4>Troca de Chuveiro</h4><p>Substituição rápida.</p><a class="btn" href="#">Chamar</a></div>
+<div class="produto"><h4>Instalação de Suportes</h4><p>TVs e prateleiras.</p><a class="btn" href="#">Chamar</a></div>
+<div class="produto"><h4>Troca de Lâmpadas</h4><p>LED e luminárias.</p><a class="btn" href="#">Chamar</a></div>
+<div class="produto"><h4>Outros Reparos</h4><p>Pequenos consertos.</p><a class="btn" href="#">Falar</a></div>
+</div>
+</div>
+
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials">
+<h2 class="section-title">Depoimentos</h2>
+<div class="grid">
+<div class="produto"><div class="stars">★★★★★</div><p>“Atendimento excelente no condomínio.”</p><strong>Ricardo Mendes</strong></div>
+<div class="produto"><div class="stars">★★★★★</div><p>“Serviço rápido e organizado.”</p><strong>Fernanda Lopes</strong></div>
+<div class="produto"><div class="stars">★★★★★</div><p>“Resolveu tudo no mesmo dia.”</p><strong>Marcos Silva</strong></div>
+</div>
+</section>
+
+<footer>
+<p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
+</footer>
 
 </body>
 </html>
