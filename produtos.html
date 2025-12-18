@@ -9,26 +9,26 @@
 :root{
   --azul:#0a1f44;
   --dourado:#d4af37;
-  --cinza:#f4f4f4;
+  --card-bg:rgba(10,31,68,.06);
   --texto:#333;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-body{color:var(--texto);background:#fff}
+body{background:#fff;color:var(--texto)}
 
 /* HERO */
 .hero{
   background:
-    linear-gradient(rgba(10,31,68,.55),rgba(10,31,68,.55)),
+    linear-gradient(rgba(10,31,68,.45),rgba(10,31,68,.45)),
     url("hero-tecnico.png") center/cover no-repeat;
   color:#fff;
   text-align:center;
-  padding:55px 20px;
+  padding:45px 20px;
 }
 .hero h1{
-  font-size:2rem;
+  font-size:1.9rem;
   font-weight:600;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 .hero p{
   max-width:760px;
@@ -41,7 +41,7 @@ body{color:var(--texto);background:#fff}
 .btn{
   display:inline-block;
   margin-top:14px;
-  padding:12px 22px;
+  padding:11px 22px;
   background:var(--dourado);
   color:#000;
   text-decoration:none;
@@ -61,7 +61,7 @@ section{
 /* CARROSSEL */
 .carousel{
   display:flex;
-  gap:20px;
+  gap:18px;
   overflow-x:auto;
   scroll-behavior:smooth;
   padding:10px 0;
@@ -69,51 +69,47 @@ section{
 .carousel::-webkit-scrollbar{display:none}
 
 .card{
-  min-width:300px;
-  background:var(--cinza);
-  padding:28px;
+  min-width:260px;
+  background:var(--card-bg);
+  padding:26px;
   border-radius:12px;
   text-align:center;
   flex-shrink:0;
 }
 
 /* ÁREAS */
-.area{margin-bottom:80px}
+.area{margin-bottom:75px}
 .area h2{
   color:var(--azul);
-  font-size:1.9rem;
-  margin-bottom:30px;
+  font-size:1.8rem;
+  margin-bottom:26px;
   border-left:6px solid var(--dourado);
-  padding-left:15px;
+  padding-left:14px;
 }
 
-/* CATEGORIA */
-.categoria{
-  margin-bottom:40px;
-}
+/* CATEGORIAS */
+.categoria{margin-bottom:38px}
 .categoria h3{
-  font-size:1.15rem;
+  font-size:1.1rem;
   color:#111;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
-/* GRID DE PRODUTOS */
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
 }
 
 .produto{
-  background:var(--cinza);
-  padding:24px;
+  background:var(--card-bg);
+  padding:22px;
   border-radius:10px;
 }
 
 /* DEPOIMENTOS */
-.testimonials{
-  background:var(--cinza);
-}
+.testimonials{background:rgba(10,31,68,.04)}
 .stars{color:gold;margin-bottom:8px}
 
 /* RODAPÉ */
@@ -121,7 +117,7 @@ footer{
   background:var(--azul);
   color:#fff;
   text-align:center;
-  padding:25px;
+  padding:24px;
 }
 </style>
 </head>
@@ -165,8 +161,8 @@ footer{
     <h3>Elétrica</h3>
     <div class="grid">
       <div class="produto">
-        <h4>Instalação de Chuveiro e Tomadas</h4>
-        <p>Instalações seguras e adequadas.</p>
+        <h4>Instalação de Chuveiros e Tomadas</h4>
+        <p>Instalações seguras para residências e comércios.</p>
         <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
       </div>
       <div class="produto">
@@ -182,7 +178,7 @@ footer{
     <div class="grid">
       <div class="produto">
         <h4>Instalação de Câmeras</h4>
-        <p>Monitoramento residencial e comercial.</p>
+        <p>Monitoramento residencial, comercial e predial.</p>
         <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
       </div>
     </div>
@@ -193,7 +189,7 @@ footer{
     <div class="grid">
       <div class="produto">
         <h4>Cabeamento de Rede</h4>
-        <p>Infraestrutura organizada.</p>
+        <p>Infraestrutura organizada para internet.</p>
         <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
       </div>
     </div>
@@ -209,6 +205,11 @@ footer{
       <p>Manutenção residencial e predial.</p>
       <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
+    <div class="produto">
+      <h4>Limpeza de Caixa d’Água</h4>
+      <p>Higienização preventiva.</p>
+      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
+    </div>
   </div>
 </div>
 
@@ -217,7 +218,7 @@ footer{
   <div class="grid">
     <div class="produto">
       <h4>Reparos do Dia a Dia</h4>
-      <p>Trocas, ajustes e pequenos serviços.</p>
+      <p>Troca de lâmpadas, chuveiros, suportes e ajustes.</p>
       <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
     </div>
   </div>
@@ -227,7 +228,7 @@ footer{
 
 <!-- DEPOIMENTOS -->
 <section class="testimonials">
-  <h2 style="text-align:center;margin-bottom:30px">Depoimentos</h2>
+  <h2 style="text-align:center;margin-bottom:28px">Depoimentos</h2>
   <div class="grid">
     <div class="produto">
       <div class="stars">★★★★★</div>
