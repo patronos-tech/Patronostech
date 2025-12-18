@@ -1,300 +1,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos | Patronos Tech</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos | Patronos Tech</title>
 
-  <style>
-    :root {
-      --azul: #0a1f44;
-      --dourado: #d4af37;
-      --cinza: #f4f4f4;
-      --texto: #333;
-    }
+<style>
+:root{
+  --azul:#0a1f44;
+  --dourado:#d4af37;
+  --cinza:#f4f4f4;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{color:#333}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+/* HERO */
+.hero{
+  background:linear-gradient(rgba(10,31,68,.8),rgba(10,31,68,.8)),
+  url("hero-tecnico.png") center/cover no-repeat;
+  color:#fff;
+  text-align:center;
+  padding:90px 20px;
+}
+.hero h1{font-size:2.4rem;margin-bottom:15px}
+.hero p{max-width:800px;margin:auto}
 
-    body {
-      background: #fff;
-      color: var(--texto);
-      line-height: 1.6;
-    }
+/* BOTÃO */
+.btn{
+  display:inline-block;
+  margin-top:12px;
+  padding:12px 22px;
+  background:var(--dourado);
+  color:#000;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+}
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(rgba(10,31,68,.8), rgba(10,31,68,.8)),
-                  url("hero-tecnico.png") center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px;
-    }
+/* SEÇÕES */
+section{padding:60px 20px;max-width:1200px;margin:auto}
+.section-title{text-align:center;color:var(--azul);margin-bottom:35px}
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+/* CARROSSEL */
+.carousel{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+.carousel::-webkit-scrollbar{display:none}
+.card{
+  min-width:280px;
+  background:var(--cinza);
+  padding:25px;
+  border-radius:10px;
+  text-align:center;
+}
 
-    .hero p {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
-    }
+/* CATÁLOGO */
+.area{margin-bottom:70px}
+.area h2{
+  color:var(--azul);
+  margin-bottom:25px;
+  border-left:6px solid var(--dourado);
+  padding-left:15px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+.produto{
+  background:var(--cinza);
+  padding:25px;
+  border-radius:10px;
+}
 
-    /* BOTÃO */
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 22px;
-      background: var(--dourado);
-      color: #000;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: .3s;
-    }
+/* DEPOIMENTOS */
+.testimonials{background:var(--cinza)}
+.stars{color:gold;margin-bottom:10px}
 
-    .btn:hover {
-      background: #b8962e;
-    }
-
-    /* SEÇÕES */
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: var(--azul);
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    /* CARROSSEL */
-    .carousel {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding-bottom: 10px;
-    }
-
-    .carousel::-webkit-scrollbar {
-      display: none;
-    }
-
-    .card {
-      min-width: 280px;
-      background: var(--cinza);
-      padding: 25px;
-      border-radius: 10px;
-      flex-shrink: 0;
-      text-align: center;
-    }
-
-    .card h3 {
-      color: var(--azul);
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-    }
-
-    /* CATEGORIAS / PRODUTOS */
-    .category {
-      margin-bottom: 50px;
-    }
-
-    .category h2 {
-      color: var(--azul);
-      margin-bottom: 25px;
-      border-left: 5px solid var(--dourado);
-      padding-left: 15px;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .product-card {
-      background: var(--cinza);
-      padding: 25px;
-      border-radius: 10px;
-    }
-
-    .product-card h3 {
-      color: var(--azul);
-      margin-bottom: 10px;
-    }
-
-    /* DEPOIMENTOS */
-    .testimonials {
-      background: var(--cinza);
-    }
-
-    .testimonial-card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .stars {
-      color: gold;
-      margin-bottom: 10px;
-    }
-
-    /* RODAPÉ */
-    footer {
-      background: var(--azul);
-      color: #fff;
-      text-align: center;
-      padding: 25px;
-    }
-  </style>
+/* RODAPÉ */
+footer{
+  background:var(--azul);
+  color:#fff;
+  text-align:center;
+  padding:25px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Serviços Técnicos, Manutenção Geral e Marido de Aluguel</h1>
-    <p>
-      A Patronos Tech oferece soluções completas para residências, comércios e condomínios,
-      com atendimento profissional, ágil e seguro.
-    </p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Serviços Técnicos, Manutenção Geral e Marido de Aluguel</h1>
+  <p>Soluções completas para residências, comércios e condomínios com padrão profissional.</p>
+</div>
+
+<!-- PRODUTOS PRINCIPAIS -->
+<section>
+  <div class="carousel">
+    <div class="card">
+      <h3>Instalações Técnicas</h3>
+      <p>Serviços técnicos especializados para ambientes residenciais, comerciais e prediais.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Instalações+Técnicas">Solicitar</a>
+    </div>
+    <div class="card">
+      <h3>Manutenção Geral</h3>
+      <p>Manutenção preventiva e corretiva para imóveis e áreas comuns.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Geral">Solicitar</a>
+    </div>
+    <div class="card">
+      <h3>Marido de Aluguel</h3>
+      <p>Reparos rápidos e serviços do dia a dia.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Marido+de+Aluguel">Solicitar</a>
+    </div>
   </div>
+</section>
 
-  <!-- CARROSSEL PRODUTOS PRINCIPAIS -->
-  <section>
-    <div class="carousel" id="carousel-principal">
-      <div class="card">
-        <h3>Instalações Técnicas</h3>
-        <p>Soluções técnicas especializadas em elétrica, CFTV, telecom, ar-condicionado e automação.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Quero+Instalações+Técnicas">Solicitar</a>
-      </div>
+<!-- CATÁLOGO -->
+<section>
 
-      <div class="card">
-        <h3>Manutenção Geral</h3>
-        <p>Manutenção preventiva e corretiva para manter seu imóvel sempre funcional.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Quero+Manutenção+Geral">Solicitar</a>
-      </div>
+<!-- INSTALAÇÕES TÉCNICAS -->
+<div class="area">
+<h2>Instalações Técnicas</h2>
+<div class="grid">
 
-      <div class="card">
-        <h3>Marido de Aluguel</h3>
-        <p>Pequenos reparos do dia a dia com rapidez e confiança.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Quero+Marido+de+Aluguel">Solicitar</a>
-      </div>
-    </div>
-  </section>
+<div class="produto">
+<h3>Elétrica</h3>
+<p><strong>Mais procurados:</strong> chuveiro elétrico, tomadas 220V, quadro de distribuição.<br>
+<strong>Outros:</strong> fiação, disjuntores, correções.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Elétrica">CTA</a>
+</div>
 
-  <!-- SESSÃO 4 – PRODUTOS DETALHADOS -->
-  <section>
+<div class="produto">
+<h3>CFTV</h3>
+<p><strong>Mais procurados:</strong> instalação de câmeras, DVR/NVR.<br>
+<strong>Outros:</strong> cabeamento e manutenção.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+CFTV">CTA</a>
+</div>
 
-    <!-- INSTALAÇÕES TÉCNICAS -->
-    <div class="category">
-      <h2>Instalações Técnicas</h2>
+<div class="produto">
+<h3>Telecomunicações</h3>
+<p><strong>Mais procurados:</strong> cabeamento de rede, rack.<br>
+<strong>Outros:</strong> pontos de internet e telefonia.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Telecom">CTA</a>
+</div>
 
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>Elétrica</h3>
-          <p>Chuveiros, tomadas 220V, quadros elétricos, correções e fiação.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Elétrica">Solicitar</a>
-        </div>
+<div class="produto">
+<h3>Ar Condicionado</h3>
+<p><strong>Mais procurados:</strong> instalação e limpeza.<br>
+<strong>Outros:</strong> manutenção preventiva.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Ar+Condicionado">CTA</a>
+</div>
 
-        <div class="product-card">
-          <h3>CFTV</h3>
-          <p>Instalação de câmeras, DVR/NVR e cabeamento.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+CFTV">Solicitar</a>
-        </div>
+<div class="produto">
+<h3>Automação Residencial, Comercial e Predial</h3>
+<p><strong>Mais procurados:</strong> tomadas inteligentes, integração Alexa.<br>
+<strong>Outros:</strong> iluminação e automação de ambientes.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Automação">CTA</a>
+</div>
 
-        <div class="product-card">
-          <h3>Telecomunicações</h3>
-          <p>Redes, pontos de internet, racks e telefonia.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Telecom">Solicitar</a>
-        </div>
+</div>
+</div>
 
-        <div class="product-card">
-          <h3>Ar Condicionado</h3>
-          <p>Instalação, limpeza e manutenção.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Ar+Condicionado">Solicitar</a>
-        </div>
+<!-- MANUTENÇÃO GERAL -->
+<div class="area">
+<h2>Manutenção Geral</h2>
+<div class="grid">
+<div class="produto">
+<h3>Serviços Gerais</h3>
+<p><strong>Mais procurados:</strong> pintura, limpeza de caixa d’água, manutenção predial.<br>
+<strong>Outros:</strong> reparos e ajustes.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Geral">CTA</a>
+</div>
+</div>
+</div>
 
-        <div class="product-card">
-          <h3>Automação Residencial, Comercial e Predial</h3>
-          <p>Tomadas inteligentes, iluminação e integração de sistemas.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Serviços+de+Automação">Solicitar</a>
-        </div>
-      </div>
-    </div>
+<!-- MARIDO DE ALUGUEL -->
+<div class="area">
+<h2>Marido de Aluguel</h2>
+<div class="grid">
+<div class="produto">
+<h3>Reparos do Dia a Dia</h3>
+<p><strong>Mais procurados:</strong> troca de chuveiro, lâmpadas LED, suportes.<br>
+<strong>Outros:</strong> pequenos ajustes domésticos.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Marido+de+Aluguel">CTA</a>
+</div>
+</div>
+</div>
 
-    <!-- MANUTENÇÃO GERAL -->
-    <div class="category">
-      <h2>Manutenção Geral</h2>
+</section>
 
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>Serviços Gerais</h3>
-          <p>Pintura, limpeza de caixa d’água, manutenção predial e reparos.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Geral">Solicitar</a>
-        </div>
-      </div>
-    </div>
+<!-- DEPOIMENTOS -->
+<section class="testimonials">
+<h2 class="section-title">Depoimentos</h2>
+<div class="grid">
+<div class="produto">
+<div class="stars">★★★★★</div>
+<p>“Excelente atendimento no condomínio, tudo organizado.”</p>
+<strong>Ricardo Mendes</strong>
+</div>
+<div class="produto">
+<div class="stars">★★★★★</div>
+<p>“Serviço rápido e profissional na loja.”</p>
+<strong>Fernanda Lopes</strong>
+</div>
+<div class="produto">
+<div class="stars">★★★★★</div>
+<p>“Resolveu tudo em casa no mesmo dia.”</p>
+<strong>Marcos Silva</strong>
+</div>
+</div>
+</section>
 
-    <!-- MARIDO DE ALUGUEL -->
-    <div class="category">
-      <h2>Marido de Aluguel</h2>
-
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>Reparos do Dia a Dia</h3>
-          <p>Troca de chuveiros, lâmpadas, forros, suportes e pequenos ajustes.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Marido+de+Aluguel">Solicitar</a>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- DEPOIMENTOS -->
-  <section class="testimonials">
-    <h2 class="section-title">Depoimentos</h2>
-
-    <div class="products-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Serviço impecável no condomínio, organização e confiança."</p>
-        <strong>Ricardo Almeida</strong>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Atendimento rápido e profissional na minha loja."</p>
-        <strong>Fernanda Costa</strong>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p>"Resolveu tudo em casa no mesmo dia, recomendo."</p>
-        <strong>Marcos Oliveira</strong>
-      </div>
-    </div>
-  </section>
-
-  <!-- RODAPÉ -->
-  <footer>
-    <p>© 2025 Patronos Tech • WhatsApp: (11) 95254-4885</p>
-  </footer>
+<footer>
+<p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
+</footer>
 
 </body>
 </html>
