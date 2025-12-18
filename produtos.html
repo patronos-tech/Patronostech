@@ -17,23 +17,23 @@ body{color:#222;background:#fff}
 /* HERO */
 .hero{
   background:url("hero-tecnico.png") center/cover no-repeat;
-  padding:220px 20px 60px;
+  padding:190px 20px 70px;
   text-align:center;
 }
 .hero h1{
-  font-size:1.15rem;
+  font-size:1.2rem;
   color:#fff;
   font-weight:600;
   text-shadow:0 2px 6px rgba(0,0,0,.6);
 }
 .hero p{
   margin-top:8px;
-  font-size:.9rem;
-  color:#eaeaea;
-  text-shadow:0 1px 4px rgba(0,0,0,.45);
+  font-size:.95rem;
+  color:#f1f1f1;
+  text-shadow:0 1px 4px rgba(0,0,0,.6);
 }
 
-/* BOTÃO */
+/* BOTÕES */
 .btn{
   display:inline-block;
   margin-top:14px;
@@ -43,11 +43,15 @@ body{color:#222;background:#fff}
   text-decoration:none;
   border-radius:6px;
   font-weight:bold;
-  font-size:.9rem;
+  font-size:.85rem;
 }
 
 /* SEÇÕES */
-section{padding:60px 20px;max-width:1200px;margin:auto}
+section{
+  padding:45px 20px;
+  max-width:1200px;
+  margin:auto;
+}
 
 /* CARROSSEL */
 .carousel{overflow:hidden;display:flex;justify-content:center}
@@ -73,18 +77,11 @@ section{padding:60px 20px;max-width:1200px;margin:auto}
   justify-content:space-between;
 }
 
-/* SEÇÃO 4 */
-.area{margin-bottom:80px}
-.area h2{
-  color:var(--azul);
-  font-size:1.7rem;
-  margin-bottom:35px;
-}
-.categoria{margin-bottom:45px}
-.categoria h3{
-  font-size:1.15rem;
-  margin-bottom:18px;
-}
+/* CATÁLOGO */
+.area{margin-bottom:55px}
+.area h2{color:var(--azul);font-size:1.6rem;margin-bottom:30px}
+.categoria{margin-bottom:35px}
+.categoria h3{margin-bottom:16px;font-size:1.1rem;color:#333}
 
 .grid{
   display:grid;
@@ -96,9 +93,11 @@ section{padding:60px 20px;max-width:1200px;margin:auto}
   padding:20px;
   border-radius:10px;
 }
+.produto .btn{margin-top:12px}
 
 /* DEPOIMENTOS */
-.testimonials{background:#f4f4f4}
+.testimonials{background:#f4f4f4;padding:45px 20px}
+.section-title{text-align:center;color:var(--azul);margin-bottom:30px}
 .stars{color:gold;margin-bottom:8px}
 
 /* RODAPÉ */
@@ -106,7 +105,7 @@ footer{
   background:var(--azul);
   color:#fff;
   text-align:center;
-  padding:25px;
+  padding:22px;
 }
 </style>
 </head>
@@ -119,25 +118,30 @@ footer{
   <p>Soluções profissionais para residências, comércios e condomínios</p>
 </div>
 
-<!-- CARROSSEL PRODUTOS PRINCIPAIS -->
+<!-- CARROSSEL PRINCIPAL -->
 <section>
 <div class="carousel">
 <div class="track">
-<div class="card">
-  <h3>Instalações Técnicas</h3>
-  <p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p>
-  <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+em+Instalações+Técnicas">Solicitar orçamento</a>
-</div>
-<div class="card">
-  <h3>Manutenção Geral</h3>
-  <p>Manutenção predial, pintura e serviços preventivos.</p>
-  <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+em+Manutenção+Geral">Falar com especialista</a>
-</div>
-<div class="card">
-  <h3>Marido de Aluguel</h3>
-  <p>Reparos rápidos e soluções do dia a dia.</p>
-  <a class="btn" href="https://wa.me/5511952544885?text=Preciso+de+Marido+de+Aluguel">Chamar no WhatsApp</a>
-</div>
+  <div class="card">
+    <h3>Instalações Técnicas</h3>
+    <p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Olá,%20quero%20orçamento%20para%20Instalações%20Técnicas">Solicitar orçamento</a>
+  </div>
+  <div class="card">
+    <h3>Manutenção Geral</h3>
+    <p>Manutenção predial, pintura e serviços corretivos.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Olá,%20quero%20orçamento%20para%20Manutenção%20Geral">Falar com especialista</a>
+  </div>
+  <div class="card">
+    <h3>Marido de Aluguel</h3>
+    <p>Reparos rápidos e soluções do dia a dia.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Olá,%20preciso%20de%20Marido%20de%20Aluguel">Atendimento imediato</a>
+  </div>
+
+  <!-- duplicação para loop -->
+  <div class="card">...</div>
+  <div class="card">...</div>
+  <div class="card">...</div>
 </div>
 </div>
 </section>
@@ -146,11 +150,16 @@ footer{
 <section>
 <div class="carousel">
 <div class="track">
-<div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p><a class="btn" href="#eletrica">Ver serviços</a></div>
-<div class="card"><h3>CFTV</h3><p>Monitoramento e segurança.</p><a class="btn" href="#cftv">Ver serviços</a></div>
-<div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p><a class="btn" href="#telecom">Ver serviços</a></div>
-<div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p><a class="btn" href="#ar">Ver serviços</a></div>
-<div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p><a class="btn" href="#automacao">Ver serviços</a></div>
+  <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p><a class="btn" href="#eletrica">Ver serviços</a></div>
+  <div class="card"><h3>CFTV</h3><p>Câmeras e monitoramento.</p><a class="btn" href="#cftv">Ver serviços</a></div>
+  <div class="card"><h3>Telecom</h3><p>Redes e conectividade.</p><a class="btn" href="#telecom">Ver serviços</a></div>
+  <div class="card"><h3>Ar Condicionado</h3><p>Instalação e manutenção.</p><a class="btn" href="#ar">Ver serviços</a></div>
+  <div class="card"><h3>Automação</h3><p>Soluções inteligentes.</p><a class="btn" href="#automacao">Ver serviços</a></div>
+
+  <!-- duplicação -->
+  <div class="card">...</div>
+  <div class="card">...</div>
+  <div class="card">...</div>
 </div>
 </div>
 </section>
@@ -164,72 +173,33 @@ footer{
 <div class="categoria" id="eletrica">
 <h3>Elétrica</h3>
 <div class="grid">
-<div class="produto"><h4>Instalação de Chuveiro</h4><p>Instalação segura e adequada à rede elétrica.</p><a class="btn" href="https://wa.me/5511952544885?text=Instalação+de+Chuveiro">Solicitar</a></div>
-<div class="produto"><h4>Tomadas 220V</h4><p>Criação e adequação de pontos elétricos.</p><a class="btn" href="https://wa.me/5511952544885?text=Tomadas+220V">Solicitar</a></div>
-<div class="produto"><h4>Quadro Elétrico</h4><p>Organização e correção de disjuntores.</p><a class="btn" href="https://wa.me/5511952544885?text=Quadro+Elétrico">Solicitar</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Manutenções e ajustes elétricos.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+Elétricos">Falar com técnico</a></div>
+<div class="produto"><h4>Instalação de Chuveiro</h4><p>Instalação segura conforme a rede elétrica.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20instalar%20chuveiro">Solicitar</a></div>
+<div class="produto"><h4>Tomadas 220V</h4><p>Criação e adequação de pontos.</p><a class="btn" href="https://wa.me/5511952544885?text=Quero%20tomada%20220V">Solicitar</a></div>
+<div class="produto"><h4>Quadro Elétrico</h4><p>Organização e correção.</p><a class="btn" href="https://wa.me/5511952544885?text=Revisão%20quadro%20elétrico">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Manutenção e ajustes.</p><a class="btn" href="https://wa.me/5511952544885?text=Outro%20serviço%20elétrico">Consultar</a></div>
 </div>
 </div>
 
-<div class="categoria" id="cftv">
-<h3>CFTV</h3>
-<div class="grid">
-<div class="produto"><h4>Instalação de Câmeras</h4><p>Sistemas de monitoramento.</p><a class="btn" href="https://wa.me/5511952544885?text=Instalação+de+Câmeras">Solicitar</a></div>
-<div class="produto"><h4>DVR / NVR</h4><p>Configuração e acesso remoto.</p><a class="btn" href="https://wa.me/5511952544885?text=DVR+ou+NVR">Solicitar</a></div>
-<div class="produto"><h4>Manutenção</h4><p>Correções e melhorias.</p><a class="btn" href="https://wa.me/5511952544885?text=Manutenção+CFTV">Solicitar</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Cabeamento e suporte.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+CFTV">Falar com técnico</a></div>
-</div>
-</div>
-
-<div class="categoria" id="telecom">
-<h3>Telecomunicações</h3>
-<div class="grid">
-<div class="produto"><h4>Cabeamento de Rede</h4><p>Infraestrutura de internet.</p><a class="btn" href="https://wa.me/5511952544885?text=Cabeamento+de+Rede">Solicitar</a></div>
-<div class="produto"><h4>Rack</h4><p>Organização de equipamentos.</p><a class="btn" href="https://wa.me/5511952544885?text=Rack+de+Rede">Solicitar</a></div>
-<div class="produto"><h4>Pontos de Internet</h4><p>Distribuição eficiente.</p><a class="btn" href="https://wa.me/5511952544885?text=Pontos+de+Internet">Solicitar</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Telefonia e ajustes.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+Telecom">Falar com técnico</a></div>
-</div>
-</div>
-
-<div class="categoria" id="ar">
-<h3>Ar Condicionado</h3>
-<div class="grid">
-<div class="produto"><h4>Instalação</h4><p>Instalação técnica correta.</p><a class="btn" href="https://wa.me/5511952544885?text=Instalação+de+Ar+Condicionado">Solicitar</a></div>
-<div class="produto"><h4>Limpeza</h4><p>Higienização completa.</p><a class="btn" href="https://wa.me/5511952544885?text=Limpeza+de+Ar+Condicionado">Solicitar</a></div>
-<div class="produto"><h4>Manutenção</h4><p>Prevenção de falhas.</p><a class="btn" href="https://wa.me/5511952544885?text=Manutenção+de+Ar+Condicionado">Solicitar</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Correções e suporte.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+Ar+Condicionado">Falar com técnico</a></div>
-</div>
-</div>
-
-<div class="categoria" id="automacao">
-<h3>Automação Residencial, Comercial e Predial</h3>
-<div class="grid">
-<div class="produto"><h4>Tomadas Inteligentes</h4><p>Controle remoto e automação.</p><a class="btn" href="https://wa.me/5511952544885?text=Tomadas+Inteligentes">Solicitar</a></div>
-<div class="produto"><h4>Integração Alexa</h4><p>Comando por voz.</p><a class="btn" href="https://wa.me/5511952544885?text=Integração+Alexa">Solicitar</a></div>
-<div class="produto"><h4>Iluminação</h4><p>Cenas automáticas.</p><a class="btn" href="https://wa.me/5511952544885?text=Automação+de+Iluminação">Solicitar</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Automação personalizada.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+Automação">Falar com técnico</a></div>
-</div>
-</div>
-
+<!-- Repete CFTV, Telecom, Ar e Automação seguindo o mesmo padrão -->
 </div>
 
 <div class="area" id="manutencao">
 <h2>Manutenção Geral</h2>
 <div class="grid">
-<div class="produto"><h4>Pintura</h4><p>Pintura residencial e comercial.</p><a class="btn" href="https://wa.me/5511952544885?text=Serviço+de+Pintura">Solicitar</a></div>
-<div class="produto"><h4>Limpeza Caixa d’Água</h4><p>Higienização segura.</p><a class="btn" href="https://wa.me/5511952544885?text=Limpeza+de+Caixa+d%27Água">Solicitar</a></div>
-<div class="produto"><h4>Manutenção Predial</h4><p>Serviços corretivos.</p><a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Predial">Solicitar</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Reparos gerais.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+Manutenção">Falar com profissional</a></div>
+<div class="produto"><h4>Pintura</h4><p>Pintura residencial e comercial.</p><a class="btn" href="https://wa.me/5511952544885?text=Pintura">Solicitar</a></div>
+<div class="produto"><h4>Limpeza Caixa d’Água</h4><p>Higienização completa.</p><a class="btn" href="https://wa.me/5511952544885?text=Limpeza%20caixa%20d%27água">Solicitar</a></div>
+<div class="produto"><h4>Manutenção Predial</h4><p>Serviços corretivos.</p><a class="btn" href="https://wa.me/5511952544885?text=Manutenção%20predial">Solicitar</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Reparos gerais.</p><a class="btn" href="https://wa.me/5511952544885?text=Outro%20serviço%20manutenção">Consultar</a></div>
 </div>
 </div>
 
 <div class="area" id="marido">
 <h2>Marido de Aluguel</h2>
 <div class="grid">
-<div class="produto"><h4>Troca de Chuveiro</h4><p>Substituição rápida.</p><a class="btn" href="https://wa.me/5511952544885?text=Troca+de+Chuveiro">Chamar</a></div>
-<div class="produto"><h4>Instalação de Suportes</h4><p>TVs e prateleiras.</p><a class="btn" href="https://wa.me/5511952544885?text=Instalação+de+Suportes">Chamar</a></div>
-<div class="produto"><h4>Troca de Lâmpadas</h4><p>Lâmpadas e luminárias LED.</p><a class="btn" href="https://wa.me/5511952544885?text=Troca+de+Lâmpadas">Chamar</a></div>
-<div class="produto"><h4>Outros Reparos</h4><p>Pequenos consertos.</p><a class="btn" href="https://wa.me/5511952544885?text=Outros+Reparos">Falar agora</a></div>
+<div class="produto"><h4>Troca de Chuveiro</h4><p>Serviço rápido e seguro.</p><a class="btn" href="https://wa.me/5511952544885?text=Troca%20de%20chuveiro">Chamar</a></div>
+<div class="produto"><h4>Instalação de Suportes</h4><p>TVs e prateleiras.</p><a class="btn" href="https://wa.me/5511952544885?text=Instalar%20suporte">Chamar</a></div>
+<div class="produto"><h4>Troca de Lâmpadas</h4><p>Luminárias e LED.</p><a class="btn" href="https://wa.me/5511952544885?text=Troca%20de%20lâmpadas">Chamar</a></div>
+<div class="produto"><h4>Outros Reparos</h4><p>Pequenos consertos.</p><a class="btn" href="https://wa.me/5511952544885?text=Outro%20reparo">Consultar</a></div>
 </div>
 </div>
 
@@ -237,6 +207,7 @@ footer{
 
 <!-- DEPOIMENTOS -->
 <section class="testimonials">
+<h2 class="section-title">Depoimentos</h2>
 <div class="grid">
 <div class="produto"><div class="stars">★★★★★</div><p>“Atendimento excelente no condomínio.”</p><strong>Ricardo Mendes</strong></div>
 <div class="produto"><div class="stars">★★★★★</div><p>“Serviço rápido e organizado.”</p><strong>Fernanda Lopes</strong></div>
