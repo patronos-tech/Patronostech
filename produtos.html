@@ -9,115 +9,109 @@
 :root{
   --azul:#0a1f44;
   --dourado:#d4af37;
-  --card-bg:rgba(10,31,68,.06);
-  --texto:#333;
+  --card-bg: rgba(10,31,68,0.10);
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-body{background:#fff;color:var(--texto)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fff;color:#222}
 
 /* HERO */
 .hero{
   background:
     linear-gradient(rgba(10,31,68,.45),rgba(10,31,68,.45)),
     url("hero-tecnico.png") center/cover no-repeat;
-  color:#fff;
+  padding:55px 20px;
   text-align:center;
-  padding:45px 20px;
+  color:#fff;
 }
 .hero h1{
-  font-size:1.9rem;
-  font-weight:600;
+  font-size:1.8rem;
   margin-bottom:8px;
 }
 .hero p{
-  max-width:760px;
+  max-width:720px;
   margin:auto;
-  font-size:1rem;
-  opacity:.95;
+  font-size:0.95rem;
 }
 
 /* BOTÃO */
 .btn{
   display:inline-block;
   margin-top:14px;
-  padding:11px 22px;
+  padding:10px 20px;
   background:var(--dourado);
   color:#000;
-  text-decoration:none;
-  border-radius:6px;
   font-weight:bold;
-  transition:.2s;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:0.9rem;
 }
-.btn:hover{opacity:.9}
 
 /* SEÇÕES */
-section{
-  padding:60px 20px;
-  max-width:1200px;
-  margin:auto;
-}
+section{max-width:1200px;margin:auto;padding:50px 20px}
 
 /* CARROSSEL */
 .carousel{
   display:flex;
-  gap:18px;
+  gap:16px;
   overflow-x:auto;
   scroll-behavior:smooth;
-  padding:10px 0;
 }
 .carousel::-webkit-scrollbar{display:none}
 
 .card{
-  min-width:260px;
+  min-width:210px;
   background:var(--card-bg);
-  padding:26px;
-  border-radius:12px;
+  padding:18px;
+  border-radius:10px;
   text-align:center;
-  flex-shrink:0;
+}
+.card p{
+  font-size:0.9rem;
+  line-height:1.4;
 }
 
 /* ÁREAS */
-.area{margin-bottom:75px}
+.area{margin-bottom:65px}
 .area h2{
   color:var(--azul);
-  font-size:1.8rem;
-  margin-bottom:26px;
+  margin-bottom:10px;
   border-left:6px solid var(--dourado);
   padding-left:14px;
 }
-
-/* CATEGORIAS */
-.categoria{margin-bottom:38px}
-.categoria h3{
-  font-size:1.1rem;
-  color:#111;
-  margin-bottom:18px;
+.area h3{
+  color:#555;
+  margin-bottom:20px;
+  font-weight:normal;
+  font-size:0.95rem;
 }
 
-/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
 }
 
 .produto{
   background:var(--card-bg);
-  padding:22px;
+  padding:20px;
   border-radius:10px;
+}
+.produto p{
+  font-size:0.9rem;
+  line-height:1.45;
 }
 
 /* DEPOIMENTOS */
-.testimonials{background:rgba(10,31,68,.04)}
-.stars{color:gold;margin-bottom:8px}
+.testimonials{background:#f7f8fa}
+.stars{color:#f1c40f;margin-bottom:6px}
 
 /* RODAPÉ */
 footer{
   background:var(--azul);
   color:#fff;
   text-align:center;
-  padding:24px;
+  padding:25px;
 }
 </style>
 </head>
@@ -130,141 +124,157 @@ footer{
   <p>Soluções profissionais para residências, comércios e condomínios.</p>
 </div>
 
-<!-- CARROSSEL PRODUTOS PRINCIPAIS -->
+<!-- CARROSSEL PRINCIPAL -->
 <section>
-  <div class="carousel">
-    <div class="card">
-      <h3>Instalações Técnicas</h3>
-      <p>Elétrica, CFTV, telecomunicações, ar-condicionado e automação.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-    </div>
-    <div class="card">
-      <h3>Manutenção Geral</h3>
-      <p>Manutenção preventiva e corretiva para imóveis.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-    </div>
-    <div class="card">
-      <h3>Marido de Aluguel</h3>
-      <p>Reparos rápidos e serviços do dia a dia.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-    </div>
+<div class="carousel">
+  <div class="card">
+    <h4>Instalações Técnicas</h4>
+    <p>Elétrica, CFTV, telecom, ar-condicionado e automação.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Instalações+Técnicas">Falar no WhatsApp</a>
   </div>
+  <div class="card">
+    <h4>Manutenção Geral</h4>
+    <p>Manutenção preventiva e corretiva.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Geral">Falar no WhatsApp</a>
+  </div>
+  <div class="card">
+    <h4>Marido de Aluguel</h4>
+    <p>Reparos rápidos e serviços do dia a dia.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Marido+de+Aluguel">Falar no WhatsApp</a>
+  </div>
+</div>
 </section>
 
-<!-- CATÁLOGO -->
-<section>
+<!-- INSTALAÇÕES TÉCNICAS -->
+<section class="area" id="instalacoes">
+<h2>Instalações Técnicas</h2>
+<h3>Elétrica • CFTV • Telecom • Ar Condicionado • Automação</h3>
 
-<div class="area">
-  <h2>Instalações Técnicas</h2>
-
-  <div class="categoria">
-    <h3>Elétrica</h3>
-    <div class="grid">
-      <div class="produto">
-        <h4>Instalação de Chuveiros e Tomadas</h4>
-        <p>Instalações seguras para residências e comércios.</p>
-        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-      </div>
-      <div class="produto">
-        <h4>Quadro de Distribuição</h4>
-        <p>Organização e adequação elétrica.</p>
-        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="categoria">
-    <h3>CFTV</h3>
-    <div class="grid">
-      <div class="produto">
-        <h4>Instalação de Câmeras</h4>
-        <p>Monitoramento residencial, comercial e predial.</p>
-        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="categoria">
-    <h3>Telecomunicações</h3>
-    <div class="grid">
-      <div class="produto">
-        <h4>Cabeamento de Rede</h4>
-        <p>Infraestrutura organizada para internet.</p>
-        <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
+<div class="grid">
+<div class="produto">
+<h4>Instalação Elétrica</h4>
+<p>Chuveiros, tomadas 220V, quadros e correções elétricas.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Instalação+Elétrica">Solicitar</a>
 </div>
 
-<div class="area">
-  <h2>Manutenção Geral</h2>
-  <div class="grid">
-    <div class="produto">
-      <h4>Pintura e Reparos</h4>
-      <p>Manutenção residencial e predial.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-    </div>
-    <div class="produto">
-      <h4>Limpeza de Caixa d’Água</h4>
-      <p>Higienização preventiva.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-    </div>
-  </div>
+<div class="produto">
+<h4>CFTV e Segurança</h4>
+<p>Instalação de câmeras, DVR/NVR e cabeamento.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=CFTV">Solicitar</a>
 </div>
 
-<div class="area">
-  <h2>Marido de Aluguel</h2>
-  <div class="grid">
-    <div class="produto">
-      <h4>Reparos do Dia a Dia</h4>
-      <p>Troca de lâmpadas, chuveiros, suportes e ajustes.</p>
-      <a class="btn" href="https://wa.me/5511952544885">Chamar no WhatsApp</a>
-    </div>
-  </div>
+<div class="produto">
+<h4>Ar Condicionado</h4>
+<p>Instalação, limpeza e manutenção preventiva.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Ar+Condicionado">Solicitar</a>
 </div>
 
+<div class="produto">
+<h4>Outros Serviços Técnicos</h4>
+<p>Telecom e automação residencial, comercial e predial.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Outros+Serviços+Técnicos">Solicitar</a>
+</div>
+</div>
+</section>
+
+<!-- MANUTENÇÃO GERAL -->
+<section class="area">
+<h2>Manutenção Geral</h2>
+
+<div class="grid">
+<div class="produto">
+<h4>Pintura e Reparos</h4>
+<p>Pintura interna, externa e correções.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Pintura">Solicitar</a>
+</div>
+
+<div class="produto">
+<h4>Limpezas Técnicas</h4>
+<p>Caixa d’água e ar-condicionado.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Limpezas">Solicitar</a>
+</div>
+
+<div class="produto">
+<h4>Manutenção Predial</h4>
+<p>Áreas comuns e manutenção preventiva.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Predial">Solicitar</a>
+</div>
+
+<div class="produto">
+<h4>Outros Serviços</h4>
+<p>Reparos e ajustes diversos.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Outros+Manutenção">Solicitar</a>
+</div>
+</div>
+</section>
+
+<!-- MARIDO DE ALUGUEL -->
+<section class="area">
+<h2>Marido de Aluguel</h2>
+
+<div class="grid">
+<div class="produto">
+<h4>Trocas e Instalações</h4>
+<p>Chuveiros, lâmpadas LED e suportes.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Trocas">Solicitar</a>
+</div>
+
+<div class="produto">
+<h4>Pequenos Reparos</h4>
+<p>Ajustes domésticos rápidos.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Reparos">Solicitar</a>
+</div>
+
+<div class="produto">
+<h4>Forros e Ajustes</h4>
+<p>Instalação e reparos em forros.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Forros">Solicitar</a>
+</div>
+
+<div class="produto">
+<h4>Outros Serviços</h4>
+<p>Demandas simples do dia a dia.</p>
+<a class="btn" href="https://wa.me/5511952544885?text=Outros+Marido+de+Aluguel">Solicitar</a>
+</div>
+</div>
 </section>
 
 <!-- DEPOIMENTOS -->
 <section class="testimonials">
-  <h2 style="text-align:center;margin-bottom:28px">Depoimentos</h2>
-  <div class="grid">
-    <div class="produto">
-      <div class="stars">★★★★★</div>
-      <p>“Atendimento profissional no condomínio.”</p>
-      <strong>Ricardo Mendes</strong>
-    </div>
-    <div class="produto">
-      <div class="stars">★★★★★</div>
-      <p>“Serviço rápido e confiável.”</p>
-      <strong>Fernanda Lopes</strong>
-    </div>
-    <div class="produto">
-      <div class="stars">★★★★★</div>
-      <p>“Resolveu tudo em casa.”</p>
-      <strong>Marcos Silva</strong>
-    </div>
-  </div>
+<h2 style="text-align:center;margin-bottom:30px">Depoimentos</h2>
+<div class="grid">
+<div class="produto">
+<div class="stars">★★★★★</div>
+<p>“Atendimento profissional no condomínio.”</p>
+<strong>Ricardo Mendes</strong>
+</div>
+<div class="produto">
+<div class="stars">★★★★★</div>
+<p>“Serviço rápido e bem executado.”</p>
+<strong>Fernanda Lopes</strong>
+</div>
+<div class="produto">
+<div class="stars">★★★★★</div>
+<p>“Resolveu tudo em casa no mesmo dia.”</p>
+<strong>Marcos Silva</strong>
+</div>
+</div>
 </section>
 
 <footer>
-  <p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
+<p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
 </footer>
 
 <script>
-function autoCarousel(selector, speed = 0.6) {
-  const carousel = document.querySelector(selector);
-  if (!carousel) return;
-  setInterval(() => {
-    carousel.scrollLeft += speed;
-    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
-      carousel.scrollLeft = 0;
+setInterval(()=>{
+  document.querySelectorAll('.carousel').forEach(c=>{
+    c.scrollLeft += 230;
+    if(c.scrollLeft + c.clientWidth >= c.scrollWidth){
+      c.scrollLeft = 0;
     }
-  }, 20);
-}
-autoCarousel(".carousel", 0.6);
+  });
+},2200);
 </script>
 
 </body>
-</html>
+        </html>
