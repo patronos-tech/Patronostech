@@ -8,16 +8,16 @@
 <style>
 :root{
   --azul:#0a1f44;
-  --azul-card:rgba(10,31,68,.08);
+  --azul-card:rgba(10,31,68,.12);
   --dourado:#d4af37;
 }
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{color:#333;background:#fff}
+body{color:#333}
 
 /* HERO */
 .hero{
   background:url("hero-tecnico.png") center/cover no-repeat;
-  padding:70px 20px 50px;
+  padding:65px 20px 45px;
   text-align:center;
   position:relative;
 }
@@ -28,8 +28,8 @@ body{color:#333;background:#fff}
   background:rgba(10,31,68,.55);
 }
 .hero *{position:relative;color:#fff}
-.hero h1{font-size:1.8rem;margin-bottom:10px}
-.hero p{max-width:750px;margin:auto;font-size:.95rem}
+.hero h1{font-size:1.7rem;margin-bottom:10px}
+.hero p{max-width:720px;margin:auto;font-size:.95rem}
 
 /* BOTÃO */
 .btn{
@@ -46,25 +46,23 @@ body{color:#333;background:#fff}
 
 /* SEÇÕES */
 section{padding:55px 20px;max-width:1200px;margin:auto}
-.section-title{text-align:center;color:var(--azul);margin-bottom:30px}
 
 /* CARROSSEL */
 .carousel{
-  display:flex;
-  gap:20px;
   overflow:hidden;
 }
 .track{
   display:flex;
+  justify-content:center;
   gap:20px;
-  animation:scroll 18s linear infinite;
+  animation:scroll 14s linear infinite;
 }
 @keyframes scroll{
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
 }
 .card{
-  width:260px;
+  width:250px;
   min-height:190px;
   background:var(--azul-card);
   border-radius:10px;
@@ -83,9 +81,7 @@ section{padding:55px 20px;max-width:1200px;margin:auto}
   border-left:6px solid var(--dourado);
   padding-left:14px;
 }
-.categoria{
-  margin-bottom:35px;
-}
+.categoria{margin-bottom:40px}
 .categoria h3{
   color:#555;
   margin-bottom:15px;
@@ -93,13 +89,15 @@ section{padding:55px 20px;max-width:1200px;margin:auto}
 }
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
+  justify-content:center;
+  grid-template-columns:repeat(auto-fit,250px);
+  gap:20px;
 }
 .produto{
   background:var(--azul-card);
   padding:22px;
   border-radius:10px;
+  text-align:center;
 }
 .produto h4{color:var(--azul);margin-bottom:6px;font-size:.95rem}
 .produto p{font-size:.85rem;line-height:1.4}
@@ -128,27 +126,25 @@ footer{
 </div>
 
 <!-- CARROSSEL PRODUTOS PRINCIPAIS -->
-<section>
-<div class="carousel">
-  <div class="track">
-    <div class="card"><h3>Instalações Técnicas</h3><p>Execução profissional em elétrica, CFTV, telecom e automação.</p></div>
-    <div class="card"><h3>Manutenção Geral</h3><p>Correções, manutenção predial e serviços recorrentes.</p></div>
-    <div class="card"><h3>Marido de Aluguel</h3><p>Reparos rápidos e soluções do dia a dia.</p></div>
-    <div class="card"><h3>Instalações Técnicas</h3><p>Execução profissional em elétrica, CFTV, telecom e automação.</p></div>
-  </div>
+<section class="carousel">
+<div class="track">
+  <div class="card"><h3>Instalações Técnicas</h3><p>Serviços técnicos completos e organizados.</p></div>
+  <div class="card"><h3>Manutenção Geral</h3><p>Manutenção preventiva e corretiva.</p></div>
+  <div class="card"><h3>Marido de Aluguel</h3><p>Reparos rápidos do dia a dia.</p></div>
+  <div class="card"><h3>Instalações Técnicas</h3><p>Elétrica, CFTV, telecom e automação.</p></div>
 </div>
 </section>
 
 <!-- CARROSSEL CATEGORIAS -->
-<section>
-<div class="carousel">
-  <div class="track">
-    <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p></div>
-    <div class="card"><h3>CFTV</h3><p>Instalação de câmeras e segurança.</p></div>
-    <div class="card"><h3>Manutenção Geral</h3><p>Pintura, limpeza e ajustes.</p></div>
-    <div class="card"><h3>Marido de Aluguel</h3><p>Pequenos reparos domésticos.</p></div>
-    <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p></div>
-  </div>
+<section class="carousel">
+<div class="track">
+  <div class="card"><h3>Elétrica</h3><p>Instalações e correções elétricas.</p></div>
+  <div class="card"><h3>CFTV</h3><p>Câmeras e sistemas de segurança.</p></div>
+  <div class="card"><h3>Telecom</h3><p>Rede, internet e telefonia.</p></div>
+  <div class="card"><h3>Ar-condicionado</h3><p>Instalação e limpeza.</p></div>
+  <div class="card"><h3>Automação</h3><p>Residencial, comercial e predial.</p></div>
+  <div class="card"><h3>Manutenção Geral</h3><p>Serviços prediais.</p></div>
+  <div class="card"><h3>Marido de Aluguel</h3><p>Pequenos reparos.</p></div>
 </div>
 </section>
 
@@ -159,45 +155,23 @@ footer{
 <div class="categoria">
 <h3>Elétrica</h3>
 <div class="grid">
-<div class="produto"><h4>Chuveiro Elétrico</h4><p>Instalação segura e adequada.</p><a class="btn" href="https://wa.me/5511952544885?text=Chuveiro+Elétrico">WhatsApp</a></div>
+<div class="produto"><h4>Chuveiro Elétrico</h4><p>Instalação segura e correta.</p><a class="btn" href="https://wa.me/5511952544885?text=Chuveiro+Elétrico">WhatsApp</a></div>
 <div class="produto"><h4>Tomadas 220V</h4><p>Conversão e novos pontos.</p><a class="btn" href="https://wa.me/5511952544885?text=Tomadas+220V">WhatsApp</a></div>
 <div class="produto"><h4>Quadro Elétrico</h4><p>Organização e segurança.</p><a class="btn" href="https://wa.me/5511952544885?text=Quadro+Elétrico">WhatsApp</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Fiação, disjuntores e ajustes.</p><a class="btn" href="https://wa.me/5511952544885?text=Elétrica+Geral">WhatsApp</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Correções elétricas gerais.</p><a class="btn" href="https://wa.me/5511952544885?text=Elétrica+Geral">WhatsApp</a></div>
 </div>
 </div>
 
-</section>
-
-<!-- MANUTENÇÃO GERAL -->
-<section class="area">
-<h2>Manutenção Geral</h2>
+<div class="categoria">
+<h3>CFTV</h3>
 <div class="grid">
-<div class="produto"><h4>Pintura</h4><p>Ambientes residenciais e comerciais.</p><a class="btn" href="https://wa.me/5511952544885?text=Pintura">WhatsApp</a></div>
-<div class="produto"><h4>Limpeza Caixa D’Água</h4><p>Higienização correta.</p><a class="btn" href="https://wa.me/5511952544885?text=Limpeza+Caixa+Dagua">WhatsApp</a></div>
-<div class="produto"><h4>Manutenção Predial</h4><p>Áreas comuns e correções.</p><a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Predial">WhatsApp</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Ajustes e correções gerais.</p><a class="btn" href="https://wa.me/5511952544885?text=Manutenção+Geral">WhatsApp</a></div>
+<div class="produto"><h4>Instalação de Câmeras</h4><p>Monitoramento eficiente.</p><a class="btn" href="https://wa.me/5511952544885?text=CFTV">WhatsApp</a></div>
+<div class="produto"><h4>DVR / NVR</h4><p>Configuração completa.</p><a class="btn" href="https://wa.me/5511952544885?text=DVR+NVR">WhatsApp</a></div>
+<div class="produto"><h4>Cabeamento</h4><p>Organização e passagem.</p><a class="btn" href="https://wa.me/5511952544885?text=Cabeamento+CFTV">WhatsApp</a></div>
+<div class="produto"><h4>Outros Serviços</h4><p>Manutenção e ajustes.</p><a class="btn" href="https://wa.me/5511952544885?text=CFTV+Geral">WhatsApp</a></div>
 </div>
-</section>
+</div>
 
-<!-- MARIDO DE ALUGUEL -->
-<section class="area">
-<h2>Marido de Aluguel</h2>
-<div class="grid">
-<div class="produto"><h4>Troca de Lâmpadas</h4><p>LED e luminárias.</p><a class="btn" href="https://wa.me/5511952544885?text=Troca+de+Lâmpadas">WhatsApp</a></div>
-<div class="produto"><h4>Instalação de Suportes</h4><p>TVs, quadros e prateleiras.</p><a class="btn" href="https://wa.me/5511952544885?text=Suportes">WhatsApp</a></div>
-<div class="produto"><h4>Pequenos Reparos</h4><p>Ajustes rápidos.</p><a class="btn" href="https://wa.me/5511952544885?text=Pequenos+Reparos">WhatsApp</a></div>
-<div class="produto"><h4>Outros Serviços</h4><p>Demandas do dia a dia.</p><a class="btn" href="https://wa.me/5511952544885?text=Marido+de+Aluguel">WhatsApp</a></div>
-</div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section class="testimonials">
-<h2 class="section-title">Depoimentos</h2>
-<div class="grid">
-<div class="produto"><div class="stars">★★★★★</div><p>“Serviço impecável no condomínio.”</p><strong>Ricardo Mendes</strong></div>
-<div class="produto"><div class="stars">★★★★★</div><p>“Muito profissional e rápido.”</p><strong>Fernanda Lopes</strong></div>
-<div class="produto"><div class="stars">★★★★★</div><p>“Resolveu tudo no mesmo dia.”</p><strong>Marcos Silva</strong></div>
-</div>
 </section>
 
 <footer>
@@ -205,4 +179,4 @@ footer{
 </footer>
 
 </body>
-        </html>
+</html>
