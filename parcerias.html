@@ -5,47 +5,98 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parcerias | Patronos Tech</title>
 
+<link rel="preload" as="image" href="assets/images/hero-eletrica.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* === ESTILO MANTIDO (mesmo padrão das páginas existentes) === */
 :root{
-  --bg:#0a1f44;
+  --bg:#0b1d2a;
+  --bg-light:#112b3c;
   --gold:#d4af37;
-  --card:rgba(255,255,255,.06);
   --text:#ffffff;
-  --muted:rgba(255,255,255,.75);
+  --muted:#cfd8dc;
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:var(--bg);color:var(--text)}
-.container{max-width:1200px;margin:auto;padding:0 20px}
-section{padding:40px 0;text-align:center}
-h1,h2,h3{color:var(--gold)}
-p{color:var(--muted);line-height:1.5}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+section{padding:70px 20px}
+.container{max-width:1200px;margin:auto;text-align:center}
+
+h1{font-size:2rem;margin-bottom:15px}
+h2{font-size:1.6rem;margin-bottom:12px}
+h3{font-size:1.15rem;margin-bottom:8px}
+p{font-size:.95rem;color:var(--muted);line-height:1.6}
+
 .btn{
   display:inline-block;
-  padding:12px 22px;
+  margin-top:20px;
+  padding:14px 26px;
   background:var(--gold);
   color:#000;
-  border-radius:6px;
-  font-weight:bold;
+  font-weight:600;
+  border-radius:30px;
   text-decoration:none;
-  font-size:.9rem;
 }
-.cards{
+.btn.alt{
+  background:transparent;
+  border:2px solid var(--gold);
+  color:var(--gold);
+  margin-left:10px;
+}
+
+.hero{
+  min-height:85vh;
+  background:url('assets/images/hero-eletrica.png') center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.2));
+}
+.hero-content{
+  position:relative;
+  width:100%;
+  padding-bottom:60px;
+}
+.hero-content h1,
+.hero-content p{max-width:800px;margin:auto}
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
-  margin-top:30px;
+  gap:30px;
+  margin-top:40px;
 }
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .card{
-  background:var(--card);
-  padding:22px;
-  border-radius:10px;
+  background:var(--bg-light);
+  padding:30px 25px;
+  border-radius:14px;
+}
+.card h3{color:var(--gold)}
+
+.cta-box{
+  margin-top:40px;
 }
 footer{
+  background:#08151f;
+  padding:30px 20px;
   text-align:center;
-  padding:25px;
-  margin-top:40px;
-  background:#081730;
+  font-size:.85rem;
+  color:var(--muted);
+}
+
+@media(max-width:768px){
+  h1{font-size:1.6rem}
+  h2{font-size:1.4rem}
 }
 </style>
 </head>
@@ -53,15 +104,11 @@ footer{
 <body>
 
 <!-- HERO -->
-<section>
-  <div class="container">
-    <h1>Parcerias que geram oportunidade real</h1>
-    <p>
-      A Patronos Tech está expandindo sua rede de parceiros técnicos e estratégicos.
-      Se você executa serviços, indica serviços ou representa empresas e condomínios,
-      aqui existe uma parceria clara, organizada e vantajosa para todos.
-    </p>
-    <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+a+Patronos+Tech">Quero ser parceiro</a>
+<section class="hero">
+  <div class="hero-content container">
+    <h1>Parcerias que geram oportunidade, crescimento e confiança</h1>
+    <p>Estamos expandindo nossa rede de parceiros técnicos e estratégicos. Trabalhe com a Patronos Tech executando serviços, indicando demandas ou fortalecendo conexões profissionais.</p>
+    <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenhoAVente+interesse+em+ser+parceiro+da+Patronos+Tech">Quero ser parceiro</a>
   </div>
 </section>
 
@@ -69,105 +116,91 @@ footer{
 <section>
   <div class="container">
     <h2>Para quem é essa parceria</h2>
-    <p>Modelos simples, flexíveis e sem burocracia.</p>
+    <p>Nosso modelo foi criado para funcionar de forma simples, justa e vantajosa para diferentes perfis.</p>
 
-    <div class="cards">
+    <div class="grid grid-3">
       <div class="card">
         <h3>Profissionais Técnicos</h3>
-        <p>
-          Para quem executa serviços e busca organização, demanda recorrente
-          e parceria de longo prazo, sem perder sua autonomia.
-        </p>
+        <p>Para quem executa serviços e busca organização, demanda constante e parceria séria, sem burocracia.</p>
       </div>
 
       <div class="card">
-        <h3>Profissionais que Indicam</h3>
-        <p>
-          Mesmo que você não execute o serviço, sua indicação tem valor.
-          Indicar gera benefício e fortalece uma relação ganha-ganha.
-        </p>
+        <h3>Profissionais Indicadores</h3>
+        <p>Mesmo que você não execute o serviço, sua indicação tem valor e pode gerar benefícios reais.</p>
       </div>
 
       <div class="card">
         <h3>Empresas, Síndicos e Imobiliárias</h3>
-        <p>
-          Para quem precisa de um parceiro técnico confiável para resolver demandas,
-          reduzir problemas e indicar com segurança.
-        </p>
+        <p>Para quem precisa de um parceiro técnico confiável para resolver demandas e indicar com segurança.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BENEFÍCIOS -->
+<!-- BENEFÍCIOS EXECUTORES -->
 <section>
   <div class="container">
-    <h2>Por que fazer parte da Patronos Tech</h2>
+    <h2>Para profissionais que executam serviços</h2>
+    <p>Trabalhe com mais organização, previsibilidade e valorização profissional.</p>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Organização e clareza</h3>
-        <p>Demandas centralizadas, comunicação clara e processos simples.</p>
-      </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Fluxo de oportunidades</h3><p>Demandas reais, organizadas e alinhadas ao seu perfil técnico.</p></div>
+      <div class="card"><h3>Parceria de longo prazo</h3><p>Relação baseada em confiança, clareza e crescimento conjunto.</p></div>
+      <div class="card"><h3>Gestão simplificada</h3><p>Menos desgaste, mais foco na execução e na qualidade do serviço.</p></div>
+    </div>
 
-      <div class="card">
-        <h3>Oportunidades reais</h3>
-        <p>Fluxo constante de serviços e indicações, sem promessas irreais.</p>
-      </div>
-
-      <div class="card">
-        <h3>Valorização profissional</h3>
-        <p>Parceria baseada em confiança, respeito e crescimento mútuo.</p>
-      </div>
-
-      <div class="card">
-        <h3>Indicação também gera valor</h3>
-        <p>Mesmo quando você não executa, indicar continua sendo vantagem.</p>
-      </div>
+    <div class="cta-box">
+      <a class="btn" href="https://wa.me/5511952544885?text=Olá,+sou+profissional+técnico+e+quero+executar+serviços+pela+Patronos+Tech">Quero executar serviços</a>
     </div>
   </div>
 </section>
 
-<!-- CONCEITO GANHA-GANHA -->
+<!-- BENEFÍCIOS INDICADORES -->
 <section>
   <div class="container">
-    <h2>Uma parceria simples e transparente</h2>
-    <p>
-      Aqui não existe burocracia desnecessária, exclusividade obrigatória ou promessas vazias.
-      O parceiro pode executar, indicar ou ambos.
-      Tudo é construído com organização, confiança e benefício mútuo.
-    </p>
+    <h2>Para quem indica serviços</h2>
+    <p>Indicar também é parceria. Mesmo sem executar, você participa do crescimento.</p>
+
+    <div class="grid grid-3">
+      <div class="card"><h3>Indicação valorizada</h3><p>Seu contato tem valor e gera retorno.</p></div>
+      <div class="card"><h3>Modelo simples</h3><p>Sem burocracia, sem complicação, sem exclusividade.</p></div>
+      <div class="card"><h3>Ganha-ganha real</h3><p>Você fortalece sua rede e cria novas oportunidades.</p></div>
+    </div>
+
+    <div class="cta-box">
+      <a class="btn alt" href="https://wa.me/5511952544885?text=Olá,+quero+indicar+serviços+para+a+Patronos+Tech">Quero indicar serviços</a>
+    </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
+<!-- EMPRESAS E SÍNDICOS -->
 <section>
   <div class="container">
-    <h2>Vamos crescer juntos</h2>
-    <p>Escolha como você quer participar da nossa rede de parceiros.</p>
+    <h2>Para empresas, síndicos e administradoras</h2>
+    <p>Um parceiro técnico confiável para centralizar demandas e indicar com segurança.</p>
 
-    <div class="cards">
-      <div class="card">
-        <a class="btn" href="https://wa.me/5511952544885?text=Sou+profissional+técnico+e+quero+executar+serviços+com+a+Patronos+Tech">
-          Executar serviços
-        </a>
-      </div>
-      <div class="card">
-        <a class="btn" href="https://wa.me/5511952544885?text=Quero+indicar+serviços+e+ser+parceiro+da+Patronos+Tech">
-          Indicar serviços
-        </a>
-      </div>
-      <div class="card">
-        <a class="btn" href="https://wa.me/5511952544885?text=Represento+empresa,+condomínio+ou+imobiliária+e+quero+parceria">
-          Empresas e condomínios
-        </a>
-      </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Menos retrabalho</h3><p>Equipe organizada, padrão técnico e responsabilidade.</p></div>
+      <div class="card"><h3>Mais confiança</h3><p>Você indica um serviço profissional e bem estruturado.</p></div>
+      <div class="card"><h3>Benefícios reais</h3><p>Indicações geram vantagens e fortalecem relações.</p></div>
     </div>
+
+    <div class="cta-box">
+      <a class="btn" href="https://wa.me/5511952544885?text=Olá,+sou+empresa/síndico+e+quero+uma+parceria+com+a+Patronos+Tech">Quero ser parceiro</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEITO -->
+<section>
+  <div class="container">
+    <h2>Uma parceria simples, justa e transparente</h2>
+    <p>Na Patronos Tech, você pode executar serviços, indicar demandas ou fazer os dois. Não exigimos exclusividade. A relação é construída com base em confiança, organização e benefício mútuo.</p>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 Patronos Tech • WhatsApp (11) 95254-4885</p>
+© 2025 Patronos Tech • WhatsApp: (11) 95254-4885
 </footer>
 
 </body>
