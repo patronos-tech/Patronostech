@@ -16,248 +16,271 @@
   --card:#0b1320;
   --gold:#d4af37;
   --muted:#c8cad0;
-  --white:#fff;
+  --white:#ffffff;
   --maxw:1120px;
-  --gap:18px;
   --radius:12px;
-  --shadow:0 12px 36px rgba(0,0,0,.55);
+  --shadow:0 14px 40px rgba(0,0,0,.55);
 }
 
 /* Base */
 *{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-1),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
+body{
+  margin:0;
+  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,var(--bg-1),#03121b);
+  color:var(--white);
+}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 18px 48px}
 
-/* Header / menu (same visual system) */
-header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturate(.9) blur(6px);z-index:140;padding:10px 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
-.menu-btn{font-size:26px;background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer}
-.menu-btn:focus{outline:2px solid rgba(212,175,55,.18);outline-offset:3px}
+/* Buttons (mesmo padrão Produtos) */
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:10px;
+  background:var(--gold);
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  transition:.25s;
+}
+.btn:hover{opacity:.9;transform:translateY(-1px)}
+.btn.alt{
+  background:transparent;
+  color:var(--gold);
+  border:1px solid var(--gold);
+}
 
-/* Off-canvas menu (unified) */
-#sideMenu{position:fixed;top:0;right:0;width:320px;max-width:86%;height:100%;background:#02061a;padding:18px;transform:translateX(100%);transition:transform .32s ease;box-shadow:-10px 0 40px rgba(0,0,0,.6);z-index:999}
+/* Header */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(2,6,12,.9);
+  backdrop-filter:blur(6px);
+  z-index:200;
+  padding:10px 0;
+}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-weight:800;
+  font-size:22px;
+  background:linear-gradient(90deg,#fff,var(--gold));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.menu-btn{
+  font-size:26px;
+  background:none;
+  border:0;
+  color:var(--muted);
+  cursor:pointer;
+}
+
+/* Side menu */
+#sideMenu{
+  position:fixed;
+  top:0;right:0;
+  width:320px;
+  max-width:85%;
+  height:100%;
+  background:#02061a;
+  padding:18px;
+  transform:translateX(100%);
+  transition:.3s;
+  z-index:999;
+}
 #sideMenu.open{transform:translateX(0)}
-#sideMenu a{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03)}
-#sideMenu a:first-child{text-align:right}
+#sideMenu a{
+  display:block;
+  color:var(--muted);
+  text-decoration:none;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
 
 /* Hero */
-.hero{position:relative;margin-top:14px;border-radius:10px;overflow:hidden}
-.hero img{width:100%;height:min(58vh,520px);object-fit:cover;object-position:center center;display:block}
-.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;background:linear-gradient(180deg, rgba(2,8,18,0.18), rgba(2,8,18,0.56));}
-.hero-content{max-width:980px;width:100%;padding:10px 18px;text-align:center}
-.hero h1{margin:0;font-size:1.8rem;line-height:1.05;font-weight:700;color:var(--white);text-shadow:0 6px 20px rgba(0,0,0,.45)}
-.hero p.lead{margin-top:12px;color:rgba(255,255,255,.92);font-size:1.02rem;max-width:68ch;margin-left:auto;margin-right:auto}
-.hero-ctas{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hero{
+  position:relative;
+  margin-top:14px;
+  border-radius:12px;
+  overflow:hidden;
+}
+.hero img{
+  width:100%;
+  height:min(58vh,520px);
+  object-fit:cover;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,rgba(2,8,18,.25),rgba(2,8,18,.65));
+}
+.hero-content{text-align:center;max-width:900px;padding:18px}
+.hero h1{font-size:1.9rem;margin:0}
+.hero p{color:rgba(255,255,255,.9);margin-top:12px}
+.hero-ctas{margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
 /* Sections */
-.section{padding:36px 0;text-align:center}
-.section h2{color:var(--gold);margin:0 0 8px;font-size:1.2rem}
-.section p.sub{max-width:900px;margin:0 auto 18px;color:var(--muted);font-size:1rem}
+.section{text-align:center;padding:42px 0}
+.section h2{color:var(--gold);margin-bottom:8px}
+.section .sub{max-width:880px;margin:0 auto 20px;color:var(--muted)}
 
-/* Grid for "Who can be partner" */
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
-.card-partner{background:var(--card);padding:18px;border-radius:12px;text-align:center;box-shadow:var(--shadow)}
-.card-partner h3{margin:0 0 8px;color:var(--gold);font-size:1.05rem}
-.card-partner p{margin:0 0 12px;color:var(--muted);font-size:0.96rem}
-.card-partner a{display:inline-block}
+/* Partner cards */
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.card h3{color:var(--gold);margin-bottom:8px}
+.card p{color:var(--muted);margin-bottom:14px}
 
-/* How it works: 4 steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:14px}
-.step{background:var(--card);padding:18px;border-radius:12px;text-align:center}
-.step h4{margin:0 0 8px;color:var(--gold)}
-.step p{margin:0;color:var(--muted)}
+/* Steps */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.step{background:var(--card);padding:20px;border-radius:var(--radius)}
+.step h4{color:var(--gold);margin-bottom:8px}
+.step p{color:var(--muted)}
 
-/* Indicar também é parceria */
-.callout{background:linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02));padding:20px;border-radius:12px;margin-top:18px;color:var(--white)}
+/* Callout */
+.callout{
+  margin-top:18px;
+  padding:22px;
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(212,175,55,.08),rgba(212,175,55,.02));
+}
 
-/* Final CTA */
-.final-cta{margin-top:28px}
-.final-cta .btn{padding:12px 20px;font-size:1rem}
-
-/* Footer reuse */
-footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
+/* Footer */
+footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 0}
 
 /* Responsive */
-@media (max-width:1100px){
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-  .steps{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1100px){
+  .grid-4,.steps{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:600px){
-  .grid-4{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
+@media(max-width:600px){
+  .grid-4,.steps{grid-template-columns:1fr}
   .hero h1{font-size:1.25rem}
-  .hero p.lead{font-size:0.95rem}
 }
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="container header-inner">
     <div class="logo">Patronos Tech</div>
-    <button id="menuBtn" class="menu-btn" aria-controls="sideMenu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <button id="menuBtn" class="menu-btn">☰</button>
   </div>
 </header>
 
-<nav id="sideMenu" aria-hidden="true" aria-label="Menu principal">
-  <a id="closeMenu" href="javascript:void(0)">✕ Fechar</a>
+<nav id="sideMenu">
+  <a id="closeMenu">✕ Fechar</a>
+  <a href="index.html">Início</a>
   <a href="products.html">Serviços</a>
-  <a href="index.html#servicos-tecnicos">Serviços Técnicos</a>
-  <a href="products.html#eletrica">Elétrica</a>
-  <a href="products.html#cftv">CFTV</a>
-  <a href="products.html#telecom">Telecom</a>
-  <a href="products.html#automacao">Automação</a>
-  <a href="products.html#ar-condicionado">Ar Condicionado</a>
-  <a href="products.html#manutencao-geral">Manutenção Geral</a>
-  <a href="products.html#marido">Marido de aluguel</a>
   <a href="parcerias.html">Parcerias</a>
-  <a href="https://wa.me/5511952544885">Contatos</a>
+  <a href="https://wa.me/5511952544885">WhatsApp</a>
 </nav>
 
 <main class="container">
 
-  <!-- Hero -->
-  <section class="hero" aria-label="Hero parcerias">
-    <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação">
-    <div class="hero-overlay" role="region" aria-label="Parcerias - hero">
-      <div class="hero-content">
-        <h1>Parcerias que geram oportunidades reais</h1>
-        <p class="lead">Conectamos profissionais, empresas e gestores a demandas reais — execute serviços quando atuar na área ou indique demandas quando preferir. Organização, transparência e ganhos para todos.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech">Tenho interesse — Quero conversar</a>
-          <a class="btn alt" href="#por-que-ser-parceiro">Saiba mais</a>
-        </div>
+<section class="hero">
+  <img src="assets/images/hero-eletrica.png" alt="Parcerias Patronos Tech">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Parcerias que geram oportunidades reais</h1>
+      <p>Conectamos profissionais, empresas e gestores a demandas constantes. Execute serviços quando quiser ou indique quando não atuar — todos ganham.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+ser+parceiro+da+Patronos+Tech">Quero ser parceiro</a>
+        <a class="btn alt" href="#perfis">Entender como funciona</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Why be partner -->
-  <section class="section" id="por-que-ser-parceiro" aria-label="Por que ser parceiro">
-    <h2>Por que ser parceiro da Patronos Tech</h2>
-    <p class="sub">Todos os dias profissionais e empresas perdem oportunidades por falta de uma rede organizada. Nós centralizamos demandas, encaminhamos com transparência e garantimos que você receba o que é justo — seja executando ou indicando.</p>
-  </section>
+<section class="section" id="perfis">
+  <h2>Para quem é essa parceria</h2>
+  <p class="sub">A Patronos Tech foi criada para unir execução, indicação e gestão técnica de forma simples, transparente e profissional.</p>
 
-  <!-- Who can be partner -->
-  <section class="section" aria-label="Quem pode ser parceiro">
-    <h2>Quem pode ser parceiro</h2>
-    <p class="sub">Representamos oportunidades para diferentes perfis — escolha o que mais se parece com você.</p>
-
-    <div class="grid-4" aria-label="Tipos de parceiros">
-      <div class="card-partner" role="article">
-        <h3>Profissionais Técnicos</h3>
-        <p>Executores qualificados (elétrica, CFTV, telecom, automação, pintura, manutenção). Execute serviços ou indique demandas fora da sua área.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Sou+profissional+técnico+e+tenho+interesse+em+parceria">Quero ser parceiro</a>
-      </div>
-
-      <div class="card-partner" role="article">
-        <h3>Comércios & Empresas</h3>
-        <p>Fornecedores locais podem indicar serviços aos clientes, agregar valor e receber benefícios por indicações sem precisar executar tudo internamente.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Sou+empresa+e+quero+informações+sobre+parceria">Quero indicar</a>
-      </div>
-
-      <div class="card-partner" role="article">
-        <h3>Síndicos & Condomínios</h3>
-        <p>Organize manutenções e atendimentos com um único ponto de contato, acesso a planos e fornecedores confiáveis — agilidade e previsibilidade.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Sou+síndico+e+quero+parceria">Quero parceria</a>
-      </div>
-
-      <div class="card-partner" role="article">
-        <h3>Imobiliárias & Administradoras</h3>
-        <p>Facilite vistorias, manutenções e trocas de locatários com uma rede técnica pronta para atuar ou atender por indicação.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Sou+imobiliária+e+gostaria+de+parceria">Quero parcerias</a>
-      </div>
+  <div class="grid-4">
+    <div class="card">
+      <h3>Profissionais Técnicos</h3>
+      <p>Execute serviços quando desejar ou indique demandas fora da sua especialidade e continue ganhando com isso.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Sou+profissional+técnico+e+quero+parceria">Quero participar</a>
     </div>
-  </section>
 
-  <!-- How it works -->
-  <section class="section" aria-label="Como funciona">
-    <h2>Como funciona na prática</h2>
-    <p class="sub">Quatro passos simples — sem burocracia, com comunicação direta e acordos transparentes.</p>
-
-    <div class="steps" aria-hidden="false">
-      <div class="step" role="article">
-        <h4>1 • Recebimento / indicação</h4>
-        <p>Recebemos a demanda do cliente ou você nos indica — registramos e encaminhamos com prioridade.</p>
-      </div>
-
-      <div class="step" role="article">
-        <h4>2 • Execução</h4>
-        <p>Se você executa o serviço, celebramos o trabalho com proposta clara, agendamento e suporte técnico.</p>
-      </div>
-
-      <div class="step" role="article">
-        <h4>3 • Indicação</h4>
-        <p>Se não executar, indique — nós assumimos a operação e você recebe benefícios comerciais definidos.</p>
-      </div>
-
-      <div class="step" role="article">
-        <h4>4 • Benefícios</h4>
-        <p>Acordos transparentes, pagamentos rápidos e comunicação constante — parceria que gera renda e confiança.</p>
-      </div>
+    <div class="card">
+      <h3>Indicadores de Serviços</h3>
+      <p>Não executa? Sem problema. Indique serviços confiáveis, ajude seu cliente e receba benefícios claros.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Quero+indicar+serviços+para+a+Patronos+Tech">Quero indicar</a>
     </div>
-  </section>
 
-  <!-- Indicar também é parceria -->
-  <section class="section" aria-label="Indicar também é parceria">
-    <h2>Indicar também é parceria</h2>
-    <p class="sub">Não precisa executar para lucrar. Indicar uma solução confiável mantém seu cliente satisfeito e abre uma via contínua de oportunidades e benefícios.</p>
-
-    <div class="callout" role="note">
-      <p style="margin:0;color:var(--white)"><strong>Simples, seguro e vantajoso:</strong> você indica, nós cuidamos do atendimento e, ao final, você recebe a contrapartida combinada — sem perder o cliente e sem retrabalho.</p>
+    <div class="card">
+      <h3>Síndicos & Condomínios</h3>
+      <p>Centralize manutenções com um único parceiro técnico organizado e reduza retrabalho.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Sou+síndico+e+busco+parceria">Quero parceria</a>
     </div>
-  </section>
 
-  <!-- Final CTA -->
-  <section class="section final-cta" aria-label="Call to action final">
-    <h2>Pronto para entrar na rede?</h2>
-    <p class="sub">Sem burocracia — informe seu nome, tipo de parceiro e sua cidade. Nós retornamos em até 24h com os próximos passos.</p>
-    <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech.+Sou:">Quero ser parceiro — conversar no WhatsApp</a>
-  </section>
-
-  <!-- Footer (shared style) -->
-  <footer>
-    <div style="max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted);text-align:center">
-      © 2025 Patronos Tech • WhatsApp: (11) 95254-4885
+    <div class="card">
+      <h3>Imobiliárias & Empresas</h3>
+      <p>Facilite manutenções, vistorias e atendimentos com uma rede técnica pronta para agir.</p>
+      <a class="btn" href="https://wa.me/5511952544885?text=Sou+empresa+e+quero+parceria">Falar agora</a>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Como funciona na prática</h2>
+  <p class="sub">Processo simples, sem burocracia e com comunicação direta.</p>
+
+  <div class="steps">
+    <div class="step"><h4>1 • Demanda</h4><p>Recebemos ou você indica um serviço.</p></div>
+    <div class="step"><h4>2 • Execução</h4><p>Quem executa recebe demanda organizada.</p></div>
+    <div class="step"><h4>3 • Indicação</h4><p>Quem indica continua ganhando.</p></div>
+    <div class="step"><h4>4 • Benefícios</h4><p>Relação clara, justa e contínua.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Indicar também é parceria</h2>
+  <p class="sub">Você não precisa executar para participar. Indicar um serviço confiável fortalece sua imagem e gera retorno.</p>
+  <div class="callout">
+    <p><strong>Você indica, nós resolvemos.</strong> Seu cliente fica satisfeito e a parceria continua ativa.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Vamos crescer juntos?</h2>
+  <p class="sub">Fale com a gente agora e entenda como participar da rede Patronos Tech.</p>
+  <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+entrar+na+rede+de+parceiros+Patronos+Tech">Conversar no WhatsApp</a>
+</section>
+
+<footer>
+  © 2025 Patronos Tech • WhatsApp: (11) 95254-4885
+</footer>
+
 </main>
 
 <script>
-/* Menu open/close + focus management (consistent with other pages) */
-(function(){
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('sideMenu');
-  const closeLink = document.getElementById('closeMenu');
-  function open(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); menuBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; menu.querySelector('a:not(#closeMenu)')?.focus(); }
-  function close(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; menuBtn.focus(); }
-  menuBtn.addEventListener('click', ()=> menu.classList.contains('open') ? close() : open());
-  closeLink.addEventListener('click', close);
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', close));
-  document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu.classList.contains('open')) close(); });
-})();
-
-/* Smooth anchor handling (consistent with site behavior) */
-(function(){
-  function sameFile(a,b){ const x=a.split('/').pop()||''; const y=b.split('/').pop()||''; return x===y || (x===''&&y==='index.html') || (y===''&&x==='index.html'); }
-  document.addEventListener('click', function(e){
-    const a = e.target.closest('a');
-    if(!a) return;
-    const href = a.getAttribute('href'); if(!href) return;
-    if(href.startsWith('https://wa.me') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-    const url = new URL(href, window.location.href);
-    const path = url.pathname; const hash = url.hash;
-    if(hash && (path === window.location.pathname || path === '' || sameFile(path, window.location.pathname))){
-      e.preventDefault();
-      const id = hash.substring(1);
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-      try { history.replaceState(null,'',hash); } catch(_) {}
-      return;
-    }
-  }, {passive:false});
-})();
+const btn=document.getElementById('menuBtn');
+const menu=document.getElementById('sideMenu');
+const close=document.getElementById('closeMenu');
+btn.onclick=()=>menu.classList.add('open');
+close.onclick=()=>menu.classList.remove('open');
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
 </script>
 
 </body>
