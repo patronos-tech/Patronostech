@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Patronos Tech • Parcerias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#071226;
+  --card:#0b1320;
+  --gold:#d4af37;
+  --muted:#c8cad0;
+  --white:#fff;
+  --maxw:1120px;
+  --gap:18px;
+  --shadow:0 12px 36px rgba(0,0,0,.55);
+  --hero-h-desktop:min(54vh,520px);
+  --hero-h-tablet:min(48vh,440px);
+  --hero-h-mobile:36vh;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 18px 48px}
+header{position:sticky;top:0;background:rgba(2,6,12,.88);z-index:120;padding:10px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
+
+/* Hero */
+.hero{position:relative;margin-top:14px;overflow:hidden}
+.hero img{width:100%;height:var(--hero-h-desktop);object-fit:cover;object-position:center center}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;background:linear-gradient(180deg, rgba(2,8,18,0.18), rgba(2,8,18,0.56));}
+.hero-content{max-width:980px;width:100%;padding:10px 18px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+
+/* Sections */
+.section{padding:36px 0}
+.section h2{text-align:center;color:var(--gold);margin:0 0 8px}
+.sub{max-width:900px;margin:0 auto 18px;color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.card-partner{background:var(--card);padding:18px;border-radius:12px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between}
+.card-partner h3{color:var(--gold);margin:0 0 8px}
+.card-partner p{color:var(--muted);margin:0 0 8px}
+.benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+.benefit{background:var(--card);padding:16px;border-radius:10px;text-align:left}
+.callout{background:linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02));padding:16px;border-radius:12px;color:var(--white);text-align:left}
+.final-ctas{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+
+/* Footer */
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* Responsive */
+@media (max-width:1100px){ .grid-3{grid-template-columns:repeat(2,1fr)} .benefits{grid-template-columns:1fr} }
+@media (max-width:700px){ .grid-3{grid-template-columns:1fr} .hero img{height:var(--hero-h-mobile)} .final-ctas .btn{min-width:100%} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Patronos Tech</div>
+    <button id="menuBtn" class="menu-btn" aria-controls="sideMenu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<nav id="sideMenu" aria-hidden="true" aria-label="Menu principal">
+  <a id="closeMenu" href="javascript:void(0)">✕ Fechar</a>
+  <a href="products.html">Serviços</a>
+  <a href="index.html#servicos-tecnicos">Serviços Técnicos</a>
+  <a href="products.html#eletrica">Elétrica</a>
+  <a href="products.html#cftv">CFTV</a>
+  <a href="products.html#telecom">Telecom</a>
+  <a href="products.html#automacao">Automação</a>
+  <a href="products.html#ar-condicionado">Ar Condicionado</a>
+  <a href="products.html#manutencao-geral">Manutenção Geral</a>
+  <a href="products.html#marido">Marido de aluguel</a>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="https://wa.me/5511952544885">Contatos</a>
+</nav>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero parcerias">
+    <picture>
+      <source type="image/webp" srcset="assets/images/hero-eletrica.webp">
+      <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação" loading="eager">
+    </picture>
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Parcerias que conectam oportunidades e confiança</h1>
+        <p class="sub">Ampliamos nossa rede de parceiros técnicos e estratégicos — execute ou indique e cresça conosco.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech">Quero conversar — WhatsApp</a>
+          <a class="btn alt" href="#para-quem">Para quem é</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem é -->
+  <section class="section" id="para-quem">
+    <h2>Para quem é essa parceria</h2>
+    <p class="sub">Três perfis objetivos — escolha o que representa melhor seu papel e saiba como participar.</p>
+
+    <div class="grid-3">
+      <div class="card-partner">
+        <div><h3>Profissionais Técnicos</h3><p>Elétricos, encanadores, integradores, técnicos de CFTV, automação e manutenção — execute serviços encaminhados pela nossa plataforma.</p></div>
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+ser+parceiro+técnico+da+Patronos+Tech">Quero ser parceiro técnico</a>
+      </div>
+
+      <div class="card-partner">
+        <div><h3>Profissionais que indicam</h3><p>Indique clientes que precisam de serviços fora da sua execução e receba compensação acordada.</p></div>
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+indicar+serviços+para+a+Patronos+Tech">Quero indicar serviços</a>
+      </div>
+
+      <div class="card-partner">
+        <div><h3>Empresas, Síndicos & Imobiliárias</h3><p>Indique a Patronos Tech para clientes e condomínios — agilidade, documentação e vantagens comerciais.</p></div>
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+sou+empresa+e+quero+parceria+com+a+Patronos+Tech">Quero indicar como empresa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefícios (executores) -->
+  <section class="section">
+    <h2>Benefícios para quem executa serviços</h2>
+    <p class="sub">Organização, fluxo de oportunidades e suporte operacional.</p>
+    <div class="benefits">
+      <div class="benefit"><h4>Fluxo organizado</h4><p>Centralizamos solicitações e encaminhamos serviços compatíveis com sua especialidade.</p></div>
+      <div class="benefit"><h4>Valorização</h4><p>Pagamentos transparentes, documentação e garantia técnica.</p></div>
+      <div class="benefit"><h4>Suporte</h4><p>Coordenação de agenda e material comercial para facilitar a execução.</p></div>
+      <div class="benefit"><h4>Parceria</h4><p>Encaminhamentos recorrentes para profissionais que entregam qualidade.</p></div>
+    </div>
+  </section>
+
+  <!-- Benefícios (indicadores) -->
+  <section class="section">
+    <h2>Benefícios para quem indica</h2>
+    <p class="sub">Indicar tem valor — processo simples e compensação clara.</p>
+    <div class="benefits">
+      <div class="benefit"><h4>Receita por indicação</h4><p>Indicações válidas geram compensação definida.</p></div>
+      <div class="benefit"><h4>Sem burocracia</h4><p>Registro simples e pagamento conforme acordo.</p></div>
+      <div class="benefit"><h4>Acompanhamento</h4><p>Você acompanha o progresso da indicação até a conclusão.</p></div>
+      <div class="benefit"><h4>Marca</h4><p>Indicar um parceiro confiável fortalece sua recomendação profissional.</p></div>
+    </div>
+  </section>
+
+  <!-- Parceria ganha-ganha -->
+  <section class="section">
+    <h2>Parceria ganha-ganha</h2>
+    <p class="sub">Sem exclusividade obrigatória — regras claras e benefícios mútuos.</p>
+    <div class="callout"><h3>Sem burocracia. Com confiança.</h3><p>Inscrição simples, acordo transparente e início rápido de encaminhamentos.</p></div>
+    <div class="final-ctas">
+      <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+ser+parceiro+técnico">Quero ser parceiro técnico</a>
+      <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+indicar+serviços">Quero indicar serviços</a>
+      <a class="btn" href="https://wa.me/5511952544885?text=Olá,+sou+empresa+e+quero+parceria">Quero indicar como empresa</a>
+    </div>
+  </section>
+
+  <footer>
+    <div style="max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted);text-align:center">
+      © 2025 Patronos Tech • WhatsApp: (11) 95254-4885
+    </div>
+  </footer>
+</main>
+
+<script defer src="assets/js/site.js"></script>
+</body>
+</html>
