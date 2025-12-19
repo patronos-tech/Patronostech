@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Patronos Tech • Parcerias</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/images/hero-eletrica.png">
+
+<style>
+:root{
+  --bg-1:#071226;
+  --card:#0b1320;
+  --gold:#d4af37;
+  --muted:#c8cad0;
+  --white:#fff;
+  --maxw:1120px;
+  --gap:18px;
+  --radius:12px;
+  --shadow:0 12px 36px rgba(0,0,0,.55);
+  --hero-maxw:980px;
+  --hero-height-desktop:min(54vh,520px);
+  --hero-height-tablet:min(48vh,440px);
+  --hero-height-mobile:36vh;
+  --btn-padding:10px 16px;
+  --card-gap:18px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-1),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 18px 48px}
+
+/* Header / menu */
+header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturate(.9) blur(6px);z-index:140;padding:10px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
+.menu-btn{font-size:26px;background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer}
+.menu-btn:focus{outline:2px solid rgba(212,175,55,.18);outline-offset:3px}
+
+/* Off-canvas menu (unified) */
+#sideMenu{position:fixed;top:0;right:0;width:320px;max-width:86%;height:100%;background:#02061a;padding:18px;transform:translateX(100%);transition:transform .32s ease;box-shadow:-10px 0 40px rgba(0,0,0,.6);z-index:999}
+#sideMenu.open{transform:translateX(0)}
+#sideMenu a{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03)}
+#sideMenu a:first-child{text-align:right}
+
+/* HERO */
+.hero{position:relative;margin-top:14px;border-radius:10px;overflow:hidden}
+.hero img{width:100%;height:var(--hero-height-desktop);object-fit:cover;object-position:center center;display:block}
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;background:linear-gradient(180deg, rgba(2,8,18,0.18), rgba(2,8,18,0.56));}
+.hero-content{max-width:var(--hero-maxw);width:100%;padding:10px 18px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.hero h1{margin:0;font-size:1.6rem;line-height:1.05;font-weight:700;color:var(--white);text-shadow:0 6px 20px rgba(0,0,0,.45)}
+.hero p.lead{color:rgba(255,255,255,.92);font-size:1rem;max-width:68ch}
+
+/* small translucent band behind CTAs to avoid the oversized full-bleed button issue */
+.hero-ctas-bg{display:flex;gap:12px;background:rgba(0,0,0,.12);padding:8px;border-radius:10px;align-items:center}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hero-ctas .btn{padding:var(--btn-padding);min-width:160px}
+
+/* Sections */
+.section{padding:36px 0;text-align:center}
+.section h2{color:var(--gold);margin:0 0 8px;font-size:1.25rem}
+.section p.sub{max-width:900px;margin:0 auto 18px;color:var(--muted);font-size:1rem;text-align:center}
+
+/* Grid / cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap);align-items:stretch;margin-top:18px}
+.card-partner{background:var(--card);padding:20px;border-radius:12px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.card-partner h3{margin:0 0 8px;color:var(--gold);font-size:1.12rem}
+.card-partner p{margin:0 0 8px;color:var(--muted);font-size:0.96rem;line-height:1.45}
+.card-partner .how{color:var(--muted);font-size:0.9rem;margin-top:8px}
+.card-partner .btn{width:100%;padding:12px 14px;border-radius:10px}
+
+/* Benefits */
+.benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px;align-items:start}
+.benefit{background:var(--card);padding:18px;border-radius:12px;text-align:left}
+.benefit h4{margin:0 0 8px;color:var(--gold);font-size:1rem}
+.benefit p{margin:0;color:var(--muted);line-height:1.45;font-size:0.95rem}
+
+/* Callout */
+.callout{background:linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02));padding:18px;border-radius:12px;margin-top:18px;color:var(--white);text-align:left}
+.callout h3{margin:0 0 8px;color:var(--gold)}
+.callout p{margin:0;color:var(--muted);line-height:1.45}
+
+/* Final CTAs */
+.final-ctas{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.final-ctas .btn{padding:12px 18px;min-width:220px}
+
+/* Footer */
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* Responsive */
+@media (max-width:1100px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .benefits{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  :root{ --hero-height-desktop: var(--hero-height-mobile); --hero-height-tablet: var(--hero-height-mobile); }
+  .grid-3{grid-template-columns:1fr}
+  .hero img{height:var(--hero-height-mobile)}
+  .hero h1{font-size:1.05rem}
+  .hero p.lead{font-size:0.95rem}
+  .hero-ctas{flex-direction:column;gap:10px}
+  .hero-ctas .btn{max-width:92vw;width:320px}
+  .hero-ctas-bg{max-width:92vw;padding:8px}
+  .card-partner .btn{width:100%}
+  .final-ctas .btn{min-width:100%;text-align:center}
+  .benefit{padding:14px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Patronos Tech</div>
+    <button id="menuBtn" class="menu-btn" aria-controls="sideMenu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<nav id="sideMenu" aria-hidden="true" aria-label="Menu principal">
+  <a id="closeMenu" href="javascript:void(0)">✕ Fechar</a>
+  <a href="products.html">Serviços</a>
+  <a href="index.html#servicos-tecnicos">Serviços Técnicos</a>
+  <a href="products.html#eletrica">Elétrica</a>
+  <a href="products.html#cftv">CFTV</a>
+  <a href="products.html#telecom">Telecom</a>
+  <a href="products.html#automacao">Automação</a>
+  <a href="products.html#ar-condicionado">Ar Condicionado</a>
+  <a href="products.html#manutencao-geral">Manutenção Geral</a>
+  <a href="products.html#marido">Marido de aluguel</a>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="https://wa.me/5511952544885">Contatos</a>
+</nav>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero parcerias">
+    <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação">
+    <div class="hero-overlay" role="region" aria-label="Parcerias - hero">
+      <div class="hero-content">
+        <h1>Parcerias que conectam oportunidades e confiança</h1>
+        <p class="lead">Ampliamos nossa rede de parceiros técnicos e estratégicos — execute ou indique e cresça conosco.</p>
+
+        <div class="hero-ctas-bg" aria-hidden="false">
+          <div class="hero-ctas" role="group" aria-label="CTAs do hero">
+            <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech.+Quero+saber+como+funciona" aria-label="Quero conversar — WhatsApp">Quero conversar — WhatsApp</a>
+            <a class="btn alt" href="#para-quem" aria-label="Para quem é">Para quem é</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Para quem é essa parceria -->
+  <section class="section" id="para-quem" aria-label="Para quem é essa parceria">
+    <h2>Para quem é essa parceria</h2>
+    <p class="sub">Três perfis objetivos — escolha o que representa melhor seu papel e saiba como participar.</p>
+
+    <div class="grid-3" role="list" aria-label="Perfis de parceiros">
+      <div class="card-partner" role="article" aria-label="Profissionais Técnicos">
+        <div>
+          <h3>Profissionais Técnicos</h3>
+          <p>Elétricos, encanadores, integradores, técnicos de CFTV, automação e manutenção — execute serviços encaminhados pela nossa plataforma.</p>
+          <p class="how">Como participa: receba demandas, agende com o cliente e entregue com documentação e garantia técnica.</p>
+        </div>
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+ser+parceiro+técnico+da+Patronos+Tech.+Sou+profissional+e+atuo+em:" aria-label="Quero ser parceiro técnico">Quero ser parceiro técnico</a>
+      </div>
+
+      <div class="card-partner" role="article" aria-label="Profissionais que indicam">
+        <div>
+          <h3>Profissionais que indicam</h3>
+          <p>Profissionais que não executam determinados serviços, mas possuem clientes que precisam — indique e receba benefícios acordados.</p>
+          <p class="how">Como participa: registre a indicação — cuidamos do atendimento, execução e você recebe a compensação combinada.</p>
+        </div>
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+quero+indicar+serviços+para+a+Patronos+Tech.+Não+executo+os+serviços,+mas+tenho+clientes." aria-label="Quero indicar serviços">Quero indicar serviços</a>
+      </div>
+
+      <div class="card-partner" role="article" aria-label="Empresas, síndicos, imobiliárias">
+        <div>
+          <h3>Empresas, Síndicos & Imobiliárias</h3>
+          <p>Comércios, administradoras e imobiliárias que precisam indicar ou contratar serviços técnicos confiáveis e documentados.</p>
+          <p class="how">Como participa: indique a Patronos Tech aos seus clientes/condomínios e receba agilidade, documentação e condições comerciais.</p>
+        </div>
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+sou+empresa/síndico/imobiliária+e+gostaria+de+parceria+com+a+Patronos+Tech.+Quero+mais+informações." aria-label="Quero indicar como empresa">Quero indicar como empresa/síndico</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits / Final CTAs kept same as previous version -->
+
+  <footer>
+    <div style="max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted);text-align:center">
+      © 2025 Patronos Tech • WhatsApp: (11) 95254-4885
+    </div>
+  </footer>
+</main>
+
+<script>
+/* menu + smooth scroll (same implementation used across index/products) */
+(function(){
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('sideMenu');
+  const closeLink = document.getElementById('closeMenu');
+  function open(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); menuBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; menu.querySelector('a:not(#closeMenu)')?.focus(); }
+  function close(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; menuBtn.focus(); }
+  menuBtn.addEventListener('click', ()=> menu.classList.contains('open') ? close() : open());
+  closeLink.addEventListener('click', close);
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu.classList.contains('open')) close(); });
+
+  function sameFile(a,b){ const x=a.split('/').pop()||''; const y=b.split('/').pop()||''; return x===y || (x===''&&y==='index.html') || (y===''&&x==='index.html'); }
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a');
+    if(!a) return;
+    const href = a.getAttribute('href'); if(!href) return;
+    if(href.startsWith('https://wa.me') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    const url = new URL(href, window.location.href);
+    const path = url.pathname; const hash = url.hash;
+    if(hash && (path === window.location.pathname || path === '' || sameFile(path, window.location.pathname))){
+      e.preventDefault();
+      const id = hash.substring(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      try { history.replaceState(null,'',hash); } catch(_) {}
+      return;
+    }
+  }, {passive:false});
+})();
+</script>
+
+</body>
+</html>
