@@ -8,92 +8,63 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/images/hero-eletrica.png">
 
 <style>
 :root{
-  --bg-1:#071226;
+  --bg:#071226;
   --card:#0b1320;
   --gold:#d4af37;
   --muted:#c8cad0;
   --white:#fff;
   --maxw:1120px;
   --gap:18px;
-  --radius:12px;
   --shadow:0 12px 36px rgba(0,0,0,.55);
-  --hero-maxw:980px;
-  --hero-height-desktop:min(54vh,520px);
-  --hero-height-tablet:min(48vh,440px);
-  --hero-height-mobile:36vh;
-  --btn-padding:10px 16px;
+  --hero-h-desktop:min(54vh,520px);
+  --hero-h-tablet:min(48vh,440px);
+  --hero-h-mobile:36vh;
 }
 
 /* Base */
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-1),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 18px 48px}
-
-/* Header / menu shared with index */
-header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturate(.9) blur(6px);z-index:140;padding:10px 0}
+header{position:sticky;top:0;background:rgba(2,6,12,.88);z-index:120;padding:10px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
-.menu-btn{font-size:26px;background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer}
-.menu-btn:focus{outline:2px solid rgba(212,175,55,.18);outline-offset:3px}
 
-/* Off-canvas menu (unificado) */
-#sideMenu{position:fixed;top:0;right:0;width:320px;max-width:86%;height:100%;background:#02061a;padding:18px;transform:translateX(100%);transition:transform .32s ease;box-shadow:-10px 0 40px rgba(0,0,0,.6);z-index:999}
-#sideMenu.open{transform:translateX(0)}
-#sideMenu a{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03)}
-#sideMenu a:first-child{text-align:right}
-
-/* Hero - full-bleed with picture/srcset */
-.hero{position:relative;margin-top:14px;border-radius:0;overflow:visible}
-.hero picture, .hero img{display:block;width:100%}
-.hero img{height:var(--hero-height-desktop);object-fit:cover;object-position:center center}
+/* Hero */
+.hero{position:relative;margin-top:14px;overflow:hidden}
+.hero img{width:100%;height:var(--hero-h-desktop);object-fit:cover;object-position:center center}
 .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:28px;background:linear-gradient(180deg, rgba(2,8,18,0.18), rgba(2,8,18,0.56));}
-.hero-content{max-width:var(--hero-maxw);width:100%;padding:10px 18px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
-.page-title{font-size:1.7rem;font-weight:700}
-.lead{margin-top:10px;color:rgba(255,255,255,.9);font-size:1rem;max-width:72ch;margin-left:auto;margin-right:auto}
-.hero-ctas{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.hero-ctas .btn{min-width:160px}
+.hero-content{max-width:980px;width:100%;padding:10px 18px;text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
 
-/* Buttons */
-.btn{display:inline-block;padding:var(--btn-padding);border-radius:10px;background:var(--gold);color:#000;font-weight:700;text-decoration:none}
-.btn.alt{background:transparent;border:1px solid rgba(212,175,55,.12);color:var(--gold)}
-.btn:focus{outline:3px solid rgba(212,175,55,0.18);outline-offset:3px}
-.btn:hover{transform:translateY(-2px)}
-
-/* Sections */
+/* Sections & cards */
 .section{padding:36px 0}
-.section h2{text-align:center;color:var(--gold);margin:0 0 8px;font-size:1.15rem}
-.section p.lead{max-width:980px;margin:8px auto 20px;text-align:center;color:var(--muted);font-size:1rem}
-
-/* Carousel common */
+.section h2{text-align:center;color:var(--gold);margin:0 0 8px}
+.lead{margin-top:10px;color:rgba(255,255,255,.9);font-size:1rem;max-width:72ch;margin-left:auto;margin-right:auto}
 .carousel{position:relative;overflow:hidden;margin:18px 0;padding:8px 0}
-.track{display:flex;gap:var(--gap);align-items:stretch;will-change:transform;padding:8px}
+.track{display:flex;gap:var(--gap);align-items:stretch;padding:8px}
 .card{background:var(--card);border-radius:12px;padding:14px;min-width:260px;flex:0 0 260px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
 .card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
-.card h3{margin:12px 0 8px;color:var(--gold);font-size:1.05rem}
-.card p{margin:0;color:var(--muted);font-size:0.95rem;line-height:1.35}
+.controls{position:absolute;top:50%;left:6px;right:6px;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}
+.ctrl{pointer-events:auto;background:rgba(0,0,0,.36);border:0;color:var(--white);width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.indicators{display:flex;gap:8px;justify-content:center;margin-top:12px}
+
+/* Detailed sections */
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+.detail{background:var(--card);padding:16px;border-radius:10px;text-align:left}
 
 /* Footer */
 footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
 /* Responsive */
 @media (max-width:900px){
-  :root{ --hero-height-desktop: var(--hero-height-tablet); }
-  .hero img{height:var(--hero-height-tablet)}
-  .card{min-width:220px;flex:0 0 220px}
-  .hero h1{font-size:1.35rem}
+  .hero img{height:var(--hero-h-tablet)}
 }
 @media (max-width:600px){
-  :root{ --hero-height-desktop: var(--hero-height-mobile); --hero-height-tablet: var(--hero-height-mobile); }
-  .container{padding:0 14px 48px}
-  .card{min-width:86vw;flex:0 0 86vw;border-radius:10px}
-  .controls{display:none}
-  .hero img{height:var(--hero-height-mobile)}
-  .hero h1{font-size:1.05rem}
+  .hero img{height:var(--hero-h-mobile)}
+  .card{min-width:86vw;flex:0 0 86vw}
 }
 </style>
 </head>
@@ -123,18 +94,17 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
 <main class="container">
 
-  <!-- HERO with picture -->
+  <!-- HERO -->
   <section class="hero" aria-label="Hero produtos">
     <picture>
       <source type="image/webp" srcset="assets/images/hero-eletrica.webp">
       <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação" loading="eager">
     </picture>
 
-    <div class="hero-overlay" role="region" aria-label="Hero - Produtos">
+    <div class="hero-overlay">
       <div class="hero-content">
-        <h1 class="page-title">Produtos</h1>
-        <div class="lead">Serviços executados e procedimentos — escolha a categoria e solicite um orçamento rápido pelo WhatsApp.</div>
-
+        <h1>Produtos</h1>
+        <p class="lead">Serviços executados e procedimentos — escolha a categoria e solicite um orçamento rápido pelo WhatsApp.</p>
         <div class="hero-ctas">
           <a class="btn" href="https://wa.me/5511952544885?text=Olá,+gostaria+de+um+orçamento">Orçar agora (WhatsApp)</a>
           <a class="btn alt" href="#servicos-principais">Ver principais</a>
@@ -143,132 +113,38 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     </div>
   </section>
 
-  <!-- Primary services carousel -->
-  <section class="section" aria-label="Principais serviços" id="servicos-principais">
-    <h2 class="category-title">Principais Serviços</h2>
-    <p class="lead">Os serviços mais procurados e relevantes — clique para pedir orçamento.</p>
+  <!-- Principais serviços carousel -->
+  <section class="section" id="servicos-principais">
+    <h2>Principais Serviços</h2>
+    <p class="lead">Os serviços mais procurados — clique para pedir orçamento.</p>
 
-    <div class="carousel" data-speed="40" data-friction="0.92" aria-roledescription="carousel" aria-label="Principais serviços">
+    <div class="carousel" data-speed="40" data-friction="0.92" aria-roledescription="carousel">
       <div class="controls" aria-hidden="true">
-        <button class="ctrl prev" data-target="primary-services" aria-label="Anterior">‹</button>
-        <button class="ctrl next" data-target="primary-services" aria-label="Próximo">›</button>
+        <button class="ctrl prev" aria-label="Anterior">‹</button>
+        <button class="ctrl next" aria-label="Próximo">›</button>
       </div>
-
-      <div class="track" data-track="primary-services" role="list">
-        <article class="card" role="group" aria-label="Instalações técnicas">
-          <picture>
-            <source type="image/webp" srcset="assets/images/servico-eletrica.webp">
-            <img src="assets/images/servico-eletrica.jpg" alt="Instalações técnicas" loading="lazy">
-          </picture>
-          <h3>Instalações Técnicas</h3>
-          <p>Projeto e execução de instalações elétricas, cabeamento e CFTV com documentação técnica.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Instalações+Técnicas">Orçar no WhatsApp</a>
-        </article>
-
-        <!-- other cards preserved -->
+      <div class="track">
+        <article class="card"><img src="assets/images/servico-eletrica.jpg" alt="Elétrica" loading="lazy"><h3>Instalações</h3><p>Instalações elétricas, cabeamento e CFTV.</p><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Instalações">Orçar</a></article>
+        <article class="card"><img src="assets/images/servico-cftv.jpg" alt="CFTV" loading="lazy"><h3>CFTV</h3><p>Instalação e manutenção de câmeras.</p><a class="btn" href="https://wa.me/5511952544885?text=Orçar+CFTV">Orçar</a></article>
+        <article class="card"><img src="assets/images/servico-telecom.jpg" alt="Telecom" loading="lazy"><h3>Telecom</h3><p>Cabeamento e redes estruturadas.</p><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Telecom">Orçar</a></article>
       </div>
-
-      <div class="indicators" data-indicators="primary-services" aria-hidden="false"></div>
+      <div class="indicators" aria-hidden="false"></div>
     </div>
   </section>
 
-  <!-- Detailed categories: ensure anchors exist -->
-  <section class="section" aria-label="Instalações Técnicas e subcategorias">
-    <h2 class="category-title">Instalações Técnicas</h2>
-    <p class="lead">Serviços por categoria — os 3 itens mais procurados + outros serviços.</p>
+  <!-- Detailed categories (ids aligned with menu links) -->
+  <section class="section" aria-label="Instalações técnicas e subcategorias">
+    <h2>Instalações Técnicas</h2>
+    <p class="lead">Serviços por categoria — itens mais procurados e outros serviços.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px">
-
-      <!-- anchor aliases for links from other pages -->
-      <div id="eletrica" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">Elétrica</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Reforma elétrica</strong> — atualização de circuitos e quadros para segurança.</li>
-          <li><strong>Instalação de quadro e disjuntores</strong> — proteção adequada e distribuição.</li>
-          <li><strong>Aterramento e SPDA</strong> — proteção contra surtos e segurança elétrica.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: iluminação, tomadas, correções pontuais.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+serviço+Elétrica">Orçar</a>
-      </div>
-
-      <div id="cftv" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">CFTV</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Instalação de câmera IP</strong> — visão remota e gravação em NVR.</li>
-          <li><strong>Projeto de cobertura</strong> — posicionamento para eliminar pontos cegos.</li>
-          <li><strong>Manutenção e ajuste</strong> — foco, gravação e armazenamento.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: cabeamento, integração com alarmes.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+serviço+CFTV">Orçar</a>
-      </div>
-
-      <div id="telecom" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">Telecom</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Instalação de pontos de rede</strong> — cabeamento Cat5e/6 com certificação.</li>
-          <li><strong>Rede estruturada</strong> — backbone, roteamento e segmentação.</li>
-          <li><strong>Configuração de roteadores</strong> — QoS e VPN para empresas.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: Wi‑Fi enterprise, fibra interna.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+serviço+Telecom">Orçar</a>
-      </div>
-
-      <div id="automacao" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">Automação</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Automação residencial</strong> — controle de iluminação e cenas.</li>
-          <li><strong>Integração</strong> — integração com assistentes e controle remoto.</li>
-          <li><strong>Centrais e cenários</strong> — programação e testes funcionais.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: sensores, programação avançada.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+serviço+Automação">Orçar</a>
-      </div>
-
-      <div id="ar-condicionado" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">Ar Condicionado</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Instalação de Split</strong> — montagem, dreno e fixação correta.</li>
-          <li><strong>Limpeza e manutenção</strong> — filtros, serpentinas e inspeção.</li>
-          <li><strong>Recarga de gás</strong> — diagnóstico e reposição conforme fabricante.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: migração de condensadora, balanceamento.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+serviço+Ar+Condicionado">Orçar</a>
-      </div>
-
-      <div id="manutencao-geral" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">Manutenção Geral</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Preventiva</strong> — inspeções periódicas e checklist técnico.</li>
-          <li><strong>Corretiva</strong> — diagnóstico e solução de falhas.</li>
-          <li><strong>Plano para condomínios</strong> — contratos e atendimentos programados.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: auditoria técnica e laudos.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Manutenção+Geral">Orçar</a>
-      </div>
-
-      <div id="marido" style="background:var(--card);padding:16px;border-radius:10px;text-align:left">
-        <h3 style="color:var(--gold);margin-top:0">Marido de Aluguel</h3>
-        <ul style="color:var(--muted);margin:8px 0 12px;padding-left:18px;line-height:1.4">
-          <li><strong>Montagem de móveis</strong> — montagem e ajustes rápidos.</li>
-          <li><strong>Reparo hidráulico simples</strong> — trocas de vedação e conexões.</li>
-          <li><strong>Elétrica básica</strong> — troca de tomadas e interruptores.</li>
-        </ul>
-        <p style="color:var(--muted);margin:0 0 10px">Outros serviços: pequenas instalações e ajustes.</p>
-        <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Marido+de+Aluguel">Orçar</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Depoimentos -->
-  <section class="section" aria-label="Depoimentos">
-    <h2 class="category-title">Depoimentos</h2>
-    <p class="lead">O que nossos clientes dizem — feedbacks reais sobre atendimento e qualidade.</p>
-
-    <div class="testimonials" role="list" aria-live="polite">
-      <div class="testimonial" role="listitem">"Agendamento rápido e serviço muito profissional. Resolveram a instalação do nosso prédio sem dor de cabeça." — Condomínio Alpha</div>
-      <div class="testimonial" role="listitem">"Equipe atenciosa e entregou a automação conforme combinado. Recomendo." — Cliente Residencial</div>
-      <div class="testimonial" role="listitem">"Orçamento claro e execução eficiente. Técnico pontual e organizado." — Loja Beta</div>
+    <div class="detail-grid">
+      <div id="eletrica" class="detail"><h3 style="color:var(--gold)">Elétrica</h3><ul style="color:var(--muted)"><li>Reforma elétrica</li><li>Instalação de quadros</li><li>Aterramento e SPDA</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Elétrica">Orçar</a></div>
+      <div id="cftv" class="detail"><h3 style="color:var(--gold)">CFTV</h3><ul style="color:var(--muted)"><li>Instalação de câmeras IP</li><li>Projeto de cobertura</li><li>Manutenção</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+CFTV">Orçar</a></div>
+      <div id="telecom" class="detail"><h3 style="color:var(--gold)">Telecom</h3><ul style="color:var(--muted)"><li>Pontos de rede</li><li>Rede estruturada</li><li>Configuração de roteadores</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Telecom">Orçar</a></div>
+      <div id="automacao" class="detail"><h3 style="color:var(--gold)">Automação</h3><ul style="color:var(--muted)"><li>Automação residencial</li><li>Integração</li><li>Centrais e cenários</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Automação">Orçar</a></div>
+      <div id="ar-condicionado" class="detail"><h3 style="color:var(--gold)">Ar Condicionado</h3><ul style="color:var(--muted)"><li>Instalação de Split</li><li>Limpeza e manutenção</li><li>Recarga de gás</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Ar+Condicionado">Orçar</a></div>
+      <div id="manutencao-geral" class="detail"><h3 style="color:var(--gold)">Manutenção Geral</h3><ul style="color:var(--muted)"><li>Preventiva</li><li>Corretiva</li><li>Planos para condomínios</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Manutenção+Geral">Orçar</a></div>
+      <div id="marido" class="detail"><h3 style="color:var(--gold)">Marido de Aluguel</h3><ul style="color:var(--muted)"><li>Montagem de móveis</li><li>Reparos hidráulicos simples</li><li>Elétrica básica</li></ul><a class="btn" href="https://wa.me/5511952544885?text=Orçar+Marido+de+Aluguel">Orçar</a></div>
     </div>
   </section>
 
