@@ -42,19 +42,24 @@ header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturat
 #sideMenu a{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03)}
 #sideMenu a:first-child{text-align:right}
 
-/* HERO - adjusted for better legibility and mobile behavior */
-.hero{position:relative;margin-top:14px;border-radius:10px;overflow:hidden}
-.hero img{width:100%;height:clamp(220px,40vh,520px);object-fit:cover;object-position:center center;display:block;filter:contrast(.95) saturate(.95)}
-.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;background:linear-gradient(180deg, rgba(2,8,18,0.28), rgba(2,8,18,0.62));pointer-events:none}
-.hero-content{max-width:980px;width:100%;padding:18px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-.hero-panel{background:rgba(2,6,12,0.44);padding:14px;border-radius:12px;width:100%;backdrop-filter:blur(2px)}
-.hero h1{margin:0;font-size:1.6rem;line-height:1.05;font-weight:700;color:var(--white);text-shadow:0 6px 20px rgba(0,0,0,.45)}
-.hero p.lead{margin-top:6px;color:rgba(255,255,255,.92);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
+/* HERO - improved visibility of photo and correct button display */
+.hero{position:relative;margin-top:14px;border-radius:12px;overflow:visible}
+.hero-inner{position:relative;border-radius:12px;overflow:hidden} /* keeps image rounded but avoids clipping CTA panel */
+.hero img{width:100%;height:clamp(140px,34vh,520px);object-fit:cover;object-position:center center;display:block;vertical-align:middle}
 
-/* CTA buttons inside hero - explicit overrides to avoid browser defaults */
-.hero-ctas{margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.hero .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--gold);color:#000;font-weight:700;text-decoration:none;border:0;box-shadow:0 6px 18px rgba(0,0,0,.35)}
-.hero .btn.alt{background:transparent;border:1px solid rgba(212,175,55,.14);color:var(--gold)}
+/* overlay reduced so image remains visible */
+.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;background:linear-gradient(180deg, rgba(2,8,18,0.10), rgba(2,8,18,0.38));pointer-events:none}
+
+/* panel is semi-transparent + slight border so image still reads behind it */
+.hero-content{max-width:980px;width:100%;padding:0 18px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.hero-panel{background:linear-gradient(180deg, rgba(2,6,12,0.18), rgba(2,6,12,0.12));border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;backdrop-filter:blur(2px);max-width:94%;margin:0 auto;box-shadow:0 8px 24px rgba(0,0,0,0.28)}
+.hero h1{margin:0;font-size:1.45rem;line-height:1.06;font-weight:700;color:var(--white)}
+.hero p.lead{margin:8px 0 0;color:rgba(255,255,255,.92);font-size:0.98rem;max-width:66ch;margin-left:auto;margin-right:auto;line-height:1.32}
+
+/* CTAs: ensure both buttons visible, not underlined, touch-friendly */
+.hero-ctas{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hero .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--gold);color:#000;font-weight:700;text-decoration:none;border:0;min-width:180px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.hero .btn.alt{background:transparent;border:1px solid rgba(212,175,55,.18);color:var(--gold);min-width:140px}
 .hero a{color:inherit;text-decoration:none}
 
 /* Sections */
@@ -86,26 +91,22 @@ header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturat
 footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
 /* Responsive refinements */
-@media (max-width:1100px){
+@media (max-width:900px){
+  .hero img{height:clamp(160px,36vh,420px)}
+  .hero h1{font-size:1.28rem}
+  .hero-panel{padding:12px}
   .grid-4{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:900px){
-  .hero img{height:clamp(200px,36vh,420px)}
-  .hero h1{font-size:1.35rem}
-  .hero-panel{padding:12px}
-}
 @media (max-width:600px){
   .container{padding:0 14px 48px}
+  .hero img{height:clamp(140px,34vh,360px)}
+  .hero h1{font-size:1.08rem}
+  .hero p.lead{font-size:0.95rem}
+  .hero-panel{padding:10px}
+  .hero .btn{padding:10px 14px;min-width:140px;font-size:0.95rem}
   .grid-4{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
-  .hero{margin-top:10px}
-  .hero img{height:clamp(160px,34vh,380px);border-radius:8px}
-  .hero-panel{padding:12px}
-  .hero h1{font-size:1.15rem}
-  .hero p.lead{font-size:0.96rem;line-height:1.28}
-  .hero-ctas{gap:10px}
-  .hero .btn{padding:10px 14px;font-size:0.95rem}
 }
 </style>
 </head>
@@ -138,16 +139,17 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
   <!-- Hero -->
   <section class="hero" aria-label="Hero parcerias">
-    <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação">
-    <div class="hero-overlay" role="region" aria-label="Parcerias - hero">
-      <div class="hero-content">
-        <!-- panel gives contrast so text/buttons don't sit directly on busy photo -->
-        <div class="hero-panel" role="article" aria-hidden="false">
-          <h1>Parcerias que geram oportunidades reais</h1>
-          <p class="lead">Conectamos profissionais, empresas e gestores a demandas reais — execute serviços quando atuar na área ou indique demandas quando preferir. Organização, transparência e ganhos para todos.</p>
-          <div class="hero-ctas" role="group" aria-label="Chamada para ação">
-            <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech">Tenho interesse — Quero conversar</a>
-            <a class="btn alt" href="#por-que-ser-parceiro">Saiba mais</a>
+    <div class="hero-inner">
+      <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação">
+      <div class="hero-overlay" role="region" aria-label="Parcerias - hero">
+        <div class="hero-content">
+          <div class="hero-panel" role="article" aria-hidden="false">
+            <h1>Parcerias que geram oportunidades reais</h1>
+            <p class="lead">Conectamos profissionais, empresas e gestores a demandas reais — execute serviços quando atuar na área ou indique demandas quando preferir. Organização, transparência e ganhos para todos.</p>
+            <div class="hero-ctas" role="group" aria-label="Chamada para ação">
+              <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech">Tenho interesse — Quero conversar</a>
+              <a class="btn alt" href="#por-que-ser-parceiro">Saiba mais</a>
+            </div>
           </div>
         </div>
       </div>
