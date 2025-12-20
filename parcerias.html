@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/images/hero-eletrica.png">
+<link rel="preload" as="image" href="assets/images/hero-tecnico.png">
 
 <style>
 :root{
@@ -19,10 +19,8 @@
   --white:#fff;
   --maxw:1120px;
   --gap:18px;
-  --radius:12px;
   --shadow:0 12px 36px rgba(0,0,0,.55);
-  --hero-panel-opacity: 0.18;
-  --hero-panel-mobile-opacity: 0.12;
+  --radius:12px;
 }
 
 /* Reset / base */
@@ -31,7 +29,7 @@ html,body{height:100%}
 body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-1),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 18px 48px}
 
-/* Header */
+/* Header / menu (shared) */
 header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturate(.9) blur(6px);z-index:140;padding:10px 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
@@ -44,21 +42,28 @@ header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturat
 #sideMenu a{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03)}
 #sideMenu a:first-child{text-align:right}
 
-/* HERO - final tuned for mobile-first visibility */
-.hero{position:relative;margin-top:12px;border-radius:12px;overflow:visible}
-.hero-inner{position:relative;border-radius:12px;overflow:hidden}
-.hero img{width:100%;height:clamp(140px,36vh,520px);object-fit:cover;object-position:center center;display:block;vertical-align:middle}
+/* HERO - Option B: full image then block below */
+.hero{margin-top:12px}
+.hero-image{width:100%;overflow:hidden;border-radius:0}         /* no rounded corners for hero image */
+.hero-image img{display:block;width:100%;height:clamp(160px,38vh,520px);object-fit:cover;object-position:center center;border-radius:0}
 
-/* overlay kept subtle so image reads behind the panel */
-.hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;background:linear-gradient(180deg, rgba(2,8,18,0.08), rgba(2,8,18,0.36));pointer-events:none}
+/* Hero block placed below the image (separate - guarantees full visibility of photo) */
+.hero-block{
+  max-width:980px;
+  margin:12px auto 0;
+  padding:18px;
+  background:linear-gradient(180deg, rgba(2,6,12,0.12), rgba(2,6,12,0.06));
+  border:1px solid rgba(255,255,255,0.04);
+  border-radius:10px;
+  box-shadow:0 10px 28px rgba(0,0,0,0.28);
+  text-align:center;
+  backdrop-filter:blur(2px);
+}
+.hero-block h1{margin:0;font-size:1.45rem;line-height:1.05;font-weight:700;color:var(--white)}
+.hero-block .lead{margin:10px 0 0;color:rgba(255,255,255,.94);font-size:1rem;max-width:66ch;margin-left:auto;margin-right:auto;line-height:1.36}
 
-/* panel sits over image but is semi-transparent so the photo is visible */
-.hero-content{max-width:980px;width:100%;padding:0 18px;pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-.hero-panel{background:linear-gradient(180deg, rgba(2,6,12,var(--hero-panel-opacity)), rgba(2,6,12,var(--hero-panel-opacity)));border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:14px;backdrop-filter:blur(3px);max-width:92%;margin:0 auto;box-shadow:0 10px 28px rgba(0,0,0,0.28)}
-.hero h1{margin:0;font-size:1.45rem;line-height:1.06;font-weight:700;color:var(--white)}
-.hero p.lead{margin:8px 0 0;color:rgba(255,255,255,.94);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto;line-height:1.34}
-
-/* Buttons (global, consistent and touch-friendly) */
+/* Hero CTAs below text */
+.hero-ctas{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn{
   display:inline-block;
   padding:12px 18px;
@@ -69,19 +74,14 @@ header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturat
   text-decoration:none;
   border:0;
   box-shadow:0 8px 20px rgba(0,0,0,.32);
+  min-width:160px;
   text-align:center;
-  transition:transform .08s ease, box-shadow .12s ease, opacity .12s;
-  -webkit-tap-highlight-color: transparent;
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.36)}
-.btn:active{transform:translateY(0);box-shadow:0 6px 18px rgba(0,0,0,.26)}
+.btn.alt{background:transparent;border:1px solid rgba(212,175,55,.14);color:var(--gold);min-width:140px}
 .btn:focus{outline:3px solid rgba(212,175,55,.18);outline-offset:3px}
-.btn.alt{background:transparent;border:1px solid rgba(212,175,55,.14);color:var(--gold)}
-
-/* ensure plain anchors don't show browser underline */
 a{color:inherit;text-decoration:none}
 
-/* Sections and cards */
+/* Sections & cards */
 .section{padding:36px 0;text-align:center}
 .section h2{color:var(--gold);margin:0 0 8px;font-size:1.2rem}
 .section p.sub{max-width:900px;margin:0 auto 18px;color:var(--muted);font-size:1rem}
@@ -98,29 +98,30 @@ a{color:inherit;text-decoration:none}
 .step h4{margin:0 0 8px;color:var(--gold)}
 .step p{margin:0;color:var(--muted)}
 
-/* Callout / final */
+/* Callout / final CTA */
 .callout{background:linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02));padding:20px;border-radius:12px;margin-top:18px;color:var(--white)}
 .final-cta{margin-top:28px}
 .final-cta .btn{padding:12px 20px;font-size:1rem}
+
+/* Footer */
 footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
-/* Responsive: mobile-first adjustments */
+/* Responsive (mobile-first) */
 @media (max-width:900px){
-  .hero img{height:clamp(160px,36vh,420px)}
-  .hero h1{font-size:1.28rem}
-  .hero-panel{padding:12px}
+  .hero-image img{height:clamp(140px,36vh,420px)}
+  .hero-block h1{font-size:1.28rem}
   .grid-4{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:600px){
   .container{padding:0 14px 48px}
-  /* move focal point to show technician face better on common assets */
-  .hero img{height:clamp(140px,34vh,360px);object-position:40% 30%}
-  /* make panel slightly more transparent on small screens so image reads behind it */
-  .hero-panel{background:linear-gradient(180deg, rgba(2,6,12,var(--hero-panel-mobile-opacity)), rgba(2,6,12,var(--hero-panel-mobile-opacity)));padding:10px;border-radius:10px}
-  .hero h1{font-size:1.05rem}
-  .hero p.lead{font-size:0.95rem;line-height:1.32}
-  .hero .btn{padding:10px 14px;min-width:140px;font-size:0.95rem}
+  /* small shift to show face better if needed */
+  .hero-image img{object-position:40% 30%;height:clamp(130px,34vh,340px)}
+  .hero-block{padding:12px;border-radius:8px}
+  .hero-block h1{font-size:1.05rem}
+  .hero-block .lead{font-size:0.95rem;line-height:1.32}
+  .hero-ctas{gap:10px}
+  .btn{padding:10px 14px;min-width:140px}
   .grid-4{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .card-partner{min-height:180px;padding:18px}
@@ -155,21 +156,19 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
 <main class="container">
 
-  <!-- HERO -->
+  <!-- HERO: full image first, then separate block with title/lead/CTAs (Option B) -->
   <section class="hero" aria-label="Hero parcerias">
-    <div class="hero-inner" aria-hidden="false">
-      <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação">
-      <div class="hero-overlay" role="region" aria-label="Parcerias - hero">
-        <div class="hero-content">
-          <div class="hero-panel" role="article" aria-hidden="false">
-            <h1>Parcerias que geram oportunidades reais</h1>
-            <p class="lead">Conectamos profissionais, empresas e gestores a demandas reais — execute serviços quando atuar na área ou indique demandas quando preferir. Organização, transparência e ganhos para todos.</p>
-            <div class="hero-ctas" role="group" aria-label="Chamada para ação">
-              <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech">Tenho interesse — Quero conversar</a>
-              <a class="btn alt" href="#por-que-ser-parceiro">Saiba mais</a>
-            </div>
-          </div>
-        </div>
+    <div class="hero-image" aria-hidden="false">
+      <img src="assets/images/hero-tecnico.png" alt="Técnico realizando instalação">
+    </div>
+
+    <div class="hero-block" role="region" aria-label="Informação principal">
+      <h1>Parcerias que geram oportunidades reais</h1>
+      <div class="lead">Conectamos profissionais, empresas e gestores a demandas reais — execute serviços quando atuar na área ou indique demandas quando preferir. Organização, transparência e ganhos para todos.</div>
+
+      <div class="hero-ctas" role="group" aria-label="Chamada para ação">
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+tenho+interesse+em+parceria+com+Patronos+Tech">Tenho interesse — Quero conversar</a>
+        <a class="btn alt" href="#por-que-ser-parceiro">Saiba mais</a>
       </div>
     </div>
   </section>
@@ -295,7 +294,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu.classList.contains('open')) close(); });
 })();
 
-/* Smooth anchors handling (consistent across site) */
+/* Smooth anchor handling (consistent across site) */
 (function(){
   function sameFile(a,b){ const x=a.split('/').pop()||''; const y=b.split('/').pop()||''; return x===y || (x===''&&y==='index.html') || (y===''&&x==='index.html'); }
   document.addEventListener('click', function(e){
