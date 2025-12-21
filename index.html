@@ -48,13 +48,21 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 
 /* HERO: picture (mobile -> hero-tecnico; desktop -> hero-eletrica) */
 .hero{position:relative;margin-top:14px}
-.hero-image{overflow:hidden}
-.hero-image img{width:100%;height:clamp(180px,44vh,560px);object-fit:cover;display:block}
+.hero-image{overflow:hidden;position:relative;border-radius:12px}
+.hero-image img{width:100%;height:clamp(180px,44vh,560px);object-fit:cover;display:block;filter:contrast(1.03) saturate(1.02);object-position:40% 30%}
+
+/* subtle darkening overlay at bottom for legibility when hero-block overlaps */
+.hero-image::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48%;background:linear-gradient(180deg,rgba(2,6,12,0.00),rgba(2,6,12,0.55));pointer-events:none}
 
 /* Hero content block (keeps text readable without overlaying image) */
 .hero-block{max-width:980px;margin:-64px auto 0;padding:20px;background:linear-gradient(180deg, rgba(2,6,12,0.18), rgba(2,6,12,0.06));border:1px solid rgba(255,255,255,.04);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.45);backdrop-filter:blur(3px);text-align:center}
-.hero-block h1{margin:0;font-size:1.5rem;line-height:1.05;font-weight:700;color:var(--white)}
-.hero-block .lead{margin-top:10px;color:rgba(255,255,255,.9);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
+.hero-block h1{margin:0;font-size:1.6rem;line-height:1.05;font-weight:700;color:var(--white)}
+.hero-block .lead{margin-top:10px;color:rgba(255,255,255,.92);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
+
+/* Hero rotating short phrases (audiences) */
+.hero-rotator{margin-top:12px;display:flex;justify-content:center;align-items:center;min-height:36px}
+.hero-rotator .phrase{opacity:0;transform:translateY(6px);transition:opacity .38s ease, transform .38s ease;font-weight:600;color:var(--gold);font-size:0.98rem;padding:6px 12px;border-radius:8px}
+.hero-rotator .phrase.active{opacity:1;transform:translateY(0)}
 
 /* CTA buttons (updated text, touch-friendly) */
 .hero-ctas{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -63,24 +71,24 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 .btn:focus{outline:3px solid rgba(212,175,55,.18);outline-offset:3px}
 
 /* Section base */
-.section{padding:36px 0}
-.section h2{text-align:center;color:var(--gold);margin:0 0 8px;font-size:1.05rem}
+.section{padding:32px 0}
+.section h2{text-align:center;color:var(--gold);margin:0 0 8px;font-size:1.1rem}
 .section p.lead{max-width:980px;margin:8px auto 22px;text-align:center;color:var(--muted);font-size:1rem}
 
 /* Carousel base (improved mobile behavior) */
 .carousel{position:relative;overflow:hidden;margin:8px 0;padding:8px 0}
 .track{display:flex;gap:var(--gap);align-items:stretch;will-change:transform;padding:8px;touch-action:pan-y}
-.card{background:var(--card);border-radius:12px;padding:12px;min-width:260px;flex:0 0 260px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card{background:var(--card);border-radius:12px;padding:14px;min-width:260px;flex:0 0 260px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;text-align:center}
 .card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
-.card h3{margin:8px 0 6px;color:var(--gold);font-size:1rem}
-.card p{margin:0;color:var(--muted);font-size:0.95rem;line-height:1.3}
+.card h3{margin:8px 0 6px;color:var(--gold);font-size:1.03rem}
+.card p{margin:0;color:var(--muted);font-size:0.95rem;line-height:1.35}
 
 /* product card */
 .prod-card{min-width:220px;flex:0 0 220px}
 .prod-card .price{color:var(--gold);font-weight:700;margin-top:8px}
 
-/* category card */
-.cat-card{min-width:180px;flex:0 0 180px;align-items:center;text-align:center;padding:12px}
+/* category / area card */
+.cat-card{min-width:180px;flex:0 0 180px;padding:12px}
 .cat-card img{height:110px;width:100%;object-fit:cover;border-radius:10px;margin-bottom:8px}
 
 /* controls */
@@ -108,7 +116,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   .card{min-width:220px;flex:0 0 220px}
   .prod-card{min-width:200px;flex:0 0 200px}
   .hero-block{margin:-48px auto 0;padding:16px}
-  .hero-block h1{font-size:1.25rem}
+  .hero-block h1{font-size:1.35rem}
 }
 
 /* Mobile-first tweaks: full-width CTAs, smaller hero height, reduce shadows */
@@ -124,8 +132,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   .hero-block .lead{font-size:0.95rem}
   .hero-ctas{flex-direction:column}
   .hero-ctas .btn{width:100%;min-width:0}
-  .indicators{gap:8px}
-  .features{gap:12px}
+  .hero-rotator{min-height:34px}
   .card h3{font-size:1rem}
 }
 </style>
@@ -170,126 +177,168 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     <!-- Hero content block (separated from image) with clearer CTAs texts -->
     <div class="hero-block" role="region" aria-label="Informação principal">
       <h1>Serviços técnicos profissionais — rápido e confiável</h1>
-      <div class="lead">Atendemos residências, comércios e condomínios com equipe qualificada, materiais certificados e garantia técnica.</div>
+      <div class="lead">Atendemos residências, comércios, condomínios e empresas com equipe qualificada, materiais certificados e garantia técnica.</div>
+
+      <!-- Rotating short phrases (audiences) -->
+      <div class="hero-rotator" aria-live="polite" aria-atomic="true">
+        <div class="phrase active">Residências — atendimento rápido e seguro</div>
+        <div class="phrase">Comércios — serviços sem interromper suas operações</div>
+        <div class="phrase">Condomínios — manutenção e contratos programados</div>
+        <div class="phrase">Empresas — documentação técnica e atendimento corporativo</div>
+        <div class="phrase">Profissionais — parcerias e comissões claras</div>
+      </div>
 
       <div class="hero-ctas" role="group" aria-label="Chamada para ação">
-        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+gostaria+de+um+orçamento" aria-label="Pedir orçamento via WhatsApp">Pedir orçamento</a>
-        <a class="btn alt" href="#servicos-tecnicos" aria-label="Ver serviços">Ver serviços</a>
+        <a id="heroWhats" class="btn" href="https://wa.me/5511952544885?text=Olá%2C+gostaria+de+atendimento+rápido+e+informações+sobre+serviços" aria-label="Atendimento rápido via WhatsApp">Atendimento rápido</a>
+        <a class="btn alt" href="#servicos-tecnicos" aria-label="Ver categorias">Ver categorias</a>
       </div>
     </div>
   </section>
 
-  <!-- Serviços -->
-  <section class="section" id="servicos-tecnicos" aria-label="Serviços">
-    <h2>Serviços</h2>
-    <p class="lead">Principais serviços oferecidos — do projeto à execução, com garantia técnica.</p>
+  <!-- CATEGORIAS -->
+  <section class="section" id="servicos-tecnicos" aria-label="Categorias">
+    <h2>Categorias</h2>
+    <p class="lead">Organizamos nossa oferta por categorias — escolha o tipo de solução que você precisa.</p>
 
-    <div class="carousel" data-speed="36" aria-roledescription="carousel" aria-label="Serviços">
+    <div class="carousel" data-speed="36" aria-roledescription="carousel" aria-label="Categorias">
+      <div class="controls" aria-hidden="true">
+        <button class="ctrl prev" data-target="categories" aria-label="Anterior (categorias)">‹</button>
+        <button class="ctrl next" data-target="categories" aria-label="Próximo (categorias)">›</button>
+      </div>
+
+      <div class="track" data-track="categories" role="list">
+        <article class="card cat-card" role="group" aria-label="Instalações Técnicas">
+          <img src="assets/images/servico-eletrica.jpg" alt="Instalações Técnicas" loading="lazy" width="600" height="340">
+          <h3>Instalações Técnicas</h3>
+          <p>Projetos e execução de obras técnicas (elétrica, telecom, CFTV) com segurança, normas e laudo quando necessário.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçamento+para+categoria%3A+Instalações+Técnicas" aria-label="Pedir orçamento para Instalações Técnicas">Pedir orçamento</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="Manutenção Geral">
+          <img src="assets/images/servico-geral.jpeg" alt="Manutenção Geral" loading="lazy" width="600" height="340">
+          <h3>Manutenção Geral</h3>
+          <p>Planos e intervenções preventivas ou corretivas para manter a operação do imóvel e reduzir custos de falhas.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçamento+para+categoria%3A+Manutenção+Geral" aria-label="Pedir orçamento para Manutenção Geral">Pedir orçamento</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="Marido de Aluguel">
+          <img src="assets/images/servico-manut.jpeg" alt="Marido de aluguel" loading="lazy" width="600" height="340">
+          <h3>Marido de Aluguel</h3>
+          <p>Atendimentos pontuais para pequenos reparos, instalações e ajustes domésticos com garantia e responsabilidade técnica.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçamento+para+categoria%3A+Marido+de+Aluguel" aria-label="Pedir orçamento para Marido de Aluguel">Pedir orçamento</a>
+        </article>
+      </div>
+
+      <div class="indicators" data-indicators="categories" aria-hidden="false" role="tablist"></div>
+    </div>
+  </section>
+
+  <!-- ÁREAS PROFISSIONAIS -->
+  <section class="section" id="areas" aria-label="Áreas profissionais">
+    <h2>Áreas profissionais</h2>
+    <p class="lead">Nossas especialidades técnicas — escolha a área que se aplica ao seu caso.</p>
+
+    <div class="carousel" data-speed="48" aria-roledescription="carousel" aria-label="Áreas profissionais">
+      <div class="controls" aria-hidden="true">
+        <button class="ctrl prev" data-target="areas" aria-label="Anterior (áreas)">‹</button>
+        <button class="ctrl next" data-target="areas" aria-label="Próximo (áreas)">›</button>
+      </div>
+
+      <div class="track" data-track="areas" role="list">
+        <article class="card cat-card" role="group" aria-label="Elétrica">
+          <img src="assets/images/servico-eletrica.jpg" alt="Elétrica" loading="lazy" width="600" height="340">
+          <h3>Elétrica</h3>
+          <p>Especialidade em instalações, quadros, SPDA e segurança elétrica com documentação técnica.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+na+área%3A+Elétrica" aria-label="Quero atendimento na área Elétrica">Quero atendimento</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="CFTV">
+          <img src="assets/images/servico-cftv.jpg" alt="CFTV" loading="lazy" width="600" height="340">
+          <h3>CFTV</h3>
+          <p>Projeto e instalação de câmeras, gravação e acesso remoto com testes e configuração segura.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+na+área%3A+CFTV" aria-label="Quero atendimento na área CFTV">Quero atendimento</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="Telecom">
+          <img src="assets/images/servico-telecom.jpg" alt="Telecom" loading="lazy" width="600" height="340">
+          <h3>Telecom</h3>
+          <p>Rede cabeada, fibra e cabeamento estruturado para voz e dados com certificação e testes.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+na+área%3A+Telecom" aria-label="Quero atendimento na área Telecom">Quero atendimento</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="Automação">
+          <img src="assets/images/servico-automacao.jpg" alt="Automação" loading="lazy" width="600" height="340">
+          <h3>Automação</h3>
+          <p>Integração de sistemas, controles e automação predial para conforto e eficiência energética.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+na+área%3A+Automação" aria-label="Quero atendimento na área Automação">Quero atendimento</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="Ar-condicionado">
+          <img src="assets/images/servico-ar.jpg" alt="Ar-condicionado" loading="lazy" width="600" height="340">
+          <h3>Ar-condicionado</h3>
+          <p>Instalação, revisão e manutenção preventiva com verificação de vazamentos e desempenho.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+na+área%3A+Ar-condicionado" aria-label="Quero atendimento na área Ar-condicionado">Quero atendimento</a>
+        </article>
+      </div>
+
+      <div class="indicators" data-indicators="areas" aria-hidden="false" role="tablist"></div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS MAIS PROCURADOS -->
+  <section class="section" id="produtos" aria-label="Serviços mais procurados">
+    <h2>Serviços mais procurados</h2>
+    <p class="lead">Ações práticas e frequentes — descrevemos rapidamente o que entregamos e como atendemos.</p>
+
+    <div class="carousel" data-speed="52" aria-roledescription="carousel" aria-label="Serviços populares">
       <div class="controls" aria-hidden="true">
         <button class="ctrl prev" data-target="services" aria-label="Anterior (serviços)">‹</button>
         <button class="ctrl next" data-target="services" aria-label="Próximo (serviços)">›</button>
       </div>
 
       <div class="track" data-track="services" role="list">
-        <article class="card" role="group" aria-label="Instalações Técnicas">
-          <img src="assets/images/servico-eletrica.jpg" alt="Instalações técnicas" loading="lazy" width="600" height="340">
-          <h3>Instalações Técnicas</h3>
-          <p>Projetos e execução de instalações elétricas, telecom e CFTV com segurança e documentação técnica.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Instalações+Técnicas" aria-label="Pedir orçamento de Instalações Técnicas">Pedir orçamento</a>
+        <article class="card prod-card" role="group" aria-label="Instalação de Chuveiro">
+          <img src="assets/images/servico-manut.jpeg" alt="Instalação de chuveiro" loading="lazy" width="600" height="340">
+          <h3>Instalação de Chuveiro</h3>
+          <p>Substituímos e instalamos com verificação de disjuntor, proteção e aterramento para segurança completa.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Orçamento sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Chuveiro.+Informações%3A+local+e+modelo" aria-label="Pedir orçamento de Instalação de Chuveiro">Pedir orçamento</a>
         </article>
 
-        <article class="card" role="group" aria-label="Manutenção Geral">
-          <img src="assets/images/servico-geral.jpeg" alt="Manutenção Geral" loading="lazy" width="600" height="340">
-          <h3>Manutenção Geral</h3>
-          <p>Serviços preventivos e corretivos para manter a operação e conservação do imóvel, reduzindo falhas e custos.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Manutenção+Geral" aria-label="Pedir orçamento de Manutenção Geral">Pedir orçamento</a>
+        <article class="card prod-card" role="group" aria-label="Instalação de Câmeras">
+          <img src="assets/images/servico-cftv.jpg" alt="Instalação de câmeras" loading="lazy" width="600" height="340">
+          <h3>Instalação de Câmeras</h3>
+          <p>Inclui projeto de posicionamento, cabeamento, gravação e acesso remoto com testes finais.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Orçamento sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Câmeras.+Informações%3A+quantas+câmeras+e+local" aria-label="Pedir orçamento de Instalação de Câmeras">Pedir orçamento</a>
         </article>
 
-        <article class="card" role="group" aria-label="Marido de Aluguel">
-          <img src="assets/images/servico-manut.jpeg" alt="Marido de aluguel" loading="lazy" width="600" height="340">
-          <h3>Marido de Aluguel</h3>
-          <p>Atendimentos pontuais para pequenos reparos, instalações e ajustes domésticos com garantia de serviço.</p>
-          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Marido+de+Aluguel" aria-label="Pedir orçamento do Marido de Aluguel">Pedir orçamento</a>
+        <article class="card prod-card" role="group" aria-label="Troca de Tomadas e Interruptores">
+          <img src="assets/images/servico-tomada.jpg" alt="Troca de tomadas" loading="lazy" width="600" height="340">
+          <h3>Troca de Tomadas e Interruptores</h3>
+          <p>Substituição com verificação de circuito, aterramento e garantia de funcionamento seguro.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Orçamento sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Troca+de+Tomadas+e+Interruptores.+Informações%3A+quantas+peças+e+local" aria-label="Pedir orçamento de Troca de Tomadas">Pedir orçamento</a>
+        </article>
+
+        <article class="card prod-card" role="group" aria-label="Instalação de Torneira">
+          <img src="assets/images/servico-agua.jpg" alt="Instalação de torneira" loading="lazy" width="600" height="340">
+          <h3>Instalação de Torneira</h3>
+          <p>Instalação com vedação profissional e teste de estanqueidade para evitar vazamentos.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Orçamento sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Torneira.+Informações%3A+tipo+e+local" aria-label="Pedir orçamento de Instalação de Torneira">Pedir orçamento</a>
+        </article>
+
+        <article class="card prod-card" role="group" aria-label="Revisão de Ar-condicionado">
+          <img src="assets/images/servico-ar.jpg" alt="Revisão de ar-condicionado" loading="lazy" width="600" height="340">
+          <h3>Revisão de Ar-condicionado</h3>
+          <p>Revisão completa com limpeza, verificação de vazamentos e teste de desempenho.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Orçamento sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Revisão+de+Ar-condicionado.+Informações%3A+marca+e+local" aria-label="Pedir orçamento de Revisão de Ar-condicionado">Pedir orçamento</a>
         </article>
       </div>
 
       <div class="indicators" data-indicators="services" aria-hidden="false" role="tablist"></div>
-    </div>
-  </section>
-
-  <!-- Produtos -->
-  <section class="section" id="produtos" aria-label="Produtos">
-    <h2>Produtos</h2>
-    <p class="lead">Serviços executados e procedimentos — solicite orçamento detalhado para cada serviço.</p>
-
-    <div class="carousel" data-speed="52" aria-roledescription="carousel" aria-label="Serviços executados">
-      <div class="controls" aria-hidden="true">
-        <button class="ctrl prev" data-target="products" aria-label="Anterior (produtos)">‹</button>
-        <button class="ctrl next" data-target="products" aria-label="Próximo (produtos)">›</button>
-      </div>
-
-      <div class="track" data-track="products" role="list">
-        <article class="card prod-card" role="group" aria-label="Instalação de chuveiro">
-          <img src="assets/images/servico-manut.jpeg" alt="Instalação de chuveiro" loading="lazy" width="600" height="340">
-          <h3>Instalação de Chuveiro</h3>
-          <p>Substituição e instalação segura de chuveiros elétricos ou a gás, com verificação de disjuntores e aterramento.</p>
-          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Serviço sob medida</div>
-          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Chuveiro" aria-label="Pedir orçamento de Instalação de Chuveiro">Pedir orçamento</a>
-        </article>
-
-        <article class="card prod-card" role="group" aria-label="Instalação de torneira">
-          <img src="assets/images/servico-agua.jpg" alt="Instalação de torneira" loading="lazy" width="600" height="340">
-          <h3>Instalação de Torneira</h3>
-          <p>Instalação e substituição com vedação profissional e testes de estanqueidade.</p>
-          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Serviço sob medida</div>
-          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Torneira" aria-label="Pedir orçamento de Instalação de Torneira">Pedir orçamento</a>
-        </article>
-
-        <article class="card prod-card" role="group" aria-label="Instalação de câmeras">
-          <img src="assets/images/servico-cftv.jpg" alt="Instalação de câmeras" loading="lazy" width="600" height="340">
-          <h3>Instalação de Câmeras</h3>
-          <p>Projeto, posicionamento e instalação de câmeras com configuração de acesso remoto e testes finais.</p>
-          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Serviço sob medida</div>
-          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Câmeras" aria-label="Pedir orçamento de Instalação de Câmeras">Pedir orçamento</a>
-        </article>
-
-        <!-- other product cards ... (images lazy) -->
-      </div>
-
-      <div class="indicators" data-indicators="products" aria-hidden="false" role="tablist"></div>
-    </div>
-  </section>
-
-  <!-- Categorias -->
-  <section class="section" id="categorias" aria-label="Categorias">
-    <h2>Categorias</h2>
-    <p class="lead">Encontre por categoria: manutenção predial, iluminação, pequenos reparos e muito mais.</p>
-
-    <div class="carousel" data-speed="28" aria-roledescription="carousel" aria-label="Categorias">
-      <div class="controls" aria-hidden="true">
-        <button class="ctrl prev" data-target="cats" aria-label="Anterior (categorias)">‹</button>
-        <button class="ctrl next" data-target="cats" aria-label="Próximo (categorias)">›</button>
-      </div>
-
-      <div class="track" data-track="cats" role="list">
-        <article class="card cat-card" role="group" aria-label="Elétrica">
-          <img src="assets/images/servico-eletrica.jpg" alt="Elétrica" loading="lazy" width="600" height="340">
-          <h3>Elétrica</h3>
-          <p>Instalações e corretivos elétricos com padrões de segurança.</p>
-          <a class="btn" href="products.html#eletrica" aria-label="Ver categoria elétrica">Ver categoria</a>
-        </article>
-
-        <article class="card cat-card" role="group" aria-label="CFTV">
-          <img src="assets/images/servico-cftv.jpg" alt="CFTV" loading="lazy" width="600" height="340">
-          <h3>CFTV</h3>
-          <p>Projetos, instalação e manutenção de sistemas de monitoramento.</p>
-          <a class="btn" href="products.html#cftv" aria-label="Ver categoria cftv">Ver categoria</a>
-        </article>
-
-        <!-- other category cards ... -->
-      </div>
-
-      <div class="indicators" data-indicators="cats" aria-hidden="false" role="tablist"></div>
     </div>
   </section>
 
@@ -298,10 +347,10 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     <h2>Diferenciais</h2>
     <p class="lead">Técnicos certificados, garantia técnica, atendimento ágil e planos para condomínios.</p>
     <div class="features" role="list">
-      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Técnicos certificados</h4><p style="color:var(--muted);margin:0">Equipe qualificada e EPIs em dia.</p></div>
-      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Atendimento ágil</h4><p style="color:var(--muted);margin:0">Agendamento flexível e resposta eficiente.</p></div>
-      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Garantia técnica</h4><p style="color:var(--muted);margin:0">Documentação e garantia para seu serviço.</p></div>
-      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Planos</h4><p style="color:var(--muted);margin:0">Contratos para condomínios e empresas.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Técnicos certificados</h4><p style="color:var(--muted);margin:0">Equipe qualificada, EPIs e conformidade técnica em cada serviço.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Atendimento ágil</h4><p style="color:var(--muted);margin:0">Agendamento flexível e respostas rápidas para emergências e manutenções.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Garantia técnica</h4><p style="color:var(--muted);margin:0">Documentação e garantia de execução para sua tranquilidade.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Planos</h4><p style="color:var(--muted);margin:0">Contratos para condomínios e empresas com atendimento programado.</p></div>
     </div>
   </section>
 
@@ -313,17 +362,17 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     <div style="max-width:980px;margin:16px auto 0;display:grid;grid-template-columns:1fr;gap:12px">
       <div style="background:var(--card);padding:16px;border-radius:10px">
         <h3 style="color:var(--gold);margin-top:0">Parcerias com profissionais</h3>
-        <p style="color:var(--muted);margin:0">Valorizamos a colaboração com profissionais autônomos e empresas locais. Se você realiza parte dos serviços mas tem clientes que precisam de soluções fora da sua área de atuação, indique para nós. Oferecemos suporte técnico, condições comerciais justas e pagamento de comissões/creditos conforme acordo.</p>
+        <p style="color:var(--muted);margin:0">Valorizamos a colaboração com profissionais e empresas locais. Indique clientes fora da sua área e receba suporte, material comercial e condições comerciais justas.</p>
       </div>
 
       <div style="background:var(--card);padding:16px;border-radius:10px">
         <h3 style="color:var(--gold);margin-top:0">Como a indicação funciona</h3>
-        <p style="color:var(--muted);margin:0">Ao indicar um cliente, nós cuidamos do atendimento técnico completo — desde a análise até os testes finais. Mantemos o profissional informado sobre o andamento e garantimos pagamento rápido de comissões ou crédito em serviços. Fornecemos também material comercial e suporte técnico para facilitar a indicação.</p>
+        <p style="color:var(--muted);margin:0">Cuidamos do atendimento completo, mantemos você informado e efetuamos pagamento de comissões/creditos de forma transparente e rápida.</p>
       </div>
 
       <div style="background:var(--card);padding:16px;border-radius:10px;margin-top:12px">
         <h3 style="color:var(--gold);margin-top:0">Quer ser parceiro?</h3>
-        <p style="color:var(--muted);margin:0 0 10px">Preencha nosso formulário de parceria ou entre em contato via WhatsApp — explicaremos o programa de indicações, as condições e como começar.</p>
+        <p style="color:var(--muted);margin:0 0 10px">Preencha nosso formulário de parceria ou entre em contato via WhatsApp — explicaremos o programa e como começar.</p>
         <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+em+parceria+Patronos+Tech" style="margin-top:10px;display:inline-block" aria-label="Quero ser parceiro">Quero ser parceiro</a>
       </div>
     </div>
@@ -435,8 +484,31 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   });
 })();
 
+/* Hero rotating short phrases */
+(function(){
+  const rotator = document.querySelector('.hero-rotator');
+  if(!rotator) return;
+  const items = Array.from(rotator.children);
+  let idx = 0;
+  const delay = 3000; // ms per phrase
+  function show(i){
+    items.forEach((el, j)=> el.classList.toggle('active', i===j));
+  }
+  show(0);
+  let t = setInterval(()=>{
+    idx = (idx + 1) % items.length;
+    show(idx);
+  }, delay);
+
+  // Pause rotation when user interacts (accessibility)
+  rotator.addEventListener('pointerenter', ()=> clearInterval(t));
+  rotator.addEventListener('focusin', ()=> clearInterval(t));
+  rotator.addEventListener('pointerleave', ()=> { clearInterval(t); t = setInterval(()=>{ idx = (idx + 1) % items.length; show(idx); }, delay); });
+})();
+
 /* Carousel core - simplified and tuned for mobile (pointer events, reduced clones, pause on interaction).
    Respects prefers-reduced-motion. Indicators improved for accessibility.
+   Preserves the existing structure and improves clarity of content (no logic changes).
 */
 (function(){
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -449,7 +521,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     const track = car.querySelector('.track');
     if(!track) return;
     const container = track.parentElement;
-    const originals = Array.from(track.children);
+    const originals = Array.from(track.children).filter(c=>!c.classList.contains('clone'));
     if(!originals.length) return;
 
     const prevBtn = car.querySelector('.prev');
@@ -509,7 +581,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
     function down(e){
       drag.active = true;
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientX = e.touches ? e.touches[0].clientX : (e.clientX || e.pageX);
       drag.lastX = clientX;
       drag.lastTime = performance.now();
       drag.velocity = 0;
@@ -518,7 +590,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     function move(e){
       if(!drag.active) return;
       const now = performance.now();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientX = e.touches ? e.touches[0].clientX : (e.clientX || e.pageX);
       const dx = clientX - drag.lastX;
       const dt = Math.max(1, now - drag.lastTime);
       const inst = (dx/dt)*1000;
