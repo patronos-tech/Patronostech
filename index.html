@@ -59,10 +59,37 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 .hero-block h1{margin:0;font-size:1.6rem;line-height:1.05;font-weight:700;color:var(--white)}
 .hero-block .lead{margin-top:10px;color:rgba(255,255,255,.92);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
 
-/* Hero rotating short phrases (audiences) */
-.hero-rotator{margin-top:12px;display:flex;justify-content:center;align-items:center;min-height:36px}
-.hero-rotator .phrase{opacity:0;transform:translateY(6px);transition:opacity .38s ease, transform .38s ease;font-weight:600;color:var(--gold);font-size:0.98rem;padding:6px 12px;border-radius:8px}
-.hero-rotator .phrase.active{opacity:1;transform:translateY(0)}
+/* Hero rotating short phrases (audiences) - fix de empilhamento / centralização */
+.hero-rotator{
+  position:relative;
+  margin-top:12px;
+  display:block;
+  min-height:40px; /* garante espaço sem quebrar layout */
+}
+.hero-rotator .phrase{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,6px);
+  opacity:0;
+  transition:opacity .38s ease, transform .38s ease;
+  font-weight:600;
+  color:var(--gold);
+  font-size:0.98rem;
+  padding:6px 12px;
+  border-radius:8px;
+  white-space:nowrap; /* evita quebra em múltiplas linhas */
+  pointer-events:none;
+}
+.hero-rotator .phrase.active{
+  opacity:1;
+  transform:translate(-50%,-50%);
+  pointer-events:auto;
+}
+@media (max-width:600px){
+  .hero-rotator{ min-height:34px; }
+  .hero-rotator .phrase{ font-size:0.92rem; padding:5px 10px; }
+}
 
 /* CTA buttons (updated text, touch-friendly) */
 .hero-ctas{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -181,11 +208,11 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
       <!-- Rotating short phrases (audiences) -->
       <div class="hero-rotator" aria-live="polite" aria-atomic="true">
-        <div class="phrase active">Residências — atendimento rápido e seguro</div>
-        <div class="phrase">Comércios — serviços sem interromper suas operações</div>
-        <div class="phrase">Condomínios — manutenção e contratos programados</div>
-        <div class="phrase">Empresas — documentação técnica e atendimento corporativo</div>
-        <div class="phrase">Profissionais — parcerias e comissões claras</div>
+        <div class="phrase" aria-hidden="true">Residências — atendimento rápido e seguro</div>
+        <div class="phrase" aria-hidden="true">Comércios — serviços sem interromper suas operações</div>
+        <div class="phrase" aria-hidden="true">Condomínios — manutenção e contratos programados</div>
+        <div class="phrase" aria-hidden="true">Empresas — documentação técnica e atendimento corporativo</div>
+        <div class="phrase" aria-hidden="true">Profissionais — parcerias e comissões claras</div>
       </div>
 
       <div class="hero-ctas" role="group" aria-label="Chamada para ação">
@@ -490,20 +517,31 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   if(!rotator) return;
   const items = Array.from(rotator.children);
   let idx = 0;
-  const delay = 3000; // ms per phrase
+  const delay = 3000; // ms por frase
+
   function show(i){
-    items.forEach((el, j)=> el.classList.toggle('active', i===j));
+    items.forEach((el, j)=>{
+      const active = i===j;
+      el.classList.toggle('active', active);
+      el.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
   }
+
+  // show first
   show(0);
+
   let t = setInterval(()=>{
     idx = (idx + 1) % items.length;
     show(idx);
   }, delay);
 
-  // Pause rotation when user interacts (accessibility)
+  // Pausa ao interagir (acessibilidade/UX)
   rotator.addEventListener('pointerenter', ()=> clearInterval(t));
   rotator.addEventListener('focusin', ()=> clearInterval(t));
-  rotator.addEventListener('pointerleave', ()=> { clearInterval(t); t = setInterval(()=>{ idx = (idx + 1) % items.length; show(idx); }, delay); });
+  rotator.addEventListener('pointerleave', ()=> {
+    clearInterval(t);
+    t = setInterval(()=>{ idx = (idx + 1) % items.length; show(idx); }, delay);
+  });
 })();
 
 /* Carousel core - simplified and tuned for mobile (pointer events, reduced clones, pause on interaction).
