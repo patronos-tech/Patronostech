@@ -59,36 +59,49 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 .hero-block h1{margin:0;font-size:1.6rem;line-height:1.05;font-weight:700;color:var(--white)}
 .hero-block .lead{margin-top:10px;color:rgba(255,255,255,.92);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
 
-/* Hero rotating short phrases (audiences) - fix de empilhamento / centralização */
+/* Hero rotating short phrases (audiences)
+   Fix: allow wrapping for longer phrases while keeping them centered and not affecting layout.
+   Approach: phrases are absolutely positioned (so they don't push layout), centered horizontally,
+   and the rotator container reserves vertical space (min-height). Phrases have a max-width so they
+   wrap inside the hero block and remain readable on mobile.
+*/
 .hero-rotator{
   position:relative;
   margin-top:12px;
   display:block;
-  min-height:40px; /* garante espaço sem quebrar layout */
+  min-height:56px; /* espaço para até 2 linhas confortáveis em mobile */
+  padding-left:8px;
+  padding-right:8px;
 }
 .hero-rotator .phrase{
   position:absolute;
   left:50%;
-  top:50%;
-  transform:translate(-50%,6px);
+  top:0;
+  transform:translateX(-50%) translateY(8px);
   opacity:0;
-  transition:opacity .38s ease, transform .38s ease;
+  transition:opacity .36s ease, transform .36s ease;
   font-weight:600;
   color:var(--gold);
   font-size:0.98rem;
   padding:6px 12px;
   border-radius:8px;
-  white-space:nowrap; /* evita quebra em múltiplas linhas */
+  white-space:normal; /* permitir quebra em múltiplas linhas */
+  text-align:center;
+  line-height:1.2;
+  max-width:calc(100% - 48px); /* não ultrapassar as laterais do bloco */
+  word-break:break-word;
   pointer-events:none;
 }
 .hero-rotator .phrase.active{
   opacity:1;
-  transform:translate(-50%,-50%);
+  transform:translateX(-50%) translateY(0);
   pointer-events:auto;
 }
-@media (max-width:600px){
-  .hero-rotator{ min-height:34px; }
-  .hero-rotator .phrase{ font-size:0.92rem; padding:5px 10px; }
+
+/* ajuste para telas muito pequenas */
+@media (max-width:420px){
+  .hero-rotator{ min-height:68px; }
+  .hero-rotator .phrase{ font-size:0.95rem; padding:6px 10px; max-width:calc(86vw - 32px); }
 }
 
 /* CTA buttons (updated text, touch-friendly) */
@@ -159,7 +172,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   .hero-block .lead{font-size:0.95rem}
   .hero-ctas{flex-direction:column}
   .hero-ctas .btn{width:100%;min-width:0}
-  .hero-rotator{min-height:34px}
+  .hero-rotator{min-height:60px}
   .card h3{font-size:1rem}
 }
 </style>
