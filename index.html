@@ -60,16 +60,17 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 .hero-block .lead{margin-top:10px;color:rgba(255,255,255,.92);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
 
 /* Hero rotating short phrases (audiences)
-   Fix: allow wrapping for longer phrases while keeping them centered and not affecting layout.
-   Approach: phrases are absolutely positioned (so they don't push layout), centered horizontally,
-   and the rotator container reserves vertical space (min-height). Phrases have a max-width so they
-   wrap inside the hero block and remain readable on mobile.
+   Ajustes finais para espaçamento reduzido e quebra controlada em mobile:
+   - posicionamento absoluto para não afetar o fluxo
+   - reservado pouco espaço vertical (min-height) e margem reduzida
+   - frases podem quebrar em até 2 linhas, centralizadas, com max-width
 */
 .hero-rotator{
   position:relative;
-  margin-top:12px;
+  margin-top:8px;       /* menor espaço acima do rotator */
+  margin-bottom:6px;    /* espaço abaixo, controla distância até os botões */
   display:block;
-  min-height:56px; /* espaço para até 2 linhas confortáveis em mobile */
+  min-height:44px;      /* espaço reservado — confortável para 1-2 linhas */
   padding-left:8px;
   padding-right:8px;
 }
@@ -83,12 +84,12 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
   font-weight:600;
   color:var(--gold);
   font-size:0.98rem;
-  padding:6px 12px;
+  padding:4px 10px;
   border-radius:8px;
-  white-space:normal; /* permitir quebra em múltiplas linhas */
+  white-space:normal; /* permite quebra em múltiplas linhas */
   text-align:center;
   line-height:1.2;
-  max-width:calc(100% - 48px); /* não ultrapassar as laterais do bloco */
+  max-width:calc(100% - 48px); /* evita colar nas bordas */
   word-break:break-word;
   pointer-events:none;
 }
@@ -105,7 +106,13 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 }
 
 /* CTA buttons (updated text, touch-friendly) */
-.hero-ctas{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-ctas{
+  margin-top:10px; /* aproxima os botões do rotator */
+  gap:10px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
 .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--gold);color:#000;font-weight:700;text-decoration:none;border:0;min-width:160px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.32)}
 .btn.alt{background:transparent;border:1px solid rgba(212,175,55,.12);color:var(--gold);min-width:140px}
 .btn:focus{outline:3px solid rgba(212,175,55,.18);outline-offset:3px}
@@ -170,9 +177,13 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   .hero-block{margin:-40px auto 0;padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.32)}
   .hero-block h1{font-size:1.05rem}
   .hero-block .lead{font-size:0.95rem}
-  .hero-ctas{flex-direction:column}
-  .hero-ctas .btn{width:100%;min-width:0}
-  .hero-rotator{min-height:60px}
+  .hero-ctas{margin-top:8px;gap:10px}
+  .hero-ctas .btn{
+    padding:10px 14px;        /* mais compacto no mobile mantendo área de toque */
+    font-size:15px;
+  }
+  .hero-ctas .btn.alt{ padding:10px 12px; }
+  .hero-rotator{min-height:40px; margin-bottom:6px}
   .card h3{font-size:1rem}
 }
 </style>
