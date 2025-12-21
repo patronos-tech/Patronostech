@@ -51,26 +51,26 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 .hero-image{overflow:hidden;position:relative;border-radius:12px}
 .hero-image img{width:100%;height:clamp(180px,44vh,560px);object-fit:cover;display:block;filter:contrast(1.03) saturate(1.02);object-position:40% 30%}
 
-/* subtle darkening overlay at bottom for legibility when hero-block overlaps */
+/* subtle darkening overlay at bottom for legibility when hero-block overlaps image */
 .hero-image::after{content:"";position:absolute;left:0;right:0;bottom:0;height:48%;background:linear-gradient(180deg,rgba(2,6,12,0.00),rgba(2,6,12,0.55));pointer-events:none}
 
 /* Hero content block (keeps text readable without overlaying image) */
-.hero-block{max-width:980px;margin:-64px auto 0;padding:20px;background:linear-gradient(180deg, rgba(2,6,12,0.18), rgba(2,6,12,0.06));border:1px solid rgba(255,255,255,.04);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.45);backdrop-filter:blur(3px);text-align:center}
+.hero-block{max-width:980px;margin:-64px auto 0;padding:20px 20px 18px;background:linear-gradient(180deg, rgba(2,6,12,0.18), rgba(2,6,12,0.06));border:1px solid rgba(255,255,255,.04);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.45);backdrop-filter:blur(3px);text-align:center;overflow:visible}
 .hero-block h1{margin:0;font-size:1.6rem;line-height:1.05;font-weight:700;color:var(--white)}
 .hero-block .lead{margin-top:10px;color:rgba(255,255,255,.92);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
 
 /* Hero rotating short phrases (audiences)
-   Ajustes finais para espaçamento reduzido e quebra controlada em mobile:
-   - posicionamento absoluto para não afetar o fluxo
-   - reservado pouco espaço vertical (min-height) e margem reduzida
-   - frases podem quebrar em até 2 linhas, centralizadas, com max-width
+   Ajustes finais para evitar sobreposição com os botões:
+   - posicionamento absoluto para não empurrar layout
+   - o container reserva espaço suficiente (min-height + margin-bottom)
+   - frases podem quebrar em até 2 linhas, centralizadas
 */
 .hero-rotator{
   position:relative;
-  margin-top:8px;       /* menor espaço acima do rotator */
-  margin-bottom:6px;    /* espaço abaixo, controla distância até os botões */
+  margin-top:8px;       /* menos espaço acima do rotator */
+  margin-bottom:22px;   /* espaço maior para garantir distância até os botões (evita sobreposição) */
   display:block;
-  min-height:44px;      /* espaço reservado — confortável para 1-2 linhas */
+  min-height:56px;      /* espaço reservado — confortável para 1-2 linhas */
   padding-left:8px;
   padding-right:8px;
 }
@@ -88,30 +88,34 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
   border-radius:8px;
   white-space:normal; /* permite quebra em múltiplas linhas */
   text-align:center;
-  line-height:1.2;
+  line-height:1.18;
   max-width:calc(100% - 48px); /* evita colar nas bordas */
   word-break:break-word;
   pointer-events:none;
+  z-index:1;
 }
 .hero-rotator .phrase.active{
   opacity:1;
   transform:translateX(-50%) translateY(0);
   pointer-events:auto;
+  z-index:1;
 }
 
 /* ajuste para telas muito pequenas */
 @media (max-width:420px){
-  .hero-rotator{ min-height:68px; }
+  .hero-rotator{ min-height:72px; margin-bottom:20px; }
   .hero-rotator .phrase{ font-size:0.95rem; padding:6px 10px; max-width:calc(86vw - 32px); }
 }
 
 /* CTA buttons (updated text, touch-friendly) */
 .hero-ctas{
-  margin-top:10px; /* aproxima os botões do rotator */
+  margin-top:6px; /* mantém os botões próximos, mas sem sobreposição (rotator margin-bottom controla o espaço) */
   gap:10px;
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
+  position:relative; /* cria novo contexto (não necessário para z-index, mas seguro) */
+  z-index:2;
 }
 .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--gold);color:#000;font-weight:700;text-decoration:none;border:0;min-width:160px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.32)}
 .btn.alt{background:transparent;border:1px solid rgba(212,175,55,.12);color:var(--gold);min-width:140px}
@@ -166,7 +170,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   .hero-block h1{font-size:1.35rem}
 }
 
-/* Mobile-first tweaks: full-width CTAs, smaller hero height, reduce shadows */
+/* Mobile-first tweaks: full-width CTAs, menor altura do hero, diferenciação para mobile */
 @media (max-width:600px){
   .container{padding:0 14px 48px}
   .card{min-width:86vw;flex:0 0 86vw;border-radius:10px}
@@ -183,7 +187,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     font-size:15px;
   }
   .hero-ctas .btn.alt{ padding:10px 12px; }
-  .hero-rotator{min-height:40px; margin-bottom:6px}
+  .hero-rotator{min-height:72px; margin-bottom:18px}
   .card h3{font-size:1rem}
 }
 </style>
