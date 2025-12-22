@@ -59,12 +59,12 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 #sideMenu a, #sideMenu button{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03);background:transparent;border:0;text-align:left}
 #sideMenu button.close{ text-align:right }
 
-/* HERO: picture (mobile -> hero-tecnico; desktop -> hero-tecnico as well since you requested same) */
+/* HERO */
 .hero{position:relative;margin-top:14px}
 .hero-image{overflow:hidden;border-radius:12px}
 .hero-image img{width:100%;height:clamp(140px,44vh,560px);object-fit:cover;display:block;object-position:40% 30%}
 
-/* Hero content block (mimic home: separated block with background so text is readable) */
+/* Hero content block (keeps text readable without overlaying image) */
 .hero-block{max-width:980px;margin:-64px auto 0;padding:20px;background:linear-gradient(180deg, rgba(2,6,12,0.18), rgba(2,6,12,0.06));border:1px solid rgba(255,255,255,.04);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.45);backdrop-filter:blur(3px);text-align:center;z-index:3;position:relative}
 .hero-block h1{margin:0;font-size:1.5rem;line-height:1.05;font-weight:700;color:var(--white)}
 .hero-block .lead{margin-top:10px;color:rgba(255,255,255,.9);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
@@ -80,17 +80,30 @@ header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturat
 .section h2{text-align:center;color:var(--gold);margin:0 0 8px;font-size:1.05rem}
 .section p.lead{max-width:980px;margin:8px auto 22px;text-align:center;color:var(--muted);font-size:1rem}
 
-/* Rest of layout */
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+/* grid-4 (mobile-first corrected): default stacked (1 column), expands on larger viewports */
+.grid-4{display:grid;gap:18px;grid-template-columns:1fr}
+@media (min-width:600px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:900px){
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+}
+
+/* Partner card */
 .card-partner{background:var(--card);padding:22px;border-radius:12px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:200px}
+
+/* Steps variant (keeps same appearance but stacked on small screens) */
+.steps{margin-top:14px}
+
+/* Callout / final */
 .callout{background:linear-gradient(180deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02));padding:20px;border-radius:12px;margin-top:18px;color:var(--white)}
+.final-cta{margin-top:28px}
 footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
-/* Responsive */
+/* Responsive tweaks */
 @media (max-width:900px){
   .hero-block{margin:-48px auto 0;padding:16px}
   .hero-block h1{font-size:1.25rem}
-  .grid-4{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:600px){
   .container{padding:0 14px 48px}
@@ -129,7 +142,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
 <main class="container" id="main">
 
-  <!-- HERO (mobile+desktop use the same hero-tecnico.png per your request, with preload) -->
+  <!-- HERO (use same hero-tecnico.png for both as requested) -->
   <section class="hero" aria-label="Hero parcerias">
     <div class="hero-image" role="img" aria-label="Técnico realizando instalação">
       <picture>
@@ -155,58 +168,69 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
     <p class="lead">Todos os dias profissionais e empresas perdem oportunidades por falta de uma rede organizada. Nós centralizamos demandas, encaminhamos com transparência e garantimos que você receba o que é justo — seja executando ou indicando.</p>
   </section>
 
-  <!-- Tipos -->
+  <!-- Quem pode ser parceiro -->
   <section class="section" aria-label="Quem pode ser parceiro">
     <h2>Quem pode ser parceiro</h2>
     <p class="lead">Representamos oportunidades para diferentes perfis — escolha o que mais se parece com você.</p>
 
     <div class="grid-4" aria-label="Tipos de parceiros">
       <div class="card-partner" role="article">
-        <h3>Profissionais Técnicos</h3>
-        <p>Executores qualificados (elétrica, CFTV, telecom, automação, pintura, manutenção). Execute serviços ou indique demandas fora da sua área.</p>
+        <div>
+          <h3>Profissionais Técnicos</h3>
+          <p>Executores qualificados (elétrica, CFTV, telecom, automação, pintura, manutenção). Execute serviços ou indique demandas fora da sua área.</p>
+        </div>
         <div class="action"><a class="btn" href="https://wa.me/5511952544885?text=Sou+profissional+técnico+e+tenho+interesse+em+parceria" target="_blank" rel="noopener">Quero ser parceiro</a></div>
       </div>
 
       <div class="card-partner" role="article">
-        <h3>Comércios & Empresas</h3>
-        <p>Fornecedores locais podem indicar serviços aos clientes, agregar valor e receber benefícios por indicações sem precisar executar tudo internamente.</p>
+        <div>
+          <h3>Comércios & Empresas</h3>
+          <p>Fornecedores locais podem indicar serviços aos clientes, agregar valor e receber benefícios por indicações sem precisar executar tudo internamente.</p>
+        </div>
         <div class="action"><a class="btn" href="https://wa.me/5511952544885?text=Sou+empresa+e+quero+informações+sobre+parceria" target="_blank" rel="noopener">Quero indicar</a></div>
       </div>
 
       <div class="card-partner" role="article">
-        <h3>Síndicos & Condomínios</h3>
-        <p>Organize manutenções e atendimentos com um único ponto de contato, acesso a planos e fornecedores confiáveis — agilidade e previsibilidade.</p>
+        <div>
+          <h3>Síndicos & Condomínios</h3>
+          <p>Organize manutenções e atendimentos com um único ponto de contato, acesso a planos e fornecedores confiáveis — agilidade e previsibilidade.</p>
+        </div>
         <div class="action"><a class="btn" href="https://wa.me/5511952544885?text=Sou+síndico+e+quero+parceria" target="_blank" rel="noopener">Quero parceria</a></div>
       </div>
 
       <div class="card-partner" role="article">
-        <h3>Imobiliárias & Administradoras</h3>
-        <p>Facilite vistorias, manutenções e trocas de locatários com uma rede técnica pronta para atuar ou atender por indicação.</p>
+        <div>
+          <h3>Imobiliárias & Administradoras</h3>
+          <p>Facilite vistorias, manutenções e trocas de locatários com uma rede técnica pronta para atuar ou atender por indicação.</p>
+        </div>
         <div class="action"><a class="btn" href="https://wa.me/5511952544885?text=Sou+imobiliária+e+gostaria+de+parceria" target="_blank" rel="noopener">Quero parcerias</a></div>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
+  <!-- Como funciona (usando grid-4 but mobile-first so stacked on small screens) -->
   <section class="section" aria-label="Como funciona">
     <h2>Como funciona na prática</h2>
     <p class="lead">Quatro passos simples — sem burocracia, com comunicação direta e acordos transparentes.</p>
 
-    <div class="grid-4" style="margin-top:14px">
+    <div class="grid-4 steps" aria-hidden="false">
       <div class="card-partner" role="article">
-        <h3>1 • Recebimento / indicação</h3>
+        <h4>1 • Recebimento / indicação</h4>
         <p>Recebemos a demanda do cliente ou você nos indica — registramos e encaminhamos com prioridade.</p>
       </div>
+
       <div class="card-partner" role="article">
-        <h3>2 • Execução</h3>
+        <h4>2 • Execução</h4>
         <p>Se você executa o serviço, celebramos o trabalho com proposta clara, agendamento e suporte técnico.</p>
       </div>
+
       <div class="card-partner" role="article">
-        <h3>3 • Indicação</h3>
+        <h4>3 • Indicação</h4>
         <p>Se não executar, indique — nós assumimos a operação e você recebe benefícios comerciais definidos.</p>
       </div>
+
       <div class="card-partner" role="article">
-        <h3>4 • Benefícios</h3>
+        <h4>4 • Benefícios</h4>
         <p>Acordos transparentes, pagamentos rápidos e comunicação constante — parceria que gera renda e confiança.</p>
       </div>
     </div>
@@ -215,7 +239,10 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   <section class="section" aria-label="Indicar também é parceria">
     <h2>Indicar também é parceria</h2>
     <p class="lead">Não precisa executar para lucrar. Indicar uma solução confiável mantém seu cliente satisfeito e abre uma via contínua de oportunidades e benefícios.</p>
-    <div class="callout" role="note"><p style="margin:0;color:var(--white)"><strong>Simples, seguro e vantajoso:</strong> você indica, nós cuidamos do atendimento e, ao final, você recebe a contrapartida combinada.</p></div>
+
+    <div class="callout" role="note" aria-live="polite">
+      <p style="margin:0;color:var(--white)"><strong>Simples, seguro e vantajoso:</strong> você indica, nós cuidamos do atendimento e, ao final, você recebe a contrapartida combinada — sem perder o cliente e sem retrabalho.</p>
+    </div>
   </section>
 
   <section class="section final-cta" aria-label="Call to action final">
@@ -225,7 +252,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   </section>
 
   <footer>
-    <div style="max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted)">
+    <div style="max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted);text-align:center">
       © 2025 Patronos Tech • WhatsApp: (11) 95254-4885
     </div>
   </footer>
@@ -280,4 +307,4 @@ function getFocusable(container){
 </script>
 
 </body>
-</html>
+          </html>
