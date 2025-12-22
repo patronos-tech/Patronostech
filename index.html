@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Patronos Tech • Manutenção & Serviços Técnicos</title>
+
+<!-- SEO / Social (replace href content with your real domain/image as needed) -->
+<meta name="description" content="Patronos Tech — serviços técnicos e manutenção para residências, comércios e condomínios. Instalações elétricas, CFTV, telecom, automação e manutenção com garantia técnica.">
+<link rel="canonical" href="https://example.com/"> <!-- substituir pelo domínio real -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Patronos Tech • Manutenção & Serviços Técnicos">
+<meta property="og:description" content="Serviços técnicos profissionais para residências, comércios e condomínios. Atendimento ágil e garantia técnica.">
+<meta property="og:image" content="https://example.com/assets/images/hero-eletrica.png"> <!-- substituir -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+
+<!-- JSON-LD LocalBusiness (ajuste telefone/endereço/URL conforme necessário) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Patronos Tech","telephone":"+5511952544885","url":"https://example.com/","sameAs":["https://wa.me/5511952544885"],"address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressCountry":"BR"}}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Preload a primary desktop hero (fallback). Mobile will use hero-tecnico via <picture>. -->
+<link rel="preload" as="image" href="assets/images/hero-eletrica.png">
+
+<style>
+:root{
+  --bg-1:#071226;
+  --panel:#081226;
+  --card:#0b1320;
+  --gold:#d4af37;
+  --muted:#c8cad0;
+  --white:#fff;
+  --maxw:1120px;
+  --radius:12px;
+  --gap:18px;
+  --shadow:0 12px 36px rgba(0,0,0,.55);
+  --ctrl-size:44px;
+}
+
+/* Accessibility helper */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
+
+/* Reset/Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg-1),#03121b);color:var(--white);-webkit-font-smoothing:antialiased}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 18px 48px}
+
+/* Header */
+header{position:sticky;top:0;background:rgba(2,6,12,.90);backdrop-filter:saturate(.9) blur(6px);z-index:120;padding:10px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:800;font-size:22px;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent}
+.menu-btn{font-size:26px;background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer}
+.menu-btn:focus{outline:2px solid rgba(212,175,55,.18);outline-offset:3px}
+
+/* Side menu (unified sequence) */
+#sideMenu{position:fixed;top:0;right:0;width:320px;max-width:86%;height:100%;background:#02061a;padding:18px;transform:translateX(100%);transition:transform .32s ease;box-shadow:-10px 0 40px rgba(0,0,0,.6);z-index:999}
+#sideMenu.open{transform:translateX(0)}
+#sideMenu a, #sideMenu button{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03);background:transparent;border:0;text-align:left}
+#sideMenu a:first-child{ text-align:right }
+
+/* HERO: picture (mobile -> hero-tecnico; desktop -> hero-eletrica) */
+.hero{position:relative;margin-top:14px}
+.hero-image{overflow:hidden}
+.hero-image img{width:100%;height:clamp(180px,44vh,560px);object-fit:cover;display:block}
+
+/* Hero content block (keeps text readable without overlaying image) */
+.hero-block{max-width:980px;margin:-64px auto 0;padding:20px;background:linear-gradient(180deg, rgba(2,6,12,0.18), rgba(2,6,12,0.06));border:1px solid rgba(255,255,255,.04);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.45);backdrop-filter:blur(3px);text-align:center}
+.hero-block h1{margin:0;font-size:1.5rem;line-height:1.05;font-weight:700;color:var(--white)}
+.hero-block .lead{margin-top:10px;color:rgba(255,255,255,.9);font-size:1rem;max-width:64ch;margin-left:auto;margin-right:auto}
+
+/* CTA buttons (updated text, touch-friendly) */
+.hero-ctas{margin-top:14px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--gold);color:#000;font-weight:700;text-decoration:none;border:0;min-width:160px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.32)}
+.btn.alt{background:transparent;border:1px solid rgba(212,175,55,.12);color:var(--gold);min-width:140px}
+.btn:focus{outline:3px solid rgba(212,175,55,.18);outline-offset:3px}
+
+/* Section base */
+.section{padding:36px 0}
+.section h2{text-align:center;color:var(--gold);margin:0 0 8px;font-size:1.05rem}
+.section p.lead{max-width:980px;margin:8px auto 22px;text-align:center;color:var(--muted);font-size:1rem}
+
+/* Carousel base (improved mobile behavior) */
+.carousel{position:relative;overflow:hidden;margin:8px 0;padding:8px 0}
+.track{display:flex;gap:var(--gap);align-items:stretch;will-change:transform;padding:8px;touch-action:pan-y}
+.card{background:var(--card);border-radius:12px;padding:12px;min-width:260px;flex:0 0 260px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:8px}
+.card h3{margin:8px 0 6px;color:var(--gold);font-size:1rem}
+.card p{margin:0;color:var(--muted);font-size:0.95rem;line-height:1.3}
+
+/* product card */
+.prod-card{min-width:220px;flex:0 0 220px}
+.prod-card .price{color:var(--gold);font-weight:700;margin-top:8px}
+
+/* category card */
+.cat-card{min-width:180px;flex:0 0 180px;align-items:center;text-align:center;padding:12px}
+.cat-card img{height:110px;width:100%;object-fit:cover;border-radius:10px;margin-bottom:8px}
+
+/* controls */
+.controls{position:absolute;top:50%;left:6px;right:6px;display:flex;justify-content:space-between;transform:translateY(-50%);pointer-events:none}
+.ctrl{pointer-events:auto;background:rgba(0,0,0,.36);border:0;color:var(--white);width:var(--ctrl-size);height:var(--ctrl-size);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.ctrl:focus{outline:2px solid rgba(212,175,55,.18)}
+
+/* indicators - larger, better tap target */
+.indicators{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.indicators button{width:14px;height:14px;border-radius:50%;border:0;background:rgba(255,255,255,.12);cursor:pointer;padding:6px}
+.indicators button.active{background:var(--gold)}
+.indicators button:focus{outline:3px solid rgba(212,175,55,.18);outline-offset:3px}
+
+/* Extras: Diferenciais / Institutional / Contact */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
+.feature{background:var(--card);padding:16px;border-radius:10px;text-align:center}
+.institutional{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:12px;margin-top:8px}
+.form-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);margin-top:6px}
+
+/* Footer */
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* Responsive improvements */
+@media (max-width:900px){
+  .card{min-width:220px;flex:0 0 220px}
+  .prod-card{min-width:200px;flex:0 0 200px}
+  .hero-block{margin:-48px auto 0;padding:16px}
+  .hero-block h1{font-size:1.25rem}
+}
+
+/* Mobile-first tweaks: full-width CTAs, smaller hero height, reduce shadows */
+@media (max-width:600px){
+  .container{padding:0 14px 48px}
+  .card{min-width:86vw;flex:0 0 86vw;border-radius:10px}
+  .prod-card{min-width:70vw;flex:0 0 70vw}
+  .cat-card{min-width:54vw;flex:0 0 54vw}
+  .controls{display:none}
+  .hero-image img{height:clamp(140px,34vh,360px);object-position:40% 30%}
+  .hero-block{margin:-40px auto 0;padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.32)}
+  .hero-block h1{font-size:1.05rem}
+  .hero-block .lead{font-size:0.95rem}
+  .hero-ctas{flex-direction:column}
+  .hero-ctas .btn{width:100%;min-width:0}
+  .indicators{gap:8px}
+  .features{gap:12px}
+  .card h3{font-size:1rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Patronos Tech</div>
+    <button id="menuBtn" class="menu-btn" aria-controls="sideMenu" aria-expanded="false" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<nav id="sideMenu" aria-hidden="true" aria-label="Menu lateral">
+  <!-- close button (semântica correta para acessibilidade) -->
+  <button id="closeMenu" aria-label="Fechar menu" style="text-align:right">✕ Fechar</button>
+
+  <a href="index.html">Início</a>
+  <a href="products.html">Serviços</a>
+  <a href="index.html#servicos-tecnicos">Serviços Técnicos</a>
+  <a href="products.html#eletrica">Elétrica</a>
+  <a href="products.html#cftv">CFTV</a>
+  <a href="products.html#telecom">Telecom</a>
+  <a href="products.html#automacao">Automação</a>
+  <a href="products.html#manutencao-geral">Manutenção Geral</a>
+  <a href="products.html#marido">Marido de aluguel</a>
+  <a href="parcerias.html">Parcerias</a>
+  <a href="https://wa.me/5511952544885" target="_blank" rel="noopener">Contatos</a>
+</nav>
+
+<main class="container" id="inicio" tabindex="-1">
+
+  <!-- HERO (Option: use hero-tecnico on small screens, hero-eletrica on larger) -->
+  <section class="hero" aria-label="Hero principal">
+    <div class="hero-image" role="img" aria-label="Técnico realizando instalação">
+      <picture>
+        <!-- mobile-first choice: hero-tecnico for smaller viewports -->
+        <source srcset="assets/images/hero-tecnico.png" media="(max-width:600px)">
+        <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação" width="1600" height="800">
+      </picture>
+    </div>
+
+    <!-- Hero content block (separated from image) with clearer CTAs texts -->
+    <div class="hero-block" role="region" aria-label="Informação principal">
+      <h1>Serviços técnicos profissionais — rápido e confiável</h1>
+      <div class="lead">Atendemos residências, comércios e condomínios com equipe qualificada, materiais certificados e garantia técnica.</div>
+
+      <div class="hero-ctas" role="group" aria-label="Chamada para ação">
+        <a class="btn" href="https://wa.me/5511952544885?text=Olá,+gostaria+de+um+orçamento" aria-label="Pedir orçamento via WhatsApp" target="_blank" rel="noopener">Pedir orçamento</a>
+        <a class="btn alt" href="#servicos-tecnicos" aria-label="Ver serviços">Ver serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section class="section" id="servicos-tecnicos" aria-label="Serviços">
+    <h2>Serviços</h2>
+    <p class="lead">Principais serviços oferecidos — do projeto à execução, com garantia técnica.</p>
+
+    <div class="carousel" data-speed="36" aria-roledescription="carousel" aria-label="Serviços">
+      <div class="controls" aria-hidden="true">
+        <button class="ctrl prev" data-target="services" aria-label="Anterior (serviços)">‹</button>
+        <button class="ctrl next" data-target="services" aria-label="Próximo (serviços)">›</button>
+      </div>
+
+      <div class="track" data-track="services" role="list">
+        <article class="card" role="group" aria-label="Instalações Técnicas">
+          <img src="assets/images/servico-eletrica.jpg" alt="Instalações técnicas" loading="lazy" width="600" height="340">
+          <h3>Instalações Técnicas</h3>
+          <p>Projetos e execução de instalações elétricas, telecom e CFTV com segurança e documentação técnica.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Instalações+Técnicas" aria-label="Pedir orçamento de Instalações Técnicas" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+
+        <article class="card" role="group" aria-label="Manutenção Geral">
+          <img src="assets/images/servico-geral.jpeg" alt="Manutenção Geral" loading="lazy" width="600" height="340">
+          <h3>Manutenção Geral</h3>
+          <p>Serviços preventivos e corretivos para manter a operação e conservação do imóvel, reduzindo falhas e custos.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Manutenção+Geral" aria-label="Pedir orçamento de Manutenção Geral" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+
+        <article class="card" role="group" aria-label="Marido de Aluguel">
+          <img src="assets/images/servico-manut.jpeg" alt="Marido de aluguel" loading="lazy" width="600" height="340">
+          <h3>Marido de Aluguel</h3>
+          <p>Atendimentos pontuais para pequenos reparos, instalações e ajustes domésticos com garantia de serviço.</p>
+          <a class="btn" href="https://wa.me/5511952544885?text=Orçar+Marido+de+Aluguel" aria-label="Pedir orçamento do Marido de Aluguel" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+      </div>
+
+      <div class="indicators" data-indicators="services" aria-hidden="false" role="tablist" aria-label="Indicadores de serviços"></div>
+    </div>
+  </section>
+
+  <!-- Produtos -->
+  <section class="section" id="produtos" aria-label="Produtos">
+    <h2>Produtos</h2>
+    <p class="lead">Serviços executados e procedimentos — solicite orçamento detalhado para cada serviço.</p>
+
+    <div class="carousel" data-speed="52" aria-roledescription="carousel" aria-label="Serviços executados">
+      <div class="controls" aria-hidden="true">
+        <button class="ctrl prev" data-target="products" aria-label="Anterior (produtos)">‹</button>
+        <button class="ctrl next" data-target="products" aria-label="Próximo (produtos)">›</button>
+      </div>
+
+      <div class="track" data-track="products" role="list">
+        <article class="card prod-card" role="group" aria-label="Instalação de chuveiro">
+          <img src="assets/images/servico-manut.jpeg" alt="Instalação de chuveiro" loading="lazy" width="600" height="340">
+          <h3>Instalação de Chuveiro</h3>
+          <p>Substituição e instalação segura de chuveiros elétricos ou a gás, com verificação de disjuntores e aterramento.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Serviço sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Chuveiro" aria-label="Pedir orçamento de Instalação de Chuveiro" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+
+        <article class="card prod-card" role="group" aria-label="Instalação de torneira">
+          <img src="assets/images/servico-agua.jpg" alt="Instalação de torneira" loading="lazy" width="600" height="340">
+          <h3>Instalação de Torneira</h3>
+          <p>Instalação e substituição com vedação profissional e testes de estanqueidade.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Serviço sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Torneira" aria-label="Pedir orçamento de Instalação de Torneira" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+
+        <article class="card prod-card" role="group" aria-label="Instalação de câmeras">
+          <img src="assets/images/servico-cftv.jpg" alt="Instalação de câmeras" loading="lazy" width="600" height="340">
+          <h3>Instalação de Câmeras</h3>
+          <p>Projeto, posicionamento e instalação de câmeras com configuração de acesso remoto e testes finais.</p>
+          <div class="price" style="color:var(--muted);font-weight:600;margin-top:6px">Serviço sob medida</div>
+          <a class="btn" href="https://wa.me/5511952544885?text=Quero+orçar+Instalação+de+Câmeras" aria-label="Pedir orçamento de Instalação de Câmeras" target="_blank" rel="noopener">Pedir orçamento</a>
+        </article>
+
+        <!-- other product cards ... (images lazy) -->
+      </div>
+
+      <div class="indicators" data-indicators="products" aria-hidden="false" role="tablist" aria-label="Indicadores de produtos"></div>
+    </div>
+  </section>
+
+  <!-- Categorias -->
+  <section class="section" id="categorias" aria-label="Categorias">
+    <h2>Categorias</h2>
+    <p class="lead">Encontre por categoria: manutenção predial, iluminação, pequenos reparos e muito mais.</p>
+
+    <div class="carousel" data-speed="28" aria-roledescription="carousel" aria-label="Categorias">
+      <div class="controls" aria-hidden="true">
+        <button class="ctrl prev" data-target="cats" aria-label="Anterior (categorias)">‹</button>
+        <button class="ctrl next" data-target="cats" aria-label="Próximo (categorias)">›</button>
+      </div>
+
+      <div class="track" data-track="cats" role="list">
+        <article class="card cat-card" role="group" aria-label="Elétrica">
+          <img src="assets/images/servico-eletrica.jpg" alt="Elétrica" loading="lazy" width="600" height="340">
+          <h3>Elétrica</h3>
+          <p>Instalações e corretivos elétricos com padrões de segurança.</p>
+          <a class="btn" href="products.html#eletrica" aria-label="Ver categoria elétrica">Ver categoria</a>
+        </article>
+
+        <article class="card cat-card" role="group" aria-label="CFTV">
+          <img src="assets/images/servico-cftv.jpg" alt="CFTV" loading="lazy" width="600" height="340">
+          <h3>CFTV</h3>
+          <p>Projetos, instalação e manutenção de sistemas de monitoramento.</p>
+          <a class="btn" href="products.html#cftv" aria-label="Ver categoria cftv">Ver categoria</a>
+        </article>
+
+        <!-- other category cards ... -->
+      </div>
+
+      <div class="indicators" data-indicators="cats" aria-hidden="false" role="tablist" aria-label="Indicadores de categorias"></div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="section" aria-label="Diferenciais">
+    <h2>Diferenciais</h2>
+    <p class="lead">Técnicos certificados, garantia técnica, atendimento ágil e planos para condomínios.</p>
+    <div class="features" role="list">
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Técnicos certificados</h4><p style="color:var(--muted);margin:0">Equipe qualificada e EPIs em dia.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Atendimento ágil</h4><p style="color:var(--muted);margin:0">Agendamento flexível e resposta eficiente.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Garantia técnica</h4><p style="color:var(--muted);margin:0">Documentação e garantia para seu serviço.</p></div>
+      <div class="feature" role="listitem"><h4 style="color:var(--gold);margin:0 0 8px">Planos</h4><p style="color:var(--muted);margin:0">Contratos para condomínios e empresas.</p></div>
+    </div>
+  </section>
+
+  <!-- Quem somos nós (parcerias) -->
+  <section class="section institutional" aria-label="Quem somos nós">
+    <h2>Quem somos nós</h2>
+    <p class="lead">Patronos Tech é uma equipe de técnicos especializados que entrega serviços técnicos com segurança, documentação e garantia. Trabalhamos em parceria com profissionais locais — instaladores, eletricistas, encanadores, integradores e prestadores de serviços — para atender demandas que exigem agilidade, especialização ou complementação técnica.</p>
+
+    <div style="max-width:980px;margin:16px auto 0;display:grid;grid-template-columns:1fr;gap:12px">
+      <div style="background:var(--card);padding:16px;border-radius:10px">
+        <h3 style="color:var(--gold);margin-top:0">Parcerias com profissionais</h3>
+        <p style="color:var(--muted);margin:0">Valorizamos a colaboração com profissionais autônomos e empresas locais. Se você realiza parte dos serviços mas tem clientes que precisam de soluções fora da sua área de atuação, indique para nós. Oferecemos suporte técnico, condições comerciais justas e pagamento de comissões/creditos conforme acordo.</p>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:10px">
+        <h3 style="color:var(--gold);margin-top:0">Como a indicação funciona</h3>
+        <p style="color:var(--muted);margin:0">Ao indicar um cliente, nós cuidamos do atendimento técnico completo — desde a análise até os testes finais. Mantemos o profissional informado sobre o andamento e garantimos pagamento rápido de comissões ou crédito em serviços. Fornecemos também material comercial e suporte técnico para facilitar a indicação.</p>
+      </div>
+
+      <div style="background:var(--card);padding:16px;border-radius:10px;margin-top:12px">
+        <h3 style="color:var(--gold);margin-top:0">Quer ser parceiro?</h3>
+        <p style="color:var(--muted);margin:0 0 10px">Preencha nosso formulário de parceria ou entre em contato via WhatsApp — explicaremos o programa de indicações, as condições e como começar.</p>
+        <a class="btn" href="https://wa.me/5511952544885?text=Tenho+interesse+em+parceria+Patronos+Tech" style="margin-top:10px;display:inline-block" aria-label="Quero ser parceiro" target="_blank" rel="noopener">Quero ser parceiro</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato rápido -->
+  <section class="section" id="contato" aria-label="Contato rápido">
+    <h2>Contato Rápido</h2>
+    <p class="lead">Envie uma mensagem rápida: abrimos o WhatsApp com a mensagem pronta.</p>
+    <form class="form-card" id="formContato" style="max-width:720px;margin:0 auto">
+      <label for="nome" class="visually-hidden">Seu nome</label>
+      <input id="nome" name="nome" placeholder="Seu nome" required style="width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:var(--white);margin-bottom:10px">
+
+      <label for="servico" class="visually-hidden">Serviço desejado</label>
+      <input id="servico" name="servico" placeholder="Serviço desejado" required style="width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:var(--white);margin-bottom:10px">
+
+      <label for="local" class="visually-hidden">Bairro ou região</label>
+      <input id="local" name="local" placeholder="Bairro / Região" required style="width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;color:var(--white);margin-bottom:10px">
+
+      <button class="btn" type="submit" aria-label="Enviar mensagem no WhatsApp">Pedir orçamento</button>
+    </form>
+  </section>
+
+  <footer>
+    <div style="max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted)">
+      © 2025 Patronos Tech • WhatsApp: (11) 95254-4885
+    </div>
+  </footer>
+</main>
+
+<script>
+/* Utility: get focusable elements */
+function getFocusable(container){
+  return Array.from(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+    .filter(el => el.offsetParent !== null);
+}
+
+/* Unified side menu: open/close + focus trap + aria-hidden on main */
+(function(){
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('sideMenu');
+  const closeBtn = document.getElementById('closeMenu');
+  const main = document.querySelector('main');
+  let lastFocused = null;
+
+  function setInertMain(val){
+    // prefer element.inert when available
+    if('inert' in HTMLElement.prototype){
+      main.inert = val;
+    } else {
+      // fallback: set aria-hidden and disable tabbing on focusable elements
+      main.setAttribute('aria-hidden', val ? 'true' : 'false');
+      getFocusable(main).forEach(el => {
+        if(val){
+          el.dataset.prevTab = el.getAttribute('tabindex') ?? '';
+          el.setAttribute('tabindex', '-1');
+        } else {
+          if(el.dataset.prevTab === '') el.removeAttribute('tabindex');
+          else if(el.dataset.prevTab) el.setAttribute('tabindex', el.dataset.prevTab);
+          delete el.dataset.prevTab;
+        }
+      });
+    }
+  }
+
+  function open(){
+    lastFocused = document.activeElement;
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden','false');
+    menuBtn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+    setInertMain(true);
+    const focusables = getFocusable(menu);
+    if(focusables.length) focusables[0].focus();
+    // attach trap
+    document.addEventListener('keydown', trapTab);
+  }
+  function close(){
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden','true');
+    menuBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+    setInertMain(false);
+    document.removeEventListener('keydown', trapTab);
+    if(lastFocused) lastFocused.focus();
+  }
+
+  function trapTab(e){
+    if(e.key !== 'Tab') return;
+    const focusables = getFocusable(menu);
+    if(!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length-1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    else if(e.key === 'Escape'){ close(); }
+  }
+
+  menuBtn.addEventListener('click', ()=> menu.classList.contains('open') ? close() : open());
+  closeBtn.addEventListener('click', close);
+  menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && menu.classList.contains('open')) close(); });
+})();
+
+/* Smooth nav behavior: intercept menu links to avoid reload when target is same page.
+   Works consistently across site pages.
+*/
+(function(){
+  function isSamePath(pathA, pathB){
+    const a = pathA.split('/').pop() || '';
+    const b = pathB.split('/').pop() || '';
+    return a === b || (a === '' && b === 'index.html') || (b === '' && a === 'index.html');
+  }
+
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('a');
+    if(!el) return;
+    const href = el.getAttribute('href');
+    if(!href || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('https://wa.me')) return;
+    const url = new URL(href, window.location.href);
+    const targetPath = url.pathname;
+    const targetHash = url.hash;
+
+    if((targetPath === window.location.pathname || targetPath === '' || isSamePath(targetPath, window.location.pathname)) && targetHash){
+      e.preventDefault();
+      const id = targetHash.substring(1);
+      const targetEl = document.getElementById(id);
+      if(targetEl){
+        targetEl.scrollIntoView({behavior:'smooth', block:'start'});
+        try { history.replaceState(null, '', targetHash); } catch(err){}
+      }
+      return;
+    }
+
+    if(targetPath && targetPath.endsWith('products.html') && window.location.pathname.endsWith('products.html') && targetHash){
+      e.preventDefault();
+      const id = targetHash.substring(1);
+      const targetEl = document.getElementById(id);
+      if(targetEl){
+        targetEl.scrollIntoView({behavior:'smooth', block:'start'});
+        try { history.replaceState(null, '', targetHash); } catch(err){}
+      }
+      return;
+    }
+  }, {passive:false});
+})();
+
+/* Form -> WhatsApp (CTA wording standardized) */
+(function(){
+  const whatsapp = "https://wa.me/5511952544885";
+  const form = document.getElementById('formContato');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim() || '';
+    const serv = document.getElementById('servico').value.trim() || '';
+    const local = document.getElementById('local').value.trim() || '';
+    const msg = `Olá, me chamo ${nome}. Preciso do serviço: ${serv}. Local: ${local}.`;
+    const url = `${whatsapp}?text=${encodeURIComponent(msg)}`;
+    const win = window.open(url, '_blank');
+    try { if(win) win.opener = null; } catch(_){}
+  });
+})();
+
+/* Carousel core - simplified and tuned for mobile (pointer events, reduced clones, pause on interaction).
+   Respects prefers-reduced-motion. Indicators improved for accessibility and keyboard navigation.
+*/
+(function(){
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const carousels = Array.from(document.querySelectorAll('.carousel'));
+  if(!carousels.length) return;
+
+  carousels.forEach(initCarousel);
+
+  function initCarousel(car){
+    const track = car.querySelector('.track');
+    if(!track) return;
+    const container = track.parentElement;
+    const originals = Array.from(track.children);
+    if(!originals.length) return;
+
+    const prevBtn = car.querySelector('.prev');
+    const nextBtn = car.querySelector('.next');
+    const indicatorsRoot = car.querySelector('.indicators');
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const speed = Math.max(8, parseFloat(car.getAttribute('data-speed')) || 36);
+    let origSetWidth = 0;
+    let itemWidths = [];
+
+    function measure(){
+      origSetWidth = 0; itemWidths = [];
+      originals.forEach((el,idx)=>{ const w = el.offsetWidth + gap; origSetWidth += w; if(idx===0) itemWidths[0]=w; });
+    }
+
+    // Clone minimally: ensure total width >= container width * 1.5 and at least one extra set
+    function ensureClones(){
+      measure();
+      let total = track.scrollWidth;
+      const contW = container.offsetWidth;
+      let safety = 0;
+      while(total < contW * 1.5 && safety < 8){
+        for(let i=0;i<originals.length && total < contW * 1.5;i++){
+          const c = originals[i].cloneNode(true);
+          c.setAttribute('aria-hidden','true');
+          c.classList.add('clone');
+          track.appendChild(c);
+          total += (originals[i].offsetWidth || (itemWidths[i]||260)) + gap;
+        }
+        safety++;
+      }
+      // ensure at least one full extra set exists
+      if(track.scrollWidth < origSetWidth * 2){
+        originals.forEach(o=>{ const c = o.cloneNode(true); c.setAttribute('aria-hidden','true'); c.classList.add('clone'); track.appendChild(c); });
+      }
+    }
+
+    let pos = 0, last = null, raf = null, playing = !prefersReduced;
+    let drag = {active:false,lastX:0,lastTime:0,velocity:0};
+
+    function wrap(){
+      const wrapAt = origSetWidth || (track.scrollWidth/2);
+      if(!wrapAt) return;
+      if(pos <= -wrapAt) pos += wrapAt;
+      if(pos > 0) pos -= wrapAt;
+    }
+
+    function step(ts){
+      if(!last) last = ts;
+      const dt = (ts - last)/1000; last = ts;
+      if(playing && !drag.active) pos -= speed * dt;
+      wrap();
+      track.style.transform = `translateX(${pos}px)`;
+      raf = requestAnimationFrame(step);
+    }
+
+    function down(e){
+      drag.active = true;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      drag.lastX = clientX;
+      drag.lastTime = performance.now();
+      drag.velocity = 0;
+      playing = false;
+    }
+    function move(e){
+      if(!drag.active) return;
+      const now = performance.now();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const dx = clientX - drag.lastX;
+      const dt = Math.max(1, now - drag.lastTime);
+      const inst = (dx/dt)*1000;
+      drag.velocity = drag.velocity*0.75 + inst*0.25;
+      drag.lastX = clientX;
+      drag.lastTime = now;
+      pos += dx;
+      track.style.transform = `translateX(${pos}px)`;
+    }
+    function up(){
+      if(!drag.active) return;
+      drag.active=false;
+      const v0 = drag.velocity||0;
+      if(Math.abs(v0) < 30){ playing=true; last=null; return; }
+      let v = v0;
+      let t0 = performance.now();
+      function inertia(t){
+        const dt=(t-t0)/1000; t0=t;
+        pos += v*dt;
+        v *= Math.pow(0.92, dt*60);
+        wrap();
+        track.style.transform = `translateX(${pos}px)`;
+        if(Math.abs(v) < 10){ playing=true; last=null; return; }
+        requestAnimationFrame(inertia);
+      }
+      requestAnimationFrame(inertia);
+    }
+
+    function arrow(dir){
+      const w = itemWidths[0] || (originals[0].offsetWidth + gap) || 260;
+      pos += (dir==='prev') ? w : -w;
+      playing=false;
+      track.style.transform = `translateX(${pos}px)`;
+      setTimeout(()=>{ playing=true; last=null; }, 260);
+    }
+
+    function buildIndicators(){
+      if(!indicatorsRoot) return;
+      indicatorsRoot.innerHTML = '';
+      const count = originals.length;
+      for(let i=0;i<count;i++){
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', `Ir para ${i+1}`);
+        b.setAttribute('role','tab');
+        b.setAttribute('aria-controls', `carousel-${car.getAttribute('data-track') || Math.random()}-slide-${i}`);
+        b.dataset.index = i;
+        b.tabIndex = i===0 ? 0 : -1;
+        b.setAttribute('aria-selected', i===0 ? 'true' : 'false');
+        if(i===0) b.classList.add('active');
+        b.addEventListener('click', ()=>{ const w = itemWidths[0] || (originals[0].offsetWidth + gap); pos = -(i*w); wrap(); track.style.transform = `translateX(${pos}px)`; Array.from(indicatorsRoot.children).forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-selected','false'); x.tabIndex = -1; }); b.classList.add('active'); b.setAttribute('aria-selected','true'); b.tabIndex = 0; });
+        indicatorsRoot.appendChild(b);
+      }
+      // keyboard navigation within indicators
+      indicatorsRoot.addEventListener('keydown', function(e){
+        const focused = document.activeElement;
+        if(focused.parentElement !== indicatorsRoot) return;
+        let idx = parseInt(focused.dataset.index || 0, 10);
+        if(e.key === 'ArrowLeft'){ e.preventDefault(); const prev = indicatorsRoot.children[(idx-1+indicatorsRoot.children.length)%indicatorsRoot.children.length]; prev.focus(); prev.click(); }
+        if(e.key === 'ArrowRight'){ e.preventDefault(); const next = indicatorsRoot.children[(idx+1)%indicatorsRoot.children.length]; next.focus(); next.click(); }
+        if(e.key === 'Home'){ e.preventDefault(); indicatorsRoot.children[0].focus(); indicatorsRoot.children[0].click(); }
+        if(e.key === 'End'){ e.preventDefault(); const last = indicatorsRoot.children[indicatorsRoot.children.length-1]; last.focus(); last.click(); }
+      });
+    }
+
+    function updateIndicators(){
+      if(!indicatorsRoot) return;
+      const buttons = Array.from(indicatorsRoot.children); if(!buttons.length) return;
+      const w = itemWidths[0] || (originals[0].offsetWidth + gap);
+      const wrapAt = origSetWidth || (track.scrollWidth/2);
+      let norm = pos % wrapAt; if(norm>0) norm -= wrapAt;
+      const idx = Math.round(Math.abs(norm)/w) % originals.length;
+      buttons.forEach((b,i)=> {
+        const is = i===idx;
+        b.classList.toggle('active', is);
+        b.setAttribute('aria-selected', is ? 'true' : 'false');
+        b.tabIndex = is ? 0 : -1;
+      });
+    }
+
+    function init(){
+      if(prefersReduced) playing=false;
+      measure(); ensureClones(); buildIndicators();
+      if(raf) cancelAnimationFrame(raf);
+      last=null; raf = requestAnimationFrame(step);
+      const cont = container;
+      // pointer-based handlers for unified input
+      cont.addEventListener('pointerdown', (e)=>{ if(e.pointerType === 'mouse' && e.button !== 0) return; down(e); try{ cont.setPointerCapture && cont.setPointerCapture(e.pointerId); }catch(_){} }, {passive:false});
+      cont.addEventListener('pointermove', (e)=>{ move(e); }, {passive:false});
+      cont.addEventListener('pointerup', (e)=>{ up(e); try{ cont.releasePointerCapture && cont.releasePointerCapture(e.pointerId); }catch(_){} }, false);
+      cont.addEventListener('pointercancel', up, false);
+
+      // pause when focusing interactive children (accessibility / keyboard)
+      cont.addEventListener('focusin', ()=> playing=false);
+      cont.addEventListener('focusout', ()=> { playing=true; last=null; });
+
+      if(prevBtn) prevBtn.addEventListener('click', ()=> arrow('prev'));
+      if(nextBtn) nextBtn.addEventListener('click', ()=> arrow('next'));
+
+      // enable arrow navigation when focus is inside carousel
+      car.addEventListener('keydown', function(e){
+        if(e.key === 'ArrowLeft'){ e.preventDefault(); arrow('prev'); }
+        if(e.key === 'ArrowRight'){ e.preventDefault(); arrow('next'); }
+      });
+
+      // indicators ticker
+      setInterval(()=>{ try{ updateIndicators(); } catch(_){} }, 300);
+
+      // responsive re-measure
+      let rt; window.addEventListener('resize', ()=>{ clearTimeout(rt); rt = setTimeout(()=>{ measure(); ensureClones(); buildIndicators(); }, 220); });
+    }
+
+    // wait images
+    const imgs = Array.from(track.querySelectorAll('img'));
+    const unloaded = imgs.filter(i=>!i.complete);
+    if(unloaded.length){
+      let c=0; unloaded.forEach(img=> img.addEventListener('load', ()=>{ c++; if(c===unloaded.length) setTimeout(init,60); }));
+      setTimeout(()=>{ if(!raf) init(); }, 800);
+    } else { setTimeout(init, 60); }
+  }
+})();
+</script>
+
+</body>
+</html>
