@@ -62,10 +62,10 @@ header{position:sticky;top:0;background:rgba(2,6,12,.88);backdrop-filter:saturat
 #sideMenu a, #sideMenu button{display:block;color:var(--muted);padding:12px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.03);background:transparent;border:0;text-align:left}
 #sideMenu button.close{ text-align:right }
 
-/* HERO - tuned for mobile-first visibility */
+/* HERO */
 .hero{position:relative;margin-top:12px;border-radius:12px;overflow:visible}
-.hero-inner{position:relative;border-radius:12px;overflow:hidden} /* ensure image does not overflow outside rounded container */
-.hero-inner img{width:100%;height:clamp(140px,36vh,520px);object-fit:cover;object-position:center center;display:block;vertical-align:middle;z-index:1;position:relative}
+.hero-inner{position:relative;border-radius:12px;overflow:hidden;background-color:#04141b} /* dark fallback to avoid broken-image artifacts */
+.hero-image{width:100%;height:clamp(140px,36vh,520px);object-fit:cover;object-position:center center;display:block;vertical-align:middle;z-index:1;position:relative;border-radius:12px}
 
 /* overlay kept subtle so image reads behind the panel */
 .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;background:linear-gradient(180deg, rgba(2,8,18,0.08), rgba(2,8,18,0.36));pointer-events:none;z-index:2}
@@ -124,7 +124,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
 /* Responsive: mobile-first adjustments */
 @media (max-width:900px){
-  .hero img{height:clamp(160px,36vh,420px)}
+  .hero-image{height:clamp(160px,36vh,420px)}
   .hero h1{font-size:1.28rem}
   .hero-panel{padding:12px}
   .grid-4{grid-template-columns:repeat(2,1fr)}
@@ -132,7 +132,7 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 }
 @media (max-width:600px){
   .container{padding:0 14px 48px}
-  .hero img{height:clamp(140px,34vh,360px);object-position:40% 30%}
+  .hero-image{height:clamp(140px,34vh,360px);object-position:40% 30%}
   .hero-panel{background:linear-gradient(180deg, rgba(2,6,12,var(--hero-panel-mobile-opacity)), rgba(2,6,12,var(--hero-panel-mobile-opacity)));padding:10px;border-radius:10px}
   .hero h1{font-size:1.05rem}
   .hero p.lead{font-size:0.95rem;line-height:1.32}
@@ -174,14 +174,15 @@ footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
   <!-- HERO -->
   <section class="hero" aria-label="Hero parcerias">
     <div class="hero-inner">
-      <picture>
-        <!-- Prefer webp when available; fallback to png for mobile; final fallback is the <img> below -->
-        <source type="image/webp" srcset="assets/images/hero-tecnico.webp" media="(max-width:600px)">
-        <source srcset="assets/images/hero-tecnico.png" media="(max-width:600px)">
-        <source srcset="assets/images/hero-eletrica.png" media="(min-width:601px)">
-        <!-- final fallback image (must exist) -->
-        <img src="assets/images/hero-eletrica.png" alt="Técnico realizando instalação" loading="lazy" width="1600" height="800">
-      </picture>
+      <!-- Single reliable image (you confirmed the filename is hero-eletrica.png) -->
+      <img
+        class="hero-image"
+        src="assets/images/hero-eletrica.png"
+        alt="Técnico realizando instalação"
+        loading="lazy"
+        width="1600"
+        height="800"
+      >
 
       <div class="hero-overlay" role="region" aria-label="Parcerias - hero">
         <div class="hero-content">
